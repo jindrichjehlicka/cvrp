@@ -36,7 +36,8 @@ class TabuSearch:
     def is_tabu(self, move):
         return move in self.tabu_list
 
-    def aspiration(self, current_cost, new_cost):
+    @staticmethod
+    def aspiration(current_cost, new_cost):
         return new_cost < current_cost
 
     def solve(self):

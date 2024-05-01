@@ -103,16 +103,22 @@ def obj_to_dict(obj):
 
 
 # Reading and preparing the data
-instance = vrplib.read_instance("./Vrp-Set-XML100/instances/XML100_1111_01.vrp")
 solutions = vrplib.read_solution("./Vrp-Set-XML100/solutions/XML100_1111_01.sol")
-instance_dict = obj_to_dict(instance)
 solutions_dict = obj_to_dict(solutions)
 
+instance = vrplib.read_instance("./Vrp-Set-XML100/instances/XML100_1111_01.vrp")
+instance_dict = obj_to_dict(instance)
 # Parameters from the instance
 depot_loc = instance_dict['node_coord'][0]  # Assuming the first coordinate is the depot
 node_loc = instance_dict['node_coord']
 demand = instance_dict['demand']
 capacity = instance_dict['capacity']
+
+
+print("Depot Location:", depot_loc)
+print("Node Locations:", node_loc)
+print("Demands:", demand)
+print("Vehicle Capacity:", capacity)
 
 # Assuming you have a Node class and GeneticAlgorithm class defined properly as earlier discussed
 nodes = [Node(idx=i, x=loc[0], y=loc[1], demand=d) for i, (loc, d) in enumerate(zip(node_loc, demand), start=1)]
@@ -121,9 +127,9 @@ n_chromosomes = 100  # Example starting population size
 n_generations = 200  # Example number of generations
 
 # Create and run the genetic algorithm
-ga = GeneticAlgorithm(nodes=nodes, vehicle_capacity=capacity, n_vehicles=n_vehicles, n_chromosomes=n_chromosomes,
-                      generations=n_generations)
-ga.run()
+# ga = GeneticAlgorithm(nodes=nodes, vehicle_capacity=capacity, n_vehicles=n_vehicles, n_chromosomes=n_chromosomes,
+#                       generations=n_generations)
+# ga.run()
 
 #
 # # Running the Genetic Algorithm
