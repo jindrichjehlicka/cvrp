@@ -4,6 +4,7 @@ import numpy as np
 import vrplib
 
 
+
 # Adjusted function to handle objects already in dict format and NumPy arrays
 # ecursively converts objects, including NumPy arrays, dictionaries, and lists, into a format that can be easily serialized into JSON.
 def obj_to_dict(obj):
