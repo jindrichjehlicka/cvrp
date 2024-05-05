@@ -1,0 +1,129 @@
+import numpy as np
+import vrplib
+import random
+
+instance = vrplib.read_instance("./Vrp-Set-XML100/instances/XML100_1111_01.vrp")
+
+# Assuming you have already loaded these from your instance
+depot_loc = instance['node_coord'][0]
+node_loc = instance['node_coord']
+demand = instance['demand']
+capacity = instance['capacity']
+
+# Calculate the distance matrix if not already done
+n_nodes = len(node_loc)
+distance_matrix = np.zeros((n_nodes, n_nodes))
+for i in range(n_nodes):
+    for j in range(n_nodes):
+        distance_matrix[i][j] = np.linalg.norm(np.array(node_loc[i]) - np.array(node_loc[j]))
+
+
+def is_feasible(route):
+    return sum(demand[node] for node in route if node != 0) <= capacity
+
+
+def generate_neighborhood(current_solution, neighborhood_size):
+    neighbors = []
+    n_routes = len(current_solution)
+
+    while len(neighbors) < neighborhood_size:
+        # Choose two different routes to swap nodes between
+        if n_routes > 1:
+            r1, r2 = random.sample(range(n_routes), 2)
+            route1, route2 = current_solution[r1], current_solution[r2]
+
+            # Choose nodes to swap (excluding the depot at position 0 and end)
+            if len(route1) > 2 and len(route2) > 2:
+                i1, i2 = random.randint(1, len(route1) - 2), random.randint(1, len(route2) - 2)
+                # Swap the nodes
+                new_route1, new_route2 = route1[:], route2[:]
+                new_route1[i1], new_route2[i2] = new_route2[i2], new_route1[i1]
+
+                if is_feasible(new_route1) and is_feasible(new_route2):
+                    new_solution = current_solution[:]
+                    new_solution[r1], new_solution[r2] = new_route1, new_route2
+                    neighbors.append(new_solution)
+
+        # Intra-route reversal for optimization
+        route_index = random.randint(0, n_routes - 1)
+        route = current_solution[route_index]
+        if len(route) > 3:
+            start, end = sorted(random.sample(range(1, len(route) - 1), 2))
+            new_route = route[:start] + route[start:end + 1][::-1] + route[end + 1:]
+            if is_feasible(new_route):
+                new_solution = current_solution[:]
+                new_solution[route_index] = new_route
+                neighbors.append(new_solution)
+
+    return neighbors
+
+
+# Objective function
+def calculate_cost(solution):
+    total_distance = 0
+    for route in solution:
+        for i in range(len(route) - 1):
+            total_distance += distance_matrix[route[i]][route[i + 1]]
+    return total_distance
+
+
+def generate_initial_solution():
+    nodes = list(range(1, n_nodes))  # excluding the depot
+    solution = []
+    route = [0]  # start at the depot
+    current_load = 0
+
+    for node in nodes:
+        if current_load + demand[node] <= capacity:
+            route.append(node)
+            current_load += demand[node]
+        else:
+            route.append(0)  # return to depot
+            solution.append(route)
+            route = [0, node]
+            current_load = demand[node]
+    route.append(0)  # complete the last route
+    solution.append(route)
+    return solution
+
+
+def tabu_search(max_iterations, tabu_size, neighborhood_size):
+    current_solution = generate_initial_solution()
+    best_solution = current_solution
+    best_cost = calculate_cost(current_solution)
+    tabu_list = []
+
+    for iteration in range(max_iterations):
+        neighborhood = generate_neighborhood(current_solution, neighborhood_size)
+        best_neighbor = None
+        best_neighbor_cost = float('inf')
+
+        for neighbor in neighborhood:
+            if neighbor not in tabu_list and calculate_cost(neighbor) < best_neighbor_cost:
+                best_neighbor = neighbor
+                best_neighbor_cost = calculate_cost(neighbor)
+
+        if best_neighbor_cost < best_cost:
+            best_solution = best_neighbor
+            best_cost = best_neighbor_cost
+            # print(f"New best cost found: {best_cost} at iteration {iteration}")
+
+        # Update tabu list
+        tabu_list.append(best_neighbor)
+        if len(tabu_list) > tabu_size:
+            tabu_list.pop(0)
+
+        current_solution = best_neighbor
+
+    return best_solution, best_cost
+
+
+# Parameters for the search
+max_iterations = 1500
+tabu_size = 200
+neighborhood_size = 200
+
+# Execute Tabu Search
+best_solution, best_cost = tabu_search(max_iterations, tabu_size, neighborhood_size)
+print(f"Best Solution: {best_solution}")
+print(f"Best Cost: {best_cost}")

@@ -39,7 +39,7 @@ def tabu_search_vrp(depot_loc, node_loc, demand, capacity, num_customers, max_it
     tabu_list = set()
     current_solution = [0]  # Start route at the depot
 
-    # Initial solution: simple greedy approach to start
+    # Initial solution: simple greedy.py approach to start
     for i in range(1, num_customers):
         if demand[i] <= capacity:  # Simplistic capacity check
             current_solution.append(i)
