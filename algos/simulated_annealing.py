@@ -1,70 +1,88 @@
-import numpy as np
 import random
 import math
-from greedy import greedy_vrp
 
 
-def calculate_distance_matrix(node_loc):
-    n_nodes = len(node_loc)
-    distance_matrix = np.zeros((n_nodes, n_nodes))
-    for i in range(n_nodes):
-        for j in range(n_nodes):
-            distance_matrix[i][j] = np.linalg.norm(np.array(node_loc[i]) - np.array(node_loc[j]))
-    return distance_matrix
+def estimate_initial_temperature(node_loc, demand, capacity, num_samples=100):
+    import numpy as np
+    costs = []
+    for _ in range(num_samples):
+        # Generate two random solutions
+        solution1 = generate_initial_solution(node_loc, demand, capacity)
+        solution2 = generate_initial_solution(node_loc, demand, capacity)
 
+        cost1 = calculate_total_distance(solution1, node_loc)
+        cost2 = calculate_total_distance(solution2, node_loc)
 
-def calculate_cost(solution, distance_matrix):
+        # Calculate the absolute difference
+        costs.append(abs(cost1 - cost2))
+
+    # Use the mean of cost differences as a base for initial temperature
+    mean_difference = np.mean(costs)
+    initial_temperature = mean_difference * 0.2  # Adjust the factor based on acceptance needs
+    return initial_temperature
+
+def calculate_total_distance(routes, node_loc):
+    """ Calculate the total distance of the vehicle routes, including return to the depot """
     total_distance = 0
-    for route in solution:
-        for i in range(len(route) - 1):
-            total_distance += distance_matrix[route[i]][route[i + 1]]
+    for route in routes:
+        route_distance = 0
+        last_node = 0  # Start at the depot
+        for node in route:
+            route_distance += math.dist(node_loc[last_node], node_loc[node])
+            last_node = node
+        route_distance += math.dist(node_loc[last_node], node_loc[0])  # Return to depot
+        total_distance += route_distance
     return total_distance
 
 
-def initial_solution(depot_loc, node_loc, demand, capacity):
-    return greedy_vrp(depot_loc, node_loc, demand, capacity)
+def generate_initial_solution(node_loc, demand, capacity):
+    """ Generate an initial feasible solution using a simple greedy heuristic """
+    routes = []
+    current_route = []
+    current_load = 0
+    depot = 0  # Assuming the depot is the first node
+
+    for node in range(1, len(node_loc)):  # Start from 1 as 0 is the depot
+        if current_load + demand[node] <= capacity:
+            current_route.append(node)
+            current_load += demand[node]
+        else:
+            routes.append(current_route)
+            current_route = [node]
+            current_load = demand[node]
+    if current_route:
+        routes.append(current_route)
+
+    # Adding depot to the start and end of each route
+    routes = [[depot] + route + [depot] for route in routes]
+    return routes
 
 
-def is_feasible(route, demand, capacity):
-    return sum(demand[node] for node in route if node != 0) <= capacity
+def get_neighbor(solution):
+    """ Generate a neighbor solution by making a small change in the current solution """
+    if len(solution) > 1:
+        route1, route2 = random.sample(solution, 2)
+        if route1 and route2:
+            # Ensure not to pick the depot
+            node1 = random.choice(route1[1:-1])
+            node2 = random.choice(route2[1:-1])
+            # Swap nodes
+            idx1, idx2 = route1.index(node1), route2.index(node2)
+            route1[idx1], route2[idx2] = route2[idx2], route1[idx1]
+    return solution
 
 
-def generate_neighborhood(current_solution, demand, capacity):
-    neighbors = []
-    for i in range(len(current_solution)):
-        for j in range(i + 1, len(current_solution)):
-            neighbor_solution = current_solution[:]
-            if len(current_solution[i]) > 1 and len(current_solution[j]) > 1:
-                node1 = random.choice(current_solution[i][1:-1])  # Exclude depot
-                node2 = random.choice(current_solution[j][1:-1])  # Exclude depot
-                neighbor_solution[i][current_solution[i].index(node1)] = node2
-                neighbor_solution[j][current_solution[j].index(node2)] = node1
-                if is_feasible(neighbor_solution[i], demand, capacity) and is_feasible(neighbor_solution[j], demand,
-                                                                                       capacity):
-                    neighbors.append(neighbor_solution)
-    return neighbors
-
-
-def simulated_annealing(max_iterations, initial_temperature, cooling_rate, node_loc, demand,
-                        capacity):
-    distance_matrix = calculate_distance_matrix(node_loc)
-    current_solution = initial_solution(node_loc[0], node_loc, demand, capacity)
-    best_solution = current_solution
-    best_cost = calculate_cost(current_solution, distance_matrix)
+def simulated_annealing(max_iterations, initial_temperature, cooling_rate, node_loc, demand, capacity):
+    """ Perform simulated annealing to find a solution to the CVRP """
+    current_solution = generate_initial_solution(node_loc, demand, capacity)
+    current_cost = calculate_total_distance(current_solution, node_loc)
     temperature = initial_temperature
 
-    for iteration in range(max_iterations):
-        neighbor_solution = generate_neighborhood(current_solution, demand, capacity)
-        neighbor_cost = calculate_cost(neighbor_solution, distance_matrix)
-
-        if neighbor_cost < best_cost:
-            best_solution = neighbor_solution
-            best_cost = neighbor_cost
-        elif math.exp(
-                (calculate_cost(current_solution, distance_matrix) - neighbor_cost) / temperature) > random.random():
-            current_solution = neighbor_solution
-
+    for _ in range(max_iterations):
+        neighbor = get_neighbor([route[:] for route in current_solution])  # Deep copy of current solution
+        neighbor_cost = calculate_total_distance(neighbor, node_loc)
+        if neighbor_cost < current_cost or random.random() < math.exp((current_cost - neighbor_cost) / temperature):
+            current_solution, current_cost = neighbor, neighbor_cost
         temperature *= cooling_rate
-        print(f"Iteration {iteration + 1}, Best cost: {best_cost}")
 
-    return best_solution, best_cost
+    return current_solution, current_cost

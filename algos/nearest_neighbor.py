@@ -6,6 +6,21 @@ def euclidean_distance(p1, p2):
     return np.sqrt((p1[0] - p2[0]) ** 2 + (p1[1] - p2[1]) ** 2)
 
 
+def calculate_total_cost(routes, node_loc, depot_loc):
+    """Calculate the total distance cost for a series of routes."""
+    total_cost = 0
+    for route in routes:
+        route_cost = 0
+        # Start from the depot, go through the route, and return to the depot
+        last_location = depot_loc
+        for node_index in route:
+            route_cost += euclidean_distance(last_location, node_loc[node_index])
+            last_location = node_loc[node_index]
+        route_cost += euclidean_distance(last_location, depot_loc)  # return to depot
+        total_cost += route_cost
+    return total_cost
+
+
 def nearest_neighbor_vrp(depot_loc, node_loc, demand, capacity):
     """Solves a CVRP instance using the Nearest Neighbor Algorithm with capacity constraints."""
     num_customers = len(node_loc)
@@ -35,4 +50,5 @@ def nearest_neighbor_vrp(depot_loc, node_loc, demand, capacity):
         if route:  # Only add non-empty routes
             routes.append(route)
 
-    return routes
+    total_cost = calculate_total_cost(routes, node_loc, depot_loc)
+    return routes, total_cost
