@@ -1,6 +1,7 @@
 import vrplib
 import time
 
+from algos.ant_colony_optimization import aco_algorithm
 from algos.greedy import greedy_vrp
 from algos.nearest_neighbor import nearest_neighbor_vrp
 from algos.simulated_annealing import simulated_annealing, estimate_initial_temperature
@@ -16,18 +17,18 @@ def load_instance_names_from_file(filename):
 
 filename = "instance_names.txt"
 instance_names = load_instance_names_from_file(filename)
-instances = instance_names[9000:9010]
+instances = instance_names[:10]
 for instance_name in instances:
     instance = vrplib.read_instance(
         "./Vrp-Set-XML100/instances/{instance_name}.vrp".format(instance_name=instance_name))
     solution = vrplib.read_solution(
         "./Vrp-Set-XML100/solutions/{instance_name}.sol".format(instance_name=instance_name))
     optimal_cost = solution['cost']
-    depot_loc = instance['node_coord'][0]
+    # depot_loc = instance['node_coord'][0]
+    depot_loc = 0
     node_loc = instance['node_coord']
     demand = instance['demand']
     capacity = instance['capacity']
-
     # TEST ALGOS
     # ----------------------------------------------
 
@@ -50,14 +51,18 @@ for instance_name in instances:
     #                                  capacity)
 
     # Nearest Neighbor
-    # routes, total_cost = nearest_neighbor_vrp(depot_loc, node_loc, demand, capacity)
+    # routes, total_cost = nearest_neighbor_vrp(node_loc[0], node_loc, demand, capacity)
+
+    # ACO
+    routes, total_cost = aco_algorithm(node_loc[0], node_loc, demand, capacity, num_ants=5,
+                                       iterations=50, decay=0.05, alpha=1, beta=2)
 
     # Simulated Annealing
-    max_iterations = 15000
-    initial_temperature = estimate_initial_temperature(node_loc, demand, capacity)
-    cooling_rate = 0.96
-    routes, total_cost = simulated_annealing(max_iterations, initial_temperature, cooling_rate, node_loc, demand,
-                                             capacity)
+    # max_iterations = 15000
+    # initial_temperature = estimate_initial_temperature(node_loc, demand, capacity)
+    # cooling_rate = 0.96
+    # routes, total_cost = simulated_annealing(max_iterations, initial_temperature, cooling_rate, node_loc, demand,
+    #                                          capacity)
 
     difference = total_cost - optimal_cost
     end_time = time.time()  # End the timer
