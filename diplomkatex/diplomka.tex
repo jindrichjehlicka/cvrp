@@ -1,0 +1,590 @@
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+\thispagestyle{empty}
+\textbf{Šablona závěrečné práce\\
+studenta Unicorn Vysoká škola}
+
+\emph{Tato první stránka šablony není součástí bakalářské práce.}
+
+\emph{Tato šablona slouží jako vzorová šablona závěrečných prací
+studentům Unicorn Vysoké školy. Závěrečná práce musí obsahovat všechny
+náležitosti uvedené v této šabloně.}
+
+\emph{Nesplnění této podmínky může být považováno za důvod pro
+nepřipuštění závěrečné práce k obhajobě (nebo případně k vrácení práce
+od obhajoby k přepracování).}
+
+\emph{Další informace a pokyny k vypracování závěrečná práce naleznete
+na webových stránkách. Vše potřebné se také dozvíte v~rámci předmětu
+Bakalářský seminář.}
+
+\emph{Při zpracování této šablony bylo použito písmo Cambria, 11pt. pro
+text a písmo Calibri pro nadpisy.}
+
+\newpage
+\pagebreak
+\begin{quote}
+\thispagestyle{empty}
+\emph{Vzor: \textbf{PEVNÁ DESKA} závěrečné práce \textbf{není součástí
+elektronické verze}}
+\textbf{UNICORN VYSOKÁ ŠKOLA S.R.O.}
+
+\hspace{0pt}
+\vfill
+BAKALÁŘSKÁ/DIPLOMOVÁ PRÁCE (vyberte jednu možnost)
+\vfill
+\hspace{0pt}
+
+\textbf{Rok Jméno a PŘÍJMENÍ autora}
+\emph{\textbf{(Jan NOVÁK)}}
+\pagebreak
+\end{quote}
+
+\newpage
+\begin{quote}
+\thispagestyle{empty}
+\emph{Vzor: \textbf{TITULNÍ STRANA} závěrečné práce}
+
+\textbf{UNICORN VYSOKÁ ŠKOLA S.R.O.}
+
+\textbf{Softwarové inženýrství a big data}
+
+% \includegraphics[width=3.27778in,height=3.90671in]{vertopal_c6b44323f8f4439b87d257a2a20a5c78/media/image4.png}
+
+\textbf{DIPLOMOVÁ PRÁCE (vyberte jednu možnost)}
+
+\textbf{Název práce (přesně podle zadání)}
+
+\textbf{Autor BP:} Jméno a příjmení autora/autorky (Jan Novák)
+
+\textbf{Vedoucí BP:} Jméno a příjmení vedoucí/vedoucího práce i s tituly
+(prof. Ing. Jan Čadil, Ph.D.)
+
+\newpage
+\thispagestyle{empty}
+\emph{Vzor: \textbf{ZADÁNÍ ZÁVĚREČNÉ PRÁCE} -- originál, kopie
+originálu, naskenovaná podoba -- dle jednotlivých forem (originál, 2 x
+kopie, elektronická verze)}
+
+\newpage
+\thispagestyle{empty}
+\emph{Vzor: \textbf{ČESTNÉ PROHLÁŠENÍ} -- prohlášení o samostatném
+vypracování závěrečné práce, datum a vlastnoruční podpis (v každém
+výtisku práce)}
+
+\textbf{Čestné prohlášení}
+
+Prohlašuji, že jsem svou bakalářskou práci na téma
+....................... vypracoval/a samostatně pod vedením vedoucího
+bakalářské práce a s použitím výhradně odborné literatury a dalších
+informačních zdrojů, které jsou v práci všechny citovány a jsou také
+uvedeny v seznamu použitých zdrojů.
+
+Jako autor/ka této bakalářské práce dále prohlašuji, že v souvislosti s
+jejím vytvořením jsem neporušil/a autorská práva třetích osob a jsem si
+plně vědom/a následků porušení ustanovení § 11 a následujících
+autorského zákona č. 121/2000 Sb. Prohlašuji, že nástroje umělé inteligence byly využity pouze po podpůrné činnosti a v souladu s principem akademické etiky.
+
+Dále prohlašuji, že odevzdaná tištěná verze bakalářské práce je shodná
+s~verzí, která byla odevzdána elektronicky.
+
+V\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots. dne
+\ldots\ldots\ldots..
+\ldots\ldots.\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots{}
+
+(Jan Novák)
+
+\newpage
+\thispagestyle{empty}
+\emph{Vzor: \textbf{PODĚKOVÁNÍ} vedoucímu BP, konzultantům, odborníků,
+spolupracovníkům za poskytnuté rady a podkladové materiály apod.) --
+\textbf{není povinné}}
+
+\textbf{Poděkování}
+
+Např: Děkuji vedoucímu bakalářské práce Jméno Příjmení (i s tituly) za
+účinnou metodickou, pedagogickou a odbornou pomoc a další cenné rady při
+zpracování mé bakalářské práce\ldots{}
+
+\newpage
+\emph{Vzor: \textbf{PRVNÍ ČÍSLOVANÁ STRANA} -- číslice na první
+číslované straně se určí podle počtu předchozích stran, počínaje Titulní
+stranou, tzn. že pokud jsou řazené všechny dané strany -- Titulní
+strana, Zadání (2 strany), Čestné prohlášení a Poděkování -- je první
+číslovaná strana stranou 6.}
+\end{quote}
+
+\begin{quote}
+\textbf{Název práce v českém/slovenském jazyce Název práce v anglickém
+jazyce}
+\end{quote}
+
+\emph{Vzor: ABSTRAKT A KLÍČOVÁ SLOVA}
+
+\begin{quote}
+\textbf{Abstrakt}
+
+Abstrakt česky. Abstrakt krátce a výstižně charakterizuje obsah
+závěrečné práce. Zpravidla obsahuje informace o stanovených cílech,
+použitých metodách, postupu řešení a výsledcích výzkumu. Může obsahovat
+krátkou informaci o použitých zdrojích. Délka abstraktu je zpravidla
+100--500 slov.
+
+Klíčová slova: klíčová slova práce, minimálně 5, maximálně 10
+
+\textbf{Abstract}
+
+Zde umístěte překlad abstraktu do anglického jazyka. Česky a anglicky
+psané abstrakty musí být totožné. Student/ka zodpovídá za jazykovou
+správnost anglického překladu. V případě, že se anglická a česká verze
+nevejdou na jednu stránku, umístěte celý překlad na samostatnou stránku.
+
+Keywords: klíčová slova v~anglickém jazyce
+
+\newpage
+\emph{Vzor: \textbf{OBSAH} -- hierarchické uspořádání číslovaných názvů
+kapitol a podkapitol, včetně všech příloh, spolu s čísly jejich stran.
+Dále se uvádí Seznam obrázků/tabulek/grafů. Pozn.: počet a názvy kapitol
+samozřejmě odpovídají charakteru konkrétní práce.}
+
+\textbf{Obsah}
+\end{quote}
+
+\hypertarget{section}{%
+\section{}\label{section}}
+
+\protect\hyperlink{uxfavod}{Úvod \protect\hyperlink{uxfavod}{9}}
+
+\protect\hyperlink{teoretickuxe1-ux10duxe1st-nenuxed-nuxe1zev-kapitoly}{1
+Overview of Heuristic and Meta-heuristic Optimization Algorithms
+\protect\hyperlink{teoretickuxe1-ux10duxe1st-nenuxed-nuxe1zev-kapitoly}{10}}
+
+\protect\hyperlink{nadpis-uxfarovnux11b-2}{1.1 Nadpis úrovně 2
+\protect\hyperlink{nadpis-uxfarovnux11b-2}{10}}
+
+\protect\hyperlink{nadpis-uxfarovnux11b-3}{1.1.1 Nadpis úrovně 3
+\protect\hyperlink{nadpis-uxfarovnux11b-3}{10}}
+
+\protect\hyperlink{nadpis-uxfarovnux11b-3-1}{1.1.2 Nadpis úrovně 3
+\protect\hyperlink{nadpis-uxfarovnux11b-3-1}{10}}
+
+\protect\hyperlink{nadpis-uxfarovnux11b-2-1}{1.2 Nadpis úrovně 2
+\protect\hyperlink{nadpis-uxfarovnux11b-2-1}{10}}
+
+\protect\hyperlink{nadpis-uxfarovnux11b-3-2}{1.2.1 Nadpis úrovně 3
+\protect\hyperlink{nadpis-uxfarovnux11b-3-2}{10}}
+
+\protect\hyperlink{nadpis-uxfarovnux11b-3-3}{1.2.2 Nadpis úrovně 3
+\protect\hyperlink{nadpis-uxfarovnux11b-3-3}{10}}
+
+\protect\hyperlink{praktickuxe1-ux10duxe1stempirickuxe1-ux10duxe1stvlastnuxed-pruxe1ce-nenuxed-nuxe1zev-kapitoly}{2
+Praktická část/Empirická část/Vlastní práce (není název kapitoly)
+\protect\hyperlink{praktickuxe1-ux10duxe1stempirickuxe1-ux10duxe1stvlastnuxed-pruxe1ce-nenuxed-nuxe1zev-kapitoly}{11}}
+
+\protect\hyperlink{nadpis-uxfarovnux11b-2-2}{2.1 Nadpis úrovně 2
+\protect\hyperlink{nadpis-uxfarovnux11b-2-2}{11}}
+
+\protect\hyperlink{zuxe1vux11br}{Závěr
+\protect\hyperlink{zuxe1vux11br}{13}}
+
+\protect\hyperlink{seznam-pouux17eituxfdch-zdrojux16f}{Seznam použitých
+zdrojů \protect\hyperlink{seznam-pouux17eituxfdch-zdrojux16f}{14}}
+
+\protect\hyperlink{seznam-obruxe1zkux16f-existujuxed-li}{Seznam obrázků
+(existují-li)
+\protect\hyperlink{seznam-obruxe1zkux16f-existujuxed-li}{15}}
+
+\protect\hyperlink{seznam-grafux16f-existujuxed-li}{Seznam grafů
+(existují-li) \protect\hyperlink{seznam-grafux16f-existujuxed-li}{17}}
+
+\protect\hyperlink{seznam-pux159uxedloh-existujuxed-li}{Seznam příloh
+(existují-li)
+\protect\hyperlink{seznam-pux159uxedloh-existujuxed-li}{18}}
+
+\protect\hyperlink{pux159uxedloha-a-nuxe1zev-pux159uxedlohy}{Příloha A
+-- Název přílohy
+\protect\hyperlink{pux159uxedloha-a-nuxe1zev-pux159uxedlohy}{19}}
+
+\protect\hyperlink{pux159uxedloha-b-nuxe1zev-pux159uxedlohy}{Příloha B
+-- Název přílohy
+\protect\hyperlink{pux159uxedloha-b-nuxe1zev-pux159uxedlohy}{20}}
+
+\newpage
+\begin{quote}
+\emph{Vzor: \textbf{ÚVOD} (cca 5-10 normostran)}
+\end{quote}
+
+\hypertarget{section-1}{%
+\subsection{}\label{section-1}}
+
+\hypertarget{uxfavod}{%
+\section{Úvod}\label{uxfavod}}
+
+\newpage
+% \hypertarget{teoretickuxe1-ux10duxe1st-nenuxed-nuxe1zev-kapitoly}{%
+% \section{TODO: Teoretická část}\label{teoretickuxe1-ux10duxe1st-nenuxed-nuxe1zev-kapitoly}}
+% Vzor: VLASTNÍ TEXT závěrečné práce uspořádaný hierarchicky
+% do kapitol a podkapitol, každá kapitola (úrovně 1) musí být vždy na
+% nové straně
+
+
+\hypertarget{nadpis-uxfarovnux11b-2}{%
+\subsection{Overview of Heuristic and Meta-heuristic Optimization Algorithms}\label{nadpis-uxfarovnux11b-2}}
+
+
+
+  In the fields of computational science and mathematical programming, a heuristic algorithm is a method used to find a good enough solution when it's not feasible to find the perfect solution. These algorithms focus on working quickly and efficiently rather than achieving flawless accuracy or the best possible result. They are especially valuable in situations where solving the problem completely and precisely would require too much computing power, or when the details of the problem are not fully known.
+
+  Characteristics of Heuristic Algorithms:
+  \begin{enumerate}
+    \item \textbf{Approximation}: Heuristics do not guarantee that the solutions they provide will be optimal. Instead, they aim to deliver "good enough" solutions that are acceptable within practical constraints, such as limited processing time or resources.
+    \item \textbf{Efficiency}: By not exhaustively searching every possible solution, heuristic algorithms can provide solutions much faster than their exact counterparts. This makes them especially valuable in dealing with large datasets or complex problem spaces where an exact approach would be computationally infeasible.
+    \item \textbf{Adaptability}: Heuristic algorithms are often tailored to the specific characteristics of a problem, leveraging problem-specific insights and techniques to guide the search process towards more promising areas of the solution space.
+  \end{enumerate}
+  
+
+  \hypertarget{nadpis-uxfarovnux11b-2-1}{%
+  \subsubsection{Common Types of Heuristic Algorithms}\label{nadpis-uxfarovnux11b-2-1}}
+
+  \hypertarget{nadpis-uxfarovnux11b-3-1}{%
+  \subsubsection{Greedy algorithms}\label{nadpis-uxfarovnux11b-3-1}}
+
+  Greedy algorithms are a key type of strategy used in problem-solving, known for focusing on immediate benefits at each step of the process. In each decision-making moment, a greedy algorithm picks the best immediate option, hoping that these short-term optimal choices will result in the best overall solution. While not always perfect, greedy algorithms are highly effective for many optimization problems due to their simplicity, speed, and often excellent results.
+
+The main feature of a greedy algorithm is the "greedy choice property." This means you can build an optimal solution step by step by making the best choice at each moment, without needing to rethink previous decisions. Once a decision is made, a greedy algorithm sticks to it, trusting that these decisions will lead to the best end result.
+
+Problems suited for greedy algorithms often have an "optimal substructure," meaning a best solution contains within it the best solutions to smaller problems. For instance, finding the shortest path in a network can be seen as finding the shortest paths to points along the way. This characteristic allows greedy algorithms to develop solutions progressively, focusing on the best choice at each step.
+
+Greedy algorithms are used across various fields, such as:
+\begin{enumerate}
+  \item Scheduling: They are useful in organizing activities, sequencing jobs, and managing time intervals.
+  \item Graph Algorithms: Examples include Dijkstra's algorithm for shortest paths and Kruskal's and Prim's algorithms for creating minimum spanning trees.
+  \item Data Compression: Huffman coding is a greedy method that creates efficient codes for data based on frequency, optimizing storage use. 
+\end{enumerate}
+
+  Examples of Greedy Algorithms:
+  \begin{enumerate}
+    \item \textbf{Dijkstra's Algorithm}: This algorithm finds the shortest path from a source node to all other nodes in a weighted graph. At each step, it selects the node with the smallest tentative distance from the source and updates the distances of its neighbors.
+    \item \textbf{Prim's Algorithm}: Similar to Kruskal's algorithm, Prim's algorithm also constructs a minimum spanning tree. It starts with an arbitrary node and repeatedly adds the nearest node that hasn't been included in the tree yet.
+    \item \textbf{Kruskal's Algorithm}: This algorithm constructs a minimum spanning tree for a connected weighted graph. It repeatedly selects the edge with the smallest weight that doesn't form a cycle with the previously selected edges.
+    \item \textbf{Huffman Coding}: This algorithm builds a variable-length prefix code for lossless data compression. It constructs a binary tree based on symbol frequencies, assigning shorter codes to more frequent symbols and longer codes to less frequent symbols.
+    \item \textbf{Nearest Neighbor Algorithm}: This algorithm builds a variable-length prefix code for lossless data compression. It constructs a binary tree based on symbol frequencies, assigning shorter codes to more frequent symbols and longer codes to less frequent symbols.
+    
+  \end{enumerate}
+
+
+\hypertarget{nadpis-uxfarovnux11b-3-2}{%
+\subsubsection{Local Search Algorithms}\label{nadpis-uxfarovnux11b-3-2}}
+
+Local search algorithms are a class of heuristic methods used to solve optimization problems where the solution space is too large to explore exhaustively. These algorithms start with an initial solution and iteratively make small adjustments or "moves" to improve it. The process continues until no further improvements can be found or other termination conditions are met. Unlike global optimization methods, local search algorithms focus on finding a better solution in the neighborhood of the current solution rather than exploring the solution space as a whole.
+
+The main characteristic of a local search algorithm is its focus on iterative improvement. By repeatedly making small changes to a solution and only accepting changes that improve the solution (or maintain the same level in some variations), local search can effectively refine a solution to a near-optimal state. However, a common challenge with these algorithms is their tendency to get stuck in local optima—points in the solution space where no nearby solutions are better.
+
+Local search algorithms are suitable for problems with a well-defined neighborhood structure, meaning there is a clear way to define small changes to a solution. These algorithms are often employed in areas like:
+
+\begin{enumerate}
+  \item Combinatorial Optimization: Tasks such as vehicle routing, scheduling, and packing problems.
+  \item Machine Learning: Parameter tuning in models where small parameter adjustments can lead to improved predictions.
+  \item Engineering Design: Optimization of design parameters within given constraints to achieve optimal performance.
+\end{enumerate}
+  
+Examples of Local Search Algorithms:
+\begin{enumerate}
+  \item \textbf{Hill Climbing}: This is a straightforward approach where the algorithm examines the neighboring solutions and moves to the neighbor with the highest value, repeating this process until no improvement can be made.
+  \item \textbf{Tabu Search}: Enhances the basic local search by using a memory structure that records recent moves or solutions and forbids or discourages revisiting them. This helps to avoid cycles and encourages exploration of new areas of the solution space.
+  \item \textbf{Variable Neighborhood Search (VNS)}: This algorithm systematically changes the neighborhood structure as it searches, helping to avoid local optima by shifting the search to different areas of the solution space.
+\end{enumerate}
+
+
+\hypertarget{nadpis-uxfarovnux11b-3-3}{%
+\subsubsection{Metaheuristic Algorithms}\label{nadpis-uxfarovnux11b-3-3}}
+
+Metaheuristic algorithms represent a sophisticated class of heuristic methods that are designed to solve complex optimization problems where traditional methods are inefficient or infeasible. The term "metaheuristic" combines "meta," meaning beyond or at a higher level, and "heuristic," referring to a trial-and-error method for discovering solutions. These algorithms are known for their capability to guide and improve simpler heuristics, aiming to produce solutions that are superior to those typically found by pursuing local optimality alone.
+
+\textbf{Characteristics of Metaheuristic Algorithms:}
+\begin{itemize}
+    \item \textbf{Guidance of Search Process:} Metaheuristics provide high-level strategies that significantly influence the search process, making them effective at exploring complex solution spaces.
+    \item \textbf{Exploration of Solution Space:} They are designed to efficiently navigate through vast solution spaces to find near-optimal solutions by balancing exploration and exploitation strategies.
+    \item \textbf{Technique Variety:} The techniques used in metaheuristics range from simple local search procedures to more complex adaptive and learning processes.
+    \item \textbf{Approximation and Non-determinism:} These algorithms are approximate and generally non-deterministic, often incorporating stochastic elements that enhance solution diversity.
+    \item \textbf{Problem Agnosticism:} Unlike problem-specific algorithms, metaheuristics are versatile and can be applied to a wide range of problems without significant modifications.
+\end{itemize}
+
+\textbf{Functionality and Application:}
+Metaheuristics function as master strategies that adapt and modify existing heuristic approaches by incorporating local search and randomization to tackle optimization challenges effectively. This adaptability allows them to produce excellent solutions within a reasonable time frame, even for complex issues such as NP-hard problems or scenarios with limited or imperfect information.
+
+Despite their strengths, it is important to note that metaheuristics do not guarantee the discovery of the optimal solution. Their effectiveness is often evidenced through empirical results from extensive computer simulations, although theoretical insights regarding their convergence and the potential to reach global optima are also available. However, the field is mixed with high-quality research alongside studies that may suffer from vagueness and poor experimental design.
+
+\textbf{Examples of Metaheuristic Algorithms:}
+\begin{enumerate}
+    \item \textbf{Simulated Annealing:} Utilizes a cooling schedule to probabilistically accept worse solutions, facilitating escape from local optima.
+    \item \textbf{Genetic Algorithms:} Mimic natural evolutionary processes such as selection, mutation, and crossover to evolve solutions over generations.
+    \item \textbf{Ant Colony Optimization:} Inspired by the foraging behavior of ants, this algorithm uses pheromone trails as a form of indirect communication to find optimal paths.
+    \item \textbf{Particle Swarm Optimization:} Based on social behavior patterns observed in flocks of birds or schools of fish, where the collective movement is adjusted according to the successful experiences of individuals.
+    \item \textbf{Tabu Search:} Employs a memory structure to keep track of the search history, helping to avoid revisiting previously explored solutions and encouraging the exploration of new areas.
+\end{enumerate}
+
+
+
+
+
+\newpage
+\hypertarget{praktickuxe1-ux10duxe1stempirickuxe1-ux10duxe1stvlastnuxed-pruxe1ce-nenuxed-nuxe1zev-kapitoly}{%
+\section{Praktická část/Empirická část/Vlastní práce (není název
+kapitoly)}\label{praktickuxe1-ux10duxe1stempirickuxe1-ux10duxe1stvlastnuxed-pruxe1ce-nenuxed-nuxe1zev-kapitoly}}
+
+\begin{quote}
+\emph{Autor/autorka uvedou vlastní název kapitoly vztahující se ke
+konkrétnímu tématu práce}
+\end{quote}
+
+\hypertarget{nadpis-uxfarovnux11b-2-2}{%
+\subsection{Nadpis úrovně 2}\label{nadpis-uxfarovnux11b-2-2}}
+
+\begin{quote}
+\emph{Obrázek se v textu značí následujícím způsobem: samotný obrázek se
+označí: „\textbf{Obrázek 1: Název obrázku}`` (11 nebo 12 pt, černě,
+tučně). Obrázky se označují názvem a číslováním nad obrázkem a zdrojovým
+dokumentem pod obrázkem, příp. informace o vlastním zpracování (11 nebo
+12 pt, černě). K popisování doporučujeme využít nástroje textového
+editoru, který usnadní generování seznamu obrázků na konci práce.}
+\end{quote}
+
+\textbf{Obrázek 1: Logo}
+
+% \includegraphics[width=3.27778in,height=3.90671in]{vertopal_c6b44323f8f4439b87d257a2a20a5c78/media/image4.png}
+
+\begin{quote}
+Zdroj: \url{https://unicornuniversity.net/cs/}
+\end{quote}
+
+\newpage
+\textbf{Obrázek 2: Obrázek jednorožce}
+
+\begin{quote}
+% \includegraphics[width=2.71299in,height=2.34373in]{vertopal_c6b44323f8f4439b87d257a2a20a5c78/media/image5.png}
+
+Zdroj: Vlastní zpracování
+
+\emph{Tabulky se označují názvem a číslováním nad tabulkou a zdrojovým
+textem pod tabulkou. Tabulky, obrázky a grafy se číslují zvlášť. Každá
+tabulka, obrázek nebo graf MUSÍ být v textu okomentován. Je nepřípustné,
+aby jednotlivé kapitoly (podkapitoly) tvořilo pouze grafické znázornění
+v podobě tabulek, grafů, obrázků, schémat atp. bez jejich okomentování.}
+\end{quote}
+
+\protect\hypertarget{_bookmark9}{}{}\textbf{Tabulka 1: Statistika vět
+zachovaných a vyřazených filtr. kritériem \emph{FK1}}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1969}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1938}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2152}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1894}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2047}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+\textbf{Sada}
+\end{quote}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+\textbf{Celkem}
+\end{quote}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Zachováno}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Vyřazeno}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Zachováno}
+\end{minipage} \\
+\midrule()
+\endhead
+\textbf{dtest} & 5228 & 2384 & 2844 &
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+45,6 \%
+\end{quote}
+\end{minipage} \\
+\textbf{etest} & 5476 & 2419 & 3057 &
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+44,2 \%
+\end{quote}
+\end{minipage} \\
+\textbf{train-1} & 4709 & 2204 & 2505 &
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+46,8 \%
+\end{quote}
+\end{minipage} \\
+\bottomrule()
+\end{longtable}
+
+\begin{quote}
+Zdroj: Vlastní zpracování
+\end{quote}
+
+\textbf{Matematické rovnice, vzorce}
+
+\begin{quote}
+\emph{Pokud jsou v práci rovnice, nezapomeňte je správně číslovat. Pro
+jejich zápis používejte MS Editor rovnic, případně jinou obdobnou
+aplikaci. Rovnice by měla vypadat například takto (nezapomeňte proměnné
+popisovat):}
+\end{quote}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.9478}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.0522}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\[S = \pi r^{2},\]
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+(1)
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\begin{quote}
+\emph{kde S je obsah kruhu o poloměru r .}
+\end{quote}
+
+\newpage
+\hypertarget{zuxe1vux11br}{%
+\section{Závěr}\label{zuxe1vux11br}}
+
+\begin{quote}
+Rozsah je zpravidla 5-10 normostran.
+\end{quote}
+
+\newpage
+\hypertarget{seznam-pouux17eituxfdch-zdrojux16f}{%
+\section{Seznam použitých
+zdrojů}\label{seznam-pouux17eituxfdch-zdrojux16f}}
+
+\begin{quote}
+V~seznamu zdrojů musí být uvedeny všechny v~závěrečné práci citované
+zdroje. Zároveň nesmí seznam obsahovat zdroje, které nejsou v~závěrečné
+práci použity.
+
+Používáme citační normu ČNS ISO 690. Doporučujeme pro tvorbu citací
+některý z~citačních nástrojů, které jsou v~základní verzi zpravidla
+zdarma dostupné.
+\end{quote}
+
+\newpage
+\hypertarget{seznam-obruxe1zkux16f-existujuxed-li}{%
+\section{Seznam obrázků
+(existují-li)}\label{seznam-obruxe1zkux16f-existujuxed-li}}
+
+\begin{quote}
+Obrázek 1: Logo 11
+
+Obrázek 2: Obrázek jednorožce 12
+
+\newpage
+\textbf{Seznam tabulek (existují-li)}
+
+\protect\hyperlink{_bookmark9}{Tabulka 1: Statistika vět zachovaných a
+vyřazených filtr. kritériem \emph{FK1} 12}
+\end{quote}
+
+\newpage
+\hypertarget{seznam-grafux16f-existujuxed-li}{%
+\section{Seznam grafů
+(existují-li)}\label{seznam-grafux16f-existujuxed-li}}
+
+\newpage
+\hypertarget{seznam-pux159uxedloh-existujuxed-li}{%
+\section{Seznam příloh
+(existují-li)}\label{seznam-pux159uxedloh-existujuxed-li}}
+
+\begin{quote}
+\emph{Každá příloha musí být alespoň jednou odkázána do vlastního textu
+práce. Přílohy se číslují. Každá příloha začíná na nové stránce.}
+\end{quote}
+
+\newpage
+\hypertarget{pux159uxedloha-a-nuxe1zev-pux159uxedlohy}{%
+\section{Příloha A -- Název
+přílohy}\label{pux159uxedloha-a-nuxe1zev-pux159uxedlohy}}
+
+\newpage
+\hypertarget{pux159uxedloha-b-nuxe1zev-pux159uxedlohy}{%
+\section{Příloha B -- Název
+přílohy}\label{pux159uxedloha-b-nuxe1zev-pux159uxedlohy}}
+
+\end{document}

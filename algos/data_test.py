@@ -2,7 +2,7 @@ import vrplib
 import time
 
 from algos.ant_colony_optimization import aco_algorithm
-from algos.greedy import greedy_vrp
+from algos.greedy import dijkstra_cvrp
 from algos.nearest_neighbor import nearest_neighbor_vrp
 from algos.simulated_annealing import simulated_annealing, estimate_initial_temperature
 from algos.tabu_search import tabu_search
@@ -18,6 +18,7 @@ def load_instance_names_from_file(filename):
 filename = "instance_names.txt"
 instance_names = load_instance_names_from_file(filename)
 instances = instance_names[:10]
+# instances = instance_names
 for instance_name in instances:
     instance = vrplib.read_instance(
         "./Vrp-Set-XML100/instances/{instance_name}.vrp".format(instance_name=instance_name))
@@ -38,10 +39,10 @@ for instance_name in instances:
     # population_size = 150
     # generations = 100
     # routes, total_cost = genetic_algorithm(population_size, generations, node_loc, demand, capacity)
-    #
+
 
     # Greedy
-    # routes, total_cost = greedy_vrp(depot_loc, node_loc, demand, capacity)
+    routes, total_cost = dijkstra_cvrp(node_loc[0], node_loc, demand, capacity)
 
     # Tabu Search
     # max_iterations = 300
@@ -54,8 +55,8 @@ for instance_name in instances:
     # routes, total_cost = nearest_neighbor_vrp(node_loc[0], node_loc, demand, capacity)
 
     # ACO
-    routes, total_cost = aco_algorithm(node_loc[0], node_loc, demand, capacity, num_ants=5,
-                                       iterations=50, decay=0.05, alpha=1, beta=2)
+    # routes, total_cost = aco_algorithm(node_loc[0], node_loc, demand, capacity, num_ants=5,
+    #                                    iterations=10, decay=0.05, alpha=1, beta=2)
 
     # Simulated Annealing
     # max_iterations = 15000
