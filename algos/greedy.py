@@ -2,12 +2,10 @@ import numpy as np
 
 
 def euclidean_distance(p1, p2):
-    """Calculate the Euclidean distance between two 2D points."""
     return np.sqrt((p1[0] - p2[0]) ** 2 + (p1[1] - p2[1]) ** 2)
 
 
 def calculate_route_cost(route, node_loc, depot_loc):
-    """Calculate the total cost (distance) of a single route."""
     cost = 0
     last_location = depot_loc
     for node in route:
@@ -18,7 +16,6 @@ def calculate_route_cost(route, node_loc, depot_loc):
 
 
 def calculate_total_cost(routes, node_loc, depot_loc):
-    """Calculate the total cost (distance) of all routes."""
     return sum(calculate_route_cost(route, node_loc, depot_loc) for route in routes)
 
 
@@ -34,7 +31,6 @@ def dijkstra_cvrp(depot_loc, node_loc, demand, capacity):
         while True:
             min_distance = float('inf')
             next_customer = None
-            # Dijkstra's greedy choice based on shortest path
             for i, location in enumerate(node_loc):
                 if i not in visited and current_load + demand[i] <= capacity:
                     distance = euclidean_distance(current_location, location)

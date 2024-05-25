@@ -2,12 +2,10 @@ import numpy as np
 
 
 def euclidean_distance(p1, p2):
-    """Calculate the Euclidean distance between two 2D points."""
     return np.sqrt((p1[0] - p2[0]) ** 2 + (p1[1] - p2[1]) ** 2)
 
 
 def calculate_total_cost(routes, node_loc, depot_loc):
-    """Calculate the total distance cost for a series of routes."""
     total_cost = 0
     for route in routes:
         route_cost = 0
@@ -22,7 +20,6 @@ def calculate_total_cost(routes, node_loc, depot_loc):
 
 
 def nearest_neighbor_vrp(depot_loc, node_loc, demand, capacity):
-    """Solves a CVRP instance using the Nearest Neighbor Algorithm with capacity constraints."""
     num_customers = len(node_loc)
     routes = []
     visited = set()
