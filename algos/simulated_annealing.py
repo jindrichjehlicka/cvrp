@@ -21,6 +21,7 @@ def estimate_initial_temperature(node_loc, demand, capacity, num_samples=100):
     initial_temperature = mean_difference * 0.2  # Adjust the factor based on acceptance needs
     return initial_temperature
 
+
 def calculate_total_distance(routes, node_loc):
     """ Calculate the total distance of the vehicle routes, including return to the depot """
     total_distance = 0
@@ -72,7 +73,7 @@ def get_neighbor(solution):
     return solution
 
 
-def simulated_annealing(max_iterations, initial_temperature, cooling_rate, node_loc, demand, capacity):
+def simulated_annealing(max_iterations, initial_temperature, cooling_rate, node_loc, demand, capacity, epsilon=1e-10):
     """ Perform simulated annealing to find a solution to the CVRP """
     current_solution = generate_initial_solution(node_loc, demand, capacity)
     current_cost = calculate_total_distance(current_solution, node_loc)
@@ -81,7 +82,8 @@ def simulated_annealing(max_iterations, initial_temperature, cooling_rate, node_
     for _ in range(max_iterations):
         neighbor = get_neighbor([route[:] for route in current_solution])  # Deep copy of current solution
         neighbor_cost = calculate_total_distance(neighbor, node_loc)
-        if neighbor_cost < current_cost or random.random() < math.exp((current_cost - neighbor_cost) / temperature):
+        if neighbor_cost < current_cost or random.random() < math.exp(
+                (current_cost - neighbor_cost) / (temperature + epsilon)):
             current_solution, current_cost = neighbor, neighbor_cost
         temperature *= cooling_rate
 
