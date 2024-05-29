@@ -63,7 +63,7 @@ def crossover(parent1, parent2):
 
 def mutate(solution, mutation_rate=0.01):
     for route in solution:
-        if len(route) > 2 and random.random() < mutation_rate:
+        if len(route) > 3 and random.random() < mutation_rate:  # Ensure at least 3 elements to sample from
             idx1, idx2 = random.sample(range(1, len(route) - 1), 2)
             route[idx1], route[idx2] = route[idx2], route[idx1]
     return solution
@@ -71,10 +71,11 @@ def mutate(solution, mutation_rate=0.01):
 
 def get_neighbor(solution):
     neighbor = [route[:] for route in solution]
-    route1, route2 = random.sample(neighbor, 2)
-    if len(route1) > 2 and len(route2) > 2:
-        idx1, idx2 = random.randint(1, len(route1) - 2), random.randint(1, len(route2) - 2)
-        route1[idx1], route2[idx2] = route2[idx2], route1[idx1]
+    if len(neighbor) > 1:
+        route1, route2 = random.sample(neighbor, 2)
+        if len(route1) > 3 and len(route2) > 3:
+            idx1, idx2 = random.randint(1, len(route1) - 2), random.randint(1, len(route2) - 2)
+            route1[idx1], route2[idx2] = route2[idx2], route1[idx1]
     return neighbor
 
 
@@ -130,6 +131,5 @@ def ga_sa_hybrid(population_size, generations, node_loc, demand, capacity, max_i
         if sa_cost < best_cost:
             best_solution = sa_solution
             best_cost = sa_cost
-
 
     return best_solution, best_cost
