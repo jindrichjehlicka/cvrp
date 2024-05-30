@@ -21,7 +21,7 @@ def save_results_to_csv(filename, results):
 
 filename = "instance_names.txt"
 instance_names = load_instance_names_from_file(filename)
-instances = instance_names[:200]
+instances = instance_names[:100]
 
 # Define the parameter grid
 param_grid = [
@@ -49,26 +49,26 @@ for instance_name in instances:
     capacity = instance['capacity']
 
     for params in param_grid:
-        start_time = time.time()
-        routes, total_cost = aco_ts_hybrid(depot_loc, node_loc, demand, capacity, params["num_ants"],
-                                           params["iterations"], params["decay"], params["alpha"],
-                                           params["beta"], params["max_iterations"], params["tabu_size"],
-                                           params["neighborhood_size"])
-        end_time = time.time()
+        for _ in range(20):  # Run each dataset 20 times
+            start_time = time.time()
+            routes, total_cost = aco_ts_hybrid(depot_loc, node_loc, demand, capacity, params["num_ants"],
+                                               params["iterations"], params["decay"], params["alpha"],
+                                               params["beta"], params["max_iterations"], params["tabu_size"],
+                                               params["neighborhood_size"])
+            end_time = time.time()
 
-        execution_time = end_time - start_time
-        difference = total_cost - optimal_cost
+            execution_time = end_time - start_time
+            difference = total_cost - optimal_cost
 
-        result = {
-            "Instance": instance_name,
-            "Algorithm": "ACO-TS Hybrid",
-            "Parameters": params,
-            "Optimal Cost": optimal_cost,
-            "Total Cost": total_cost,
-            "Difference": difference,
-            "Execution Time (s)": execution_time
-        }
-        results.append(result)
-        print(result)
+            result = {
+                "Instance": instance_name,
+                "Algorithm": "ACO-TS Hybrid",
+                "Parameters": params,
+                "Optimal Cost": optimal_cost,
+                "Total Cost": total_cost,
+                "Difference": difference,
+                "Execution Time (s)": execution_time
+            }
+            results.append(result)
 
-save_results_to_csv("results/aco_ts_hybrid_results.csv", results)
+save_results_to_csv("aco_ts_hybrid_results.csv", results)
