@@ -21,7 +21,7 @@ def save_results_to_csv(filename, results):
 
 filename = "instance_names.txt"
 instance_names = load_instance_names_from_file(filename)
-instances = instance_names[:200]
+instances = instance_names[:100]
 
 # Parameters to test for GA-SA Hybrid
 population_size_list = [50, 100]
@@ -44,33 +44,34 @@ for instance_name in instances:
         for generations in generations_list:
             for max_iterations in max_iterations_list:
                 for cooling_rate in cooling_rate_list:
-                    start_time = time.time()
+                    for _ in range(20):  # Run each parameter set 20 times
+                        start_time = time.time()
 
-                    routes, total_cost = ga_sa_hybrid(population_size, generations, node_loc, demand, capacity,
-                                                      max_iterations, cooling_rate)
+                        routes, total_cost = ga_sa_hybrid(population_size, generations, node_loc, demand, capacity,
+                                                          max_iterations, cooling_rate)
 
-                    end_time = time.time()
+                        end_time = time.time()
 
-                    execution_time = end_time - start_time
-                    difference = total_cost - optimal_cost
+                        execution_time = end_time - start_time
+                        difference = total_cost - optimal_cost
 
-                    params = {
-                        "population_size": population_size,
-                        "generations": generations,
-                        "max_iterations": max_iterations,
-                        "cooling_rate": cooling_rate
-                    }
+                        params = {
+                            "population_size": population_size,
+                            "generations": generations,
+                            "max_iterations": max_iterations,
+                            "cooling_rate": cooling_rate
+                        }
 
-                    result = {
-                        "Instance": instance_name,
-                        "Algorithm": "GA-SA Hybrid",
-                        "Parameters": params,
-                        "Optimal Cost": optimal_cost,
-                        "Total Cost": total_cost,
-                        "Difference": difference,
-                        "Execution Time (s)": execution_time
-                    }
-                    results.append(result)
-                    print(result)
+                        result = {
+                            "Instance": instance_name,
+                            "Algorithm": "GA-SA Hybrid",
+                            "Parameters": params,
+                            "Optimal Cost": optimal_cost,
+                            "Total Cost": total_cost,
+                            "Difference": difference,
+                            "Execution Time (s)": execution_time
+                        }
+                        results.append(result)
+                        print(result)
 
 save_results_to_csv("ga_sa_hybrid_algorithm_comparison_results.csv", results)

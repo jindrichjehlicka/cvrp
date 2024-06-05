@@ -69,6 +69,5 @@ for instance_name in instances:
                         "Execution Time (s)": execution_time
                     }
                     results.append(result)
-                    print(result)
 
 save_results_to_csv("aco_algorithm_comparison_results.csv", results)
