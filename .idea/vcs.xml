@@ -2,9 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/JAMPR" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/JAMPR_plus" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/NeuroLKH" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/cvrp" vcs="Git" />
   </component>
 </project>
