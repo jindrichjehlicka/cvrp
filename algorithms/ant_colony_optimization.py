@@ -1,7 +1,9 @@
 import numpy as np
 
+
 def euc_2d(c1, c2, epsilon=1e-10):
     return np.hypot(c1[0] - c2[0], c1[1] - c2[1]) + epsilon
+
 
 def calculate_cost(routes, depot_loc, node_loc):
     total_cost = 0
@@ -14,8 +16,10 @@ def calculate_cost(routes, depot_loc, node_loc):
             total_cost += route_cost
     return total_cost
 
+
 def initialize_pheromone(n, initial_pheromone):
     return np.full((n, n), initial_pheromone)
+
 
 def aco_algorithm(depot_loc, node_loc, demand, capacity, num_ants=5, iterations=50, decay=0.05, alpha=1, beta=2):
     num_nodes = len(node_loc)
@@ -37,8 +41,8 @@ def aco_algorithm(depot_loc, node_loc, demand, capacity, num_ants=5, iterations=
                     if current_node is None:
                         current_node = np.random.choice(list(remaining_nodes))
                     next_node = max(remaining_nodes, key=lambda x: (pheromone[current_node][x] ** alpha) *
-                                                               ((1.0 / euc_2d(node_loc[current_node],
-                                                                              node_loc[x])) ** beta)
+                                                                   ((1.0 / euc_2d(node_loc[current_node],
+                                                                                  node_loc[x])) ** beta)
                     if (load + demand[x] <= capacity) else 0)
                     if load + demand[next_node] > capacity:
                         break
