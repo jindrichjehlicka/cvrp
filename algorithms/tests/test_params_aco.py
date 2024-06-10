@@ -21,7 +21,7 @@ def save_results_to_csv(filename, results):
 
 filename = "instance_names.txt"
 instance_names = load_instance_names_from_file(filename)
-instances = instance_names[:200]
+instances = instance_names[:50]
 
 # Parameters to test for ACO
 num_ants_list = [5, 10, 15]
@@ -31,8 +31,8 @@ decay_list = [0.01, 0.05, 0.1]
 results = []
 
 for instance_name in instances:
-    instance = vrplib.read_instance(f"./Vrp-Set-XML100/instances/{instance_name}.vrp")
-    solution = vrplib.read_solution(f"./Vrp-Set-XML100/solutions/{instance_name}.sol")
+    instance = vrplib.read_instance(f"../Vrp-Set-XML100/instances/{instance_name}.vrp")
+    solution = vrplib.read_solution(f"../Vrp-Set-XML100/solutions/{instance_name}.sol")
     optimal_cost = solution['cost']
     node_loc = instance['node_coord']
     depot_loc = node_loc[0]
@@ -69,5 +69,6 @@ for instance_name in instances:
                         "Execution Time (s)": execution_time
                     }
                     results.append(result)
+                    print(result)
 
-save_results_to_csv("aco_algorithm_comparison_results.csv", results)
+save_results_to_csv("results/aco_algorithm_comparison_results.csv", results)

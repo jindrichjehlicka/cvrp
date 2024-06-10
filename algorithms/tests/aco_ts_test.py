@@ -70,5 +70,6 @@ for instance_name in instances:
                 "Execution Time (s)": execution_time
             }
             results.append(result)
+            print(result)
 
 save_results_to_csv("aco_ts_hybrid_results_2.csv", results)

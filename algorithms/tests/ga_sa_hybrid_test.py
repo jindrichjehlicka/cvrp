@@ -19,7 +19,7 @@ def save_results_to_csv(filename, results):
         dict_writer.writerows(results)
 
 
-filename = "instance_names.txt"
+filename = "tests/instance_names.txt"
 instance_names = load_instance_names_from_file(filename)
 instances = instance_names[:100]
 
