@@ -1204,15 +1204,83 @@
     \subsection{Conclusion}\label{subsec:conclusion}
     The analysis demonstrates that the number of iterations significantly affects the performance of the ACO algorithm, with more iterations leading to better closeness to the optimal solution and lower differences from the optimal cost. The number of ants has a lesser, but still noticeable, impact on the execution time. These insights can guide the tuning of ACO parameters for improved performance in solving optimization problems.
 
+    \newpage
 
+
+    \section{Practical Analysis of Genetic Algorithm with Simulated Annealing Hybrid}\label{sec:practical-analysis-of-ga-sa-hybrid}
+
+    In this section, we analyze the performance of the Genetic Algorithm with Simulated Annealing Hybrid (GA-SA Hybrid) algorithm using various parameters. The algorithm was tested with different combinations of population size and cooling rates. The key metrics evaluated include the closeness to optimal solution, execution time, and the difference between the total cost and the optimal cost. The following subsections present detailed analysis and visualizations of the results.
+
+    \subsection{Experimental Setup}\label{subsec:ga-sa-experimental-setup}
+    The GA-SA Hybrid algorithm was tested on several instances, and the parameters used for the tests are as follows:
+    \begin{itemize}
+        \item Population Size: 50, 100
+        \item Generations: 50
+        \item Max Iterations: 500
+        \item Cooling Rate: 0.95, 0.99
+    \end{itemize}
+    Each combination of parameters was run multiple times, and the results were aggregated for analysis.
+
+    \subsection{Statistical Analysis}\label{subsec:ga-sa-statistical-analysis}
+    The F-test was used to determine the statistical significance of the differences observed in the results based on the different parameter settings. The following F-test results were obtained:
+    \begin{itemize}
+        \item F-test for Closeness to Optimal: F-statistic = 130.274, p-value = 0.0
+        \item F-test for Execution Time: F-statistic = 6.378, p-value = 9.0606e-14
+    \end{itemize}
+    The results indicate significant differences in the performance metrics across different parameter settings, as evidenced by the very low p-values.
+
+    \subsection{Visualization of Results}\label{subsec:ga-sa-visualization-of-results}
+    The performance metrics were visualized to better understand the impact of the parameters on the GA-SA Hybrid algorithm's performance.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{./genetic_simulated_annealing/ga_sa_mean_closeness_to_optimal.png}
+        \caption{Mean Closeness to Optimal by Parameters}
+        \label{fig:ga_sa_mean_closeness_to_optimal}
+    \end{figure}
+
+    Figure \ref{fig:ga_sa_mean_closeness_to_optimal} shows the mean closeness to the optimal solution across different parameter settings. It can be observed that increasing the population size generally improves the closeness to the optimal solution. However, the cooling rate does not significantly affect this metric.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{./genetic_simulated_annealing/ga_sa_mean_execution_time.png}
+        \caption{Mean Execution Time by Parameters}
+        \label{fig:ga_sa_mean_execution_time}
+    \end{figure}
+
+    Figure \ref{fig:ga_sa_mean_execution_time} depicts the mean execution time for the GA-SA Hybrid algorithm. As expected, increasing the population size and cooling rate leads to higher execution times. The impact of the population size on execution time is more pronounced than the impact of the cooling rate.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{./genetic_simulated_annealing/ga_sa_median_closeness_to_optimal.png}
+        \caption{Median Closeness to Optimal by Parameters}
+        \label{fig:ga_sa_median_closeness_to_optimal}
+    \end{figure}
+
+    Figure \ref{fig:ga_sa_median_closeness_to_optimal} illustrates the median closeness to the optimal solution. The trends observed are similar to those seen in the mean closeness to optimal, reinforcing the previous observations.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{./genetic_simulated_annealing/ga_sa_median_execution_time.png}
+        \caption{Median Execution Time by Parameters}
+        \label{fig:ga_sa_median_execution_time}
+    \end{figure}
+
+    Figure \ref{fig:ga_sa_median_execution_time} shows the median execution time, which follows similar trends to the mean execution time. This consistency indicates robustness in the execution time metrics across different runs.
+
+    \subsection{Conclusion}\label{subsec:ga-sa-conclusion}
+    The analysis demonstrates that the population size significantly affects the performance of the GA-SA Hybrid algorithm, with larger populations leading to better closeness to the optimal solution and lower differences from the optimal cost. The cooling rate has a lesser, but still noticeable, impact on the execution time.
+
+
+    \newpage
 %\begin{quote}
 %    \emph{Autor/autorka uvedou vlastní název kapitoly vztahující se ke
 %    konkrétnímu tématu práce}
 %\end{quote}
 
-    \hypertarget{nadpis-uxfarovnux11b-2-2}{%
-
-        \subsection{Nadpis úrovně 2}\label{nadpis-uxfarovnux11b-2-2}}
+%    \hypertarget{nadpis-uxfarovnux11b-2-2}{%
+%
+%        \subsection{Nadpis úrovně 2}\label{nadpis-uxfarovnux11b-2-2}}
 
 %\begin{quote}
 %    \emph{Obrázek se v textu značí následujícím způsobem: samotný obrázek se

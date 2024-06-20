@@ -103,11 +103,15 @@
 \contentsline {subsection}{Statistical Analysis}{50}{section*.105}%
 \contentsline {subsection}{Visualization of Results}{51}{section*.106}%
 \contentsline {subsection}{Conclusion}{54}{section*.107}%
-\contentsline {subsection}{Nadpis úrovně 2}{54}{section*.108}%
-\contentsline {section}{Závěr}{55}{section*.109}%
-\contentsline {section}{Seznam použitých zdrojů}{56}{section*.110}%
-\contentsline {section}{Seznam obrázků (existují-li)}{57}{section*.111}%
-\contentsline {section}{Seznam grafů (existují-li)}{59}{section*.112}%
-\contentsline {section}{Seznam příloh (existují-li)}{60}{section*.113}%
-\contentsline {section}{Příloha A -- Název přílohy}{61}{section*.114}%
-\contentsline {section}{Příloha B -- Název přílohy}{62}{section*.115}%
+\contentsline {section}{Practical Analysis of Genetic Algorithm with Simulated Annealing Hybrid}{55}{section*.108}%
+\contentsline {subsection}{Experimental Setup}{55}{section*.109}%
+\contentsline {subsection}{Statistical Analysis}{55}{section*.110}%
+\contentsline {subsection}{Visualization of Results}{55}{section*.111}%
+\contentsline {subsection}{Conclusion}{58}{section*.112}%
+\contentsline {section}{Závěr}{59}{section*.113}%
+\contentsline {section}{Seznam použitých zdrojů}{60}{section*.114}%
+\contentsline {section}{Seznam obrázků (existují-li)}{61}{section*.115}%
+\contentsline {section}{Seznam grafů (existují-li)}{63}{section*.116}%
+\contentsline {section}{Seznam příloh (existují-li)}{64}{section*.117}%
+\contentsline {section}{Příloha A -- Název přílohy}{65}{section*.118}%
+\contentsline {section}{Příloha B -- Název přílohy}{66}{section*.119}%
