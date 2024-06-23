@@ -93,7 +93,7 @@ param_grid = {
 
 
 # Function to evaluate a single parameter combination on a single dataset
-def evaluate(instance_name, params, n_runs=10):
+def evaluate(instance_name, params, n_runs=5):
     num_ants, iterations, decay, alpha, beta = params
     instance = vrplib.read_instance(f"../../Vrp-Set-XML100/instances/{instance_name}.vrp")
     solution = vrplib.read_solution(f"../../Vrp-Set-XML100/solutions/{instance_name}.sol")
@@ -134,14 +134,14 @@ def evaluate(instance_name, params, n_runs=10):
 def main():
     filename = "../instance_names.txt"
     instance_names = load_instance_names_from_file(filename)
-    instances = instance_names[:100]
+    instances = instance_names[10:50]
 
     # Create the list of all parameter combinations
     param_combinations = list(itertools.product(param_grid['num_ants'], param_grid['iterations'],
                                                 param_grid['decay'], param_grid['alpha'], param_grid['beta']))
 
     # Evaluate all parameter combinations on all instances in parallel
-    results = Parallel(n_jobs=10)(delayed(evaluate)(instance_name, params)
+    results = Parallel(n_jobs=9)(delayed(evaluate)(instance_name, params)
                                   for instance_name in instances
                                   for params in param_combinations)
 
