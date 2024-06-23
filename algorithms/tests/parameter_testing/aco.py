@@ -93,7 +93,7 @@ param_grid = {
 
 
 # Function to evaluate a single parameter combination on a single dataset
-def evaluate(instance_name, params, n_runs=5):
+def evaluate(instance_name, params, n_runs=20):
     num_ants, iterations, decay, alpha, beta = params
     instance = vrplib.read_instance(f"../../Vrp-Set-XML100/instances/{instance_name}.vrp")
     solution = vrplib.read_solution(f"../../Vrp-Set-XML100/solutions/{instance_name}.sol")

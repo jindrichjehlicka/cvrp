@@ -4,7 +4,7 @@ import vrplib
 import itertools
 import time
 import csv
-from joblib import Parallel, delayed
+from joblib import Parallel, delayed,cpu_count
 from datetime import datetime
 
 
@@ -121,17 +121,17 @@ def load_instance_names_from_file(filename):
 
 # Define the parameter grid for Tabu Search
 param_grid = {
-    'max_iterations': [100, 500],
-    'tabu_size': [5, 10, 20],
-    'neighborhood_size': [5, 10, 20]
+    'max_iterations': [100, 250, 500],
+    'tabu_size': [5, 10, 20, 30],
+    'neighborhood_size': [5, 10, 20, 30]
 }
 
 
 # Function to evaluate a single parameter combination on a single dataset
 def evaluate(instance_name, params, n_runs=20):
     max_iterations, tabu_size, neighborhood_size = params
-    instance = vrplib.read_instance(f"../Vrp-Set-XML100/instances/{instance_name}.vrp")
-    solution = vrplib.read_solution(f"../Vrp-Set-XML100/solutions/{instance_name}.sol")
+    instance = vrplib.read_instance(f"../../Vrp-Set-XML100/instances/{instance_name}.vrp")
+    solution = vrplib.read_solution(f"../../Vrp-Set-XML100/solutions/{instance_name}.sol")
     optimal_cost = solution['cost']
     node_loc = instance['node_coord']
     depot_loc = node_loc[0]
@@ -166,14 +166,14 @@ def evaluate(instance_name, params, n_runs=20):
 def main():
     filename = "../instance_names.txt"
     instance_names = load_instance_names_from_file(filename)
-    instances = instance_names[:50]  # You can change the number of instances here (50, 100, 200)
+    instances = instance_names[:200]
 
     # Create the list of all parameter combinations
     param_combinations = list(
         itertools.product(param_grid['max_iterations'], param_grid['tabu_size'], param_grid['neighborhood_size']))
 
     # Evaluate all parameter combinations on all instances in parallel
-    results = Parallel(n_jobs=-1)(delayed(evaluate)(instance_name, params)
+    results = Parallel(n_jobs=10)(delayed(evaluate)(instance_name, params)
                                   for instance_name in instances
                                   for params in param_combinations)
 
