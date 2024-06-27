@@ -1,0 +1,2 @@
+max_iterations,neighborhood_size,tabu_size
+50,10,5

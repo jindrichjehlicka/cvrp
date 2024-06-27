@@ -1,64 +1,14 @@
-# import pandas as pd
-# import numpy as np
-# import matplotlib.pyplot as plt
-# from datetime import datetime
-#
-# # Load the epoch data
-# epoch_df = pd.read_csv('genetic_algorithm_epoch_data_20240623_155728.csv')
-#
-# # Ensure 'epoch_data' column is properly evaluated
-# epoch_df['epoch_data'] = epoch_df['epoch_data'].apply(eval)
-#
-# # Group by population size and generate consolidated plots
-# for pop_size in epoch_df['population_size'].unique():
-#     subset = epoch_df[epoch_df['population_size'] == pop_size]
-#     plt.figure(figsize=(12, 8))
-#
-#     for _, row in subset.iterrows():
-#         epoch_data = np.array(row['epoch_data'])
-#         generations = list(range(len(epoch_data)))
-#
-#         plt.plot(generations, epoch_data,
-#                  label=f'Gen: {row["generations"]}, Mut: {row["mutation_rate"]}')
-#
-#     plt.xlabel('Generations')
-#     plt.ylabel('Cost')
-#     plt.title(f'Convergence Plot for Population Size {pop_size}')
-#     plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
-#     plt.tight_layout()
-#     plt.show()
-#
-# # Group by generations and generate consolidated plots
-# for gens in epoch_df['generations'].unique():
-#     subset = epoch_df[epoch_df['generations'] == gens]
-#     plt.figure(figsize=(12, 8))
-#
-#     for _, row in subset.iterrows():
-#         epoch_data = np.array(row['epoch_data'])
-#         generations = list(range(len(epoch_data)))
-#
-#         plt.plot(generations, epoch_data,
-#                  label=f'Pop: {row["population_size"]}, Mut: {row["mutation_rate"]}')
-#
-#     plt.xlabel('Generations')
-#     plt.ylabel('Cost')
-#     plt.title(f'Convergence Plot for Generations {gens}')
-#     plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
-#     plt.tight_layout()
-#     plt.show()
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from datetime import datetime
 
-# Load the epoch data
-epoch_df = pd.read_csv('genetic_algorithm_epoch_data_20240623_155728.csv')
+epoch_df = pd.read_csv('genetic_algorithm_epoch_data_20240627_114245.csv')
 
-# Ensure 'epoch_data' column is properly evaluated
 epoch_df['epoch_data'] = epoch_df['epoch_data'].apply(eval)
 
 
-# Normalize the epoch data
 def normalize_epoch_data(row):
     epoch_data = np.array(row['epoch_data'])
     initial_cost = epoch_data[0]
@@ -68,7 +18,6 @@ def normalize_epoch_data(row):
 
 epoch_df['normalized_epoch_data'] = epoch_df.apply(normalize_epoch_data, axis=1)
 
-# Generate plots for each parameter set
 plt.figure(figsize=(10, 6))
 
 for idx, row in epoch_df.iterrows():
