@@ -1,2 +1,3 @@
-max_iterations,neighborhood_size,tabu_size
-50,10,5
+version https://git-lfs.github.com/spec/v1
+oid sha256:06d46443ef0debc49baacf0abc389b29dba5d44d88e89c7fefe5c4becd9f3479
+size 53
