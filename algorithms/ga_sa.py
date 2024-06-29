@@ -2,7 +2,6 @@ import numpy as np
 import random
 
 
-# Euclidean distance calculation
 def calculate_distance_matrix(node_loc):
     n_nodes = len(node_loc)
     distance_matrix = np.zeros((n_nodes, n_nodes))
