@@ -1,41 +1,75 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import glob
 
-# Load the epoch data
-filename = 'genetic_algorithm_epoch_data_chunk_1_20240701_190030.csv'
-epoch_df = pd.read_csv(filename)
+# Define the file pattern for merging
+file_pattern = './genetic_algorithm_epoch_data_chunk_*.csv'
+file_paths = glob.glob(file_pattern)
 
-# Ensure 'epoch_data' column is properly evaluated
-epoch_df['epoch_data'] = epoch_df['epoch_data'].apply(eval)
+# Load and concatenate all matching CSV files
+all_data = pd.concat([pd.read_csv(file_path) for file_path in file_paths])
 
-# Function to normalize epoch data
-def normalize_epoch_data(epoch_data):
-    epoch_data = np.array(epoch_data)
-    initial_cost = epoch_data[:, 0]
-    normalized_data = (epoch_data.T / initial_cost).T
-    return normalized_data.tolist()
+# Extract relevant columns
+parameters = all_data[['population_size', 'generations', 'mutation_rate']]
+epoch_data_raw = all_data['epoch_data']
+
+# Convert the string representation of lists to actual lists
+epoch_data_processed = epoch_data_raw.apply(lambda x: eval(x))
+
+# Add the processed epoch data to the DataFrame
+all_data['epoch_data_processed'] = epoch_data_processed
+
+
+# Define a function to normalize the epoch data
+def normalize_epoch_data(array):
+    array = np.array(array)
+    min_val = np.min(array)
+    max_val = np.max(array)
+    normalized_array = (array - min_val) / (max_val - min_val)
+    # Invert the normalized values to go from 1 to 0
+    normalized_array = 1 - normalized_array
+    return normalized_array
+
 
 # Normalize the epoch data
-epoch_df['normalized_epoch_data'] = epoch_df['epoch_data'].apply(normalize_epoch_data)
+all_data['normalized_epoch_data'] = all_data['epoch_data_processed'].apply(normalize_epoch_data)
 
-# Plot the normalized data
-plt.figure(figsize=(12, 8))
+# Group by parameters
+grouped = all_data.groupby(['population_size', 'generations', 'mutation_rate'])
 
-for idx, row in epoch_df.iterrows():
-    normalized_epoch_data = np.array(row['normalized_epoch_data'])
-    mean_normalized_data = np.mean(normalized_epoch_data, axis=0)
-    std_normalized_data = np.std(normalized_epoch_data, axis=0)
-    generations = np.arange(len(mean_normalized_data))
+# Generate plots for each group
+for name, group in grouped:
+    plt.figure(figsize=(10, 6))
+    plt.title(f'Population: {name[0]}, Generations: {name[1]}, Mutation Rate: {name[2]}')
 
-    label = f"Pop: {row['population_size']}, Gen: {row['generations']}, Mut: {row['mutation_rate']}"
-    plt.plot(generations, mean_normalized_data, label=label)
-    plt.fill_between(generations, mean_normalized_data - std_normalized_data, mean_normalized_data + std_normalized_data, alpha=0.2)
+    all_runs = []
 
-plt.title('Normalized Convergence Plot')
-plt.xlabel('Generations')
-plt.ylabel('Normalized Cost')
-plt.ylim(0, 1.1)
-plt.legend(loc='upper right', bbox_to_anchor=(1.3, 1))
-plt.tight_layout()
-plt.show()
+    max_generations = max([len(normalized_array[0]) for normalized_array in group['normalized_epoch_data']])
+
+    for normalized_array in group['normalized_epoch_data']:
+        for individual_run in normalized_array:
+            all_runs.append(
+                np.pad(individual_run, (0, max_generations - len(individual_run)), 'constant', constant_values=np.nan))
+
+    all_runs = np.array(all_runs)
+    mean_run = np.nanmean(all_runs, axis=0)
+    std_run = np.nanstd(all_runs, axis=0)
+
+    generations = np.arange(max_generations)
+
+    # Plot all individual runs with higher transparency and lighter color
+    for individual_run in all_runs:
+        plt.plot(generations, individual_run, alpha=0.02, color='lightgrey', zorder=1)
+
+    # Plot the mean and standard deviation on top
+    plt.plot(generations, mean_run, label='Mean', color='blue', linewidth=2, zorder=2)
+    plt.fill_between(generations, mean_run - std_run, mean_run + std_run, color='blue', alpha=0.2, label='Std Dev',
+                     zorder=2)
+
+    # Label the plot
+    plt.xlabel('Generations')
+    plt.ylabel('Normalized Cost')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
