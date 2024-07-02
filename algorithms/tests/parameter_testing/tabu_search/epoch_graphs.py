@@ -1,9 +1,15 @@
+import glob
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Load the dataset
-all_data = pd.read_csv('./tabu_search_epoch_data_20240628_203455.csv')
+# Define the file pattern for merging
+file_pattern = './tabu_search_epoch_data_chunk_*.csv'
+file_paths = glob.glob(file_pattern)
+
+# Load and concatenate all matching CSV files
+all_data = pd.concat([pd.read_csv(file_path) for file_path in file_paths])
 
 # Extract relevant columns
 parameters = all_data[['max_iterations', 'tabu_size', 'neighborhood_size']]
@@ -15,13 +21,15 @@ epoch_data_processed = epoch_data_raw.apply(lambda x: eval(x))
 # Add the processed epoch data to the DataFrame
 all_data['epoch_data_processed'] = epoch_data_processed
 
-# Define a function to normalize the epoch data
+import numpy as np
+
 def normalize_epoch_data(array):
     array = np.array(array)
-    min_val = np.min(array)
+    # Convert to positive if necessary
+    array = np.abs(array)
     max_val = np.max(array)
-    normalized_array = (array - min_val) / (max_val - min_val)
-    normalized_array = 1 - normalized_array
+    # Normalize the differences between 0 and 1 based on max value
+    normalized_array = array / max_val
     return normalized_array
 
 # Normalize the epoch data
@@ -48,15 +56,12 @@ for name, group in grouped:
 
     generations = np.arange(max_generations)
 
-    # Plot all individual runs with higher transparency and lighter color
     for individual_run in all_runs:
-        plt.plot(generations, individual_run, alpha=0.02, color='lightgrey', zorder=1)
+        plt.plot(generations, individual_run, alpha=0.2, color='lightgrey', zorder=1)
 
-    # Ensure the mean and std arrays are 1-dimensional and handle NaN values
     mean_run = np.nan_to_num(mean_run, nan=np.nan)
     std_run = np.nan_to_num(std_run, nan=np.nan)
 
-    # Plot the mean and standard deviation on top
     plt.plot(generations, mean_run, label='Mean', color='blue', linewidth=2, zorder=2)
     plt.fill_between(generations, mean_run - std_run, mean_run + std_run, color='blue', alpha=0.2, label='Std Dev', zorder=2)
 

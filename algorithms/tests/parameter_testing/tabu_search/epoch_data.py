@@ -150,9 +150,9 @@ def process_and_save_epoch_data(instance_names_chunk, chunk_number):
     X = data
 
     param_grid = {
-        'max_iterations': [50, 100, 200],
-        'tabu_size': [5, 10, 20],
-        'neighborhood_size': [5, 10, 20]
+        'max_iterations': [200, 300, 500],
+        'tabu_size': [5, 15, 30, ],
+        'neighborhood_size': [5, 10, 15, ]
     }
 
     param_combinations = list(
