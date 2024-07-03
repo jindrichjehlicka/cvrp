@@ -21,7 +21,6 @@ epoch_data_processed = epoch_data_raw.apply(lambda x: eval(x))
 # Add the processed epoch data to the DataFrame
 all_data['epoch_data_processed'] = epoch_data_processed
 
-import numpy as np
 
 def normalize_epoch_data(array):
     array = np.array(array)

@@ -138,8 +138,8 @@ def process_epoch_data_for_param_combo(X, max_iterations, tabu_size, neighborhoo
 def process_and_save_epoch_data(instance_names_chunk, chunk_number):
     data = []
     for instance_name in instance_names_chunk:
-        instance = vrplib.read_instance(f"../../../Vrp-Set-XML100/instances/{instance_name}.vrp")
-        solution = vrplib.read_solution(f"../../../Vrp-Set-XML100/solutions/{instance_name}.sol")
+        instance = vrplib.read_instance(f"../../Vrp-Set-XML100/instances/{instance_name}.vrp")
+        solution = vrplib.read_solution(f"../../Vrp-Set-XML100/solutions/{instance_name}.sol")
         optimal_cost = solution['cost']
         node_loc = instance['node_coord']
         depot_loc = node_loc[0]
@@ -183,7 +183,7 @@ def load_instance_names_from_file(filename):
 
 
 def main():
-    filename = "../../instance_names.txt"
+    filename = "../instance_names.txt"
     instance_names = load_instance_names_from_file(filename)
 
     Parallel(n_jobs=-1)(

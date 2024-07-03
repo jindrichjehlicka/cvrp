@@ -161,8 +161,8 @@ def main():
 
     data = []
     for instance_name in instances:
-        instance = vrplib.read_instance(f"../../../Vrp-Set-XML100/instances/{instance_name}.vrp")
-        solution = vrplib.read_solution(f"../../../Vrp-Set-XML100/solutions/{instance_name}.sol")
+        instance = vrplib.read_instance(f"../../Vrp-Set-XML100/instances/{instance_name}.vrp")
+        solution = vrplib.read_solution(f"../../Vrp-Set-XML100/solutions/{instance_name}.sol")
         optimal_cost = solution['cost']
         node_loc = instance['node_coord']
         depot_loc = node_loc[0]

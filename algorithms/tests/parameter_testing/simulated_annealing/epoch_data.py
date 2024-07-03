@@ -81,7 +81,8 @@ def get_neighbor(solution):
     return solution
 
 
-def simulated_annealing(max_iterations, initial_temperature, cooling_rate, node_loc, demand, capacity, optimal_cost, epsilon=1e-10):
+def simulated_annealing(max_iterations, initial_temperature, cooling_rate, node_loc, demand, capacity, optimal_cost,
+                        epsilon=1e-10):
     current_solution = generate_initial_solution(node_loc, demand, capacity)
     current_cost = calculate_total_distance(current_solution, node_loc)
     temperature = initial_temperature
@@ -119,8 +120,8 @@ def process_epoch_data_for_param_combo(X, max_iterations, initial_temperature, c
 def process_and_save_epoch_data(instance_names_chunk, chunk_number):
     data = []
     for instance_name in instance_names_chunk:
-        instance = vrplib.read_instance(f"../../../Vrp-Set-XML100/instances/{instance_name}.vrp")
-        solution = vrplib.read_solution(f"../../../Vrp-Set-XML100/solutions/{instance_name}.sol")
+        instance = vrplib.read_instance(f"../../Vrp-Set-XML100/instances/{instance_name}.vrp")
+        solution = vrplib.read_solution(f"../../Vrp-Set-XML100/solutions/{instance_name}.sol")
         optimal_cost = solution['cost']
         node_loc = instance['node_coord']
         depot_loc = node_loc[0]
@@ -131,7 +132,7 @@ def process_and_save_epoch_data(instance_names_chunk, chunk_number):
     X = data
 
     param_grid = {
-        'max_iterations': [500,1000,1500],
+        'max_iterations': [500, 1000, 1500],
         'initial_temperature': [500, 1000, 1500],
         'cooling_rate': [0.99, 0.97, 0.9]
     }
@@ -139,7 +140,8 @@ def process_and_save_epoch_data(instance_names_chunk, chunk_number):
     param_combinations = list(
         product(param_grid['max_iterations'], param_grid['initial_temperature'], param_grid['cooling_rate']))
     epoch_data_list = Parallel(n_jobs=-1)(
-        delayed(process_epoch_data_for_param_combo)(X, max_iter, init_temp, cool_rate) for max_iter, init_temp, cool_rate in
+        delayed(process_epoch_data_for_param_combo)(X, max_iter, init_temp, cool_rate) for
+        max_iter, init_temp, cool_rate in
         param_combinations
     )
 
@@ -164,7 +166,7 @@ def load_instance_names_from_file(filename):
 
 
 def main():
-    filename = "../../instance_names.txt"
+    filename = "../instance_names.txt"
     instance_names = load_instance_names_from_file(filename)
 
     Parallel(n_jobs=-1)(
