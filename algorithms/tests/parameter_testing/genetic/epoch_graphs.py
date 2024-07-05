@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import glob
+import os
 
 # Define the file pattern for merging
 file_pattern = './genetic_algorithm_epoch_data_chunk_*.csv'
@@ -24,11 +25,9 @@ all_data['epoch_data_processed'] = epoch_data_processed
 # Define a function to normalize the epoch data
 def normalize_epoch_data(array):
     array = np.array(array)
-    min_val = np.min(array)
+    array = np.abs(array)
     max_val = np.max(array)
-    normalized_array = (array - min_val) / (max_val - min_val)
-    # Invert the normalized values to go from 1 to 0
-    normalized_array = 1 - normalized_array
+    normalized_array = array / max_val
     return normalized_array
 
 
@@ -37,6 +36,10 @@ all_data['normalized_epoch_data'] = all_data['epoch_data_processed'].apply(norma
 
 # Group by parameters
 grouped = all_data.groupby(['population_size', 'generations', 'mutation_rate'])
+
+# Create the directory to save plots if it doesn't exist
+output_dir = 'graphs'
+os.makedirs(output_dir, exist_ok=True)
 
 # Generate plots for each group
 for name, group in grouped:
@@ -72,4 +75,10 @@ for name, group in grouped:
     plt.ylabel('Normalized Cost')
     plt.legend()
     plt.grid(True)
-    plt.show()
+
+    # Save the plot with a filename based on the parameters
+    plot_filename = f'Population_{name[0]}_Generations_{name[1]}_MutationRate_{name[2]}.png'
+    plt.savefig(os.path.join(output_dir, plot_filename))
+
+    # Close the plot to free up memory
+    plt.close()
