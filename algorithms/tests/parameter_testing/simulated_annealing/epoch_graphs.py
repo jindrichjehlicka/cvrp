@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import ast
+import os
 
 # Define the file pattern for merging
 file_pattern = './simulated_annealing_epoch_data_chunk_*.csv'
@@ -18,6 +19,7 @@ epoch_data_raw = all_data['epoch_data']
 epoch_data_processed = epoch_data_raw.apply(ast.literal_eval)
 all_data['epoch_data_processed'] = epoch_data_processed
 
+
 # Define a function to normalize the epoch data
 def normalize_epoch_data(array):
     array = np.array(array)
@@ -27,11 +29,15 @@ def normalize_epoch_data(array):
     normalized_array = array / max_val
     return normalized_array
 
+
 # Normalize the epoch data
 all_data['normalized_epoch_data'] = all_data['epoch_data_processed'].apply(normalize_epoch_data)
 
 # Group by parameters
 grouped = all_data.groupby(['max_iterations', 'initial_temperature', 'cooling_rate'])
+
+# Create directory for graphs if it doesn't exist
+os.makedirs('./graphs', exist_ok=True)
 
 # Generate plots for each group
 for name, group in grouped:
@@ -57,11 +63,16 @@ for name, group in grouped:
 
     # Plot the mean and standard deviation on top
     plt.plot(generations, mean_run, label='Mean', color='blue', linewidth=2, zorder=2)
-    plt.fill_between(generations, mean_run - std_run, mean_run + std_run, color='blue', alpha=0.2, label='Std Dev', zorder=2)
+    plt.fill_between(generations, mean_run - std_run, mean_run + std_run, color='blue', alpha=0.2, label='Std Dev',
+                     zorder=2)
 
     # Label the plot
     plt.xlabel('Iterations')
     plt.ylabel('Normalized Cost')
     plt.legend()
     plt.grid(True)
-    plt.show()
+
+    # Save the plot
+    param_str = f"max_iter_{name[0]}_init_temp_{name[1]}_cooling_rate_{name[2]}"
+    plt.savefig(f'./graphs/{param_str}.png')
+    plt.close()

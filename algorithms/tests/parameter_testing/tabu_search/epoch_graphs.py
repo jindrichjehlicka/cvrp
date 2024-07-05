@@ -1,8 +1,8 @@
 import glob
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 
 # Define the file pattern for merging
 file_pattern = './tabu_search_epoch_data_chunk_*.csv'
@@ -31,11 +31,15 @@ def normalize_epoch_data(array):
     normalized_array = array / max_val
     return normalized_array
 
+
 # Normalize the epoch data
 all_data['normalized_epoch_data'] = all_data['epoch_data_processed'].apply(normalize_epoch_data)
 
 # Group by parameters
 grouped = all_data.groupby(['max_iterations', 'tabu_size', 'neighborhood_size'])
+
+# Create directory for graphs if it doesn't exist
+os.makedirs('./graphs', exist_ok=True)
 
 # Generate plots for each group
 for name, group in grouped:
@@ -62,11 +66,16 @@ for name, group in grouped:
     std_run = np.nan_to_num(std_run, nan=np.nan)
 
     plt.plot(generations, mean_run, label='Mean', color='blue', linewidth=2, zorder=2)
-    plt.fill_between(generations, mean_run - std_run, mean_run + std_run, color='blue', alpha=0.2, label='Std Dev', zorder=2)
+    plt.fill_between(generations, mean_run - std_run, mean_run + std_run, color='blue', alpha=0.2, label='Std Dev',
+                     zorder=2)
 
     # Label the plot
     plt.xlabel('Iterations')
     plt.ylabel('Normalized Cost')
     plt.legend()
     plt.grid(True)
-    plt.show()
+
+    # Save the plot
+    param_str = f"max_iter_{name[0]}_tabu_size_{name[1]}_neighborhood_size_{name[2]}"
+    plt.savefig(f'./graphs/{param_str}.png')
+    plt.close()
