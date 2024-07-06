@@ -1,117 +1,101 @@
-\contentsline {section}{Introduction}{11}{section*.2}%
-\contentsline {subsection}{Hypotheses}{11}{section*.3}%
-\contentsline {subsection}{Research Questions}{11}{section*.4}%
-\contentsline {section}{Vehicle Routing Problem (VRP)}{12}{section*.5}%
-\contentsline {subsection}{Introduction to the Vehicle Routing Problem}{12}{section*.6}%
-\contentsline {subsubsection}{Historical Background and Significance}{12}{section*.7}%
-\contentsline {subsubsection}{Problem Definition}{12}{section*.8}%
-\contentsline {paragraph}{Objective:}{12}{section*.9}%
-\contentsline {paragraph}{Constraints:}{12}{section*.10}%
-\contentsline {paragraph}{Formulation:}{13}{section*.11}%
-\contentsline {paragraph}{Degree Constraints:}{13}{section*.12}%
-\contentsline {paragraph}{Capacity Constraints:}{13}{section*.13}%
-\contentsline {paragraph}{Subtour Elimination Constraints:}{14}{section*.14}%
-\contentsline {paragraph}{Depot Constraints:}{14}{section*.15}%
-\contentsline {paragraph}{Flow Conservation Constraints:}{14}{section*.16}%
-\contentsline {paragraph}{Applications:}{14}{section*.17}%
-\contentsline {paragraph}{Research and Development:}{14}{section*.18}%
-\contentsline {subsection}{Complexity and Relevance}{15}{section*.19}%
-\contentsline {subsection}{Variants and Extensions}{15}{section*.20}%
-\contentsline {paragraph}{Methodological Approaches}{16}{section*.21}%
-\contentsline {paragraph}{Exact Methods:}{16}{section*.22}%
-\contentsline {section}{Heuristic and Metaheuristic Methods}{16}{section*.23}%
-\contentsline {subsection}{Conclusion and Outlook}{17}{section*.24}%
-\contentsline {section}{Introduction to the Capacitated Vehicle Routing Problem}{18}{section*.25}%
-\contentsline {subsection}{Importance and Applications}{18}{section*.26}%
-\contentsline {subsection}{Detailed Problem Definition}{18}{section*.27}%
-\contentsline {subsection}{Key Constraints and Objectives}{18}{section*.28}%
-\contentsline {subsection}{Mathematical Formulation}{18}{section*.29}%
-\contentsline {subsection}{Overview of Solution Approaches}{19}{section*.30}%
-\contentsline {section}{Overview of Heuristic and Meta-heuristic Optimization Algorithms}{20}{section*.31}%
-\contentsline {subsection}{Common Types of Heuristic Algorithms}{20}{section*.32}%
-\contentsline {subsubsection}{Greedy Algorithms}{20}{section*.33}%
-\contentsline {paragraph}{Application Areas}{21}{section*.34}%
-\contentsline {paragraph}{Examples of Greedy Algorithms}{22}{section*.35}%
-\contentsline {paragraph}{Mathematical Formulation for Vehicle Routing Problems (VRP)}{23}{section*.36}%
-\contentsline {paragraph}{Conclusion}{23}{section*.37}%
-\contentsline {subsubsection}{Local Search Algorithms}{23}{section*.38}%
-\contentsline {subsubsection}{Metaheuristic Algorithms}{24}{section*.39}%
-\contentsline {subsection}{Methodology for Evaluating Algorithms}{27}{section*.40}%
-\contentsline {subsection}{Introduction to Algorithm Evaluation}{27}{section*.41}%
-\contentsline {paragraph}{Goals of Algorithm Evaluation}{27}{section*.42}%
-\contentsline {subsection}{Evaluation Criteria and Performance Metrics}{27}{section*.43}%
-\contentsline {subsubsection}{Evaluation Criteria}{27}{section*.44}%
-\contentsline {paragraph}{Time Complexity}{27}{section*.45}%
-\contentsline {paragraph}{Space Complexity}{28}{section*.46}%
-\contentsline {paragraph}{Robustness}{28}{section*.47}%
-\contentsline {paragraph}{Scalability}{28}{section*.48}%
-\contentsline {paragraph}{Flexibility}{28}{section*.49}%
-\contentsline {paragraph}{Computational Cost}{28}{section*.50}%
-\contentsline {paragraph}{Implementation Complexity}{28}{section*.51}%
-\contentsline {paragraph}{Interpretability}{28}{section*.52}%
-\contentsline {paragraph}{Reliability}{28}{section*.53}%
-\contentsline {subsubsection}{Performance Metrics}{29}{section*.54}%
-\contentsline {paragraph}{Accuracy}{29}{section*.55}%
-\contentsline {paragraph}{Precision and Recall}{29}{section*.56}%
-\contentsline {paragraph}{F1 Score}{29}{section*.57}%
-\contentsline {paragraph}{Runtime}{29}{section*.58}%
-\contentsline {paragraph}{Memory Usage}{29}{section*.59}%
-\contentsline {paragraph}{Convergence Rate}{29}{section*.60}%
-\contentsline {paragraph}{Solution Quality}{29}{section*.61}%
-\contentsline {paragraph}{Energy Consumption}{29}{section*.62}%
-\contentsline {subsection}{Result Analysis}{30}{section*.63}%
-\contentsline {subsubsection}{Data Visualization}{30}{section*.64}%
-\contentsline {paragraph}{Graphs and Charts}{30}{section*.65}%
-\contentsline {paragraph}{Heatmaps}{30}{section*.66}%
-\contentsline {paragraph}{Box Plots}{30}{section*.67}%
-\contentsline {subsubsection}{Statistical Analysis}{30}{section*.68}%
-\contentsline {paragraph}{Descriptive Statistics}{30}{section*.69}%
-\contentsline {paragraph}{Hypothesis Testing}{31}{section*.70}%
-\contentsline {paragraph}{Confidence Intervals}{31}{section*.71}%
-\contentsline {paragraph}{Effect Size}{31}{section*.72}%
-\contentsline {subsubsection}{Interpreting Results}{31}{section*.73}%
-\contentsline {subsection}{Limitations and Challenges}{31}{section*.74}%
-\contentsline {section}{Relevance of CVRP in Contemporary Logistics Applications}{33}{section*.75}%
-\contentsline {subsection}{Automation of Warehouse Operations}{34}{section*.76}%
-\contentsline {paragraph}{Automated Guided Vehicles (AGVs)}{34}{section*.77}%
-\contentsline {paragraph}{Warehouse Management Systems (WMS)}{34}{section*.78}%
-\contentsline {paragraph}{Robotic Picking Systems}{34}{section*.79}%
-\contentsline {paragraph}{Inventory Management}{34}{section*.80}%
-\contentsline {paragraph}{Fleet Management}{34}{section*.81}%
-\contentsline {section}{IoT Technologies in Logistics}{35}{section*.83}%
-\contentsline {section}{Unmanned Technologies and Autonomous Vehicles}{36}{section*.84}%
-\contentsline {section}{Challenges and Future Trends in Heuristic Optimization for Logistics}{37}{section*.85}%
-\contentsline {subsection}{Current Challenges}{37}{section*.86}%
-\contentsline {subsection}{Future Trends}{39}{section*.87}%
-\contentsline {section}{Simulated Annealing Parameter Testing}{42}{section*.88}%
-\contentsline {subsection}{Mean Closeness to Optimal}{42}{section*.89}%
-\contentsline {subsection}{Median Closeness to Optimal}{42}{section*.90}%
-\contentsline {subsection}{Mean Difference from Optimal}{43}{section*.91}%
-\contentsline {subsection}{Median Difference from Optimal}{43}{section*.92}%
-\contentsline {subsection}{Mean Execution Time}{44}{section*.93}%
-\contentsline {subsection}{Median Execution Time}{44}{section*.94}%
-\contentsline {section}{Genetic Algorithm Testing and Parameter Optimization}{46}{section*.95}%
-\contentsline {subsection}{Mean Closeness to Optimal by Parameters}{46}{section*.96}%
-\contentsline {subsection}{Mean Execution Time by Parameters}{47}{section*.97}%
-\contentsline {subsection}{Mean Difference by Parameters}{47}{section*.98}%
-\contentsline {subsection}{Median Closeness to Optimal by Parameters}{48}{section*.99}%
-\contentsline {subsection}{Median Execution Time by Parameters}{49}{section*.100}%
-\contentsline {subsection}{Median Difference by Parameters}{49}{section*.101}%
-\contentsline {subsection}{F-test Analysis}{50}{section*.102}%
-\contentsline {section}{Practical Analysis of Ant Colony Optimization Algorithm}{50}{section*.103}%
-\contentsline {subsection}{Experimental Setup}{50}{section*.104}%
-\contentsline {subsection}{Statistical Analysis}{50}{section*.105}%
-\contentsline {subsection}{Visualization of Results}{51}{section*.106}%
-\contentsline {subsection}{Conclusion}{54}{section*.107}%
-\contentsline {section}{Practical Analysis of Genetic Algorithm with Simulated Annealing Hybrid}{55}{section*.108}%
-\contentsline {subsection}{Experimental Setup}{55}{section*.109}%
-\contentsline {subsection}{Statistical Analysis}{55}{section*.110}%
-\contentsline {subsection}{Visualization of Results}{55}{section*.111}%
-\contentsline {subsection}{Conclusion}{58}{section*.112}%
-\contentsline {section}{Závěr}{59}{section*.113}%
-\contentsline {section}{Seznam použitých zdrojů}{60}{section*.114}%
-\contentsline {section}{Seznam obrázků (existují-li)}{61}{section*.115}%
-\contentsline {section}{Seznam grafů (existují-li)}{63}{section*.116}%
-\contentsline {section}{Seznam příloh (existují-li)}{64}{section*.117}%
-\contentsline {section}{Příloha A -- Název přílohy}{65}{section*.118}%
-\contentsline {section}{Příloha B -- Název přílohy}{66}{section*.119}%
+\contentsline {section}{Introduction}{10}{section*.2}%
+\contentsline {subsection}{Hypotheses}{10}{section*.3}%
+\contentsline {subsection}{Research Questions}{10}{section*.4}%
+\contentsline {section}{Vehicle Routing Problem (VRP)}{11}{section*.5}%
+\contentsline {subsection}{Introduction to the Vehicle Routing Problem}{11}{section*.6}%
+\contentsline {subsubsection}{Historical Background and Significance}{11}{section*.7}%
+\contentsline {subsubsection}{Problem Definition}{11}{section*.8}%
+\contentsline {paragraph}{Objective:}{11}{section*.9}%
+\contentsline {paragraph}{Constraints:}{11}{section*.10}%
+\contentsline {paragraph}{Formulation:}{12}{section*.11}%
+\contentsline {paragraph}{Degree Constraints:}{12}{section*.12}%
+\contentsline {paragraph}{Capacity Constraints:}{12}{section*.13}%
+\contentsline {paragraph}{Subtour Elimination Constraints:}{13}{section*.14}%
+\contentsline {paragraph}{Depot Constraints:}{13}{section*.15}%
+\contentsline {paragraph}{Flow Conservation Constraints:}{13}{section*.16}%
+\contentsline {paragraph}{Applications:}{13}{section*.17}%
+\contentsline {paragraph}{Research and Development:}{13}{section*.18}%
+\contentsline {subsection}{Complexity and Relevance}{14}{section*.19}%
+\contentsline {subsection}{Variants and Extensions}{14}{section*.20}%
+\contentsline {paragraph}{Methodological Approaches}{15}{section*.21}%
+\contentsline {paragraph}{Exact Methods:}{15}{section*.22}%
+\contentsline {section}{Heuristic and Metaheuristic Methods}{15}{section*.23}%
+\contentsline {subsection}{Conclusion and Outlook}{16}{section*.24}%
+\contentsline {section}{Introduction to the Capacitated Vehicle Routing Problem}{17}{section*.25}%
+\contentsline {subsection}{Importance and Applications}{17}{section*.26}%
+\contentsline {subsection}{Detailed Problem Definition}{17}{section*.27}%
+\contentsline {subsection}{Key Constraints and Objectives}{17}{section*.28}%
+\contentsline {subsection}{Mathematical Formulation}{17}{section*.29}%
+\contentsline {subsection}{Overview of Solution Approaches}{18}{section*.30}%
+\contentsline {section}{Overview of Heuristic and Meta-heuristic Optimization Algorithms}{19}{section*.31}%
+\contentsline {subsection}{Common Types of Heuristic Algorithms}{19}{section*.32}%
+\contentsline {subsubsection}{Greedy Algorithms}{19}{section*.33}%
+\contentsline {paragraph}{Application Areas}{20}{section*.34}%
+\contentsline {paragraph}{Examples of Greedy Algorithms}{21}{section*.35}%
+\contentsline {paragraph}{Mathematical Formulation for Vehicle Routing Problems (VRP)}{22}{section*.36}%
+\contentsline {paragraph}{Conclusion}{22}{section*.37}%
+\contentsline {subsubsection}{Local Search Algorithms}{22}{section*.38}%
+\contentsline {subsubsection}{Metaheuristic Algorithms}{23}{section*.39}%
+\contentsline {subsection}{Methodology for Evaluating Algorithms}{26}{section*.40}%
+\contentsline {subsection}{Introduction to Algorithm Evaluation}{26}{section*.41}%
+\contentsline {paragraph}{Goals of Algorithm Evaluation}{26}{section*.42}%
+\contentsline {subsection}{Evaluation Criteria and Performance Metrics}{26}{section*.43}%
+\contentsline {subsubsection}{Evaluation Criteria}{26}{section*.44}%
+\contentsline {paragraph}{Time Complexity}{26}{section*.45}%
+\contentsline {paragraph}{Space Complexity}{27}{section*.46}%
+\contentsline {paragraph}{Robustness}{27}{section*.47}%
+\contentsline {paragraph}{Scalability}{27}{section*.48}%
+\contentsline {paragraph}{Flexibility}{27}{section*.49}%
+\contentsline {paragraph}{Computational Cost}{27}{section*.50}%
+\contentsline {paragraph}{Implementation Complexity}{27}{section*.51}%
+\contentsline {paragraph}{Interpretability}{27}{section*.52}%
+\contentsline {paragraph}{Reliability}{27}{section*.53}%
+\contentsline {subsubsection}{Performance Metrics}{28}{section*.54}%
+\contentsline {paragraph}{Accuracy}{28}{section*.55}%
+\contentsline {paragraph}{Precision and Recall}{28}{section*.56}%
+\contentsline {paragraph}{F1 Score}{28}{section*.57}%
+\contentsline {paragraph}{Runtime}{28}{section*.58}%
+\contentsline {paragraph}{Memory Usage}{28}{section*.59}%
+\contentsline {paragraph}{Convergence Rate}{28}{section*.60}%
+\contentsline {paragraph}{Solution Quality}{28}{section*.61}%
+\contentsline {paragraph}{Energy Consumption}{28}{section*.62}%
+\contentsline {subsection}{Result Analysis}{29}{section*.63}%
+\contentsline {subsubsection}{Data Visualization}{29}{section*.64}%
+\contentsline {paragraph}{Graphs and Charts}{29}{section*.65}%
+\contentsline {paragraph}{Heatmaps}{29}{section*.66}%
+\contentsline {paragraph}{Box Plots}{29}{section*.67}%
+\contentsline {subsubsection}{Statistical Analysis}{29}{section*.68}%
+\contentsline {paragraph}{Descriptive Statistics}{29}{section*.69}%
+\contentsline {paragraph}{Hypothesis Testing}{30}{section*.70}%
+\contentsline {paragraph}{Confidence Intervals}{30}{section*.71}%
+\contentsline {paragraph}{Effect Size}{30}{section*.72}%
+\contentsline {subsubsection}{Interpreting Results}{30}{section*.73}%
+\contentsline {subsection}{Limitations and Challenges}{30}{section*.74}%
+\contentsline {section}{Relevance of CVRP in Contemporary Logistics Applications}{32}{section*.75}%
+\contentsline {subsection}{Automation of Warehouse Operations}{33}{section*.76}%
+\contentsline {paragraph}{Automated Guided Vehicles (AGVs)}{33}{section*.77}%
+\contentsline {paragraph}{Warehouse Management Systems (WMS)}{33}{section*.78}%
+\contentsline {paragraph}{Robotic Picking Systems}{33}{section*.79}%
+\contentsline {paragraph}{Inventory Management}{33}{section*.80}%
+\contentsline {paragraph}{Fleet Management}{33}{section*.81}%
+\contentsline {section}{IoT Technologies in Logistics}{34}{section*.83}%
+\contentsline {section}{Unmanned Technologies and Autonomous Vehicles}{35}{section*.84}%
+\contentsline {section}{Challenges and Future Trends in Heuristic Optimization for Logistics}{36}{section*.85}%
+\contentsline {subsection}{Current Challenges}{36}{section*.86}%
+\contentsline {subsection}{Future Trends}{38}{section*.87}%
+\contentsline {section}{Parameter Testing of Heuristic and Metaheuristic Algorithms}{41}{section*.88}%
+\contentsline {subsection}{Introduction}{41}{section*.89}%
+\contentsline {subsection}{Methodology}{41}{section*.90}%
+\contentsline {subsubsection}{Experimental Setup}{41}{section*.91}%
+\contentsline {subsubsection}{Convergence Plots and Data Collection}{42}{section*.92}%
+\contentsline {subsubsection}{Evaluation Metrics}{42}{section*.93}%
+\contentsline {subsubsection}{Statistical Analysis}{43}{section*.94}%
+\contentsline {subsection}{Genetic Algorithm Parameter Testing}{44}{section*.95}%
+\contentsline {subsubsection}{Results and Analysis}{44}{section*.96}%
+\contentsline {subsection}{Performance Metrics Overview}{51}{section*.97}%
+\contentsline {subsubsection}{Impact of Number of Generations}{54}{section*.98}%
+\contentsline {subsubsection}{Impact of Mutation Rate}{54}{section*.99}%
+\contentsline {subsubsection}{ANOVA Results}{55}{section*.100}%
+\contentsline {section}{Závěr}{57}{section*.101}%
+\contentsline {section}{Seznam použitých zdrojů}{58}{section*.102}%
+\contentsline {section}{Appendix 1: Genetic Algorithm Convergence Plots}{59}{section*.103}%

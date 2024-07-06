@@ -975,304 +975,364 @@
 %    kapitoly)}\label{praktickuxe1-ux10duxe1stempirickuxe1-ux10duxe1stvlastnuxed-pruxe1ce-nenuxed-nuxe1zev-kapitoly}}
 
 
-    \section{Simulated Annealing Parameter Testing}\label{sec:simulated-annealing-parameter-testing}
+    \section{Parameter Testing of Heuristic and Metaheuristic Algorithms}\label{sec:parameter-testing-of-heuristic-and-metaheuristic-algorithms}
 
-    In this chapter, we will discuss the parameter testing of the Simulated Annealing algorithm. The following figures present the results of our tests.
+    \subsection{Introduction}\label{subsec:introduction2}
 
-    \subsection{Mean Closeness to Optimal}\label{subsec:mean-closeness-to-optimal}
+    In this chapter, the focus is a parameter testing of various heuristic and metaheuristic algorithms employed to solve optimization problems. The primary aim of this chapter is to analyze the impact of different parameter settings on the performance of these algorithms. The algorithms tested include Simulated Annealing, Genetic Algorithm, Tabu Search, and a hybrid approach combining Genetic Algorithm with Simulated Annealing. Each of these algorithms possesses distinct parameters that influence their efficiency and effectiveness in finding optimal solutions.
 
-    The figure below shows the mean closeness to the optimal solution for different parameter settings.
+    The importance of parameter testing cannot be denied, as the choice of parameters can significantly affect the convergence behavior, solution quality, and computational efficiency of the algorithms. By systematically varying the parameters and evaluating the resulting performance, we aim to identify the optimal configurations that yield the best results for the given problem instances.
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{simulated_annealing/mean_closeness_to_optimal.png}
-        \caption{Mean Closeness to Optimal by Parameters}
-        \label{fig:mean_closeness}
-    \end{figure}
+    It is essential to note that this chapter exclusively tests algorithms with tunable parameters. As such, we do not include Greedy algorithms and Nearest Neighbor algorithms in this analysis, as they lack specific parameters that can be adjusted and optimized. These simpler algorithms, although valuable in certain contexts, do not benefit from the parameter tuning process that is the focus of this chapter.
 
-    \subsection{Median Closeness to Optimal}\label{subsec:median-closeness-to-optimal}
+    The following sections will provide a detailed methodology for the experiments conducted, including the evaluation metrics used, and present the results of the parameter testing for each algorithm. Through rigorous statistical analysis and comprehensive data visualization, we will draw meaningful conclusions regarding the optimal parameter settings for each algorithm tested.
 
-    The figure below shows the median closeness to the optimal solution for different parameter settings.
+    Each section will present the parameters tested, the experimental setup, the results obtained, and a thorough analysis of these results. The primary goal is to provide a clear understanding of how different parameter settings impact the performance of each algorithm, helping future applications and research in the field of optimization.
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{simulated_annealing/median_closeness_to_optimal.png}
-        \caption{Median Closeness to Optimal by Parameters}
-        \label{fig:median_closeness}
-    \end{figure}
+    \noindent Let us begin with the detailed methodology used for the parameter testing of these algorithms.
 
-    \subsection{Mean Difference from Optimal}\label{subsec:mean-difference-from-optimal}
+    \subsection{Methodology}
 
-    The figure below shows the mean difference from the optimal solution for different parameter settings.
+    \subsubsection{Experimental Setup}
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{simulated_annealing/mean_difference.png}
-        \caption{Mean Difference from Optimal by Parameters}
-        \label{fig:mean_difference}
-    \end{figure}
+    The experimental setup for this study involves systematically testing various parameter settings for the algorithms under consideration: Simulated Annealing (SA), Genetic Algorithm (GA), Tabu Search (TS), and a Hybrid Genetic Algorithm (HGA). The parameter selection process utilizes a grid search method, which exhaustively evaluates a predefined set of parameter combinations to identify the optimal configurations.
 
-    \subsection{Median Difference from Optimal}\label{subsec:median-difference-from-optimal}
+    Due to hardware limitations, only 100 datasets/instances were used for the experiments. This number was chosen to balance the need for statistical validity with the available computational resources. Each dataset represents a unique problem instance, ensuring a comprehensive evaluation of the algorithms across diverse scenarios. To ensure the robustness of the results, each instance was run 20 times, allowing for a thorough analysis of the variability and consistency in the algorithms' performance.
 
-    The figure below shows the median difference from the optimal solution for different parameter settings.
+    \subsubsection{Convergence Plots and Data Collection}
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{simulated_annealing/median_difference.png}
-        \caption{Median Difference from Optimal by Parameters}
-        \label{fig:median_difference}
-    \end{figure}
+    Convergence plots were generated to visualize the performance of each algorithm over iterations. These plots help in understanding the behavior of the algorithms with different parameter settings and their ability to find optimal solutions. The specific data collected during the experiments includes the following metrics for each parameter setting:
 
-    \subsection{Mean Execution Time}\label{subsec:mean-execution-time}
+    \begin{itemize}
+        \item Mean fit time and standard deviation (\textit{mean\_fit\_time}, \textit{std\_fit\_time})
+        \item Mean score time and standard deviation (\textit{mean\_score\_time}, \textit{std\_score\_time})
+        \item Parameter values tested (e.g., \textit{param\_cooling\_rate}, \textit{param\_generations})
+        \item Test scores for each split (\textit{split0\_test\_score}, \textit{split1\_test\_score}, \textit{split2\_test\_score})
+        \item Mean test score and standard deviation (\textit{mean\_test\_score}, \textit{std\_test\_score})
+        \item Rank of the test score (\textit{rank\_test\_score})
+        \item Detailed epoch data for selected configurations to analyze convergence behavior over iterations (\textit{epoch\_data})
+    \end{itemize}
 
-    The figure below shows the mean execution time for different parameter settings.
+    These metrics provide a detailed view of the algorithm's performance, allowing for a thorough comparison and analysis of different parameter settings.
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{simulated_annealing/mean_execution_time.png}
-        \caption{Mean Execution Time by Parameters}
-        \label{fig:mean_execution_time}
-    \end{figure}
+    \subsubsection{Evaluation Metrics}
 
-    \subsection{Median Execution Time}\label{subsec:median-execution-time}
+    To evaluate the performance of the algorithms, several metrics were used:
 
-    The figure below shows the median execution time for different parameter settings.
+    \begin{itemize}
+        \item \textbf{Mean and Standard Deviation of Test Scores}: These metrics provide insights into the central tendency and variability of the test scores across different datasets and parameter settings.
+        \item \textbf{Rank Test Score}: This metric ranks the performance of each parameter setting relative to others, helping to identify the best configurations.
+        \item \textbf{Execution Time}: The total time taken by each algorithm to converge to a solution, including both fit and score times, is measured to assess computational efficiency.
+    \end{itemize}
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{simulated_annealing/median_execution_time.png}
-        \caption{Median Execution Time by Parameters}
-        \label{fig:median_execution_time}
-    \end{figure}
+    \subsubsection{Statistical Analysis}
+
+    For a robust comparison of the algorithms and their parameter settings, the following statistical tests were performed:
+
+    \begin{itemize}
+        \item \textbf{Analysis of Variance (ANOVA)}: ANOVA was used to determine whether there are statistically significant differences between the mean test scores of different parameter settings. This test helps in understanding the impact of each parameter on the algorithm's performance.
+        \item \textbf{t-test}: Pairwise t-tests were conducted to compare the mean test scores between specific parameter settings. This test assesses whether the differences in performance between parameter settings are statistically significant.
+        \item \textbf{F-test}: The F-test was employed to compare the variances of test scores across different parameter settings. This test evaluates the consistency and reliability of the algorithms' performance with varying parameters.
+    \end{itemize}
+
+
+    The methodology outlined in this chapter ensures a systematic and thorough evaluation of the heuristic and metaheuristic algorithms under consideration. By testing various parameter settings and employing rigorous statistical analysis, we aim to identify the optimal configurations that yield the best performance for solving optimization problems. The following sections will present the results of the parameter testing and provide detailed analyses of the findings.
 
 
     \newpage
 
+    \subsection{Genetic Algorithm Parameter Testing}
+    The Genetic Algorithm (GA) parameter testing section focuses on a systematic evaluation of different configurations of the GA to find the most effective parameter settings. This part of the study aims to understand the impact of various combinations of population size, number of generations, and mutation rates on the GA's performance and convergence behavior.
 
-    \section{Genetic Algorithm Testing and Parameter Optimization}\label{sec:genetic-algorithm-testing-and-parameter-optimization}
+    Through detailed experiments and thorough analysis, this section showcases key results and insights from testing multiple parameter settings. The convergence plots provide a visual representation of the algorithm's performance across iterations, highlighting trends and variations in solution quality and consistency.
 
-    In this section, we present the results of testing various parameter configurations for the Genetic Algorithm (GA) used to solve the Capacitated Vehicle Routing Problem (CVRP). Each dataset was run 20 times with different combinations of population size and generations to ensure robust results. The following metrics were analyzed: mean and median closeness to the optimal solution, mean and median execution time, and mean and median difference from the optimal cost.
+    Here, we present some important results and convergence plots, while additional detailed plots are included in Appendix 1. This comprehensive analysis helps identify the best GA configurations, improving the algorithm's efficiency and effectiveness in solving complex optimization problems.
 
-    \subsection{Mean Closeness to Optimal by Parameters}\label{subsec:mean-closeness-to-optimal-by-parameters}
+    \subsubsection{Results and Analysis}
+
+    Below are some of the key results from the parameter testing of the Genetic Algorithm:
+
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.8\textwidth]{genetic_algorithm/mean_closeness_to_optimal.png}
-        \caption{Mean Closeness to Optimal by Parameters}
-        \label{fig:mean_closeness_to_optimal_ga}
+        \includegraphics[width=\textwidth]{genetic_algorithm/Population_50_Generations_25_MutationRate_0.01}
+        \caption{Convergence plot for Population: 50, Generations: 25, Mutation Rate: 0.01}
+        \label{fig:ga_50_25_01}
     \end{figure}
 
-    The mean closeness to optimal percentage indicates how close, on average, the GA solutions were to the optimal cost across different parameter settings. A lower percentage suggests better performance, with the algorithm generating solutions closer to the optimal. It is observed that configurations with a higher population size and more generations tend to yield results closer to the optimal solution.
+    \textbf{Description}: The graph above shows the convergence behavior for a population size of 50, 25 generations, and a mutation rate of 0.01.
 
-    \subsection{Mean Execution Time by Parameters}\label{subsec:mean-execution-time-by-parameters}
+    \textbf{Observation}: The convergence plot shows a steady decrease in the normalized cost over 25 generations. The mean normalized cost starts around 0.8 and decreases to approximately 0.3 by the 25th generation. The standard deviation also reduces, indicating that the algorithm's performance becomes more consistent over time.
+
+    \textbf{Analysis}: The gradual decline in the mean normalized cost indicates that the Genetic Algorithm is effectively optimizing the solution with each generation. The decrease in standard deviation suggests that the algorithm converges towards a stable solution, reducing variability in performance. The low mutation rate of 0.01 appears to provide sufficient exploration of the solution space while maintaining stability in the optimization process.
+
+    \textbf{Conclusion}: For a population size of 50 and 25 generations, a mutation rate of 0.01 enables the Genetic Algorithm to consistently find lower-cost solutions while reducing variability over iterations. This parameter setting is effective for achieving stable and reliable optimization results within the given constraints. Further analysis with different mutation rates and longer generations could provide additional insights into the optimal settings for more complex scenarios.
+
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.8\textwidth]{genetic_algorithm/mean_execution_time.png}
-        \caption{Mean Execution Time by Parameters}
-        \label{fig:mean_execution_time_ga}
+        \includegraphics[width=\textwidth]{genetic_algorithm/Population_50_Generations_50_MutationRate_0.05}
+        \caption{Convergence plot for Population: 50, Generations: 50, Mutation Rate: 0.05}
+        \label{fig:ga_50_50_05}
     \end{figure}
 
-    The mean execution time reflects the average computational time taken by the GA to reach a solution. As expected, configurations with higher population sizes and more generations require significantly more computational time. This trade-off between execution time and solution quality is critical for practical applications where time efficiency is crucial.
+    \textbf{Description}: The graph above shows the convergence behavior for a population size of 50, 50 generations, and a mutation rate of 0.05.
 
-    \subsection{Mean Difference by Parameters}\label{subsec:mean-difference-by-parameters}
+    \textbf{Observation}: The convergence plot shows a sharp decline in the normalized cost within the first 10 generations, from about 0.9 to approximately 0.4. After this initial rapid decrease, the mean normalized cost continues to decrease more gradually, reaching around 0.3 by the 50th generation. The standard deviation initially decreases significantly, indicating increased consistency, but begins to rise slightly after 30 generations.
+
+    \textbf{Analysis}: The sharp initial decline suggests that the Genetic Algorithm quickly identifies high-quality solutions in the early generations. The slower decrease in normalized cost in later generations indicates diminishing returns as the algorithm fine-tunes the solutions. The slight increase in standard deviation after 30 generations could be due to the mutation rate introducing more variability, potentially helping to escape local optima but also increasing the inconsistency of solutions.
+
+    \textbf{Conclusion}: For a population size of 50 and 50 generations, a mutation rate of 0.05 provides a good balance between exploration and exploitation. The algorithm quickly converges to high-quality solutions, with some variability introduced in later generations to avoid local optima. This parameter setting appears effective for maintaining a steady improvement in solutions, though the slight increase in variability suggests a need for careful tuning of the mutation rate or additional generations to stabilize the results further.
+
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.8\textwidth]{genetic_algorithm/mean_difference.png}
-        \caption{Mean Difference by Parameters}
-        \label{fig:mean_difference_ga}
+        \includegraphics[width=\textwidth]{genetic_algorithm/Population_50_Generations_100_MutationRate_0.1}
+        \caption{Convergence plot for Population: 50, Generations: 100, Mutation Rate: 0.1}
+        \label{fig:ga_50_100_1}
     \end{figure}
 
-    The mean difference metric measures the average deviation of the GA's solutions from the optimal cost. A smaller difference indicates better performance. It is observed that configurations with a larger population size and more generations tend to have a smaller mean difference, indicating better convergence towards the optimal solution.
+    \textbf{Description}: The graph above shows the convergence behavior for a population size of 50, 100 generations, and a mutation rate of 0.1.
 
-    \subsection{Median Closeness to Optimal by Parameters}\label{subsec:median-closeness-to-optimal-by-parameters}
+    \textbf{Observation}: The convergence plot shows a rapid decrease in the normalized cost during the initial 10 generations, from approximately 0.9 to around 0.3. After this sharp decline, the mean normalized cost gradually decreases and stabilizes around 0.2 to 0.3 for the remaining generations. The standard deviation initially decreases significantly, indicating more consistency in the solutions, but increases slightly after around 40 generations.
+
+    \textbf{Analysis}: The rapid initial decrease indicates that the Genetic Algorithm quickly identifies high-quality solutions early in the process. The mutation rate of 0.1, which is relatively high, facilitates significant exploration of the solution space, potentially preventing premature convergence to local optima. The slight increase in standard deviation after 40 generations suggests that the higher mutation rate introduces more variability, which might help in exploring new areas of the solution space but also results in less consistent solutions.
+
+    \textbf{Conclusion}: For a population size of 50 and 100 generations, a mutation rate of 0.1 leads to rapid convergence to lower-cost solutions initially, followed by a stable but slightly variable performance in later generations. This parameter setting allows for extensive exploration and helps in avoiding local optima, but it also introduces some variability in the solutions. Further fine-tuning of the mutation rate or extending the number of generations could potentially stabilize the performance even further.
+
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.8\textwidth]{genetic_algorithm/median_closeness_to_optimal.png}
-        \caption{Median Closeness to Optimal by Parameters}
-        \label{fig:median_closeness_to_optimal_ga}
+        \includegraphics[width=\textwidth]{genetic_algorithm/Population_100_Generations_25_MutationRate_0.1}
+        \caption{Convergence plot for Population: 100, Generations: 25, Mutation Rate: 0.1}
+        \label{fig:ga_100_25_1}
     \end{figure}
 
-    The median closeness to optimal percentage provides an additional perspective on the typical performance of the GA. Similar to the mean closeness, lower values indicate better performance. This metric is less affected by outliers, offering a robust measure of the algorithm's typical performance.
+    \textbf{Description}: The graph above shows the convergence behavior for a population size of 100, 25 generations, and a mutation rate of 0.1.
 
-    \subsection{Median Execution Time by Parameters}\label{subsec:median-execution-time-by-parameters}
+    \textbf{Observation}: The convergence plot shows a sharp decline in the normalized cost within the first 10 generations, from approximately 0.9 to about 0.4. Beyond the initial 10 generations, the mean normalized cost continues to decrease gradually, reaching around 0.25 by the 25th generation. The standard deviation decreases consistently, indicating increased consistency in the solutions as the algorithm progresses.
+
+    \textbf{Analysis}: The sharp initial decline suggests that the Genetic Algorithm quickly identifies high-quality solutions early in the optimization process. The high mutation rate of 0.1 allows for significant exploration of the solution space, aiding in the avoidance of local optima. The consistent decrease in standard deviation indicates that the algorithm becomes more stable over time, with solutions converging towards a lower cost with reduced variability.
+
+    \textbf{Conclusion}: For a population size of 100 and 25 generations, a mutation rate of 0.1 proves effective in rapidly reducing the normalized cost while maintaining stability in the solutions. This parameter setting supports extensive exploration and prevents premature convergence, making it suitable for diverse and complex optimization problems. Further increasing the number of generations could potentially yield even better solutions, given the continued gradual decline in normalized cost.
+
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.8\textwidth]{genetic_algorithm/median_execution_time.png}
-        \caption{Median Execution Time by Parameters}
-        \label{fig:median_execution_time_ga}
+        \includegraphics[width=\textwidth]{genetic_algorithm/Population_100_Generations_50_MutationRate_0.01}
+        \caption{Convergence plot for Population: 100, Generations: 50, Mutation Rate: 0.01}
+        \label{fig:ga_100_50_01}
     \end{figure}
 
-    The median execution time offers a robust measure of the typical computational time required by the GA. This metric is particularly useful in understanding the typical time performance, unaffected by extreme values or outliers.
+    \textbf{Description}: The graph above shows the convergence behavior for a population size of 100, 50 generations, and a mutation rate of 0.01.
 
-    \subsection{Median Difference by Parameters}\label{subsec:median-difference-by-parameters}
+    \textbf{Observation}: The convergence plot shows a rapid decrease in the normalized cost within the first 10 generations, from approximately 0.9 to around 0.4. After this sharp initial decline, the mean normalized cost continues to decrease more gradually, reaching about 0.3 by the 50th generation. The standard deviation also decreases significantly initially, but then starts to increase slightly after around 30 generations.
+
+    \textbf{Analysis}: The rapid initial decline suggests that the Genetic Algorithm quickly identifies high-quality solutions in the early generations. The low mutation rate of 0.01 helps in maintaining stability and prevents large deviations in the solution space, which is reflected in the initial reduction of standard deviation. However, the slight increase in standard deviation after 30 generations indicates that while the algorithm continues to explore the solution space, it does so with more variability in the latter stages, possibly due to the lower mutation rate not providing enough diversity.
+
+    \textbf{Conclusion}: For a population size of 100 and 50 generations, a mutation rate of 0.01 ensures rapid convergence to lower-cost solutions while maintaining overall stability. The slight increase in variability in later generations suggests a need for potentially adjusting the mutation rate or extending the number of generations to achieve even more stable and optimal results. This parameter setting strikes a good balance between rapid convergence and maintaining solution consistency, suitable for moderately complex optimization problems.
+
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.8\textwidth]{genetic_algorithm/median_difference.png}
-        \caption{Median Difference by Parameters}
-        \label{fig:median_difference_ga}
+        \includegraphics[width=\textwidth]{genetic_algorithm/Population_100_Generations_100_MutationRate_0.05}
+        \caption{Convergence plot for Population: 100, Generations: 100, Mutation Rate: 0.05}
+        \label{fig:ga_100_100_05}
     \end{figure}
 
-    The median difference metric, similar to the mean difference, provides a robust measure of how close the GA solutions typically are to the optimal cost. It is evident that higher population sizes and more generations generally result in a smaller median difference, indicating better solution quality.
+    \textbf{Description}: The graph above shows the convergence behavior for a population size of 100, 100 generations, and a mutation rate of 0.05.
 
-    \subsection{F-test Analysis}\label{subsec:f-test-analysis}
-    F-tests were conducted to determine if there are significant differences in the means of the different parameter configurations. The results are as follows:
+    \textbf{Observation}: The convergence plot shows a rapid decrease in the normalized cost within the first 10 generations, from approximately 0.9 to around 0.3. Following this sharp decline, the mean normalized cost decreases more gradually and stabilizes around 0.2 for the remaining generations. The standard deviation initially decreases significantly, indicating increased consistency, but then begins to increase slightly after about 30 generations.
+
+    \textbf{Analysis}: The rapid initial decline suggests that the Genetic Algorithm is efficient in finding high-quality solutions early in the optimization process. The mutation rate of 0.05 provides a balance between exploration and exploitation, allowing the algorithm to explore new solutions while maintaining a degree of stability. The increase in standard deviation after 30 generations indicates that while the algorithm continues to explore the solution space, it introduces some variability, potentially helping to escape local optima but also increasing inconsistency.
+
+    \textbf{Conclusion}: For a population size of 100 and 100 generations, a mutation rate of 0.05 leads to rapid convergence to lower-cost solutions initially, followed by a stable performance with slight variability in later generations. This parameter setting is effective for extensive exploration and helps in avoiding local optima, though the slight increase in variability suggests a need for careful tuning of the mutation rate or further increasing the number of generations to stabilize results. Overall, this configuration is suitable for achieving robust optimization results in complex scenarios.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{genetic_algorithm/Population_150_Generations_25_MutationRate_0.05}
+        \caption{Convergence plot for Population: 150, Generations: 25, Mutation Rate: 0.05}
+        \label{fig:ga_150_25_05}
+    \end{figure}
+
+    \textbf{Description}: The graph above shows the convergence behavior for a population size of 150, 25 generations, and a mutation rate of 0.05.
+
+    \textbf{Observation}: The convergence plot shows a consistent decline in the normalized cost from approximately 0.9 to around 0.3 over 25 generations. The mean normalized cost decreases steadily without significant fluctuations. The standard deviation also decreases initially, indicating improved consistency, but remains relatively stable towards the later generations.
+
+    \textbf{Analysis}: The steady decline in the normalized cost suggests that the Genetic Algorithm is effectively optimizing the solutions throughout the 25 generations. The mutation rate of 0.05 provides a balance between exploration and exploitation, facilitating the search for optimal solutions while maintaining stability. The relatively stable standard deviation in later generations indicates that the algorithm converges to a consistent set of solutions.
+
+    \textbf{Conclusion}: For a population size of 150 and 25 generations, a mutation rate of 0.05 allows the Genetic Algorithm to steadily and effectively reduce the normalized cost, achieving consistent optimization results. This parameter setting strikes a good balance between exploration and stability, making it suitable for efficiently solving optimization problems with moderate complexity. Further experiments with increased generations or slight adjustments in the mutation rate could potentially enhance the convergence behavior and reduce the normalized cost further.
+
+    \subsection{Performance Metrics Overview}
+
+    The table below summarizes the mean and standard deviation of fit and score times, as well as the test scores for various parameter settings of the Genetic Algorithm:
+
+    \begin{table}[H]
+        \centering
+        \resizebox{\textwidth}{!}{%
+            \begin{tabular}{|c|c|c|c|c|}
+                \hline
+                \textbf{Parameter Setting} & \textbf{Mean Fit Time} & \textbf{Std Fit Time} & \textbf{Mean Score Time} & \textbf{Std Score Time} \\
+                \hline
+                25, 0.01, 50               & 27.54                  & 1.84                  & 0.00043                  & 0.000073                \\
+                25, 0.01, 100              & 51.99                  & 3.39                  & 0.00035                  & 0.00001                 \\
+                25, 0.01, 150              & 77.16                  & 5.79                  & 0.00034                  & 0.000007                \\
+                25, 0.05, 50               & 26.57                  & 2.20                  & 0.00083                  & 0.00072                 \\
+                25, 0.05, 100              & 51.07                  & 4.52                  & 0.00046                  & 0.00020                 \\
+                25, 0.05, 150              & 75.53                  & 6.96                  & 0.00033                  & 0.00003                 \\
+                25, 0.1, 50                & 27.11                  & 2.63                  & 0.00053                  & 0.00034                 \\
+                25, 0.1, 100               & 51.49                  & 5.01                  & 0.00034                  & 0.00005                 \\
+                25, 0.1, 150               & 76.35                  & 8.17                  & 0.00049                  & 0.00013                 \\
+                50, 0.01, 50               & 48.77                  & 4.93                  & 0.00033                  & 0.00002                 \\
+                50, 0.01, 100              & 93.30                  & 9.38                  & 0.00049                  & 0.00014                 \\
+                50, 0.01, 150              & 137.27                 & 14.27                 & 0.00060                  & 0.00002                 \\
+                50, 0.05, 50               & 47.13                  & 4.77                  & 0.00061                  & 0.00003                 \\
+                50, 0.05, 100              & 90.20                  & 10.31                 & 0.00047                  & 0.00009                 \\
+                50, 0.05, 150              & 217.77                 & 16.05                 & 0.00094                  & 0.00066                 \\
+                50, 0.1, 50                & 46.80                  & 5.64                  & 0.00051                  & 0.00011                 \\
+                50, 0.1, 100               & 175.95                 & 10.63                 & 0.00055                  & 0.00007                 \\
+                50, 0.1, 150               & 220.26                 & 16.50                 & 0.00050                  & 0.00012                 \\
+                100, 0.01, 50              & 115.64                 & 30.54                 & 0.00062                  & 0.00001                 \\
+                100, 0.01, 100             & 169.27                 & 19.03                 & 0.00058                  & 0.00002                 \\
+                100, 0.01, 150             & 248.61                 & 28.64                 & 0.00060                  & 0.00002                 \\
+                100, 0.05, 50              & 85.50                  & 10.40                 & 0.00097                  & 0.00052                 \\
+                100, 0.05, 100             & 167.42                 & 20.88                 & 0.00056                  & 0.00006                 \\
+                100, 0.05, 150             & 359.25                 & 184.31                & 0.00048                  & 0.00014                 \\
+                100, 0.1, 50               & 87.08                  & 10.78                 & 0.00052                  & 0.00011                 \\
+                100, 0.1, 100              & 393.11                 & 179.00                & 0.00042                  & 0.00016                 \\
+                100, 0.1, 150              & 716.29                 & 222.28                & 0.00053                  & 0.00017                 \\
+                \hline
+            \end{tabular}
+        }
+        \caption{Summary of Mean and Standard Deviation of Fit and Score Times for Various Parameter Settings of Genetic Algorithm}
+        \label{tab:ga_summary_fit_score_times}
+    \end{table}
+
+    The detailed metrics for each parameter setting provide a comprehensive view of the algorithm's performance, enabling a thorough comparison and analysis of different configurations. In the following subsections, we will delve into the results and analyze the impact of each parameter combination on the GA's effectiveness and efficiency.
+
+    \textbf{Mean and Standard Deviation of Test Scores}
+
+    To further evaluate the performance of the Genetic Algorithm, we examine the mean and standard deviation of test scores for each parameter setting. This analysis helps in understanding the central tendency and variability of the algorithm's performance across different datasets and parameter settings.
+
+    \begin{table}[H]
+        \centering
+        \resizebox{\textwidth}{!}{%
+            \begin{tabular}{|c|c|c|c|c|c|}
+                \hline
+                \textbf{Parameter Setting} & \textbf{Split0 Test Score} & \textbf{Split1 Test Score} & \textbf{Split2 Test Score} & \textbf{Mean Test Score} & \textbf{Std Test Score} \\
+                \hline
+                25, 0.01, 50               & -1.26                      & -6.26                      & -62.40                     & -23.31                   & 27.72                   \\
+                25, 0.01, 100              & -2.55                      & -3.57                      & -49.08                     & -18.40                   & 21.70                   \\
+                25, 0.01, 150              & -3.01                      & -2.49                      & -41.08                     & -15.53                   & 18.07                   \\
+                25, 0.05, 50               & -3.98                      & -0.91                      & -21.95                     & -8.95                    & 9.28                    \\
+                25, 0.05, 100              & -4.79                      & -0.35                      & -16.10                     & -7.08                    & 6.63                    \\
+                25, 0.05, 150              & -4.96                      & -0.16                      & -14.09                     & -6.40                    & 5.78                    \\
+                25, 0.1, 50                & -4.45                      & -0.14                      & -15.01                     & -6.53                    & 6.25                    \\
+                25, 0.1, 100               & -4.98                      & -0.04                      & -10.56                     & -5.19                    & 4.30                    \\
+                25, 0.1, 150               & -5.47                      & -0.00                      & -10.25                     & -5.24                    & 4.19                    \\
+                50, 0.01, 50               & -4.50                      & -0.06                      & -6.23                      & -3.60                    & 2.60                    \\
+                50, 0.01, 100              & -5.63                      & -0.47                      & -2.58                      & -2.90                    & 2.12                    \\
+                50, 0.01, 150              & -5.95                      & -1.00                      & -0.62                      & -2.53                    & 2.43                    \\
+                50, 0.05, 50               & -5.31                      & -0.95                      & -0.61                      & -2.29                    & 2.14                    \\
+                50, 0.05, 100              & -6.24                      & -1.83                      & -0.19                      & -2.75                    & 2.55                    \\
+                50, 0.05, 150              & -6.52                      & -1.84                      & -0.00                      & -2.79                    & 2.75                    \\
+                50, 0.1, 50                & -5.72                      & -0.96                      & -0.91                      & -2.53                    & 2.26                    \\
+                50, 0.1, 100               & -6.18                      & -1.59                      & -0.14                      & -2.64                    & 2.58                    \\
+                50, 0.1, 150               & -6.33                      & -2.23                      & -0.02                      & -2.86                    & 2.61                    \\
+                100, 0.01, 50              & -5.14                      & -0.83                      & -0.81                      & -2.26                    & 2.04                    \\
+                100, 0.01, 100             & -6.13                      & -1.49                      & -0.47                      & -2.70                    & 2.46                    \\
+                100, 0.01, 150             & -5.91                      & -1.81                      & -0.07                      & -2.59                    & 2.45                    \\
+                100, 0.05, 50              & -5.35                      & -1.25                      & -1.56                      & -2.72                    & 1.86                    \\
+                100, 0.05, 100             & -6.02                      & -1.82                      & -0.09                      & -2.64                    & 2.49                    \\
+                100, 0.05, 150             & -6.48                      & -1.98                      & -0.03                      & -2.83                    & 2.70                    \\
+                100, 0.1, 50               & -5.48                      & -1.33                      & -1.02                      & -2.61                    & 2.03                    \\
+                100, 0.1, 100              & -5.93                      & -1.54                      & -0.14                      & -2.54                    & 2.47                    \\
+                100, 0.1, 150              & -6.49                      & -2.37                      & -0.00                      & -2.95                    & 2.68                    \\
+                \hline
+            \end{tabular}
+        }
+        \caption{Summary of Test Scores for Various Parameter Settings of Genetic Algorithm}
+        \label{tab:ga_summary_test_scores}
+    \end{table}
+
+
+    The tables above provide a comprehensive summary of the Genetic Algorithm's performance across different parameter settings. The next section will delve into a detailed analysis of these results, exploring the impact of each parameter on the algorithm's effectiveness and efficiency.
+
+    \textbf{Impact of Population Size}
+
+    An analysis of the impact of population size on the Genetic Algorithm’s performance is crucial to understand how varying this parameter affects the convergence behavior and solution quality.
+
+    \textbf{Observation}: The data reveals that as the population size increases from 50 to 150, there is a corresponding increase in the mean fit time and standard deviation of fit time. This trend is consistent across all tested generations and mutation rates. Additionally, larger population sizes generally show a decrease in the mean test scores, indicating improved solution quality, although this comes with increased variability as evidenced by higher standard deviations.
+
+    \textbf{Analysis}: Increasing the population size allows the Genetic Algorithm to explore a broader solution space in each generation, enhancing the algorithm's ability to find optimal or near-optimal solutions. This extensive exploration is reflected in the lower mean test scores for larger populations. However, the increased standard deviation suggests that while the algorithm can find better solutions on average, the consistency of these solutions may decrease, possibly due to the greater diversity within the population leading to more variability in the results.
+
+    \textbf{Conclusion}: The population size significantly impacts the performance of the Genetic Algorithm. Larger populations improve the solution quality by enabling a more thorough exploration of the solution space, albeit at the cost of increased computational time and variability in the results. Therefore, selecting an appropriate population size is crucial for balancing solution quality and computational efficiency.
+
+    \subsubsection{Impact of Number of Generations}
+
+    Similarly, the number of generations plays a significant role in the Genetic Algorithm’s ability to find optimal solutions. Analyzing this parameter helps in identifying the optimal duration for the algorithm’s execution.
+
+    \textbf{Observation}: The data indicates that increasing the number of generations generally leads to a reduction in the mean test scores, implying better solution quality. However, this improvement comes with an increase in both the mean fit time and standard deviation of fit time, reflecting the longer computational time required for more generations. The standard deviation of test scores also tends to increase with more generations, indicating greater variability in the results.
+
+    \textbf{Analysis}: More generations allow the Genetic Algorithm to perform a more extended search, which improves the chances of finding high-quality solutions. This is evident from the lower mean test scores observed with higher numbers of generations. However, the increase in variability suggests that longer runs may sometimes lead to overfitting or getting stuck in local optima, resulting in inconsistent performance across different runs.
+
+    \textbf{Conclusion}: The number of generations is a critical parameter that influences the Genetic Algorithm's performance. While more generations can improve solution quality by allowing for more extensive searching, they also increase computational time and result variability. Thus, it is essential to find a balance between the number of generations and the desired solution quality to ensure efficient and consistent performance.
+
+    \subsubsection{Impact of Mutation Rate}
+
+    The mutation rate is another critical parameter that influences the Genetic Algorithm’s exploration and exploitation capabilities. Analyzing this parameter helps in balancing the algorithm’s search dynamics.
+
+    \textbf{Observation}: The data shows that different mutation rates significantly impact the mean test scores and their standard deviations. A lower mutation rate (0.01) generally results in lower mean test scores, indicating better solution quality, while higher mutation rates (0.05 and 0.1) tend to produce higher mean test scores and increased variability. Additionally, higher mutation rates are associated with higher standard deviations in both fit time and score time.
+
+    \textbf{Analysis}: A low mutation rate allows the Genetic Algorithm to refine solutions closely, resulting in lower mean test scores. However, it may also cause the algorithm to converge prematurely to local optima. On the other hand, a higher mutation rate increases the algorithm's ability to explore the solution space more broadly, which can prevent premature convergence but may also lead to less consistent results, as reflected by higher standard deviations in test scores and computational times.
+
+    \textbf{Conclusion}: The mutation rate is a crucial parameter that needs careful tuning to balance exploration and exploitation. A lower mutation rate favors exploitation, resulting in better solution quality but with a risk of premature convergence. In contrast, a higher mutation rate enhances exploration, which can prevent local optima but may result in increased variability and less consistent performance. Therefore, selecting an optimal mutation rate is essential to achieve a balance between search breadth and solution refinement.
+
+
+    \subsubsection{ANOVA Results}
+
+The following section presents the results of the ANOVA tests conducted to evaluate the impact of different parameter settings on the performance of the Genetic Algorithm.
+
+\textbf{ANOVA Results Summary}
+
+The ANOVA test results are summarized below for various parameter settings, including population size, number of generations, and mutation rate. The F-statistic and P-value indicate the significance of the differences in performance for each parameter setting.
+
+\begin{itemize}
+    \item \textbf{Population Size}
     \begin{itemize}
-        \item \textbf{F-test for Closeness to Optimal:} F-statistic = 141.7727433623794, p-value = 3.930721807167456e-232
-        \item \textbf{F-test for Execution Time:} F-statistic = 11.038216145823476, p-value = 1.1275732833088738e-15
+        \item \textbf{Population Size 50}: F-statistic = 5.273, P-value = 0.048
+        \item \textbf{Population Size 100}: F-statistic = 8.250, P-value = 0.019
+        \item \textbf{Population Size 150}: F-statistic = 11.254, P-value = 0.009
     \end{itemize}
-
-    The p-values obtained from the F-tests are significantly low, indicating that the differences in means for the different parameter configurations are statistically significant.
-
-
-    \section{Practical Analysis of Ant Colony Optimization Algorithm}\label{sec:practical-analysis-of-ant-colony-optimization-algorithm}
-
-    In this section, we analyze the performance of the Ant Colony Optimization (ACO) algorithm using various parameters. The algorithm was tested with different combinations of the number of ants and iterations. The key metrics evaluated include the closeness to optimal solution, execution time, and the difference between the total cost and the optimal cost. The following subsections present detailed analysis and visualizations of the results.
-
-    \subsection{Experimental Setup}\label{subsec:experimental-setup}
-    The ACO algorithm was tested on several instances, and the parameters used for the tests are as follows:
+    \item \textbf{Number of Generations}
     \begin{itemize}
-        \item Number of ants: 5, 10, 15
-        \item Iterations: 10, 20, 30
-        \item Decay rate: 0.01
+        \item \textbf{Generations 25}: F-statistic = 9.744, P-value = 0.013
+        \item \textbf{Generations 50}: F-statistic = 1.980, P-value = 0.219
+        \item \textbf{Generations 100}: F-statistic = 0.295, P-value = 0.754
     \end{itemize}
-    Each combination of parameters was run multiple times, and the results were aggregated for analysis.
-
-    \subsection{Statistical Analysis}\label{subsec:statistical-analysis}
-    The F-test was used to determine the statistical significance of the differences observed in the results based on the different parameter settings. The following F-test results were obtained:
+    \item \textbf{Mutation Rate}
     \begin{itemize}
-        \item F-test for Closeness to Optimal: F-statistic = 22.774, p-value = 4.9657e-107
-        \item F-test for Execution Time: F-statistic = 10.903, p-value = 7.7767e-45
+        \item \textbf{Mutation Rate 0.01}: F-statistic = 0.493, P-value = 0.634
+        \item \textbf{Mutation Rate 0.05}: F-statistic = 0.815, P-value = 0.486
+        \item \textbf{Mutation Rate 0.10}: F-statistic = 1.154, P-value = 0.377
     \end{itemize}
-    The results indicate significant differences in the performance metrics across different parameter settings, as evidenced by the very low p-values.
+\end{itemize}
 
-    \subsection{Visualization of Results}\label{subsec:visualization-of-results}
-    The performance metrics were visualized to better understand the impact of the parameters on the ACO algorithm's performance.
+\textbf{Interpretation of ANOVA Results}
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{./aco/aco_mean_closeness_to_optimal.png}
-        \caption{Mean Closeness to Optimal by Parameters}
-        \label{fig:aco_mean_closeness_to_optimal}
-    \end{figure}
-
-    Figure \ref{fig:aco_mean_closeness_to_optimal} shows the mean closeness to the optimal solution across different parameter settings. It can be observed that increasing the number of iterations generally improves the closeness to the optimal solution. However, the number of ants does not significantly affect this metric.
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{./aco/aco_mean_execution_time.png}
-        \caption{Mean Execution Time by Parameters}
-        \label{fig:aco_mean_execution_time}
-    \end{figure}
-
-    Figure \ref{fig:aco_mean_execution_time} depicts the mean execution time for the ACO algorithm. As expected, increasing the number of ants and iterations leads to higher execution times. The impact of the number of ants on execution time is more pronounced than the impact of iterations.
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{./aco/aco_mean_difference.png}
-        \caption{Mean Difference by Parameters}
-        \label{fig:aco_mean_difference}
-    \end{figure}
-
-    In Figure \ref{fig:aco_mean_difference}, the mean difference between the total cost and the optimal cost is presented. Similar to the closeness to optimal metric, increasing the number of iterations generally reduces the mean difference, indicating better performance. The number of ants has a lesser impact on this metric.
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{./aco/aco_median_closeness_to_optimal.png}
-        \caption{Median Closeness to Optimal by Parameters}
-        \label{fig:aco_median_closeness_to_optimal}
-    \end{figure}
-
-    Figure \ref{fig:aco_median_closeness_to_optimal} illustrates the median closeness to the optimal solution. The trends observed are similar to those seen in the mean closeness to optimal, reinforcing the previous observations.
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{./aco/aco_median_execution_time.png}
-        \caption{Median Execution Time by Parameters}
-        \label{fig:aco_median_execution_time}
-    \end{figure}
-
-    Figure \ref{fig:aco_median_execution_time} shows the median execution time, which follows similar trends to the mean execution time. This consistency indicates robustness in the execution time metrics across different runs.
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{./aco/aco_median_difference.png}
-        \caption{Median Difference by Parameters}
-        \label{fig:aco_median_difference}
-    \end{figure}
-
-    Lastly, Figure \ref{fig:aco_median_difference} presents the median difference between the total cost and the optimal cost. The median difference also decreases with increasing iterations, suggesting improved performance with more iterations.
-
-    \subsection{Conclusion}\label{subsec:conclusion}
-    The analysis demonstrates that the number of iterations significantly affects the performance of the ACO algorithm, with more iterations leading to better closeness to the optimal solution and lower differences from the optimal cost. The number of ants has a lesser, but still noticeable, impact on the execution time. These insights can guide the tuning of ACO parameters for improved performance in solving optimization problems.
-
-    \newpage
-
-
-    \section{Practical Analysis of Genetic Algorithm with Simulated Annealing Hybrid}\label{sec:practical-analysis-of-ga-sa-hybrid}
-
-    In this section, we analyze the performance of the Genetic Algorithm with Simulated Annealing Hybrid (GA-SA Hybrid) algorithm using various parameters. The algorithm was tested with different combinations of population size and cooling rates. The key metrics evaluated include the closeness to optimal solution, execution time, and the difference between the total cost and the optimal cost. The following subsections present detailed analysis and visualizations of the results.
-
-    \subsection{Experimental Setup}\label{subsec:ga-sa-experimental-setup}
-    The GA-SA Hybrid algorithm was tested on several instances, and the parameters used for the tests are as follows:
+\begin{itemize}
+    \item \textbf{Population Size:}
     \begin{itemize}
-        \item Population Size: 50, 100
-        \item Generations: 50
-        \item Max Iterations: 500
-        \item Cooling Rate: 0.95, 0.99
+        \item The results indicate significant differences in performance for different population sizes, especially for population sizes 100 and 150, with P-values less than 0.05. This suggests that the choice of population size has a substantial impact on the algorithm's performance.
     \end{itemize}
-    Each combination of parameters was run multiple times, and the results were aggregated for analysis.
-
-    \subsection{Statistical Analysis}\label{subsec:ga-sa-statistical-analysis}
-    The F-test was used to determine the statistical significance of the differences observed in the results based on the different parameter settings. The following F-test results were obtained:
+    \item \textbf{Number of Generations:}
     \begin{itemize}
-        \item F-test for Closeness to Optimal: F-statistic = 130.274, p-value = 0.0
-        \item F-test for Execution Time: F-statistic = 6.378, p-value = 9.0606e-14
+        \item The ANOVA results for the number of generations show significant differences only for 25 generations (P-value = 0.013). For 50 and 100 generations, the P-values are above 0.05, indicating that the differences in performance are not statistically significant for these settings.
     \end{itemize}
-    The results indicate significant differences in the performance metrics across different parameter settings, as evidenced by the very low p-values.
+    \item \textbf{Mutation Rate:}
+    \begin{itemize}
+        \item The mutation rate does not show significant differences in performance across the tested settings, with all P-values above 0.05. This suggests that within the tested range, the mutation rate may not be a critical factor affecting the algorithm's performance.
+    \end{itemize}
+\end{itemize}
 
-    \subsection{Visualization of Results}\label{subsec:ga-sa-visualization-of-results}
-    The performance metrics were visualized to better understand the impact of the parameters on the GA-SA Hybrid algorithm's performance.
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{./genetic_simulated_annealing/ga_sa_mean_closeness_to_optimal.png}
-        \caption{Mean Closeness to Optimal by Parameters}
-        \label{fig:ga_sa_mean_closeness_to_optimal}
-    \end{figure}
-
-    Figure \ref{fig:ga_sa_mean_closeness_to_optimal} shows the mean closeness to the optimal solution across different parameter settings. It can be observed that increasing the population size generally improves the closeness to the optimal solution. However, the cooling rate does not significantly affect this metric.
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{./genetic_simulated_annealing/ga_sa_mean_execution_time.png}
-        \caption{Mean Execution Time by Parameters}
-        \label{fig:ga_sa_mean_execution_time}
-    \end{figure}
-
-    Figure \ref{fig:ga_sa_mean_execution_time} depicts the mean execution time for the GA-SA Hybrid algorithm. As expected, increasing the population size and cooling rate leads to higher execution times. The impact of the population size on execution time is more pronounced than the impact of the cooling rate.
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{./genetic_simulated_annealing/ga_sa_median_closeness_to_optimal.png}
-        \caption{Median Closeness to Optimal by Parameters}
-        \label{fig:ga_sa_median_closeness_to_optimal}
-    \end{figure}
-
-    Figure \ref{fig:ga_sa_median_closeness_to_optimal} illustrates the median closeness to the optimal solution. The trends observed are similar to those seen in the mean closeness to optimal, reinforcing the previous observations.
-
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{./genetic_simulated_annealing/ga_sa_median_execution_time.png}
-        \caption{Median Execution Time by Parameters}
-        \label{fig:ga_sa_median_execution_time}
-    \end{figure}
-
-    Figure \ref{fig:ga_sa_median_execution_time} shows the median execution time, which follows similar trends to the mean execution time. This consistency indicates robustness in the execution time metrics across different runs.
-
-    \subsection{Conclusion}\label{subsec:ga-sa-conclusion}
-    The analysis demonstrates that the population size significantly affects the performance of the GA-SA Hybrid algorithm, with larger populations leading to better closeness to the optimal solution and lower differences from the optimal cost. The cooling rate has a lesser, but still noticeable, impact on the execution time.
+    The ANOVA results offer crucial insights into how different parameter settings influence the Genetic Algorithm's performance. Specifically, the findings underscore the necessity of carefully choosing the population size and number of generations to optimize the algorithm's effectiveness. Conversely, the mutation rate, within the tested range, appears to have a less pronounced effect on performance, suggesting that further research is needed to pinpoint its optimal value.
 
 
-    \newpage
+
 %\begin{quote}
 %    \emph{Autor/autorka uvedou vlastní název kapitoly vztahující se ke
 %    konkrétnímu tématu práce}
@@ -1319,45 +1379,138 @@
     \end{quote}
 
     \newpage
-    \hypertarget{seznam-obruxe1zkux16f-existujuxed-li}{%
-        \section{Seznam obrázků
-            (existují-li)}\label{seznam-obruxe1zkux16f-existujuxed-li}}
+    \appendix
 
-    \begin{quote}
-        Obrázek 1: Logo 11
 
-        Obrázek 2: Obrázek jednorožce 12
+    \section{Appendix 1: Genetic Algorithm Convergence Plots}
 
-        \newpage
-        \textbf{Seznam tabulek (existují-li)}
+    This appendix contains the convergence plots for the Genetic Algorithm with various parameter settings.
 
-        \protect\hyperlink{_bookmark9}{Tabulka 1: Statistika vět zachovaných a
-        vyřazených filtr. kritériem \emph{FK1} 12}
-    \end{quote}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_algorithm/appendix/Population_50_Generations_25_MutationRate_0.1.png}
+        \caption{Population: 50, Generations: 25, Mutation Rate: 0.1}
+        \label{fig:app_ga_50_25_1}
+    \end{figure}
 
-    \newpage
-    \hypertarget{seznam-grafux16f-existujuxed-li}{%
-        \section{Seznam grafů
-            (existují-li)}\label{seznam-grafux16f-existujuxed-li}}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_algorithm/appendix/Population_50_Generations_25_MutationRate_0.05}
+        \caption{Population: 50, Generations: 25, Mutation Rate: 0.05}
+        \label{fig:app_ga_50_25_05}
+    \end{figure}
 
-    \newpage
-    \hypertarget{seznam-pux159uxedloh-existujuxed-li}{%
-        \section{Seznam příloh
-            (existují-li)}\label{seznam-pux159uxedloh-existujuxed-li}}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_algorithm/appendix/Population_50_Generations_50_MutationRate_0.1}
+        \caption{Population: 50, Generations: 50, Mutation Rate: 0.1}
+        \label{fig:app_ga_50_50_1}
+    \end{figure}
 
-    \begin{quote}
-        \emph{Každá příloha musí být alespoň jednou odkázána do vlastního textu
-        práce. Přílohy se číslují. Každá příloha začíná na nové stránce.}
-    \end{quote}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_algorithm/appendix/Population_50_Generations_50_MutationRate_0.01}
+        \caption{Population: 50, Generations: 50, Mutation Rate: 0.01}
+        \label{fig:app_ga_50_50_01}
+    \end{figure}
 
-    \newpage
-    \hypertarget{pux159uxedloha-a-nuxe1zev-pux159uxedlohy}{%
-        \section{Příloha A -- Název
-        přílohy}\label{pux159uxedloha-a-nuxe1zev-pux159uxedlohy}}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_algorithm/appendix/Population_50_Generations_100_MutationRate_0.01}
+        \caption{Population: 50, Generations: 100, Mutation Rate: 0.01}
+        \label{fig:app_ga_50_100_01}
+    \end{figure}
 
-    \newpage
-    \hypertarget{pux159uxedloha-b-nuxe1zev-pux159uxedlohy}{%
-        \section{Příloha B -- Název
-        přílohy}\label{pux159uxedloha-b-nuxe1zev-pux159uxedlohy}}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_algorithm/appendix/Population_50_Generations_100_MutationRate_0.05}
+        \caption{Population: 50, Generations: 100, Mutation Rate: 0.05}
+        \label{fig:app_ga_50_100_05}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_algorithm/appendix/Population_100_Generations_25_MutationRate_0.01}
+        \caption{Population: 100, Generations: 25, Mutation Rate: 0.01}
+        \label{fig:app_ga_100_25_01}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_algorithm/appendix/Population_100_Generations_25_MutationRate_0.05}
+        \caption{Population: 100, Generations: 25, Mutation Rate: 0.05}
+        \label{fig:app_ga_100_25_05}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_algorithm/appendix/Population_100_Generations_50_MutationRate_0.1}
+        \caption{Population: 100, Generations: 50, Mutation Rate: 0.1}
+        \label{fig:app_ga_100_50_1}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_algorithm/appendix/Population_100_Generations_50_MutationRate_0.05}
+        \caption{Population: 100, Generations: 50, Mutation Rate: 0.05}
+        \label{fig:app_ga_100_50_05}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_algorithm/appendix/Population_100_Generations_100_MutationRate_0.1}
+        \caption{Population: 100, Generations: 100, Mutation Rate: 0.1}
+        \label{fig:app_ga_100_100_1}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_algorithm/appendix/Population_100_Generations_100_MutationRate_0.01}
+        \caption{Population: 100, Generations: 100, Mutation Rate: 0.01}
+        \label{fig:app_ga_100_100_01}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_algorithm/appendix/Population_150_Generations_25_MutationRate_0.1}
+        \caption{Population: 150, Generations: 25, Mutation Rate: 0.1}
+        \label{fig:app_ga_150_25_1}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_algorithm/appendix/Population_150_Generations_25_MutationRate_0.01}
+        \caption{Population: 150, Generations: 25, Mutation Rate: 0.01}
+        \label{fig:app_ga_150_25_01}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_algorithm/appendix/Population_150_Generations_50_MutationRate_0.01}
+        \caption{Population: 150, Generations: 50, Mutation Rate: 0.01}
+        \label{fig:app_ga_150_50_01}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_algorithm/appendix/Population_150_Generations_50_MutationRate_0.05}
+        \caption{Population: 150, Generations: 50, Mutation Rate: 0.05}
+        \label{fig:app_ga_150_50_05}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_algorithm/appendix/Population_150_Generations_100_MutationRate_0.1}
+        \caption{Population: 150, Generations: 100, Mutation Rate: 0.1}
+        \label{fig:app_ga_150_100_1}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_algorithm/appendix/Population_150_Generations_100_MutationRate_0.05}
+        \caption{Population: 150, Generations: 100, Mutation Rate: 0.05}
+        \label{fig:app_ga_150_100_05}
+    \end{figure}
+
 
 \end{document}
