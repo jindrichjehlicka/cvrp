@@ -214,7 +214,7 @@ def main():
 
     Parallel(n_jobs=-1)(
         delayed(process_and_save_epoch_data)(instance_names[i:i + 10], (i // 10) + 1)
-        for i in range(0, 100, 10)
+        for i in range(0, 200, 20)
     )
 
 

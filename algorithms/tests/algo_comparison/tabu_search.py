@@ -1,12 +1,8 @@
-import random
-import vrplib
-import csv
-from datetime import datetime
 import numpy as np
 import pandas as pd
-from sklearn.base import BaseEstimator, RegressorMixin
-from sklearn.model_selection import KFold
-from itertools import product
+import time
+import vrplib
+import random
 from joblib import Parallel, delayed
 
 
@@ -65,6 +61,7 @@ def calculate_cost(solution, distance_matrix):
 
 def generate_initial_solution(n_nodes, demand, capacity):
     nodes = list(range(1, n_nodes))
+    random.shuffle(nodes)
     solution = []
     route = [0]
     current_load = 0
@@ -90,8 +87,7 @@ def tabu_search(max_iterations, tabu_size, neighborhood_size, node_loc, demand, 
     best_solution = current_solution
     best_cost = calculate_cost(current_solution, distance_matrix)
     tabu_list = []
-
-    cost_over_time = []
+    history = []
 
     for iteration in range(max_iterations):
         neighborhood = generate_neighborhood(current_solution, demand, capacity, neighborhood_size)
@@ -99,10 +95,9 @@ def tabu_search(max_iterations, tabu_size, neighborhood_size, node_loc, demand, 
         best_neighbor_cost = float('inf')
 
         for neighbor in neighborhood:
-            neighbor_cost = calculate_cost(neighbor, distance_matrix)
-            if neighbor not in tabu_list and neighbor_cost < best_neighbor_cost:
+            if neighbor not in tabu_list and calculate_cost(neighbor, distance_matrix) < best_neighbor_cost:
                 best_neighbor = neighbor
-                best_neighbor_cost = neighbor_cost
+                best_neighbor_cost = calculate_cost(neighbor, distance_matrix)
 
         if best_neighbor_cost < best_cost:
             best_solution = best_neighbor
@@ -113,84 +108,67 @@ def tabu_search(max_iterations, tabu_size, neighborhood_size, node_loc, demand, 
             tabu_list.pop(0)
 
         current_solution = best_neighbor
-        cost_over_time.append(best_cost)
+        history.append((iteration, best_cost))
 
-    return best_solution, best_cost, cost_over_time
-
-
-def process_epoch_data_for_param_combo(X, max_iterations, tabu_size, neighborhood_size):
-    epoch_data = []
-    for train_index, test_index in KFold(n_splits=3).split(X):
-        for instance in [X[i] for i in train_index]:
-            node_loc, demand, capacity, optimal_cost = instance
-            _, _, cost_over_time = tabu_search(
-                max_iterations, tabu_size, neighborhood_size, node_loc, demand, capacity)
-            diff_over_runs = [optimal_cost - run_cost for run_cost in cost_over_time]
-            epoch_data.append({
-                "max_iterations": max_iterations,
-                "tabu_size": tabu_size,
-                "neighborhood_size": neighborhood_size,
-                "epoch_data": diff_over_runs
-            })
-    return epoch_data
+    return best_solution, best_cost, history
 
 
-def process_and_save_epoch_data(instance_names_chunk, chunk_number):
-    data = []
-    for instance_name in instance_names_chunk:
-        instance = vrplib.read_instance(f"../../Vrp-Set-XML100/instances/{instance_name}.vrp")
-        solution = vrplib.read_solution(f"../../Vrp-Set-XML100/solutions/{instance_name}.sol")
-        optimal_cost = solution['cost']
-        node_loc = instance['node_coord']
-        depot_loc = node_loc[0]
-        demand = instance['demand']
-        capacity = instance['capacity']
-        data.append((node_loc, demand, capacity, optimal_cost))
-
-    X = data
-
-    param_grid = {
-        'max_iterations': [200, 300, 500],
-        'tabu_size': [5, 15, 30, ],
-        'neighborhood_size': [5, 10, 15, ]
-    }
-
-    param_combinations = list(
-        product(param_grid['max_iterations'], param_grid['tabu_size'], param_grid['neighborhood_size']))
-    epoch_data_list = Parallel(n_jobs=-1)(
-        delayed(process_epoch_data_for_param_combo)(X, max_iter, tabu_sz, neigh_sz) for max_iter, tabu_sz, neigh_sz in
-        param_combinations
-    )
-
-    epoch_data = [item for sublist in epoch_data_list for item in sublist]  # Flatten the list of lists
-
-    epoch_filename = f"tabu_search_epoch_data_chunk_{chunk_number}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
-    with open(epoch_filename, 'w', newline='') as csvfile:
-        fieldnames = ["max_iterations", "tabu_size", "neighborhood_size", "epoch_data"]
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-
-        writer.writeheader()
-        for entry in epoch_data:
-            writer.writerow(entry)
-
-    print(f"Epoch data for chunk {chunk_number} saved to {epoch_filename}")
+def run_and_collect_data(instance_name, depot_loc, node_loc, demand, capacity, optimal_cost, max_iterations,
+                         tabu_size, neighborhood_size, runs=20):
+    instance_results = []
+    for run in range(runs):
+        start_time = time.time()
+        best_solution, best_cost, history = tabu_search(max_iterations, tabu_size, neighborhood_size, node_loc, demand,
+                                                        capacity)
+        elapsed_time = time.time() - start_time
+        for iteration, cost in history:
+            cost_difference = cost - optimal_cost
+            instance_results.append(
+                ['Tabu Search', instance_name, run + 1, iteration, cost_difference, elapsed_time,
+                 f'max_iter={max_iterations},tabu_size={tabu_size},neighborhood_size={neighborhood_size}'])
+    return instance_results
 
 
 def load_instance_names_from_file(filename):
     with open(filename, 'r') as file:
-        instance_names = [line.strip() for line in file.readlines()]
+        instance_names = file.read().splitlines()
     return instance_names
 
 
-def main():
-    filename = "../instance_names.txt"
-    instance_names = load_instance_names_from_file(filename)
-
-    Parallel(n_jobs=-1)(
-        delayed(process_and_save_epoch_data)(instance_names[i:i + 10], (i // 10) + 1)
-        for i in range(0, 200, 20)
-    )
+filename = "../instance_names.txt"
+instance_names = load_instance_names_from_file(filename)
+instance_names = instance_names[101:601]
 
 
-if __name__ == "__main__":
-    main()
+def process_instance(instance_name, max_iterations, tabu_size, neighborhood_size):
+    instance = vrplib.read_instance(f"../../Vrp-Set-XML100/instances/{instance_name}.vrp")
+    solution = vrplib.read_solution(f"../../Vrp-Set-XML100/solutions/{instance_name}.sol")
+    optimal_cost = solution['cost']
+    node_loc = instance['node_coord']
+    depot_loc = node_loc[0]
+    demand = instance['demand']
+    capacity = instance['capacity']
+
+    return run_and_collect_data(instance_name, depot_loc, node_loc, demand, capacity, optimal_cost, max_iterations,
+                                tabu_size, neighborhood_size)
+
+
+max_iterations = 50
+tabu_size = 5
+neighborhood_size = 10
+
+for i in range(0, len(instance_names), 100):
+    chunk_instance_names = instance_names[i:i + 100]
+
+    results_list = Parallel(n_jobs=-1)(
+        delayed(process_instance)(instance_name, max_iterations, tabu_size, neighborhood_size) for instance_name in
+        chunk_instance_names)
+
+    flattened_results = [item for sublist in results_list for item in sublist]
+
+    results = pd.DataFrame(flattened_results,
+                           columns=['Algorithm', 'Instance', 'Run', 'Iteration', 'Cost Difference', 'Time',
+                                    'Parameters'])
+
+    chunk_number = (i // 100) + 1
+    results.to_csv(f'tabu_search_performance_chunk_{chunk_number}.csv', index=False)
