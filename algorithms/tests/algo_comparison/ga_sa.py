@@ -163,7 +163,7 @@ def load_instance_names_from_file(filename):
 
 filename = "../instance_names.txt"
 instance_names = load_instance_names_from_file(filename)
-instance_names = instance_names[101:601]
+instance_names = instance_names[602:1102]
 
 
 def process_instance(instance_name, population_size, generations, mutation_rate):
@@ -200,4 +200,4 @@ for i in range(0, len(instance_names), 100):
                                     'Parameters'])
 
     chunk_number = (i // 100) + 1
-    results.to_csv(f'ga_sa_hybrid_performance_chunk_{chunk_number}.csv', index=False)
+    results.to_csv(f'ga_sa_hybrid_performance_chunk_2_{chunk_number}.csv', index=False)
