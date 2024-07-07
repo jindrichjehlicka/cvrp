@@ -4,7 +4,6 @@ from scipy.stats import f_oneway
 import glob
 
 
-# Load data from multiple CSV files
 def load_data(file_pattern):
     file_paths = glob.glob(file_pattern)
     all_data = pd.concat([pd.read_csv(file_path) for file_path in file_paths])
@@ -12,7 +11,6 @@ def load_data(file_pattern):
     return all_data
 
 
-# Extract final scores
 def extract_final_scores(df):
     final_scores = []
     for _, row in df.iterrows():
@@ -28,7 +26,6 @@ def extract_final_scores(df):
     return pd.DataFrame(final_scores)
 
 
-# Group by parameter and calculate summary statistics
 def group_by_parameter(final_scores):
     grouped = final_scores.groupby(['population_size', 'generations', 'mutation_rate']).agg(
         mean_final_score=('final_score', 'mean'),
@@ -37,7 +34,6 @@ def group_by_parameter(final_scores):
     return grouped
 
 
-# Perform ANOVA
 def perform_anova(grouped):
     anova_results = {}
     # Group by population_size
@@ -61,14 +57,12 @@ def perform_anova(grouped):
     return anova_results
 
 
-# Main function
 def main(file_pattern):
     df = load_data(file_pattern)
     final_scores = extract_final_scores(df)
     grouped = group_by_parameter(final_scores)
     anova_results = perform_anova(grouped)
 
-    # Formatting results for diploma thesis
     print("Grouped Summary:")
     print(grouped.to_string(index=False))
 
@@ -78,5 +72,5 @@ def main(file_pattern):
 
 
 if __name__ == "__main__":
-    file_pattern = '../parameter_testing/genetic/genetic_algorithm_epoch_data_chunk_*.csv'
+    file_pattern = '../parameter_testing/genetic_algorithm_epoch_data_chunk_*.csv'
     main(file_pattern)

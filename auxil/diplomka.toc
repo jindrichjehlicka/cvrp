@@ -99,6 +99,13 @@
 \contentsline {subsubsection}{ANOVA Results}{55}{section*.101}%
 \contentsline {section}{Conclusion}{56}{section*.102}%
 \contentsline {section}{Tabu Search Parameter Testing}{58}{section*.103}%
-\contentsline {section}{Závěr}{59}{section*.104}%
-\contentsline {section}{Seznam použitých zdrojů}{60}{section*.105}%
-\contentsline {section}{Appendix 1: Genetic Algorithm Convergence Plots}{61}{section*.106}%
+\contentsline {subsection}{Performance Metrics Overview}{63}{section*.104}%
+\contentsline {subsubsection}{Impact of Tabu List Size}{65}{section*.105}%
+\contentsline {subsubsection}{Impact of Number of Iterations}{66}{section*.106}%
+\contentsline {subsubsection}{Impact of Neighborhood Size}{66}{section*.107}%
+\contentsline {paragraph}{Grid Search Results:}{67}{section*.108}%
+\contentsline {subsubsection}{ANOVA Results}{67}{section*.109}%
+\contentsline {subsubsection}{Conclusion}{68}{section*.110}%
+\contentsline {section}{Závěr}{70}{section*.111}%
+\contentsline {section}{Seznam použitých zdrojů}{71}{section*.112}%
+\contentsline {section}{Appendix 1: Genetic Algorithm Convergence Plots}{72}{section*.113}%

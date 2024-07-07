@@ -1366,7 +1366,292 @@
 
     Here, we present some important results and convergence plots, while additional detailed plots are included in Appendix 2. This comprehensive analysis helps identify the best TS configurations, improving the algorithm’s efficiency and effectiveness in solving complex optimization problems.
 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{tabu_search/max_iter_200_tabu_size_5_neighborhood_size_10}
+        \caption{Convergence plot for Max Iterations: 200, Tabu Size: 5, Neighborhood Size: 10}
+        \label{fig:ts_200_5_10}
+    \end{figure}
 
+    \textbf{Description}: The graph above shows the convergence behavior for a maximum of 200 iterations, a tabu size of 5, and a neighborhood size of 10.
+
+    \textbf{Observation}: The convergence plot indicates a rapid initial decrease in the normalized cost within the first 50 iterations, dropping from approximately 1.0 to around 0.5. After this sharp decline, the cost continues to decrease more gradually, reaching about 0.3 by the 200th iteration. The standard deviation (Std Dev) remains relatively low throughout the iterations, suggesting consistent performance across multiple runs.
+
+    \textbf{Analysis}: The initial rapid decline in the normalized cost suggests that the Tabu Search algorithm quickly identifies high-quality solutions in the early iterations. The small tabu size of 5 is effective in preventing immediate revisits to recently explored solutions, while the neighborhood size of 10 provides a sufficient search space for the algorithm. The low standard deviation throughout the process indicates that the algorithm consistently finds good solutions with little variation across different runs.
+
+    \textbf{Conclusion}: For a maximum of 200 iterations, a tabu size of 5, and a neighborhood size of 10, the Tabu Search algorithm demonstrates efficient convergence to lower-cost solutions while maintaining overall stability.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{tabu_search/max_iter_200_tabu_size_15_neighborhood_size_15}
+        \caption{Convergence plot for Max Iterations: 200, Tabu Size: 15, Neighborhood Size: 15}
+        \label{fig:ts_200_15_15}
+    \end{figure}
+
+    \textbf{Description}: The graph above shows the convergence behavior for a maximum of 200 iterations, a tabu size of 15, and a neighborhood size of 15.
+
+    \textbf{Observation}: The convergence plot indicates a rapid initial decrease in the normalized cost within the first 50 iterations, dropping from approximately 1.0 to around 0.4. After this sharp decline, the cost continues to decrease more gradually, reaching about 0.2 by the 200th iteration. The standard deviation (Std Dev) remains relatively low throughout the iterations, indicating consistent performance across multiple runs.
+
+    \textbf{Analysis}: The rapid initial decline in the normalized cost suggests that the Tabu Search algorithm quickly identifies high-quality solutions in the early iterations. The larger tabu size of 15 helps in preventing cycling and promotes thorough exploration of the solution space, while the neighborhood size of 15 allows for a broader search. This combination ensures effective exploration and stability, as indicated by the low standard deviation.
+
+    \textbf{Conclusion}: For a maximum of 200 iterations, a tabu size of 15, and a neighborhood size of 15, the Tabu Search algorithm demonstrates efficient convergence to lower-cost solutions while maintaining overall stability.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{tabu_search/max_iter_300_tabu_size_15_neighborhood_size_5}
+        \caption{Convergence plot for Max Iterations: 300, Tabu Size: 15, Neighborhood Size: 5}
+        \label{fig:ts_300_15_5}
+    \end{figure}
+
+    \textbf{Description}: The graph above shows the convergence behavior for a maximum of 300 iterations, a tabu size of 15, and a neighborhood size of 5.
+
+    \textbf{Observation}: The convergence plot shows a rapid initial decrease in the normalized cost within the first 50 iterations, dropping from approximately 1.0 to around 0.6. After this initial decline, the cost continues to decrease more gradually, reaching about 0.35 by the 300th iteration. The standard deviation (Std Dev) remains relatively low throughout the iterations, suggesting consistent performance across multiple runs.
+
+    \textbf{Analysis}: The initial rapid decline in the normalized cost indicates that the Tabu Search algorithm quickly identifies high-quality solutions in the early iterations. The larger tabu size of 15 helps prevent cycling and promotes thorough exploration, while the smaller neighborhood size of 5 focuses the search on a narrower solution space. This combination allows the algorithm to balance exploration and exploitation effectively, as indicated by the low standard deviation.
+
+    \textbf{Conclusion}: For a maximum of 300 iterations, a tabu size of 15, and a neighborhood size of 5, the Tabu Search algorithm demonstrates efficient convergence to lower-cost solutions while maintaining overall stability.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{tabu_search/max_iter_300_tabu_size_30_neighborhood_size_10}
+        \caption{Convergence plot for Max Iterations: 300, Tabu Size: 30, Neighborhood Size: 10}
+        \label{fig:ts_300_30_10}
+    \end{figure}
+
+    \textbf{Description}: The graph above shows the convergence behavior for a maximum of 300 iterations, a tabu size of 30, and a neighborhood size of 10.
+
+    \textbf{Observation}: The convergence plot shows a rapid initial decrease in the normalized cost within the first 50 iterations, dropping from approximately 1.0 to around 0.5. After this initial decline, the cost continues to decrease more gradually, reaching about 0.25 by the 300th iteration. The standard deviation (Std Dev) remains relatively low throughout the iterations, suggesting consistent performance across multiple runs.
+
+    \textbf{Analysis}: The initial rapid decline in the normalized cost indicates that the Tabu Search algorithm quickly identifies high-quality solutions in the early iterations. The larger tabu size of 30 helps in preventing cycling and promotes thorough exploration of the solution space, while the neighborhood size of 10 provides a balanced search scope. This combination ensures effective exploration and exploitation, as indicated by the low standard deviation.
+
+    \textbf{Conclusion}: For a maximum of 300 iterations, a tabu size of 30, and a neighborhood size of 10, the Tabu Search algorithm demonstrates efficient convergence to lower-cost solutions while maintaining overall stability.
+
+
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics{tabu_search/max_iter_500_tabu_size_15_neighborhood_size_15}
+        \caption{Convergence plot for Max Iterations: 500, Tabu Size: 15, Neighborhood Size: 15}
+        \label{fig:ts_500_15_15}
+    \end{figure}
+
+    \textbf{Description}: The graph above shows the convergence behavior for a maximum of 500 iterations, a tabu size of 15, and a neighborhood size of 15.
+    \textbf{Observation}: The convergence plot shows a rapid initial decrease in the normalized cost within the first 100 iterations, dropping from approximately 1.0 to around 0.4. After this initial decline, the cost continues to decrease more gradually, reaching about 0.2 by the 500th iteration. The standard deviation (Std Dev) remains relatively low throughout the iterations, indicating consistent performance across multiple runs.
+
+    \textbf{Analysis}: The rapid initial decline in the normalized cost suggests that the Tabu Search algorithm quickly identifies high-quality solutions in the early iterations. The larger tabu size of 15 helps in preventing cycling and promotes thorough exploration of the solution space, while the neighborhood size of 15 allows for a broader search. This combination ensures effective exploration and stability, as indicated by the low standard deviation.
+
+    \textbf{Conclusion}: For a maximum of 500 iterations, a tabu size of 15, and a neighborhood size of 15, the Tabu Search algorithm demonstrates efficient convergence to lower-cost solutions while maintaining overall stability.
+
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{tabu_search/max_iter_500_tabu_size_30_neighborhood_size_10}
+        \caption{Convergence plot for Max Iterations: 500, Tabu Size: 30, Neighborhood Size: 10}
+        \label{fig:ts_500_30_10}
+    \end{figure}
+
+    \textbf{Description}: The graph above shows the convergence behavior for a maximum of 500 iterations, a tabu size of 30, and a neighborhood size of 10.
+
+    \textbf{Observation}: The convergence plot shows a rapid initial decrease in the normalized cost within the first 100 iterations, dropping from approximately 1.0 to around 0.4. After this initial decline, the cost continues to decrease more gradually, reaching about 0.2 by the 500th iteration. The standard deviation (Std Dev) remains relatively low throughout the iterations, suggesting consistent performance across multiple runs.
+
+    \textbf{Analysis}: The initial rapid decline in the normalized cost indicates that the Tabu Search algorithm quickly identifies high-quality solutions in the early iterations. The larger tabu size of 30 helps in preventing cycling and promotes thorough exploration of the solution space, while the neighborhood size of 10 provides a balanced search scope. This combination ensures effective exploration and exploitation, as indicated by the low standard deviation.
+
+    \textbf{Conclusion}: For a maximum of 500 iterations, a tabu size of 30, and a neighborhood size of 10, the Tabu Search algorithm demonstrates efficient convergence to lower-cost solutions while maintaining overall stability.
+
+    \subsection{Performance Metrics Overview}
+
+    The table below summarizes the mean and standard deviation of fit and score times, as well as the test scores for various parameter settings of the Tabu Search algorithm:
+
+    \begin{table}[H]
+        \centering
+        \resizebox{\textwidth}{!}{%
+            \begin{tabular}{|c|c|c|c|c|}
+                \hline
+                \textbf{Parameter Setting} & \textbf{Mean Fit Time} & \textbf{Std Fit Time} & \textbf{Mean Score Time} & \textbf{Std Score Time} \\
+                \hline
+                200, 5, 5                  & 19.21                  & 0.83                  & 0.00054                  & 0.00016                 \\
+                200, 5, 15                 & 19.20                  & 0.63                  & 0.00319                  & 0.00365                 \\
+                200, 5, 30                 & 19.45                  & 0.68                  & 0.00089                  & 0.00064                 \\
+                200, 10, 5                 & 28.89                  & 0.86                  & 0.00046                  & 0.00007                 \\
+                200, 10, 15                & 29.12                  & 1.08                  & 0.00051                  & 0.00009                 \\
+                200, 10, 30                & 29.40                  & 1.03                  & 0.00048                  & 0.00010                 \\
+                200, 15, 5                 & 42.72                  & 1.57                  & 0.00048                  & 0.00013                 \\
+                200, 15, 15                & 42.72                  & 1.72                  & 0.00112                  & 0.00077                 \\
+                200, 15, 30                & 43.44                  & 1.30                  & 0.00037                  & 0.00006                 \\
+                300, 5, 5                  & 28.31                  & 0.94                  & 0.00048                  & 0.00006                 \\
+                300, 5, 15                 & 28.42                  & 1.01                  & 0.00050                  & 0.00009                 \\
+                300, 5, 30                 & 28.52                  & 0.97                  & 0.00116                  & 0.00088                 \\
+                300, 10, 5                 & 42.70                  & 1.74                  & 0.00041                  & 0.00009                 \\
+                300, 10, 15                & 43.26                  & 1.60                  & 0.00057                  & 0.00004                 \\
+                300, 10, 30                & 43.70                  & 1.30                  & 0.00043                  & 0.00008                 \\
+                300, 15, 5                 & 63.62                  & 2.38                  & 0.00044                  & 0.00007                 \\
+                300, 15, 15                & 64.08                  & 2.13                  & 0.00062                  & 0.00028                 \\
+                300, 15, 30                & 65.02                  & 2.18                  & 0.00068                  & 0.00046                 \\
+                500, 5, 5                  & 46.64                  & 1.98                  & 0.00052                  & 0.00013                 \\
+                500, 5, 15                 & 46.78                  & 1.75                  & 0.00051                  & 0.00007                 \\
+                500, 5, 30                 & 47.16                  & 1.77                  & 0.00085                  & 0.00038                 \\
+                500, 10, 5                 & 70.87                  & 2.55                  & 0.00057                  & 0.00006                 \\
+                500, 10, 15                & 71.43                  & 2.81                  & 0.00048                  & 0.00005                 \\
+                500, 10, 30                & 72.03                  & 2.59                  & 0.00099                  & 0.00062                 \\
+                500, 15, 5                 & 99.57                  & 1.96                  & 0.00057                  & 0.00003                 \\
+                500, 15, 15                & 96.74                  & 2.35                  & 0.00041                  & 0.00016                 \\
+                500, 15, 30                & 95.48                  & 2.94                  & 0.00031                  & 0.000004                \\
+                \hline
+            \end{tabular}
+        }
+        \caption{Summary of Mean and Standard Deviation of Fit and Score Times for Various Parameter Settings of Tabu Search}
+        \label{tab:ts_summary_fit_score_times}
+    \end{table}
+
+    The detailed metrics for each parameter setting provide a comprehensive view of the algorithm's performance, enabling a thorough comparison and analysis of different configurations. In the following subsections, we will delve into the results and analyze the impact of each parameter combination on the TS's effectiveness and efficiency.
+
+    \textbf{Mean and Standard Deviation of Test Scores}
+
+    To further evaluate the performance of the Tabu Search, we examine the mean and standard deviation of test scores for each parameter setting. This analysis helps in understanding the central tendency and variability of the algorithm's performance across different datasets and parameter settings.
+
+    \begin{table}[H]
+        \centering
+        \resizebox{\textwidth}{!}{%
+            \begin{tabular}{|c|c|c|c|c|c|}
+                \hline
+                \textbf{Parameter Setting} & \textbf{Split0 Test Score} & \textbf{Split1 Test Score} & \textbf{Split2 Test Score} & \textbf{Mean Test Score} & \textbf{Std Test Score} \\
+                \hline
+                200, 5, 5                  & -0.96                      & -1.20                      & -86.45                     & -29.54                   & 40.25                   \\
+                200, 5, 15                 & -0.90                      & -1.19                      & -84.41                     & -28.83                   & 39.30                   \\
+                200, 5, 30                 & -0.90                      & -1.26                      & -87.05                     & -29.74                   & 40.53                   \\
+                200, 10, 5                 & -0.15                      & -0.61                      & -65.41                     & -22.06                   & 30.66                   \\
+                200, 10, 15                & -0.18                      & -0.65                      & -65.29                     & -22.04                   & 30.58                   \\
+                200, 10, 30                & -0.18                      & -0.63                      & -65.28                     & -22.03                   & 30.58                   \\
+                200, 15, 5                 & -0.004                     & -0.36                      & -53.77                     & -18.04                   & 25.26                   \\
+                200, 15, 15                & -0.004                     & -0.38                      & -52.72                     & -17.70                   & 24.76                   \\
+                200, 15, 30                & -0.003                     & -0.36                      & -54.15                     & -18.17                   & 25.44                   \\
+                300, 5, 5                  & -0.44                      & -0.79                      & -71.09                     & -24.11                   & 33.22                   \\
+                300, 5, 15                 & -0.40                      & -0.82                      & -70.96                     & -24.06                   & 33.16                   \\
+                300, 5, 30                 & -0.40                      & -0.83                      & -70.50                     & -23.91                   & 32.95                   \\
+                300, 10, 5                 & -0.004                     & -0.38                      & -53.80                     & -18.06                   & 25.27                   \\
+                300, 10, 15                & -0.010                     & -0.38                      & -53.13                     & -17.84                   & 24.95                   \\
+                300, 10, 30                & -0.014                     & -0.40                      & -53.06                     & -17.83                   & 24.92                   \\
+                300, 15, 5                 & -0.048                     & -0.18                      & -42.99                     & -14.41                   & 20.21                   \\
+                300, 15, 15                & -0.062                     & -0.18                      & -43.32                     & -14.52                   & 20.37                   \\
+                300, 15, 30                & -0.070                     & -0.18                      & -44.10                     & -14.78                   & 20.73                   \\
+                500, 5, 5                  & -0.062                     & -0.47                      & -55.10                     & -18.55                   & 25.85                   \\
+                500, 5, 15                 & -0.071                     & -0.48                      & -55.42                     & -18.66                   & 25.99                   \\
+                500, 5, 30                 & -0.074                     & -0.49                      & -56.90                     & -19.15                   & 26.69                   \\
+                500, 10, 5                 & -0.068                     & -0.17                      & -42.42                     & -14.22                   & 19.94                   \\
+                500, 10, 15                & -0.068                     & -0.16                      & -42.06                     & -14.09                   & 19.77                   \\
+                500, 10, 30                & -0.053                     & -0.16                      & -42.06                     & -14.09                   & 19.77                   \\
+                500, 15, 5                 & -0.33                      & -0.065                     & -35.11                     & -11.83                   & 16.46                   \\
+                500, 15, 15                & -0.31                      & -0.068                     & -34.06                     & -11.48                   & 15.97                   \\
+                500, 15, 30                & -0.30                      & -0.063                     & -34.74                     & -11.70                   & 16.29                   \\
+                \hline
+            \end{tabular}
+        }
+        \caption{Summary of Test Scores for Various Parameter Settings of Tabu Search}
+        \label{tab:ts_summary_test_scores}
+    \end{table}
+
+    The tables above provide a comprehensive summary of the Tabu Search algorithm's performance across different parameter settings. The next section will delve into a detailed analysis of these results, exploring the impact of each parameter on the algorithm's effectiveness and efficiency.
+
+    \subsubsection{Impact of Tabu List Size}
+
+    An analysis of the impact of tabu list size on the Tabu Search's performance is crucial to understand how varying this parameter affects the convergence behavior and solution quality.
+
+    \textbf{Observation}: The data reveals that as the tabu list size increases from 5 to 30, there is a corresponding increase in the mean fit time and standard deviation of fit time. This trend is consistent across all tested iterations and neighborhood sizes. Additionally, larger tabu sizes generally show a decrease in the mean test scores, indicating improved solution quality, although this comes with increased variability as evidenced by higher standard deviations.
+
+    \textbf{Analysis}: Increasing the tabu list size allows the Tabu Search algorithm to avoid previously visited solutions more effectively, enhancing the algorithm's ability to find optimal or near-optimal solutions. This extensive exploration is reflected in the lower mean test scores for larger tabu sizes. However, the increased standard deviation suggests that while the algorithm can find better solutions on average, the consistency of these solutions may decrease, possibly due to the greater diversity within the search space leading to more variability in the results.
+
+    \textbf{Conclusion}: The tabu list size significantly impacts the performance of the Tabu Search algorithm. Larger tabu sizes improve the solution quality by enabling a more thorough exploration of the solution space, albeit at the cost of increased computational time and variability in the results. Therefore, selecting an appropriate tabu list size is crucial for balancing solution quality and computational efficiency.
+
+    \subsubsection{Impact of Number of Iterations}
+
+    Similarly, the number of iterations plays a significant role in the Tabu Search's ability to find optimal solutions. Analyzing this parameter helps in identifying the optimal duration for the algorithm’s execution.
+
+    \textbf{Observation}: The data indicates that increasing the number of iterations generally leads to a reduction in the mean test scores, implying better solution quality. However, this improvement comes with an increase in both the mean fit time and standard deviation of fit time, reflecting the longer computational time required for more iterations. The standard deviation of test scores also tends to increase with more iterations, indicating greater variability in the results.
+
+    \textbf{Analysis}: More iterations allow the Tabu Search algorithm to perform a more extended search, which improves the chances of finding high-quality solutions. This is evident from the lower mean test scores observed with higher numbers of iterations. However, the increase in variability suggests that longer runs may sometimes lead to overfitting or getting stuck in local optima, resulting in inconsistent performance across different runs.
+
+    \textbf{Conclusion}: The number of iterations is a critical parameter that influences the Tabu Search's performance. While more iterations can improve solution quality by allowing for more extensive searching, they also increase computational time and result variability. Thus, it is essential to find a balance between the number of iterations and the desired solution quality to ensure efficient and consistent performance.
+
+    \subsubsection{Impact of Neighborhood Size}
+
+    The neighborhood size is another critical parameter that influences the Tabu Search’s exploration and exploitation capabilities. Analyzing this parameter helps in balancing the algorithm’s search dynamics.
+
+    \textbf{Observation}: The data shows that different neighborhood sizes significantly impact the mean test scores and their standard deviations. A smaller neighborhood size (5) generally results in lower mean test scores, indicating better solution quality, while larger neighborhood sizes (10 and 15) tend to produce higher mean test scores and increased variability. Additionally, larger neighborhood sizes are associated with higher standard deviations in both fit time and score time.
+
+    \textbf{Analysis}: A smaller neighborhood size allows the Tabu Search algorithm to refine solutions closely, resulting in lower mean test scores. However, it may also cause the algorithm to converge prematurely to local optima. On the other hand, a larger neighborhood size increases the algorithm's ability to explore the solution space more broadly, which can prevent premature convergence but may also lead to less consistent results, as reflected by higher standard deviations in test scores and computational times.
+
+    \textbf{Conclusion}: The neighborhood size is a crucial parameter that needs careful tuning to balance exploration and exploitation. A smaller neighborhood size favors exploitation, resulting in better solution quality but with a risk of premature convergence. In contrast, a larger neighborhood size enhances exploration, which can prevent local optima but may result in increased variability and less consistent performance. Therefore, selecting an optimal neighborhood size is essential to achieve a balance between search breadth and solution refinement.
+
+    \paragraph{Grid Search Results:}
+    A grid search was also performed to identify the optimal parameters for the Tabu Search algorithm. The best parameters were found to be:
+    \begin{itemize}
+        \item Max Iterations: 500
+        \item Neighborhood Size: 15
+        \item Tabu Size: 15
+    \end{itemize}
+    These settings provided a balance between high-quality solutions with acceptable computational efficiency. The convergence plots and statistical analysis confirm that these parameters lead to consistent optimization results across various test scenarios. This can be seen in Figure \ref{fig:ts_500_15_15}.
+
+    \subsubsection{ANOVA Results}
+
+    The following section presents the results of the ANOVA tests conducted to evaluate the impact of different parameter settings on the performance of the Tabu Search algorithm.
+
+    \textbf{ANOVA Results Summary}
+
+    The ANOVA test results are summarized below for various parameter settings, including maximum iterations, tabu size, and neighborhood size. The F-statistic and P-value indicate the significance of the differences in performance for each parameter setting.
+
+    \begin{itemize}
+        \item \textbf{Max Iterations}
+        \begin{itemize}
+            \item \textbf{Max Iterations 200}: F-statistic = 0.000839, P-value = 0.999162
+            \item \textbf{Max Iterations 300}: F-statistic = 0.412311, P-value = 0.750389
+            \item \textbf{Max Iterations 500}: F-statistic = 0.000001, P-value = 0.999999
+        \end{itemize}
+        \item \textbf{Tabu Size}
+        \begin{itemize}
+            \item \textbf{Tabu Size 5}: F-statistic = 9.113549, P-value = 0.015190
+            \item \textbf{Tabu Size 15}: F-statistic = 9.154498, P-value = 0.015037
+            \item \textbf{Tabu Size 30}: F-statistic = 8.599114, P-value = 0.017302
+        \end{itemize}
+        \item \textbf{Neighborhood Size}
+        \begin{itemize}
+            \item \textbf{Neighborhood Size 5}: F-statistic = 2197.091228, P-value = 2.535372e-09
+            \item \textbf{Neighborhood Size 10}: F-statistic = 1047.426593, P-value = 2.329521e-08
+            \item \textbf{Neighborhood Size 15}: F-statistic = 2720.391455, P-value = 1.336699e-09
+        \end{itemize}
+    \end{itemize}
+
+    \textbf{Interpretation of ANOVA Results}
+
+    \begin{itemize}
+        \item \textbf{Max Iterations:}
+        \begin{itemize}
+            \item The results indicate no significant differences in performance for different max iteration settings, as evidenced by the very high P-values. This suggests that varying the number of iterations does not substantially impact the algorithm's performance within the tested range.
+        \end{itemize}
+        \item \textbf{Tabu Size:}
+        \begin{itemize}
+            \item The ANOVA results for the tabu size show significant differences in performance, with P-values less than 0.05 for all tested settings. This indicates that the choice of tabu size has a significant impact on the algorithm's performance.
+        \end{itemize}
+        \item \textbf{Neighborhood Size:}
+        \begin{itemize}
+            \item The neighborhood size shows extremely significant differences in performance across the tested settings, with P-values close to zero. This suggests that the neighborhood size is a critical factor influencing the effectiveness of the Tabu Search algorithm.
+        \end{itemize}
+    \end{itemize}
+
+    The ANOVA results offer crucial insights into how different parameter settings influence the Tabu Search algorithm's performance. The findings highlight the importance of carefully selecting the tabu size and neighborhood size to optimize the algorithm's effectiveness. Conversely, the number of iterations appears to have a less pronounced effect on performance, indicating that future research should focus on the other parameters for further optimization.
+
+    \subsubsection{Conclusion}
+
+    In this section, we conducted a comprehensive evaluation of the Tabu Search (TS) parameters to determine the optimal settings for solving optimization problems efficiently. Our analysis focused on three primary parameters: max iterations, tabu size, and neighborhood size. Through rigorous experimentation and statistical analysis, we derived several key insights regarding the impact of these parameters on the TS’s performance.
+
+    Firstly, we observed that the max iterations did not significantly influence the TS’s performance within the tested range. The ANOVA results indicated that variations in the number of iterations did not lead to statistically significant differences in solution quality, suggesting that other parameters play a more crucial role in determining the algorithm's effectiveness.
+
+    Secondly, the tabu size was found to have a significant impact on the TS algorithm's performance. Larger tabu sizes generally resulted in improved solution quality by enabling a more thorough exploration of the solution space. However, this improvement came with increased computational time and variability, highlighting the need to balance tabu size with computational efficiency.
+
+    Thirdly, the neighborhood size was critical in balancing exploration and exploitation. Smaller neighborhood sizes favored exploitation, leading to more consistent and stable solutions but with a risk of premature convergence. Conversely, larger neighborhood sizes enhanced exploration, preventing local optima but resulting in increased variability. A neighborhood size of 15 provided a balanced approach, allowing the TS to effectively explore the solution space while maintaining stability.
+
+    Our ANOVA tests confirmed the significance of the tabu size and neighborhood size in influencing the TS’s performance. These findings underscore the importance of careful parameter tuning to achieve optimal performance in tabu search algorithms.
+
+    In conclusion, the systematic evaluation identified that a maximum of 500 iterations, a tabu size of 15, and a neighborhood size of 15 yielded the most effective results for the tested scenarios. These settings enable the TS to achieve a robust balance between exploration and exploitation, leading to consistent and high-quality solutions. Future work could explore additional parameter combinations and larger search spaces to further refine these results for more complex optimization problems.
 
 %\begin{quote}
 %    \emph{Autor/autorka uvedou vlastní název kapitoly vztahující se ke
@@ -1423,7 +1708,7 @@
 
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.45\textwidth]{genetic_algorithm/appendix/Population_50_Generations_25_MutationRate_0.1.png}
+        \includegraphics[width=0.45\textwidth]{genetic_algorithm/appendix/Population_50_Generations_25_MutationRate_0.1}
         \caption{Population: 50, Generations: 25, Mutation Rate: 0.1}
         \label{fig:app_ga_50_25_1}
     \end{figure}
