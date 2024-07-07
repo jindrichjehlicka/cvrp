@@ -1,4 +1,5 @@
 import csv
+
 import numpy as np
 import random
 import vrplib
@@ -138,13 +139,11 @@ class TabuSearchCV(BaseEstimator, RegressorMixin):
         self.cost_over_runs_ = []
 
         for instance in X:
-            node_loc, demand, capacity, optimal_cost, instance_name = instance
+            node_loc, demand, capacity, optimal_cost = instance
             _, cost, cost_over_runs = tabu_search(
                 self.max_iterations, self.tabu_size, self.neighborhood_size, node_loc, demand, capacity, self.runs)
             costs.append(cost)
-            # Calculate the difference between optimal cost and algorithm cost over time
-            diff_over_runs = [[optimal_cost - run_cost for run_cost in run] for run in cost_over_runs]
-            self.cost_over_runs_.append(diff_over_runs)
+            self.cost_over_runs_.append(cost_over_runs)
 
         self.best_cost_ = np.mean(costs)
         return self
@@ -160,9 +159,9 @@ def load_instance_names_from_file(filename):
 
 
 param_grid = {
-    'max_iterations': [50, 100, 150],
-    'tabu_size': [5, 10, 15],
-    'neighborhood_size': [10, 20, 30]
+    'max_iterations': [200, 300, 500],
+    'tabu_size': [5, 15, 30, ],
+    'neighborhood_size': [5, 10, 15]
 }
 
 
@@ -173,21 +172,33 @@ def main():
 
     data = []
     for instance_name in instances:
-        instance = vrplib.read_instance(f"../../Vrp-Set-XML100/instances/{instance_name}.vrp")
-        solution = vrplib.read_solution(f"../../Vrp-Set-XML100/solutions/{instance_name}.sol")
+        instance = vrplib.read_instance(f"../../../Vrp-Set-XML100/instances/{instance_name}.vrp")
+        solution = vrplib.read_solution(f"../../../Vrp-Set-XML100/solutions/{instance_name}.sol")
         optimal_cost = solution['cost']
         node_loc = instance['node_coord']
         depot_loc = node_loc[0]
         demand = instance['demand']
         capacity = instance['capacity']
-        data.append((node_loc, demand, capacity, optimal_cost, instance_name))
+        data.append((node_loc, demand, capacity, optimal_cost))
 
     X = data
     y = [d[3] for d in data]  # Optimal costs as targets
 
     ts = TabuSearchCV()
-    grid_search = GridSearchCV(estimator=ts, param_grid=param_grid, cv=3, n_jobs=-1, error_score='raise')
+    grid_search = GridSearchCV(estimator=ts, param_grid=param_grid, cv=3, n_jobs=-1)
     grid_search.fit(X, y)
+
+    # Save grid search results
+    results = pd.DataFrame(grid_search.cv_results_)
+    csv_filename = f"tabu_search_grid_search_results_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+    results.to_csv(csv_filename, index=False)
+    print(f"Results saved to {csv_filename}")
+
+    # Save best parameters
+    best_params = grid_search.best_params_
+    best_params_filename = f"best_tabu_search_params_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+    pd.DataFrame([best_params]).to_csv(best_params_filename, index=False)
+    print(f"Best parameters saved to {best_params_filename}")
 
     # Save epoch data
     epoch_data = []
@@ -201,20 +212,10 @@ def main():
                         "max_iterations": params['max_iterations'],
                         "tabu_size": params['tabu_size'],
                         "neighborhood_size": params['neighborhood_size'],
-                        "epoch_data": run,
-                        "instance_name": X[train_index[0]][4]  # Adding instance name
+                        "epoch_data": run
                     })
 
-    epoch_filename = f"tabu_search_epoch_data_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
-    with open(epoch_filename, 'w', newline='') as csvfile:
-        fieldnames = ["max_iterations", "tabu_size", "neighborhood_size", "epoch_data", "instance_name"]
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
-        writer.writeheader()
-        for entry in epoch_data:
-            writer.writerow(entry)
-
-    print(f"Epoch data saved to {epoch_filename}")
 
 
 if __name__ == "__main__":
