@@ -136,7 +136,7 @@ def ga_sa_hybrid(population_size, generations, node_loc, demand, capacity, max_i
 
 
 class GASAHybridCV(BaseEstimator, RegressorMixin):
-    def __init__(self, population_size=50, generations=50, max_iterations=500, initial_temperature=100, cooling_rate=0.95, runs=5):
+    def __init__(self, population_size=50, generations=50, max_iterations=500, initial_temperature=100, cooling_rate=0.95, runs=3):
         self.population_size = population_size
         self.generations = generations
         self.max_iterations = max_iterations
@@ -168,18 +168,19 @@ def load_instance_names_from_file(filename):
     return instance_names
 
 param_grid = {
-    'population_size': [25, 50],
-    'generations': [25, 50],
+    'population_size': [50, 100, 150],
+    'generations': [25, 50, 100],
+    'initial_temperature': [50, 100, 150],
+    'cooling_rate': [0.95, 0.99, 0.995],
     'max_iterations': [250],
-    'initial_temperature': [50, 100],
-    'cooling_rate': [0.9, 0.95]
+
 }
 
 def process_and_save_epoch_data(instance_names_chunk, chunk_number):
     data = []
     for instance_name in instance_names_chunk:
-        instance = vrplib.read_instance(f"../../Vrp-Set-XML100/instances/{instance_name}.vrp")
-        solution = vrplib.read_solution(f"../../Vrp-Set-XML100/solutions/{instance_name}.sol")
+        instance = vrplib.read_instance(f"../../../Vrp-Set-XML100/instances/{instance_name}.vrp")
+        solution = vrplib.read_solution(f"../../../Vrp-Set-XML100/solutions/{instance_name}.sol")
         optimal_cost = solution['cost']
         node_loc = instance['node_coord']
         depot_loc = node_loc[0]
@@ -226,7 +227,7 @@ def process_and_save_epoch_data(instance_names_chunk, chunk_number):
 
     print(f"Epoch data for chunk {chunk_number} saved to {epoch_filename}")
 
-    return epoch_filename  # Return the filename or a meaningful value
+    return epoch_filename  #
 
 
 def main():
@@ -235,7 +236,7 @@ def main():
 
     results = Parallel(n_jobs=-1)(
         delayed(process_and_save_epoch_data)(instance_names[i:i + 10], chunk_number=(i // 10) + 1)
-        for i in range(0, 200, 20)
+        for i in range(0, 100, 10)
     )
     print("Processing complete. Results:", results)
 
