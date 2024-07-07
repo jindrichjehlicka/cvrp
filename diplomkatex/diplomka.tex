@@ -1027,12 +1027,10 @@
 
     \subsubsection{Statistical Analysis}
 
-    For a robust comparison of the algorithms and their parameter settings, the following statistical tests were performed:
+    For a robust comparison of the algorithms and their parameter settings, the following statistical test was performed:
 
     \begin{itemize}
         \item \textbf{Analysis of Variance (ANOVA)}: ANOVA was used to determine whether there are statistically significant differences between the mean test scores of different parameter settings. This test helps in understanding the impact of each parameter on the algorithm's performance.
-        \item \textbf{t-test}: Pairwise t-tests were conducted to compare the mean test scores between specific parameter settings. This test assesses whether the differences in performance between parameter settings are statistically significant.
-        \item \textbf{F-test}: The F-test was employed to compare the variances of test scores across different parameter settings. This test evaluates the consistency and reliability of the algorithms' performance with varying parameters.
     \end{itemize}
 
 
@@ -1099,18 +1097,18 @@
 
     \begin{figure}[H]
         \centering
-        \includegraphics[width=\textwidth]{genetic_algorithm/Population_100_Generations_25_MutationRate_0.1}
-        \caption{Convergence plot for Population: 100, Generations: 25, Mutation Rate: 0.1}
-        \label{fig:ga_100_25_1}
+        \includegraphics[width=\textwidth]{genetic_algorithm/Population_50_Generations_100_MutationRate_0.01}
+        \caption{Convergence plot for Population: 50, Generations: 100, Mutation Rate: 0.01}
+        \label{fig:ga_50_100_01}
     \end{figure}
 
-    \textbf{Description}: The graph above shows the convergence behavior for a population size of 100, 25 generations, and a mutation rate of 0.1.
+    \textbf{Description}: The graph above shows the convergence behavior for a population size of 50, 100 generations, and a mutation rate of 0.01.
 
-    \textbf{Observation}: The convergence plot shows a sharp decline in the normalized cost within the first 10 generations, from approximately 0.9 to about 0.4. Beyond the initial 10 generations, the mean normalized cost continues to decrease gradually, reaching around 0.25 by the 25th generation. The standard deviation decreases consistently, indicating increased consistency in the solutions as the algorithm progresses.
+    \textbf{Observation}: The convergence plot shows a sharp decline in the normalized cost within the first 20 generations, from approximately 1.0 to about 0.3. Beyond the initial 20 generations, the mean normalized cost stabilizes around 0.2 to 0.3 for the remaining generations. The standard deviation decreases initially, indicating improved consistency, but remains relatively stable towards the later generations.
 
-    \textbf{Analysis}: The sharp initial decline suggests that the Genetic Algorithm quickly identifies high-quality solutions early in the optimization process. The high mutation rate of 0.1 allows for significant exploration of the solution space, aiding in the avoidance of local optima. The consistent decrease in standard deviation indicates that the algorithm becomes more stable over time, with solutions converging towards a lower cost with reduced variability.
+    \textbf{Analysis}: The sharp initial decline suggests that the Genetic Algorithm quickly identifies high-quality solutions early in the optimization process. The low mutation rate of 0.01 helps maintain stability and prevents large deviations in the solution space, contributing to the consistent reduction in normalized cost. The relatively stable standard deviation in later generations indicates that the algorithm converges towards a stable set of solutions, maintaining a low level of variability.
 
-    \textbf{Conclusion}: For a population size of 100 and 25 generations, a mutation rate of 0.1 proves effective in rapidly reducing the normalized cost while maintaining stability in the solutions. This parameter setting supports extensive exploration and prevents premature convergence, making it suitable for diverse and complex optimization problems. Further increasing the number of generations could potentially yield even better solutions, given the continued gradual decline in normalized cost.
+    \textbf{Conclusion}: For a population size of 50 and 100 generations, a mutation rate of 0.01 is effective in rapidly reducing the normalized cost while maintaining stability in the solutions. This parameter setting allows for efficient exploration and exploitation, achieving consistent optimization results suitable for moderately complex optimization problems. Further fine-tuning of the mutation rate or extending the number of generations could potentially enhance the convergence behavior and reduce the normalized cost even further.
 
     \begin{figure}[H]
         \centering
@@ -1280,56 +1278,93 @@
 
     \textbf{Analysis}: A low mutation rate allows the Genetic Algorithm to refine solutions closely, resulting in lower mean test scores. However, it may also cause the algorithm to converge prematurely to local optima. On the other hand, a higher mutation rate increases the algorithm's ability to explore the solution space more broadly, which can prevent premature convergence but may also lead to less consistent results, as reflected by higher standard deviations in test scores and computational times.
 
-    \textbf{Conclusion}: The mutation rate is a crucial parameter that needs careful tuning to balance exploration and exploitation. A lower mutation rate favors exploitation, resulting in better solution quality but with a risk of premature convergence. In contrast, a higher mutation rate enhances exploration, which can prevent local optima but may result in increased variability and less consistent performance. Therefore, selecting an optimal mutation rate is essential to achieve a balance between search breadth and solution refinement.
+    \paragraph{Grid Search Results:}
+    A comprehensive grid search was also performed to identify the optimal parameters. The best parameters were found to be:
+    \begin{itemize}
+        \item Generations: 100
+        \item Mutation Rate: 0.01
+        \item Population Size: 50
+    \end{itemize}
+    These settings provided a robust balance, yielding high-quality solutions with acceptable computational efficiency. The convergence plots and statistical analysis confirm that these parameters lead to consistent optimization results across various test scenarios. This can be seen in Figure \ref{fig:ga_100_50_01}.
 
+
+    \textbf{Conclusion}: The mutation rate is a crucial parameter that needs careful tuning to balance exploration and exploitation. A lower mutation rate favors exploitation, resulting in better solution quality but with a risk of premature convergence. In contrast, a higher mutation rate enhances exploration, which can prevent local optima but may result in increased variability and less consistent performance. Therefore, selecting an optimal mutation rate is essential to achieve a balance between search breadth and solution refinement.
 
     \subsubsection{ANOVA Results}
 
-The following section presents the results of the ANOVA tests conducted to evaluate the impact of different parameter settings on the performance of the Genetic Algorithm.
+    The following section presents the results of the ANOVA tests conducted to evaluate the impact of different parameter settings on the performance of the Genetic Algorithm.
 
-\textbf{ANOVA Results Summary}
+    \textbf{ANOVA Results Summary}
 
-The ANOVA test results are summarized below for various parameter settings, including population size, number of generations, and mutation rate. The F-statistic and P-value indicate the significance of the differences in performance for each parameter setting.
+    The ANOVA test results are summarized below for various parameter settings, including population size, number of generations, and mutation rate. The F-statistic and P-value indicate the significance of the differences in performance for each parameter setting.
 
-\begin{itemize}
-    \item \textbf{Population Size}
     \begin{itemize}
-        \item \textbf{Population Size 50}: F-statistic = 5.273, P-value = 0.048
-        \item \textbf{Population Size 100}: F-statistic = 8.250, P-value = 0.019
-        \item \textbf{Population Size 150}: F-statistic = 11.254, P-value = 0.009
+        \item \textbf{Population Size}
+        \begin{itemize}
+            \item \textbf{Population Size 50}: F-statistic = 5.273, P-value = 0.048
+            \item \textbf{Population Size 100}: F-statistic = 8.250, P-value = 0.019
+            \item \textbf{Population Size 150}: F-statistic = 11.254, P-value = 0.009
+        \end{itemize}
+        \item \textbf{Number of Generations}
+        \begin{itemize}
+            \item \textbf{Generations 25}: F-statistic = 9.744, P-value = 0.013
+            \item \textbf{Generations 50}: F-statistic = 1.980, P-value = 0.219
+            \item \textbf{Generations 100}: F-statistic = 0.295, P-value = 0.754
+        \end{itemize}
+        \item \textbf{Mutation Rate}
+        \begin{itemize}
+            \item \textbf{Mutation Rate 0.01}: F-statistic = 0.493, P-value = 0.634
+            \item \textbf{Mutation Rate 0.05}: F-statistic = 0.815, P-value = 0.486
+            \item \textbf{Mutation Rate 0.10}: F-statistic = 1.154, P-value = 0.377
+        \end{itemize}
     \end{itemize}
-    \item \textbf{Number of Generations}
-    \begin{itemize}
-        \item \textbf{Generations 25}: F-statistic = 9.744, P-value = 0.013
-        \item \textbf{Generations 50}: F-statistic = 1.980, P-value = 0.219
-        \item \textbf{Generations 100}: F-statistic = 0.295, P-value = 0.754
-    \end{itemize}
-    \item \textbf{Mutation Rate}
-    \begin{itemize}
-        \item \textbf{Mutation Rate 0.01}: F-statistic = 0.493, P-value = 0.634
-        \item \textbf{Mutation Rate 0.05}: F-statistic = 0.815, P-value = 0.486
-        \item \textbf{Mutation Rate 0.10}: F-statistic = 1.154, P-value = 0.377
-    \end{itemize}
-\end{itemize}
 
-\textbf{Interpretation of ANOVA Results}
+    \textbf{Interpretation of ANOVA Results}
 
-\begin{itemize}
-    \item \textbf{Population Size:}
     \begin{itemize}
-        \item The results indicate significant differences in performance for different population sizes, especially for population sizes 100 and 150, with P-values less than 0.05. This suggests that the choice of population size has a substantial impact on the algorithm's performance.
+        \item \textbf{Population Size:}
+        \begin{itemize}
+            \item The results indicate significant differences in performance for different population sizes, especially for population sizes 100 and 150, with P-values less than 0.05. This suggests that the choice of population size has a substantial impact on the algorithm's performance.
+        \end{itemize}
+        \item \textbf{Number of Generations:}
+        \begin{itemize}
+            \item The ANOVA results for the number of generations show significant differences only for 25 generations (P-value = 0.013). For 50 and 100 generations, the P-values are above 0.05, indicating that the differences in performance are not statistically significant for these settings.
+        \end{itemize}
+        \item \textbf{Mutation Rate:}
+        \begin{itemize}
+            \item The mutation rate does not show significant differences in performance across the tested settings, with all P-values above 0.05. This suggests that within the tested range, the mutation rate may not be a critical factor affecting the algorithm's performance.
+        \end{itemize}
     \end{itemize}
-    \item \textbf{Number of Generations:}
-    \begin{itemize}
-        \item The ANOVA results for the number of generations show significant differences only for 25 generations (P-value = 0.013). For 50 and 100 generations, the P-values are above 0.05, indicating that the differences in performance are not statistically significant for these settings.
-    \end{itemize}
-    \item \textbf{Mutation Rate:}
-    \begin{itemize}
-        \item The mutation rate does not show significant differences in performance across the tested settings, with all P-values above 0.05. This suggests that within the tested range, the mutation rate may not be a critical factor affecting the algorithm's performance.
-    \end{itemize}
-\end{itemize}
 
     The ANOVA results offer crucial insights into how different parameter settings influence the Genetic Algorithm's performance. Specifically, the findings underscore the necessity of carefully choosing the population size and number of generations to optimize the algorithm's effectiveness. Conversely, the mutation rate, within the tested range, appears to have a less pronounced effect on performance, suggesting that further research is needed to pinpoint its optimal value.
+
+
+    \section{Conclusion}
+
+    In this section, we conducted a comprehensive evaluation of the Genetic Algorithm (GA) parameters to determine the optimal settings for solving optimization problems efficiently. Our analysis focused on three primary parameters: population size, number of generations, and mutation rate. Through rigorous experimentation and statistical analysis, we derived several key insights regarding the impact of these parameters on the GA's performance.
+
+    Firstly, we observed that the population size significantly influences the GA's ability to explore the solution space. Larger populations generally resulted in improved solution quality due to broader exploration, albeit at the cost of increased computational time and variability. A population size of 150 demonstrated a good balance, enabling thorough exploration while maintaining computational feasibility.
+
+    Secondly, the number of generations played a crucial role in the algorithm's convergence behavior. Increasing the number of generations generally led to better solution quality, as evidenced by lower mean test scores. However, this improvement came with increased computational time and variability, suggesting that a balance must be struck to avoid overfitting and local optima.
+
+    Thirdly, the mutation rate was critical in balancing exploration and exploitation. A lower mutation rate (0.01) favored exploitation, leading to more consistent and stable solutions but with a risk of premature convergence. Conversely, a higher mutation rate (0.1) enhanced exploration, preventing local optima but resulting in increased variability. A mutation rate of 0.05 provided a balanced approach, allowing the GA to effectively explore the solution space while maintaining stability.
+
+    Our ANOVA tests confirmed the significance of these parameters, particularly the population size and the number of generations, in influencing the GA's performance. These findings underscore the importance of careful parameter tuning to achieve optimal performance in genetic algorithms.
+
+    In conclusion, our systematic evaluation identified that a population size of 150, 100 generations, and a mutation rate of 0.05 yielded the most effective results for the tested scenarios. These settings enable the GA to achieve a robust balance between exploration and exploitation, leading to consistent and high-quality solutions. Future work could explore additional parameter combinations and longer generations to further refine these results for more complex optimization problems.
+
+    \clearpage
+
+    \newpage
+
+
+    \section{Tabu Search Parameter Testing}
+
+    The Tabu Search (TS) parameter testing section focuses on a systematic evaluation of different configurations of the TS algorithm to find the most effective parameter settings. This part of the study aims to understand the impact of various combinations of tabu list size, number of iterations, and aspiration criteria on the TS's performance and convergence behavior.
+
+    Through detailed experiments and thorough analysis, this section showcases key results and insights from testing multiple parameter settings. The convergence plots provide a visual representation of the algorithm’s performance across iterations, highlighting trends and variations in solution quality and consistency.
+
+    Here, we present some important results and convergence plots, while additional detailed plots are included in Appendix 2. This comprehensive analysis helps identify the best TS configurations, improving the algorithm’s efficiency and effectiveness in solving complex optimization problems.
 
 
 
@@ -1414,12 +1449,6 @@ The ANOVA test results are summarized below for various parameter settings, incl
         \label{fig:app_ga_50_50_01}
     \end{figure}
 
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.45\textwidth]{genetic_algorithm/appendix/Population_50_Generations_100_MutationRate_0.01}
-        \caption{Population: 50, Generations: 100, Mutation Rate: 0.01}
-        \label{fig:app_ga_50_100_01}
-    \end{figure}
 
     \begin{figure}[H]
         \centering
