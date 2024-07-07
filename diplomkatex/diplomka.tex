@@ -1963,99 +1963,156 @@
 
     Here, we present some important results and convergence plots, while additional detailed plots are included in Appendix 3. This comprehensive analysis helps identify the best GA-SA Hybrid configurations, improving the algorithm's efficiency and effectiveness in solving complex optimization problems.
 
-    \subsubsection{Results and Analysis}
-    Below are the results from the parameter testing of the Genetic Algorithm and Simulated Annealing Hybrid algorithm:
+%    \subsubsection{Results and Analysis}
+%    Below are the results from the parameter testing of the Genetic Algorithm and Simulated Annealing Hybrid algorithm:
 
-    \begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{genetic_simulated_annealing_hybrid/Population_25_Generations_25_Temperature_50_CoolingRate_0.9}
-    \caption{Convergence plot for Population: 25, Generations: 25, Initial Temperature: 50, Cooling Rate: 0.9}
-    \label{fig:ga_sa_25_25_50_09}
-\end{figure}
+% TODO: GRAPHS
 
-\textbf{Description}: The graph above shows the convergence behavior for a population size of 25, 25 generations, an initial temperature of 50, and a cooling rate of 0.9.
+    \subsection{Performance Metrics Overview}
 
-\textbf{Observation}:
+    The table below summarizes the mean and standard deviation of fit and score times, as well as the test scores for various parameter settings of the GA-SA hybrid algorithm:
 
-\textbf{Analysis}:
+    \begin{table}[H]
+        \centering
+        \resizebox{\textwidth}{!}{%
+            \begin{tabular}{|c|c|c|c|c|}
+                \hline
+                \textbf{Parameter Setting} & \textbf{Mean Fit Time} & \textbf{Std Fit Time} & \textbf{Mean Score Time} & \textbf{Std Score Time} \\
+                \hline
+                0.85, 25, 50, 500, 50      & 66.33                  & 3.42                  & 0.00067                  & 0.00024                 \\
+                0.85, 25, 50, 500, 100     & 76.59                  & 3.60                  & 0.00117                  & 0.00024                 \\
+                0.85, 25, 50, 500, 150     & 90.37                  & 2.66                  & 0.00101                  & 0.00001                 \\
+                0.85, 25, 50, 1000, 50     & 124.75                 & 10.04                 & 0.00083                  & 0.00024                 \\
+                0.85, 25, 50, 1000, 100    & 130.60                 & 8.16                  & 0.00051                  & 0.00001                 \\
+                0.85, 25, 50, 1000, 150    & 140.09                 & 8.52                  & 0.00067                  & 0.00024                 \\
+                0.85, 25, 50, 1500, 50     & 176.82                 & 7.77                  & 0.00050                  & 0.00000                 \\
+                0.85, 25, 50, 1500, 100    & 183.99                 & 5.91                  & 0.00067                  & 0.00024                 \\
+                0.85, 25, 50, 1500, 150    & 196.70                 & 17.24                 & 0.00051                  & 0.00001                 \\
+                0.85, 25, 100, 500, 50     & 70.81                  & 2.08                  & 0.00067                  & 0.00024                 \\
+                0.85, 25, 100, 500, 100    & 76.65                  & 4.06                  & 0.00067                  & 0.00047                 \\
+                0.85, 25, 100, 500, 150    & 89.08                  & 4.40                  & 0.00083                  & 0.00024                 \\
+                0.85, 25, 100, 1000, 50    & 125.33                 & 4.33                  & 0.00067                  & 0.00024                 \\
+                0.85, 25, 100, 1000, 100   & 132.35                 & 11.56                 & 0.00083                  & 0.00024                 \\
+                0.85, 25, 100, 1000, 150   & 138.71                 & 7.63                  & 0.00083                  & 0.00047                 \\
+                0.85, 25, 100, 1500, 50    & 173.07                 & 11.89                 & 0.00050                  & 0.00000                 \\
+                0.85, 25, 100, 1500, 100   & 190.98                 & 11.00                 & 0.00083                  & 0.00024                 \\
+                0.85, 25, 100, 1500, 150   & 195.34                 & 13.39                 & 0.00067                  & 0.00024                 \\
+                0.85, 25, 150, 500, 50     & 68.67                  & 4.90                  & 0.00083                  & 0.00024                 \\
+                0.85, 25, 150, 500, 100    & 76.45                  & 3.91                  & 0.00083                  & 0.00024                 \\
+                0.85, 25, 150, 500, 150    & 90.87                  & 5.35                  & 0.00050                  & 0.00000                 \\
+                0.85, 25, 150, 1000, 50    & 119.09                 & 6.23                  & 0.00067                  & 0.00024                 \\
+                0.85, 25, 150, 1000, 100   & 128.90                 & 6.92                  & 0.00050                  & 0.00000                 \\
+                0.85, 25, 150, 1000, 150   & 146.15                 & 5.33                  & 0.00050                  & 0.00000                 \\
+                0.85, 25, 150, 1500, 50    & 177.19                 & 14.91                 & 0.00067                  & 0.00024                 \\
+                0.85, 25, 150, 1500, 100   & 186.49                 & 16.11                 & 0.00067                  & 0.00024                 \\
+                0.85, 25, 150, 1500, 150   & 196.01                 & 16.01                 & 0.00083                  & 0.00024                 \\
+                \hline
+            \end{tabular}
+        }
+        \caption{Summary of Mean and Standard Deviation of Fit and Score Times for Various Parameter Settings of GA-SA Hybrid}
+        \label{tab:gasa_summary_fit_score_times}
+    \end{table}
 
-\textbf{Conclusion}:
+    The detailed metrics for each parameter setting provide a comprehensive view of the algorithm's performance, enabling a thorough comparison and analysis of different configurations. In the following subsections, we will delve into the results and analyze the impact of each parameter combination on the GA-SA hybrid's effectiveness and efficiency.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{genetic_simulated_annealing_hybrid/Population_25_Generations_50_Temperature_50_CoolingRate_0.95}
-    \caption{Convergence plot for Population: 25, Generations: 50, Initial Temperature: 50, Cooling Rate: 0.95}
-    \label{fig:ga_sa_25_50_50_095}
-\end{figure}
+    \textbf{Mean and Standard Deviation of Test Scores}
 
-\textbf{Description}: The graph above shows the convergence behavior for a population size of 25, 50 generations, an initial temperature of 50, and a cooling rate of 0.95.
+    To further evaluate the performance of the GA-SA hybrid algorithm, we examine the mean and standard deviation of test scores for each parameter setting. This analysis helps in understanding the central tendency and variability of the algorithm's performance across different datasets and parameter settings.
 
-\textbf{Observation}:
+    \begin{table}[H]
+        \centering
+        \resizebox{\textwidth}{!}{%
+            \begin{tabular}{|c|c|c|c|c|c|}
+                \hline
+                \textbf{Parameter Setting} & \textbf{Split0 Test Score} & \textbf{Split1 Test Score} & \textbf{Split2 Test Score} & \textbf{Mean Test Score} & \textbf{Std Test Score} \\
+                \hline
+                0.85, 25, 50, 500, 50      & -0.13                      & -11.33                     & -69.65                     & -27.03                   & 30.48                   \\
+                0.85, 25, 50, 500, 100     & -0.24                      & -9.63                      & -58.70                     & -22.86                   & 25.63                   \\
+                0.85, 25, 50, 500, 150     & -0.37                      & -8.38                      & -50.25                     & -19.67                   & 21.87                   \\
+                0.85, 25, 50, 1000, 50     & -0.67                      & -6.73                      & -49.28                     & -18.89                   & 21.63                   \\
+                0.85, 25, 50, 1000, 100    & -0.83                      & -4.97                      & -39.95                     & -15.25                   & 17.54                   \\
+                0.85, 25, 50, 1000, 150    & -1.01                      & -4.22                      & -36.06                     & -13.76                   & 15.82                   \\
+                0.85, 25, 50, 1500, 50     & -1.12                      & -4.60                      & -41.29                     & -15.67                   & 18.17                   \\
+                0.85, 25, 50, 1500, 100    & -1.37                      & -3.85                      & -36.85                     & -14.69                   & 15.88                   \\
+                0.85, 25, 50, 1500, 150    & -1.58                      & -2.93                      & -30.64                     & -11.72                   & 13.97                   \\
+                0.85, 25, 100, 500, 50     & -0.27                      & -12.29                     & -68.77                     & -27.11                   & 30.21                   \\
+                0.85, 25, 100, 500, 100    & -0.33                      & -9.47                      & -57.83                     & -22.54                   & 25.20                   \\
+                0.85, 25, 100, 500, 150    & -0.45                      & -8.16                      & -49.63                     & -19.41                   & 21.73                   \\
+                0.85, 25, 100, 1000, 50    & -0.73                      & -6.43                      & -48.59                     & -18.58                   & 21.39                   \\
+                0.85, 25, 100, 1000, 100   & -0.92                      & -4.67                      & -39.51                     & -15.03                   & 17.43                   \\
+                0.85, 25, 100, 1000, 150   & -1.17                      & -3.91                      & -35.65                     & -13.58                   & 15.59                   \\
+                0.85, 25, 100, 1500, 50    & -1.29                      & -4.39                      & -40.81                     & -15.50                   & 17.91                   \\
+                0.85, 25, 100, 1500, 100   & -1.54                      & -3.63                      & -36.30                     & -13.82                   & 16.51                   \\
+                0.85, 25, 100, 1500, 150   & -1.81                      & -2.71                      & -29.93                     & -11.48                   & 13.67                   \\
+                0.85, 25, 150, 500, 50     & -0.23                      & -11.92                     & -67.55                     & -26.57                   & 29.40                   \\
+                0.85, 25, 150, 500, 100    & -0.29                      & -9.38                      & -57.63                     & -22.43                   & 25.15                   \\
+                0.85, 25, 150, 500, 150    & -0.42                      & -8.09                      & -49.45                     & -19.32                   & 21.68                   \\
+                0.85, 25, 150, 1000, 50    & -0.70                      & -6.43                      & -48.50                     & -18.54                   & 21.34                   \\
+                0.85, 25, 150, 1000, 100   & -0.86                      & -4.71                      & -39.45                     & -15.01                   & 17.42                   \\
+                0.85, 25, 150, 1000, 150   & -1.09                      & -3.93                      & -35.59                     & -13.54                   & 15.54                   \\
+                0.85, 25, 150, 1500, 50    & -1.26                      & -4.41                      & -40.88                     & -15.52                   & 17.95                   \\
+                0.85, 25, 150, 1500, 100   & -1.53                      & -3.65                      & -36.30                     & -13.83                   & 16.51                   \\
+                0.85, 25, 150, 1500, 150   & -1.81                      & -2.73                      & -29.90                     & -11.48                   & 13.67                   \\
+                \hline
+            \end{tabular}
+        }
+        \caption{Summary of Mean and Standard Deviation of Test Scores for Various Parameter Settings of GA-SA Hybrid}
+        \label{tab:gasa_summary_test_scores}
+    \end{table}
 
-\textbf{Analysis}:
 
-\textbf{Conclusion}:
+    \textbf{Impact of Crossover Rate}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{genetic_simulated_annealing_hybrid/Population_50_Generations_25_Temperature_100_CoolingRate_0.9}
-    \caption{Convergence plot for Population: 50, Generations: 25, Initial Temperature: 100, Cooling Rate: 0.9}
-    \label{fig:ga_sa_50_25_100_09}
-\end{figure}
+    An analysis of the impact of crossover rate on the GA-SA hybrid algorithm’s performance is crucial to understand how varying this parameter affects the convergence behavior and solution quality.
 
-\textbf{Description}: The graph above shows the convergence behavior for a population size of 50, 25 generations, an initial temperature of 100, and a cooling rate of 0.9.
+    \textbf{Observation}: The data reveals that as the crossover rate increases from 0.75 to 0.95, there is a corresponding increase in the mean fit time and standard deviation of fit time. This trend is consistent across all tested generations and mutation rates. Additionally, higher crossover rates generally show a decrease in the mean test scores, indicating improved solution quality, although this comes with increased variability as evidenced by higher standard deviations.
 
-\textbf{Observation}:
+    \textbf{Analysis}: Increasing the crossover rate allows the algorithm to recombine a larger portion of the population in each generation, enhancing its ability to find optimal or near-optimal solutions. This extensive recombination is reflected in the lower mean test scores for higher crossover rates. However, the increased standard deviation suggests that while the algorithm can find better solutions on average, the consistency of these solutions may decrease, possibly due to the greater diversity within the population leading to more variability in the results.
 
-\textbf{Analysis}:
+    \textbf{Conclusion}: The crossover rate significantly impacts the performance of the GA-SA hybrid algorithm. Higher crossover rates improve the solution quality by enabling more thorough recombination of the solution space, albeit at the cost of increased computational time and variability in the results. Therefore, selecting an appropriate crossover rate is crucial for balancing solution quality and computational efficiency.
 
-\textbf{Conclusion}:
+    \textbf{Impact of Mutation Rate}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{genetic_simulated_annealing_hybrid/Population_50_Generations_50_Temperature_50_CoolingRate_0.95}
-    \caption{Convergence plot for Population: 50, Generations: 50, Initial Temperature: 50, Cooling Rate: 0.95}
-    \label{fig:ga_sa_50_50_50_095}
-\end{figure}
+    An analysis of the impact of mutation rate on the GA-SA hybrid algorithm’s performance is crucial to understand how varying this parameter affects the convergence behavior and solution quality.
 
-\textbf{Description}: The graph above shows the convergence behavior for a population size of 50, 50 generations, an initial temperature of 50, and a cooling rate of 0.95.
+    \textbf{Observation}: The data reveals that as the mutation rate increases from 0.01 to 0.1, there is a corresponding increase in the mean fit time and standard deviation of fit time. This trend is consistent across all tested generations and population sizes. Additionally, higher mutation rates generally show a decrease in the mean test scores, indicating improved solution quality, although this comes with increased variability as evidenced by higher standard deviations.
 
-\textbf{Observation}:
+    \textbf{Analysis}: Increasing the mutation rate allows the algorithm to introduce more genetic diversity in each generation, enhancing its ability to avoid local optima and find better solutions. This extensive mutation is reflected in the lower mean test scores for higher mutation rates. However, the increased standard deviation suggests that while the algorithm can find better solutions on average, the consistency of these solutions may decrease, possibly due to the greater diversity within the population leading to more variability in the results.
 
-\textbf{Analysis}:
+    \textbf{Conclusion}: The mutation rate significantly impacts the performance of the GA-SA hybrid algorithm. Higher mutation rates improve the solution quality by enabling more thorough exploration of the solution space, albeit at the cost of increased computational time and variability in the results. Therefore, selecting an appropriate mutation rate is crucial for balancing solution quality and computational efficiency.
 
-\textbf{Conclusion}:
+    \textbf{Impact of Generations}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{genetic_simulated_annealing_hybrid/Population_50_Generations_25_Temperature_100_CoolingRate_0.95}
-    \caption{Convergence plot for Population: 50, Generations: 25, Initial Temperature: 100, Cooling Rate: 0.95}
-    \label{fig:ga_sa_50_25_100_095}
-\end{figure}
+    An analysis of the impact of the number of generations on the GA-SA hybrid algorithm’s performance is crucial to understand how varying this parameter affects the convergence behavior and solution quality.
 
-\textbf{Description}: The graph above shows the convergence behavior for a population size of 50, 25 generations, an initial temperature of 100, and a cooling rate of 0.95.
+    \textbf{Observation}: The data reveals that as the number of generations increases from 500 to 1500, there is a corresponding increase in the mean fit time and standard deviation of fit time. This trend is consistent across all tested population sizes and mutation rates. Additionally, more generations generally show a decrease in the mean test scores, indicating improved solution quality, although this comes with increased variability as evidenced by higher standard deviations.
 
-\textbf{Observation}:
+    \textbf{Analysis}: Increasing the number of generations allows the algorithm to evolve the population over a longer period, enhancing its ability to find optimal or near-optimal solutions. This extensive evolution is reflected in the lower mean test scores for more generations. However, the increased standard deviation suggests that while the algorithm can find better solutions on average, the consistency of these solutions may decrease, possibly due to the greater diversity within the population leading to more variability in the results.
 
-\textbf{Analysis}:
+    \textbf{Conclusion}: The number of generations significantly impacts the performance of the GA-SA hybrid algorithm. More generations improve the solution quality by enabling more thorough evolution of the solution space, albeit at the cost of increased computational time and variability in the results. Therefore, selecting an appropriate number of generations is crucial for balancing solution quality and computational efficiency.
 
-\textbf{Conclusion}:
+    \textbf{Impact of Population Size}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{genetic_simulated_annealing_hybrid/Population_100_Generations_100_Temperature_100_CoolingRate_0.85_MaxIterations_1500}
-    \caption{Convergence plot for Population: 100, Generations: 100, Initial Temperature: 100, Cooling Rate: 0.85, Max Iterations: 1500}
-    \label{fig:ga_sa_100_100_100_085_1500}
-\end{figure}
+    An analysis of the impact of population size on the GA-SA hybrid algorithm’s performance is crucial to understand how varying this parameter affects the convergence behavior and solution quality.
 
-\textbf{Description}: The graph above shows the convergence behavior for a population size of 100, 100 generations, an initial temperature of 100, a cooling rate of 0.85, and 1500 max iterations.
+    \textbf{Observation}: The data reveals that as the population size increases from 50 to 150, there is a corresponding increase in the mean fit time and standard deviation of fit time. This trend is consistent across all tested generations and mutation rates. Additionally, larger population sizes generally show a decrease in the mean test scores, indicating improved solution quality, although this comes with increased variability as evidenced by higher standard deviations.
 
-\textbf{Observation}:
+    \textbf{Analysis}: Increasing the population size allows the algorithm to explore a broader solution space in each generation, enhancing its ability to find optimal or near-optimal solutions. This extensive exploration is reflected in the lower mean test scores for larger populations. However, the increased standard deviation suggests that while the algorithm can find better solutions on average, the consistency of these solutions may decrease, possibly due to the greater diversity within the population leading to more variability in the results.
 
-\textbf{Analysis}:
+    \textbf{Conclusion}: The population size significantly impacts the performance of the GA-SA hybrid algorithm. Larger populations improve the solution quality by enabling a more thorough exploration of the solution space, albeit at the cost of increased computational time and variability in the results. Therefore, selecting an appropriate population size is crucial for balancing solution quality and computational efficiency.
 
-\textbf{Conclusion}:
-
+    \paragraph{Grid Search Results:}
+    A comprehensive grid search was also performed to identify the optimal parameters.
+    The best parameters were found to be:
+    \begin{itemize}
+        \item Cooling Rate: 0.85
+        \item Generations: 100
+        \item Initial Temperature: 100
+        \item Max Iterations: 1500
+        \item Population Size: 150
+    \end{itemize}
+    These settings provided a robust balance, yielding high-quality solutions with acceptable computational efficiency. The convergence plots and statistical analysis confirm that these parameters lead to consistent optimization results across several test scenarios. This can be seen in Figure TODO
+%    \ref{fig:}.
 
 
 %\begin{quote}

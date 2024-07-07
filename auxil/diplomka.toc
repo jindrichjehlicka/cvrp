@@ -114,6 +114,9 @@
 \contentsline {paragraph}{Grid Search Results:}{80}{section*.116}%
 \contentsline {subsubsection}{ANOVA Results}{80}{section*.117}%
 \contentsline {subsubsection}{Conclusion}{81}{section*.118}%
-\contentsline {section}{Závěr}{83}{section*.119}%
-\contentsline {section}{Seznam použitých zdrojů}{84}{section*.120}%
-\contentsline {section}{Appendix 1: Genetic Algorithm Convergence Plots}{85}{section*.121}%
+\contentsline {subsection}{Genetic Algorithm and Simulated Annealing Hybrid Parameter Testing}{83}{section*.119}%
+\contentsline {subsection}{Performance Metrics Overview}{83}{section*.120}%
+\contentsline {paragraph}{Grid Search Results:}{87}{section*.121}%
+\contentsline {section}{Závěr}{88}{section*.122}%
+\contentsline {section}{Seznam použitých zdrojů}{89}{section*.123}%
+\contentsline {section}{Appendix 1: Genetic Algorithm Convergence Plots}{90}{section*.124}%
