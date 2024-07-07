@@ -1889,7 +1889,69 @@
     \end{itemize}
     These settings provided a robust balance, yielding high-quality solutions with acceptable computational efficiency. The convergence plots and statistical analysis confirm that these parameters lead to consistent optimization results across various test scenarios.
 
-    \textbf{Conclusion}: The maximum number of iterations is a crucial parameter that needs careful tuning to balance exploration and exploitation. Fewer iterations favor exploitation, resulting in higher solution quality but with a risk of premature convergence. In contrast, more iterations enhance exploration, which can prevent local optima but may result in increased variability and less consistent performance. Therefore, selecting an optimal number of iterations is essential to achieve a balance between search breadth and solution refinement.
+    \textbf{Conclusion}: The maximum number of iterations is a important parameter that needs careful tuning to balance exploration and exploitation. Fewer iterations favor exploitation, resulting in higher solution quality but with a risk of premature convergence. In contrast, more iterations enhance exploration, which can prevent local optima but may result in increased variability and less consistent performance.
+
+    \subsubsection{ANOVA Results}
+
+    The following section presents the results of the ANOVA tests conducted to evaluate the impact of different parameter settings on the performance of the Simulated Annealing algorithm.
+
+    \textbf{ANOVA Results Summary}
+
+    The ANOVA test results are summarized below for various parameter settings, including maximum iterations, initial temperature, and cooling rate. The F-statistic and P-value indicate the significance of the differences in performance for each parameter setting.
+
+    \begin{itemize}
+        \item \textbf{Max Iterations}
+        \begin{itemize}
+            \item \textbf{Max Iterations 500}: F-statistic = 0.610184, P-value = 0.573820
+            \item \textbf{Max Iterations 1000}: F-statistic = 0.246885, P-value = 0.788793
+            \item \textbf{Max Iterations 1500}: F-statistic = 0.135564, P-value = 0.875824
+        \end{itemize}
+        \item \textbf{Initial Temperature}
+        \begin{itemize}
+            \item \textbf{Initial Temperature 500}: F-statistic = 0.003248, P-value = 0.996759
+            \item \textbf{Initial Temperature 1000}: F-statistic = 0.023414, P-value = 0.976947
+            \item \textbf{Initial Temperature 1500}: F-statistic = 0.060434, P-value = 0.941921
+        \end{itemize}
+        \item \textbf{Cooling Rate}
+        \begin{itemize}
+            \item \textbf{Cooling Rate 0.9}: F-statistic = 3403.279007, P-value = 0.000000000683161
+            \item \textbf{Cooling Rate 0.97}: F-statistic = 3940.736152, P-value = 0.000000000440190
+            \item \textbf{Cooling Rate 0.99}: F-statistic = 224.285637, P-value = 0.000002299576122
+        \end{itemize}
+    \end{itemize}
+
+    \textbf{Interpretation of ANOVA Results}
+
+    \begin{itemize}
+        \item \textbf{Max Iterations:}
+        \begin{itemize}
+            \item The results indicate no significant differences in performance for different max iteration settings, as evidenced by the very high P-values. This suggests that varying the number of iterations does not substantially impact the algorithm's performance within the tested range.
+        \end{itemize}
+        \item \textbf{Initial Temperature:}
+        \begin{itemize}
+            \item The ANOVA results for the initial temperature show no significant differences in performance, with P-values much greater than 0.05 for all tested settings. This indicates that the initial temperature does not have a significant impact on the algorithm's performance.
+        \end{itemize}
+        \item \textbf{Cooling Rate:}
+        \begin{itemize}
+            \item The cooling rate shows extremely significant differences in performance across the tested settings, with P-values close to zero. This suggests that the cooling rate is a critical factor influencing the effectiveness of the Simulated Annealing algorithm.
+        \end{itemize}
+    \end{itemize}
+
+    The ANOVA results offer crucial insights into how different parameter settings influence the Simulated Annealing algorithm's performance. The findings highlight the importance of carefully selecting the cooling rate to optimize the algorithm's effectiveness. Conversely, the number of iterations and the initial temperature appear to have a less pronounced effect on performance, indicating that future research should focus on the cooling rate for further optimization.
+
+    \subsubsection{Conclusion}
+
+    In this section, we conducted a comprehensive evaluation of the Simulated Annealing (SA) parameters to determine the optimal settings for solving optimization problems efficiently. Our analysis focused on three primary parameters: max iterations, initial temperature, and cooling rate. Through rigorous experimentation and statistical analysis, we derived several key insights regarding the impact of these parameters on the SA's performance.
+
+    Firstly, we observed that the max iterations did not significantly influence the SA's performance within the tested range. The ANOVA results indicated that variations in the number of iterations did not lead to statistically significant differences in solution quality, suggesting that other parameters play a more crucial role in determining the algorithm's effectiveness.
+
+    Secondly, the initial temperature was found to have no significant impact on the SA algorithm's performance. The ANOVA results showed that changes in initial temperature did not result in statistically significant differences in solution quality, indicating that this parameter is less critical within the tested range.
+
+    Thirdly, the cooling rate was identified as a critical parameter affecting the SA’s performance. Higher cooling rates generally resulted in improved solution quality by enabling a more thorough exploration of the solution space. However, this improvement came with increased computational time and variability, highlighting the need to balance the cooling rate with computational efficiency.
+
+    Our ANOVA tests confirmed the significance of the cooling rate in influencing the SA’s performance. These findings underscore the importance of careful parameter tuning to achieve optimal performance in simulated annealing algorithms.
+
+    In conclusion, the systematic evaluation identified that a cooling rate of 0.95, an initial temperature of 1000, and a maximum of 150 iterations yielded the most effective results for the tested scenarios. These settings enable the SA to achieve a robust balance between exploration and exploitation, leading to consistent and high-quality solutions. Future work could explore additional parameter combinations and larger search spaces to further refine these results for more complex optimization problems.
 
 
 %\begin{quote}
