@@ -106,6 +106,12 @@
 \contentsline {paragraph}{Grid Search Results:}{67}{section*.108}%
 \contentsline {subsubsection}{ANOVA Results}{67}{section*.109}%
 \contentsline {subsubsection}{Conclusion}{68}{section*.110}%
-\contentsline {section}{Závěr}{70}{section*.111}%
-\contentsline {section}{Seznam použitých zdrojů}{71}{section*.112}%
-\contentsline {section}{Appendix 1: Genetic Algorithm Convergence Plots}{72}{section*.113}%
+\contentsline {section}{Simulated Annealing Parameter Testing}{70}{section*.111}%
+\contentsline {subsection}{Performance Metrics Overview}{76}{section*.112}%
+\contentsline {subsubsection}{Impact of Cooling Rate}{77}{section*.113}%
+\contentsline {subsubsection}{Impact of Initial Temperature}{78}{section*.114}%
+\contentsline {subsubsection}{Impact of Maximum Iterations}{78}{section*.115}%
+\contentsline {paragraph}{Grid Search Results:}{79}{section*.116}%
+\contentsline {section}{Závěr}{80}{section*.117}%
+\contentsline {section}{Seznam použitých zdrojů}{81}{section*.118}%
+\contentsline {section}{Appendix 1: Genetic Algorithm Convergence Plots}{82}{section*.119}%

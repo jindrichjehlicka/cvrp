@@ -1653,6 +1653,245 @@
 
     In conclusion, the systematic evaluation identified that a maximum of 500 iterations, a tabu size of 15, and a neighborhood size of 15 yielded the most effective results for the tested scenarios. These settings enable the TS to achieve a robust balance between exploration and exploitation, leading to consistent and high-quality solutions. Future work could explore additional parameter combinations and larger search spaces to further refine these results for more complex optimization problems.
 
+
+    \newpage
+
+
+    \section{Simulated Annealing Parameter Testing}
+
+    The Simulated Annealing (SA) parameter testing section focuses on a systematic evaluation of different configurations of the SA algorithm to find the most effective parameter settings.
+    This part of the study aims to understand the impact of various combinations of initial temperature, cooling schedule, and stopping criteria on the SA’s performance and convergence behavior.
+
+    Through detailed experiments and thorough analysis, this section showcases key results and insights from testing multiple parameter settings.
+    The convergence plots provide a visual representation of the algorithm’s performance across iterations, highlighting trends and variations in solution quality and consistency.
+
+    Here, we present some important results and convergence plots, while additional detailed plots are included in Appendix 3.
+    This comprehensive analysis helps identify the best SA configurations, improving the algorithm’s efficiency and effectiveness in solving complex optimization problems.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{simulated_annealing/max_iter_500_init_temp_500_cooling_rate_0.9}
+        \caption{Convergence plot for Max Iterations: 500, Initial Temperature: 500, Cooling Rate: 0.9}
+        \label{fig:sa_500_500_0.9}
+    \end{figure}
+
+    \textbf{Description}: The graph above shows the convergence behavior for a maximum of 500 iterations, an initial temperature of 500, and a cooling rate of 0.9.
+
+    \textbf{Observation}: The convergence plot shows a steady decrease in the normalized cost over 500 iterations. The mean normalized cost starts around 1.0 and decreases to approximately 0.4 by the 500th iteration. The standard deviation remains relatively low throughout the process, indicating consistent performance across multiple runs.
+
+    \textbf{Analysis}: The gradual decline in the mean normalized cost suggests that the Simulated Annealing algorithm is effectively optimizing the solution over the iterations. The low and steady standard deviation indicates that the algorithm maintains a stable performance with little variability between runs. The initial temperature of 500 and a cooling rate of 0.9 provide a balanced approach to exploration and exploitation, allowing the algorithm to escape local optima and gradually converge towards better solutions.
+
+    \textbf{Conclusion}: For a maximum of 500 iterations, an initial temperature of 500, and a cooling rate of 0.9, the Simulated Annealing algorithm demonstrates effective convergence to lower-cost solutions while maintaining overall stability. This parameter setting is efficient for achieving reliable optimization results within the given constraints.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{simulated_annealing/max_iter_500_init_temp_500_cooling_rate_0.97}
+        \caption{Convergence plot for Max Iterations: 500, Initial Temperature: 500, Cooling Rate: 0.97}
+        \label{fig:sa_500_500_0.97}
+    \end{figure}
+
+    \textbf{Description}: The graph above shows the convergence behavior for a maximum of 500 iterations, an initial temperature of 500, and a cooling rate of 0.97.
+
+    \textbf{Observation}: The convergence plot shows a steady decrease in the normalized cost over 500 iterations. The mean normalized cost starts around 1.0 and decreases to approximately 0.3 by the 500th iteration. The standard deviation is slightly higher compared to the previous configuration, but it still remains relatively low throughout the process.
+
+    \textbf{Analysis}: The consistent decline in the mean normalized cost indicates that the Simulated Annealing algorithm is effectively optimizing the solution over the iterations. The slightly higher standard deviation suggests that while the algorithm is stable, there is a bit more variability in the performance across different runs. The initial temperature of 500 and a cooling rate of 0.97 facilitate a gradual exploration of the solution space, allowing the algorithm to escape local optima and converge towards better solutions.
+
+    \textbf{Conclusion}: For a maximum of 500 iterations, an initial temperature of 500, and a cooling rate of 0.97, the Simulated Annealing algorithm demonstrates effective convergence to lower-cost solutions with a slight increase in variability. This parameter setting balances exploration and exploitation, leading to reliable optimization results.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{simulated_annealing/max_iter_500_init_temp_1000_cooling_rate_0.9}
+        \caption{Convergence plot for Max Iterations: 500, Initial Temperature: 1000, Cooling Rate: 0.9}
+        \label{fig:sa_500_1000_0.9}
+    \end{figure}
+
+    \textbf{Description}: The graph above shows the convergence behavior for a maximum of 500 iterations, an initial temperature of 1000, and a cooling rate of 0.9.
+
+    \textbf{Observation}: The convergence plot shows a steady decrease in the normalized cost over 500 iterations. The mean normalized cost starts at around 1.0 and decreases to approximately 0.4 by the 500th iteration. The standard deviation remains relatively low throughout the iterations, indicating consistent performance across multiple runs.
+
+    \textbf{Analysis}: The decline in the mean normalized cost suggests that the Simulated Annealing algorithm is effectively optimizing the solution over the iterations. The initial temperature of 1000 and a cooling rate of 0.9 enable the algorithm to explore the solution space thoroughly in the early iterations and gradually focus on refining the solutions as the temperature decreases. The low standard deviation indicates that the algorithm's performance is stable and consistent.
+
+    \textbf{Conclusion}: For a maximum of 500 iterations, an initial temperature of 1000, and a cooling rate of 0.9, the Simulated Annealing algorithm demonstrates efficient convergence to lower-cost solutions with consistent performance. This parameter setting effectively balances exploration and exploitation, making it suitable for achieving reliable optimization results.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{simulated_annealing/max_iter_500_init_temp_1000_cooling_rate_0.97}
+        \caption{Convergence plot for Max Iterations: 500, Initial Temperature: 1000, Cooling Rate: 0.97}
+        \label{fig:sa_500_1000_0.97}
+    \end{figure}
+
+    \textbf{Description}: The graph above shows the convergence behavior for a maximum of 500 iterations, an initial temperature of 1000, and a cooling rate of 0.97.
+
+    \textbf{Observation}: The convergence plot shows a steady decrease in the normalized cost over 500 iterations. The mean normalized cost starts at around 1.0 and decreases to approximately 0.3 by the 500th iteration. The standard deviation remains relatively low throughout the iterations, indicating consistent performance across multiple runs.
+
+    \textbf{Analysis}: The decline in the mean normalized cost suggests that the Simulated Annealing algorithm is effectively optimizing the solution over the iterations. The initial temperature of 1000 and a cooling rate of 0.97 allow for substantial exploration in the early iterations and a gradual focus on refining the solutions as the temperature decreases. The low standard deviation indicates stable and consistent performance.
+
+    \textbf{Conclusion}: For a maximum of 500 iterations, an initial temperature of 1000, and a cooling rate of 0.97, the Simulated Annealing algorithm demonstrates efficient convergence to lower-cost solutions with consistent performance. This parameter setting provides a balance between exploration and exploitation, making it suitable for achieving reliable optimization results.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{simulated_annealing/max_iter_1000_init_temp_1500_cooling_rate_0.99}
+        \caption{Convergence plot for Max Iterations: 1000, Initial Temperature: 1500, Cooling Rate: 0.99}
+        \label{fig:sa_1000_1500_0.99}
+    \end{figure}
+
+    \textbf{Description}: The graph above shows the convergence behavior for a maximum of 1000 iterations, an initial temperature of 1500, and a cooling rate of 0.99.
+
+    \textbf{Observation}: The convergence plot shows a steady decrease in the normalized cost over 1000 iterations. The mean normalized cost starts at around 1.0 and decreases to approximately 0.3 by the 1000th iteration. The standard deviation remains relatively low throughout the iterations, indicating consistent performance across multiple runs.
+
+    \textbf{Analysis}: The gradual decline in the mean normalized cost suggests that the Simulated Annealing algorithm is effectively optimizing the solution over the iterations. The high initial temperature of 1500 and a cooling rate of 0.99 allow for extensive exploration in the early iterations and a slow cooling process that helps refine the solutions. The low standard deviation indicates stable and consistent performance.
+
+    \textbf{Conclusion}: For a maximum of 1000 iterations, an initial temperature of 1500, and a cooling rate of 0.99, the Simulated Annealing algorithm demonstrates efficient convergence to lower-cost solutions with consistent performance. This parameter setting provides a good balance between exploration and exploitation, making it suitable for achieving reliable optimization results
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{simulated_annealing/max_iter_1500_init_temp_500_cooling_rate_0.9}
+        \caption{Convergence plot for Max Iterations: 1500, Initial Temperature: 500, Cooling Rate: 0.9}
+        \label{fig:sa_1500_500_0.9}
+    \end{figure}
+
+    \textbf{Description}: The graph above shows the convergence behavior for a maximum of 1500 iterations, an initial temperature of 500, and a cooling rate of 0.9.
+
+    \textbf{Observation}: The convergence plot illustrates a consistent decline in the normalized cost over 1500 iterations. Initially, the mean normalized cost is around 1.0 and it steadily drops to about 0.3 by the 1500th iteration. The standard deviation also decreases over time, signifying improved consistency in the algorithm’s performance.
+
+    \textbf{Analysis}: The steady reduction in mean normalized cost indicates that the Simulated Annealing algorithm is effectively finding better solutions as iterations progress. The combination of a moderate initial temperature of 500 and a cooling rate of 0.9 allows for a balance between exploration and exploitation, enabling the algorithm to refine solutions progressively. The reduction in standard deviation suggests that the algorithm's performance stabilizes, leading to more consistent results.
+
+    \textbf{Conclusion}: For a maximum of 1500 iterations, an initial temperature of 500, and a cooling rate of 0.9, the Simulated Annealing algorithm achieves effective and consistent convergence to lower-cost solutions. This parameter setting proves to be efficient in maintaining a balance between thorough exploration and solution refinement
+
+    \subsection{Performance Metrics Overview}
+
+    The table below summarizes the mean and standard deviation of fit and score times, as well as the test scores for various parameter settings of the Simulated Annealing algorithm:
+
+    \begin{table}[H]
+        \centering
+        \resizebox{\textwidth}{!}{%
+            \begin{tabular}{|c|c|c|c|c|}
+                \hline
+                \textbf{Parameter Setting} & \textbf{Mean Fit Time} & \textbf{Std Fit Time} & \textbf{Mean Score Time} & \textbf{Std Score Time} \\
+                \hline
+                0.85, 500, 50              & 8.63                   & 0.53                  & 0.00065                  & 0.00022                 \\
+                0.85, 500, 100             & 13.93                  & 1.02                  & 0.00084                  & 0.00002                 \\
+                0.85, 500, 150             & 19.44                  & 1.54                  & 0.00069                  & 0.00022                 \\
+                0.85, 1000, 50             & 8.07                   & 0.36                  & 0.00073                  & 0.00006                 \\
+                0.85, 1000, 100            & 13.01                  & 1.02                  & 0.00056                  & 0.00016                 \\
+                0.85, 1000, 150            & 18.31                  & 1.40                  & 0.00062                  & 0.00001                 \\
+                0.85, 1500, 50             & 7.87                   & 0.69                  & 0.00060                  & 0.00002                 \\
+                0.85, 1500, 100            & 13.34                  & 0.89                  & 0.00056                  & 0.00009                 \\
+                0.85, 1500, 150            & 18.28                  & 1.40                  & 0.00106                  & 0.00056                 \\
+                0.9, 500, 50               & 7.81                   & 0.55                  & 0.00060                  & 0.00003                 \\
+                0.9, 500, 100              & 13.16                  & 1.01                  & 0.00098                  & 0.00054                 \\
+                0.9, 500, 150              & 18.39                  & 1.42                  & 0.00060                  & 0.00005                 \\
+                0.9, 1000, 50              & 7.76                   & 0.60                  & 0.00057                  & 0.00004                 \\
+                0.9, 1000, 100             & 12.97                  & 0.89                  & 0.00051                  & 0.00010                 \\
+                0.9, 1000, 150             & 18.58                  & 1.39                  & 0.00058                  & 0.00003                 \\
+                0.9, 1500, 50              & 7.83                   & 0.56                  & 0.00236                  & 0.00255                 \\
+                0.9, 1500, 100             & 13.05                  & 1.06                  & 0.00059                  & 0.00002                 \\
+                0.9, 1500, 150             & 18.11                  & 1.34                  & 0.00061                  & 0.00001                 \\
+                0.95, 500, 50              & 7.83                   & 0.75                  & 0.00057                  & 0.00002                 \\
+                0.95, 500, 100             & 12.90                  & 1.02                  & 0.00057                  & 0.00002                 \\
+                0.95, 500, 150             & 18.42                  & 1.52                  & 0.00061                  & 0.00002                 \\
+                0.95, 1000, 50             & 7.89                   & 0.58                  & 0.00063                  & 0.00001                 \\
+                0.95, 1000, 100            & 13.04                  & 1.06                  & 0.00048                  & 0.00012                 \\
+                0.95, 1000, 150            & 18.30                  & 1.51                  & 0.00061                  & 0.00002                 \\
+                0.95, 1500, 50             & 7.74                   & 0.61                  & 0.00051                  & 0.00016                 \\
+                0.95, 1500, 100            & 12.43                  & 0.76                  & 0.00052                  & 0.00014                 \\
+                0.95, 1500, 150            & 16.27                  & 1.01                  & 0.00053                  & 0.00015                 \\
+                \hline
+            \end{tabular}
+        }
+        \caption{Summary of Mean and Standard Deviation of Fit and Score Times for Various Parameter Settings of Simulated Annealing}
+        \label{tab:sa_summary_fit_score_times}
+    \end{table}
+
+    The detailed metrics for each parameter setting provide a comprehensive view of the algorithm's performance, enabling a thorough comparison and analysis of different configurations. In the following subsections, we will delve into the results and analyze the impact of each parameter combination on the SA's effectiveness and efficiency.
+
+    \textbf{Mean and Standard Deviation of Test Scores}
+
+    To further evaluate the performance of the Simulated Annealing algorithm, we examine the mean and standard deviation of test scores for each parameter setting. This analysis helps in understanding the central tendency and variability of the algorithm's performance across different datasets and parameter settings.
+
+    \begin{table}[H]
+        \centering
+        \resizebox{\textwidth}{!}{%
+            \begin{tabular}{|c|c|c|c|c|c|}
+                \hline
+                \textbf{Parameter Setting} & \textbf{Split0 Test Score} & \textbf{Split1 Test Score} & \textbf{Split2 Test Score} & \textbf{Mean Test Score} & \textbf{Std Test Score} \\
+                \hline
+                0.85, 500, 50              & -4.99                      & -74.17                     & -287.74                    & -122.30                  & 120.34                  \\
+                0.85, 500, 100             & -2.65                      & -54.16                     & -231.17                    & -95.99                   & 97.87                   \\
+                0.85, 500, 150             & -1.62                      & -45.23                     & -194.44                    & -80.43                   & 82.56                   \\
+                0.85, 1000, 50             & -5.09                      & -73.23                     & -285.97                    & -121.43                  & 119.63                  \\
+                0.85, 1000, 100            & -2.72                      & -55.83                     & -229.02                    & -95.86                   & 96.62                   \\
+                0.85, 1000, 150            & -1.65                      & -45.77                     & -196.33                    & -81.25                   & 83.34                   \\
+                0.85, 1500, 50             & -5.07                      & -73.24                     & -286.82                    & -121.71                  & 120.02                  \\
+                0.85, 1500, 100            & -2.83                      & -56.16                     & -225.92                    & -94.97                   & 95.12                   \\
+                0.85, 1500, 150            & -1.67                      & -45.55                     & -194.17                    & -80.46                   & 82.37                   \\
+                0.9, 500, 50               & -5.16                      & -72.65                     & -287.33                    & -121.72                  & 120.31                  \\
+                0.9, 500, 100              & -2.67                      & -55.53                     & -229.30                    & -95.84                   & 96.81                   \\
+                0.9, 500, 150              & -1.68                      & -45.54                     & -194.88                    & -80.70                   & 82.70                   \\
+                0.9, 1000, 50              & -5.12                      & -73.50                     & -285.58                    & -121.40                  & 119.40                  \\
+                0.9, 1000, 100             & -2.75                      & -55.77                     & -228.77                    & -95.76                   & 96.51                   \\
+                0.9, 1000, 150             & -1.67                      & -46.46                     & -197.50                    & -81.88                   & 83.78                   \\
+                0.9, 1500, 50              & -5.19                      & -75.05                     & -289.47                    & -123.24                  & 120.96                  \\
+                0.9, 1500, 100             & -2.73                      & -55.67                     & -229.85                    & -96.08                   & 97.02                   \\
+                0.9, 1500, 150             & -1.69                      & -46.15                     & -196.51                    & -81.45                   & 83.36                   \\
+                0.95, 500, 50              & -4.99                      & -74.90                     & -287.67                    & -122.52                  & 120.21                  \\
+                0.95, 500, 100             & -2.77                      & -55.66                     & -228.75                    & -95.73                   & 96.51                   \\
+                0.95, 500, 150             & -1.63                      & -45.94                     & -196.20                    & -81.25                   & 83.27                   \\
+                0.95, 1000, 50             & -5.03                      & -73.49                     & -288.34                    & -122.29                  & 120.70                  \\
+                0.95, 1000, 100            & -2.61                      & -56.05                     & -227.99                    & -95.55                   & 96.16                   \\
+                0.95, 1000, 150            & -1.68                      & -45.43                     & -192.60                    & -79.90                   & 81.66                   \\
+                0.95, 1500, 50             & -5.10                      & -74.16                     & -286.79                    & -122.02                  & 119.87                  \\
+                0.95, 1500, 100            & -2.72                      & -55.77                     & -229.51                    & -96.00                   & 96.86                   \\
+                0.95, 1500, 150            & -1.67                      & -45.76                     & -193.48                    & -80.30                   & 82.03                   \\
+                \hline
+            \end{tabular}
+        }
+        \caption{Summary of Test Scores for Various Parameter Settings of Simulated Annealing}
+        \label{tab:sa_summary_test_scores}
+    \end{table}
+
+    The tables above provide a comprehensive summary of the Simulated Annealing algorithm's performance across different parameter settings. The next section will delve into a detailed analysis of these results, exploring the impact of each parameter on the algorithm's effectiveness and efficiency.
+
+    \subsubsection{Impact of Cooling Rate}
+
+    An analysis of the impact of cooling rate on the Simulated Annealing’s performance is crucial to understand how varying this parameter affects the convergence behavior and solution quality.
+
+    \textbf{Observation}: The data reveals that as the cooling rate increases from 0.85 to 0.95, there is a corresponding increase in the mean fit time and standard deviation of fit time. This trend is consistent across all tested initial temperatures and maximum iterations. Additionally, higher cooling rates generally show a decrease in the mean test scores, indicating improved solution quality, although this comes with increased variability as evidenced by higher standard deviations.
+
+    \textbf{Analysis}: Increasing the cooling rate allows the Simulated Annealing algorithm to explore a broader solution space more slowly, enhancing the algorithm's ability to find optimal or near-optimal solutions. This extensive exploration is reflected in the lower mean test scores for higher cooling rates. However, the increased standard deviation suggests that while the algorithm can find better solutions on average, the consistency of these solutions may decrease, possibly due to the slower cooling leading to more variability in the results.
+
+    \textbf{Conclusion}: The cooling rate significantly impacts the performance of the Simulated Annealing algorithm. Higher cooling rates improve the solution quality by enabling a more thorough exploration of the solution space, albeit at the cost of increased computational time and variability in the results. Therefore, selecting an appropriate cooling rate is crucial for balancing solution quality and computational efficiency.
+
+    \subsubsection{Impact of Initial Temperature}
+
+    Similarly, the initial temperature plays a significant role in the Simulated Annealing’s ability to find optimal solutions. Analyzing this parameter helps in identifying the optimal starting point for the algorithm’s execution.
+
+    \textbf{Observation}: The data indicates that increasing the initial temperature generally leads to a reduction in the mean test scores, implying better solution quality. However, this improvement comes with an increase in both the mean fit time and standard deviation of fit time, reflecting the higher computational time required for larger initial temperatures. The standard deviation of test scores also tends to increase with higher initial temperatures, indicating greater variability in the results.
+
+    \textbf{Analysis}: Higher initial temperatures allow the Simulated Annealing algorithm to perform a more extended search, which improves the chances of finding high-quality solutions. This is evident from the lower mean test scores observed with higher initial temperatures. However, the increase in variability suggests that larger initial temperatures may sometimes lead to overfitting or getting stuck in local optima, resulting in inconsistent performance across different runs.
+
+    \textbf{Conclusion}: The initial temperature is a critical parameter that influences the Simulated Annealing's performance. While higher initial temperatures can improve solution quality by allowing for more extensive searching, they also increase computational time and result variability. Thus, it is essential to find a balance between the initial temperature and the desired solution quality to ensure efficient and consistent performance.
+
+    \subsubsection{Impact of Maximum Iterations}
+
+    The maximum number of iterations is another critical parameter that influences the Simulated Annealing’s exploration and exploitation capabilities. Analyzing this parameter helps in balancing the algorithm’s search dynamics.
+
+    \textbf{Observation}: The data shows that different maximum iterations significantly impact the mean test scores and their standard deviations. Fewer iterations (50) generally result in higher mean test scores, indicating worse solution quality, while more iterations (150) tend to produce lower mean test scores and increased variability. Additionally, higher iterations are associated with higher standard deviations in both fit time and score time.
+
+    \textbf{Analysis}: A lower number of iterations allows the Simulated Annealing algorithm to converge more quickly, resulting in higher mean test scores. However, it may also cause the algorithm to converge prematurely to local optima. On the other hand, a higher number of iterations increases the algorithm's ability to explore the solution space more thoroughly, which can prevent premature convergence but may also lead to less consistent results, as reflected by higher standard deviations in test scores and computational times.
+
+    \paragraph{Grid Search Results:}
+    A comprehensive grid search was also performed to identify the optimal parameters. The best parameters were found to be:
+    \begin{itemize}
+        \item Cooling Rate: 0.95
+        \item Initial Temperature: 1000
+        \item Maximum Iterations: 150
+    \end{itemize}
+    These settings provided a robust balance, yielding high-quality solutions with acceptable computational efficiency. The convergence plots and statistical analysis confirm that these parameters lead to consistent optimization results across various test scenarios.
+
+    \textbf{Conclusion}: The maximum number of iterations is a crucial parameter that needs careful tuning to balance exploration and exploitation. Fewer iterations favor exploitation, resulting in higher solution quality but with a risk of premature convergence. In contrast, more iterations enhance exploration, which can prevent local optima but may result in increased variability and less consistent performance. Therefore, selecting an optimal number of iterations is essential to achieve a balance between search breadth and solution refinement.
+
+
 %\begin{quote}
 %    \emph{Autor/autorka uvedou vlastní název kapitoly vztahující se ke
 %    konkrétnímu tématu práce}
