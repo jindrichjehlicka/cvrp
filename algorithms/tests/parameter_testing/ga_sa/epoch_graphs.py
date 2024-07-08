@@ -7,7 +7,7 @@ import os
 output_dir = 'graphs'
 os.makedirs(output_dir, exist_ok=True)
 
-file_pattern = '../ga_sa_hybrid_epoch_data_chunk_*.csv'
+file_pattern = './ga_sa_hybrid_epoch_data_chunk_2_*.csv'
 file_paths = glob.glob(file_pattern)
 
 all_data = pd.concat([pd.read_csv(file_path) for file_path in file_paths])
@@ -23,7 +23,7 @@ def normalize_epoch_data(array):
     array = np.array(array)
     array = np.abs(array)
     max_val = np.max(array)
-    normalized_array = array / max_val
+    normalized_array = array / max_val if max_val != 0 else array
     return normalized_array
 
 all_data['normalized_epoch_data'] = all_data['epoch_data_processed'].apply(normalize_epoch_data)
@@ -35,11 +35,10 @@ for name, group in grouped:
     plt.title(f'Population: {name[0]}, Generations: {name[1]}, Temperature: {name[2]}, Cooling Rate: {name[3]}')
     all_runs = []
 
-    max_generations = max([len(normalized_array[0]) for normalized_array in group['normalized_epoch_data']])
+    max_generations = max([len(normalized_array) for normalized_array in group['normalized_epoch_data']])
 
     for normalized_array in group['normalized_epoch_data']:
-        for individual_run in normalized_array:
-            all_runs.append(np.pad(individual_run, (0, max_generations - len(individual_run)), 'constant', constant_values=np.nan))
+        all_runs.append(np.pad(normalized_array, (0, max_generations - len(normalized_array)), 'constant', constant_values=np.nan))
 
     all_runs = np.array(all_runs)
     mean_run = np.nanmean(all_runs, axis=0)

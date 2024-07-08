@@ -9,6 +9,7 @@ from sklearn.model_selection import KFold
 from itertools import product
 from joblib import Parallel, delayed
 
+
 def calculate_distance_matrix(node_loc):
     n_nodes = len(node_loc)
     distance_matrix = np.zeros((n_nodes, n_nodes))
@@ -17,11 +18,12 @@ def calculate_distance_matrix(node_loc):
             distance_matrix[i][j] = np.linalg.norm(np.array(node_loc[i]) - np.array(node_loc[j]))
     return distance_matrix
 
+
 def generate_initial_solution(node_loc, demand, capacity):
     nodes = list(range(1, len(node_loc)))
     random.shuffle(nodes)
     routes = []
-    current_route = [0]  # Start with depot
+    current_route = [0]
     current_load = 0
 
     for node in nodes:
@@ -29,16 +31,18 @@ def generate_initial_solution(node_loc, demand, capacity):
             current_route.append(node)
             current_load += demand[node]
         else:
-            current_route.append(0)  # Return to depot
+            current_route.append(0)
             routes.append(current_route)
             current_route = [0, node]
             current_load = demand[node]
-    current_route.append(0)  # Return to depot for the last route
+    current_route.append(0)
     routes.append(current_route)
     return routes
 
+
 def initial_population(size, node_loc, demand, capacity):
     return [generate_initial_solution(node_loc, demand, capacity) for _ in range(size)]
+
 
 def calculate_cost(solution, distance_matrix):
     total_distance = 0
@@ -47,12 +51,15 @@ def calculate_cost(solution, distance_matrix):
             total_distance += distance_matrix[route[i]][route[i + 1]]
     return total_distance
 
+
 def fitness(solution, distance_matrix):
     return 1 / calculate_cost(solution, distance_matrix)
+
 
 def select(population, fitnesses, k=3):
     selected = sorted(zip(population, fitnesses), key=lambda x: x[1], reverse=True)
     return [x for x, _ in selected[:k]]
+
 
 def crossover(parent1, parent2):
     point = random.randint(1, len(parent1) - 2)
@@ -60,12 +67,14 @@ def crossover(parent1, parent2):
     child2 = parent2[:point] + parent1[point:]
     return child1, child2
 
+
 def mutate(solution, mutation_rate=0.01):
     for route in solution:
-        if len(route) > 3 and random.random() < mutation_rate:  # Ensure at least 3 elements to sample from
+        if len(route) > 3 and random.random() < mutation_rate:
             idx1, idx2 = random.sample(range(1, len(route) - 1), 2)
             route[idx1], route[idx2] = route[idx2], route[idx1]
     return solution
+
 
 def get_neighbor(solution):
     neighbor = [route[:] for route in solution]
@@ -75,6 +84,7 @@ def get_neighbor(solution):
             idx1, idx2 = random.randint(1, len(route1) - 2), random.randint(1, len(route2) - 2)
             route1[idx1], route2[idx2] = route2[idx2], route1[idx1]
     return neighbor
+
 
 def simulated_annealing(solution, distance_matrix, max_iterations=500, initial_temperature=100, cooling_rate=0.95):
     current_solution = solution
@@ -97,6 +107,7 @@ def simulated_annealing(solution, distance_matrix, max_iterations=500, initial_t
         cost_over_time.append(current_cost)
 
     return best_solution, best_cost, cost_over_time
+
 
 def ga_sa_hybrid(population_size, generations, node_loc, demand, capacity, max_iterations=500, initial_temperature=100, cooling_rate=0.95):
     distance_matrix = calculate_distance_matrix(node_loc)
@@ -123,20 +134,19 @@ def ga_sa_hybrid(population_size, generations, node_loc, demand, capacity, max_i
             best_solution = current_best_solution
             best_cost = current_best_cost
 
-        # Apply Simulated Annealing to the current best solution
         sa_solution, sa_cost, sa_cost_over_time = simulated_annealing(current_best_solution, distance_matrix,
                                                                       max_iterations, initial_temperature, cooling_rate)
         if sa_cost < best_cost:
             best_solution = sa_solution
             best_cost = sa_cost
 
-        cost_over_time.append([best_cost - cost for cost in sa_cost_over_time])  # Store difference from best cost
+        cost_over_time.append([best_cost - cost for cost in sa_cost_over_time])
 
     return best_solution, best_cost, cost_over_time
 
 
 class GASAHybridCV(BaseEstimator, RegressorMixin):
-    def __init__(self, population_size=50, generations=50, max_iterations=500, initial_temperature=100, cooling_rate=0.95, runs=3):
+    def __init__(self, population_size=50, generations=50, max_iterations=500, initial_temperature=100, cooling_rate=0.95, runs=1):
         self.population_size = population_size
         self.generations = generations
         self.max_iterations = max_iterations
@@ -167,14 +177,16 @@ def load_instance_names_from_file(filename):
         instance_names = [line.strip() for line in file.readlines()]
     return instance_names
 
+
 param_grid = {
-    'population_size': [50, 100, 150],
-    'generations': [25, 50, 100],
-    'initial_temperature': [50, 100, 150],
-    'cooling_rate': [0.95, 0.99, 0.995],
-    'max_iterations': [250],
+    'population_size': [150],
+    'generations': [100],
+    'initial_temperature': [100],
+    'cooling_rate': [0.85],
+    'max_iterations': [1500],
 
 }
+
 
 def process_and_save_epoch_data(instance_names_chunk, chunk_number):
     data = []
@@ -205,17 +217,18 @@ def process_and_save_epoch_data(instance_names_chunk, chunk_number):
             )
             ga_sa.fit([X[i] for i in train_index])
             for run_data in ga_sa.cost_over_runs_:
-                epoch_data.append({
-                    "population_size": population_size,
-                    "generations": generations,
-                    "max_iterations": max_iterations,
-                    "initial_temperature": initial_temperature,
-                    "cooling_rate": cooling_rate,
-                    "epoch_data": run_data,
-                    "instance_name": X[train_index[0]][4]  # Adding instance name
-                })
+                for run in run_data:
+                    epoch_data.append({
+                        "population_size": population_size,
+                        "generations": generations,
+                        "max_iterations": max_iterations,
+                        "initial_temperature": initial_temperature,
+                        "cooling_rate": cooling_rate,
+                        "epoch_data": str(run),
+                        "instance_name": X[train_index[0]][4]
+                    })
 
-    epoch_filename = f"ga_sa_hybrid_epoch_data_chunk_{chunk_number}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+    epoch_filename = f"ga_sa_hybrid_epoch_data_chunk_2_{chunk_number}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
     with open(epoch_filename, 'w', newline='') as csvfile:
         fieldnames = ["population_size", "generations", "max_iterations", "initial_temperature", "cooling_rate",
                       "epoch_data", "instance_name"]
@@ -226,22 +239,24 @@ def process_and_save_epoch_data(instance_names_chunk, chunk_number):
             writer.writerow(entry)
 
     print(f"Epoch data for chunk {chunk_number} saved to {epoch_filename}")
-
-    return epoch_filename  #
+    return epoch_filename
 
 
 def main():
     filename = "../instance_names.txt"
     instance_names = load_instance_names_from_file(filename)
 
+    # results = Parallel(n_jobs=-1)(
+    #     delayed(process_and_save_epoch_data)(instance_names[i:i + 10], chunk_number=(i // 10) + 1)
+    #     for i in range(0, 100, 10)
+    # )
     results = Parallel(n_jobs=-1)(
-        delayed(process_and_save_epoch_data)(instance_names[i:i + 10], chunk_number=(i // 10) + 1)
-        for i in range(0, 100, 10)
+        delayed(process_and_save_epoch_data)(instance_names[i:i + 3], chunk_number=(i // 3) + 1)
+        for i in range(0, 30, 3)
     )
+
     print("Processing complete. Results:", results)
 
 
 if __name__ == "__main__":
     main()
-
-

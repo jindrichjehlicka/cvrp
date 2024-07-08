@@ -1,5 +1,11 @@
 import numpy as np
 import random
+import vrplib
+import csv
+from datetime import datetime
+from itertools import product
+from joblib import Parallel, delayed
+from sklearn.model_selection import KFold
 
 
 def calculate_distance_matrix(node_loc):
@@ -84,6 +90,7 @@ def simulated_annealing(solution, distance_matrix, max_iterations=1000, initial_
     best_solution = current_solution
     best_cost = current_cost
     temperature = initial_temperature
+    cost_over_time = []
 
     for _ in range(max_iterations):
         neighbor = get_neighbor(current_solution)
@@ -95,8 +102,9 @@ def simulated_annealing(solution, distance_matrix, max_iterations=1000, initial_
                 best_solution = current_solution
                 best_cost = current_cost
         temperature *= cooling_rate
+        cost_over_time.append(best_cost)
 
-    return best_solution, best_cost
+    return best_solution, best_cost, cost_over_time
 
 
 def ga_sa_hybrid(population_size, generations, node_loc, demand, capacity, max_iterations=1000, initial_temperature=100,
@@ -125,10 +133,96 @@ def ga_sa_hybrid(population_size, generations, node_loc, demand, capacity, max_i
             best_cost = current_best_cost
 
         # Apply Simulated Annealing to the current best solution
-        sa_solution, sa_cost = simulated_annealing(current_best_solution, distance_matrix, max_iterations,
-                                                   initial_temperature, cooling_rate)
+        sa_solution, sa_cost, cost_over_time = simulated_annealing(current_best_solution, distance_matrix,
+                                                                   max_iterations, initial_temperature, cooling_rate)
         if sa_cost < best_cost:
             best_solution = sa_solution
             best_cost = sa_cost
 
-    return best_solution, best_cost
+    return best_solution, best_cost, cost_over_time
+
+
+def process_epoch_data_for_param_combo(X, population_size, generations, initial_temperature, cooling_rate):
+    epoch_data = []
+    for train_index, test_index in KFold(n_splits=3).split(X):
+        for instance in [X[i] for i in train_index]:
+            node_loc, demand, capacity, optimal_cost = instance
+            _, _, cost_over_time = ga_sa_hybrid(population_size, generations, node_loc, demand, capacity,
+                                                initial_temperature=initial_temperature, cooling_rate=cooling_rate)
+            epoch_data.append({
+                "population_size": population_size,
+                "generations": generations,
+                "initial_temperature": initial_temperature,
+                "cooling_rate": cooling_rate,
+                "epoch_data": cost_over_time
+            })
+    return epoch_data
+
+
+def process_and_save_epoch_data(instance_names_chunk, chunk_number):
+    data = []
+    for instance_name in instance_names_chunk:
+        instance = vrplib.read_instance(f"../../Vrp-Set-XML100/instances/{instance_name}.vrp")
+        solution = vrplib.read_solution(f"../../Vrp-Set-XML100/solutions/{instance_name}.sol")
+        optimal_cost = solution['cost']
+        node_loc = instance['node_coord']
+        depot_loc = node_loc[0]
+        demand = instance['demand']
+        capacity = instance['capacity']
+        data.append((node_loc, demand, capacity, optimal_cost))
+
+    X = data
+
+    param_grid = {
+        'population_size': [50, 100, 150],
+        'generations': [25, 50, 100],
+        'initial_temperature': [50, 100, 150],
+        'cooling_rate': [0.95, 0.99, 0.995]
+    }
+
+    param_combinations = list(
+        product(param_grid['population_size'], param_grid['generations'],
+                param_grid['initial_temperature'], param_grid['cooling_rate']))
+    epoch_data_list = Parallel(n_jobs=-1)(
+        delayed(process_epoch_data_for_param_combo)(X, pop_size, gen, init_temp, cool_rate) for
+        pop_size, gen, init_temp, cool_rate in param_combinations
+    )
+
+    epoch_data = [item for sublist in epoch_data_list for item in sublist]
+
+    epoch_filename = f"simulated_annealing_epoch_data_chunk_{chunk_number}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+    with open(epoch_filename, 'w', newline='') as csvfile:
+        fieldnames = ["population_size", "generations", "initial_temperature", "cooling_rate", "epoch_data"]
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+        writer.writeheader()
+        for entry in epoch_data:
+            writer.writerow({
+                "population_size": entry["population_size"],
+                "generations": entry["generations"],
+                "initial_temperature": entry["initial_temperature"],
+                "cooling_rate": entry["cooling_rate"],
+                "epoch_data": str(entry["epoch_data"])
+            })
+
+    print(f"Epoch data for chunk {chunk_number} saved to {epoch_filename}")
+
+
+def load_instance_names_from_file(filename):
+    with open(filename, 'r') as file:
+        instance_names = [line.strip() for line in file.readlines()]
+    return instance_names
+
+
+def main():
+    filename = "../instance_names.txt"
+    instance_names = load_instance_names_from_file(filename)
+
+    Parallel(n_jobs=-1)(
+        delayed(process_and_save_epoch_data)(instance_names[i:i + 10], (i // 10) + 1)
+        for i in range(0, 200, 20)
+    )
+
+
+if __name__ == "__main__":
+    main()
