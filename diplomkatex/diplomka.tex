@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{hyperref}
+\usepackage{tabularx}
 \ifPDFTeX
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -73,28 +74,7 @@
 \date{}
 
 \begin{document}
-    \thispagestyle{empty}
-    \textbf{Šablona závěrečné práce\\
-    studenta Unicorn Vysoká škola}
 
-    \emph{Tato první stránka šablony není součástí bakalářské práce.}
-
-    \emph{Tato šablona slouží jako vzorová šablona závěrečných prací
-    studentům Unicorn Vysoké školy. Závěrečná práce musí obsahovat všechny
-    náležitosti uvedené v této šabloně.}
-
-    \emph{Nesplnění této podmínky může být považováno za důvod pro
-    nepřipuštění závěrečné práce k obhajobě (nebo případně k vrácení práce
-    od obhajoby k přepracování).}
-
-    \emph{Další informace a pokyny k vypracování závěrečná práce naleznete
-    na webových stránkách. Vše potřebné se také dozvíte v~rámci předmětu
-    Bakalářský seminář.}
-
-    \emph{Při zpracování této šablony bylo použito písmo Cambria, 11pt. pro
-    text a písmo Calibri pro nadpisy.}
-
-    \newpage
     \pagebreak
     \begin{quote}
         \thispagestyle{empty}
@@ -122,7 +102,7 @@
 
         \textbf{Softwarové inženýrství a big data}
 
-        % \includegraphics[width=3.27778in,height=3.90671in]{vertopal_c6b44323f8f4439b87d257a2a20a5c78/media/image4.png}
+%        \includegraphics[width=3.27778in,height=3.90671in]{vertopal_c6b44323f8f4439b87d257a2a20a5c78/media/image4.png}
 
         \textbf{DIPLOMOVÁ PRÁCE (vyberte jednu možnost)}
 
@@ -696,7 +676,8 @@
 
     Evaluating algorithms for the Vehicle Routing Problem (VRP) and its variants is crucial for understanding their efficiency, scalability, and practical applicability. This section outlines the methodologies and metrics commonly used to assess the performance of these algorithms.
 
-    Algorithm evaluation involves a combination of theoretical analysis and empirical testing. Theoretical analysis provides insights into the computational complexity and expected behavior of algorithms under various conditions, while empirical testing offers practical performance data based on real-world or simulated instances.
+    Algorithm evaluation involves a combination of theoretical analysis and empirical testing.
+    Theoretical analysis provides insights into the computational complexity and expected behavior of algorithms under various conditions, while empirical testing offers practical performance data based on real-world or simulated instances.
 
     \paragraph{Goals of Algorithm Evaluation}
     The primary goals of algorithm evaluation are to:
@@ -705,59 +686,29 @@
         \item \textbf{Ensure Robustness}: Evaluate how well an algorithm performs under various conditions and with different data sets.
         \item \textbf{Measure Scalability}: Understand how the algorithm's performance scales with increasing problem size and complexity.
         \item \textbf{Validate Accuracy}: Ensure that the algorithm produces correct and reliable results.
-        \item \textbf{Compare Alternatives}: Provide a basis for comparing different algorithms to select the most suitable one for a given problem.
+        \item \textbf{Compare Alternatives}: Provide a basis for comparing different algorithms to select the most suitable one for CVRP.
     \end{itemize}
 
-    \subsection{Evaluation Criteria and Performance Metrics}\label{subsec:evaluation-criteria-and-performance-metrics}
-
-    Evaluating algorithms for the Vehicle Routing Problem (VRP) and its variants, such as the Capacitated Vehicle Routing Problem (CVRP), requires a comprehensive set of criteria and metrics to ensure a thorough assessment. The following sections, derived from the principles outlined in the \textit{Encyclopedia of Machine Learning and Data Mining} by Claude Sammut and Geoffrey I. Webb, are essential for evaluating these algorithms:
-
-    \subsubsection{Evaluation Criteria}
-    \label{subsubsec:evaluation_criteria}
-
-    \paragraph{Time Complexity} Time complexity refers to the amount of computational time an algorithm requires as a function of the input size. For VRP and CVRP, it is crucial to assess both the worst-case and average-case time complexities to understand the algorithm’s efficiency. Algorithms with lower time complexities are generally preferred, especially for large-scale instances.
-
-    \paragraph{Space Complexity} Space complexity measures the amount of memory an algorithm uses relative to the input size. Efficient use of memory is vital for handling large datasets typically encountered in VRP scenarios. Space complexity analysis helps in identifying algorithms that can process data without exhausting system memory resources.
-
-    \paragraph{Robustness} Robustness evaluates the algorithm’s ability to perform well under various conditions, including changes in data, unexpected inputs, and different problem sizes. An algorithm that maintains high performance despite variations in input conditions is considered robust. This criterion is particularly important for real-world applications where data variability is common.
-
-    \paragraph{Scalability} Scalability assesses how well an algorithm handles increasing problem sizes. For VRP and CVRP, scalability is essential because these problems often involve a large number of customers and vehicles. Algorithms that can scale efficiently without a significant increase in computational resources are highly desirable.
-
-    \paragraph{Flexibility} Flexibility refers to the algorithm’s ability to adapt to different variants of the VRP, such as VRP with Time Windows (VRPTW), Dynamic VRP (DVRP), and Stochastic VRP (SVRP). An algorithm that can be easily modified or extended to handle different constraints and objectives demonstrates high flexibility.
-
-    \paragraph{Computational Cost} Computational cost involves both time and space complexities but also includes other resource expenditures such as energy consumption and processing power. Evaluating computational cost helps in understanding the practical feasibility of deploying an algorithm in real-world settings where resources may be limited.
-
-    \paragraph{Implementation Complexity} Implementation complexity considers the ease of coding and integrating the algorithm into existing systems. Algorithms that are simpler to implement and require fewer lines of code are often more attractive for practical applications, even if they are slightly less efficient.
-
-    \paragraph{Interpretability} Interpretability measures how easily the results produced by the algorithm can be understood and used by decision-makers. For VRP and CVRP, this involves generating solutions that are not only optimal but also easy to comprehend and justify to stakeholders.
-
-    \paragraph{Reliability} Reliability evaluates the consistency of the algorithm’s performance. An algorithm that consistently produces high-quality solutions and does not fail under different scenarios is considered reliable.
-
-    \subsubsection{Performance Metrics}
+    \subsection{Performance Metrics}
     \label{subsubsec:performance_metrics}
+    Evaluating algorithms for the Capacitated Vehicle Routing Problem (CVRP), requires a comprehensive set of criteria and metrics to ensure a thorough assessment.
 
     \paragraph{Accuracy} Accuracy in the context of VRP and CVRP refers to how close the algorithm’s solution is to the optimal or best-known solution. This can be measured as the difference between the computed total route cost or distance and the optimal value. Higher accuracy indicates better performance in finding near-optimal solutions.
 
-    \paragraph{Precision and Recall} Precision and recall can be adapted for evaluating VRP solutions in terms of service quality and constraint satisfaction. Precision can measure the proportion of correctly serviced customers out of all serviced customers, while recall can measure the proportion of correctly serviced customers out of all customers that should be serviced.
-
-    \paragraph{F1 Score} The F1 Score is the harmonic mean of precision and recall, providing a single metric that balances both. It is particularly useful when there is a need to balance service quality and constraint satisfaction in VRP solutions.
-
     \paragraph{Runtime} Runtime measures the total time taken by the algorithm to find a solution. It is an essential metric for assessing the efficiency of an algorithm, especially for large-scale problems. Lower runtime indicates a more efficient algorithm, which is critical for real-time and dynamic VRP applications.
 
-    \paragraph{Memory Usage} Memory usage refers to the amount of memory consumed by the algorithm during execution. This metric is crucial for understanding the resource requirements of an algorithm, particularly when dealing with large datasets. Efficient memory usage is vital for the practical deployment of VRP algorithms in resource-constrained environments.
+    \paragraph{Memory Usage} Memory usage refers to the amount of memory consumed by the algorithm during execution. This metric is crucial for understanding the resource requirements of an algorithm, particularly when dealing with large datasets. Efficient memory usage is vital for the practical deployment of CVRP algorithms in resource-constrained environments.
 
     \paragraph{Convergence Rate} The convergence rate measures how quickly an algorithm approaches the optimal solution over iterations. A faster convergence rate indicates that the algorithm is efficient in finding high-quality solutions within fewer iterations, which is particularly important for heuristic and metaheuristic methods.
 
     \paragraph{Solution Quality} Solution quality measures the overall effectiveness of the algorithm in generating feasible and cost-effective routes. This can include factors such as total distance traveled, total time taken, and the number of vehicles used. Higher solution quality reflects the algorithm’s capability to meet the objectives of the VRP efficiently.
-
-    \paragraph{Energy Consumption} For Green VRP variants, energy consumption measures the total energy used by the vehicles, considering factors such as fuel consumption and emissions. Minimizing energy consumption is essential for environmentally sustainable routing solutions.
 
 
     These combined evaluation criteria and performance metrics provide a holistic framework for assessing VRP and CVRP algorithms. In the next subchapter, we will explore Experimental Design, which describes how to set up and conduct experiments to rigorously test and evaluate these algorithms.
 
     \subsection{Result Analysis}\label{subsec:result-analysis}
 
-    Proper analysis and interpretation of experimental results are crucial for validating the effectiveness of algorithms, particularly for complex problems such as the Vehicle Routing Problem (VRP) and its variants. This section outlines the key components of result analysis, focusing on data visualization and statistical analysis as detailed in the Encyclopedia of Machine Learning and Data Mining by Claude Sammut and Geoffrey I. Webb.
+    Proper analysis and interpretation of experimental results are crucial for validating the effectiveness of algorithms, particularly for complex problems such as the CVRP. This section outlines the key components of result analysis, focusing on data visualization and statistical analysis as detailed in the Encyclopedia of Machine Learning and Data Mining by Claude Sammut and Geoffrey I. Webb.
 
     \subsubsection{Data Visualization}
 
@@ -767,17 +718,13 @@
 
     Graphs and charts, such as line graphs, bar charts, and scatter plots, are used to present various performance metrics like runtime, memory usage, and accuracy. For instance, a line graph can be used to show the convergence behavior of an algorithm over iterations, while bar charts can compare the performance of different algorithms on the same dataset.
 
-    \paragraph{Heatmaps}
-
-    Heatmaps provide a visual representation of data where individual values are represented as colors. They are particularly useful for showing the performance of an algorithm across different parameter settings or datasets. For example, a heatmap can illustrate the accuracy of a VRP algorithm across various combinations of customer numbers and vehicle capacities.
-
     \paragraph{Box Plots}
 
     Box plots are useful for displaying the distribution of performance metrics, highlighting the median, quartiles, and potential outliers. They can be used to compare the variability and central tendency of different algorithms' results, providing insights into their robustness and consistency.
 
     \subsubsection{Statistical Analysis}
 
-    Statistical analysis is employed to rigorously compare the performance of different algorithms and to ensure that observed differences are not due to random chance. The following statistical methods are commonly used:
+    Statistical analysis is employed to compare the performance of different algorithms and to ensure that observed differences are not due to random chance.
 
     \paragraph{Descriptive Statistics}
 
@@ -786,14 +733,6 @@
     \paragraph{Hypothesis Testing}
 
     Hypothesis testing is used to determine if there are statistically significant differences between the performance of different algorithms. Common tests include the t-test for comparing the means of two groups and ANOVA (Analysis of Variance) for comparing the means across multiple groups. For example, a paired t-test can be used to compare the runtime of two VRP algorithms on the same dataset.
-
-    \paragraph{Confidence Intervals}
-
-    Confidence intervals provide a range of values within which the true performance metric is expected to lie with a certain level of confidence (usually 95%). They offer a way to quantify the uncertainty around the performance estimates and are useful for comparing the reliability of different algorithms.
-
-    \paragraph{Effect Size}
-
-    Effect size measures the magnitude of the difference between groups, providing more information than p-values alone. It helps in understanding the practical significance of the results. Common measures of effect size include Cohen's d for comparing two means and eta-squared for assessing the proportion of variance explained in ANOVA.
 
     \subsubsection{Interpreting Results}
 
@@ -989,9 +928,61 @@
 
     Each section will present the parameters tested, the experimental setup, the results obtained, and a thorough analysis of these results. The primary goal is to provide a clear understanding of how different parameter settings impact the performance of each algorithm, helping future applications and research in the field of optimization.
 
-    \noindent Let us begin with the detailed methodology used for the parameter testing of these algorithms.
+    \noindent Below is the description for the methodology used for the parameter testing of these algorithms.
 
     \subsection{Methodology}
+
+    \subsection{Dataset Description}
+
+    \paragraph{Introduction}
+    The dataset used in this study comes from the VRP Repository.
+    It can be found online at \url{http://vrp.galgos.inf.puc-rio.br/index.php/en/}.
+    This repository is managed by researchers Queiroga, Sadykov, Uchoa, and Vidal (2021) and has many examples of the Capacitated Vehicle Routing Problem (CVRP) along with their best solutions.
+
+    \paragraph{Dataset Source}
+    The VRP Repository offers many examples of CVRP problems.
+    These examples are important for testing how well different optimization methods work in transportation and logistics.
+
+    \subsubsection{Dataset Characteristics}
+
+    \subsection{Size and Format}
+    The dataset includes 10,000 CVRP problem instances and 10,000 best solutions. Each problem and solution is given in a clear text format.
+
+    \subsection{Instance Structure}
+    Each CVRP problem instance in the dataset has the following parts:
+    \begin{itemize}
+        \item \textbf{NAME}: A unique name for the instance.
+        \item \textbf{COMMENT}: Information about how the instance was created.
+        \item \textbf{TYPE}: The type of problem, which is CVRP.
+        \item \textbf{DIMENSION}: The number of locations (including the starting point).
+        \item \textbf{EDGE\_WEIGHT\_TYPE}: How the distance between locations is calculated (e.g., EUC\_2D for Euclidean distance).
+        \item \textbf{CAPACITY}: The carrying capacity of the vehicle.
+        \item \textbf{NODE\_COORD\_SECTION}: Coordinates for each location.
+        \item \textbf{DEMAND\_SECTION}: The demand at each location.
+        \item \textbf{DEPOT\_SECTION}: The starting location.
+    \end{itemize}
+
+    \subsection{Solution Structure}
+    Each best solution in the dataset includes:
+    \begin{itemize}
+        \item \textbf{Routes}: A list of routes, each showing the locations visited by a vehicle.
+        \item \textbf{Cost}: The total cost for the solution.
+    \end{itemize}
+
+    \paragraph{Loading the Dataset}
+    To load the instances and solutions from the dataset, the \texttt{VRPLIB} library is required.
+    This library is available on GitHub at \url{https://github.com/PyVRP/VRPLIB}.
+    \texttt{VRPLIB} provides functions to parse and handle VRP instances and solutions, making it easier to work with the data in Python.
+
+    \paragraph{Quality Assessment}
+    The dataset is of high quality with well-defined problems and solutions. However, there are some limits:
+    \begin{itemize}
+        \item \textbf{Synthetic Data}: The problems are created by a computer, so they might not show all the details of real-world problems.
+        \item \textbf{Fixed Capacities}: The fixed vehicle capacities might not work for all situations with different capacities.
+    \end{itemize}
+
+    \paragraph{Summary}
+    This dataset is a strong base for testing and proving how well heuristic optimization methods work for CVRP. Its clear structure and high quality make it a valuable resource for research and practical uses in logistics and transportation.
 
     \subsubsection{Experimental Setup}
 
@@ -1002,6 +993,17 @@
     These 100 instances were only used for summary statistics and grid search. The summary statistics include examples such as mean fit time and standard deviation.
 
     For convergence data and graphs and ANOVA, 1000 instances with 20 runs each were used.
+
+    \paragraph{Grid Search Method}
+    In this study, we use a grid search method to find the best parameters for our algorithms. The grid search tests all possible combinations of parameters we provide. We use a tool from the \texttt{scikit-learn} library called \texttt{GridSearchCV} to do this.
+
+    The grid search uses a method called cross-validation to check how well the parameters work. Here, we use 3-fold cross-validation. This means we split our data into three equal parts, called folds. In each test, two parts are used to train the algorithm, and one part is used to test it. This process is repeated three times, each time using a different part as the test set. This way, every part of the data is used for testing once.
+
+    This method ensures that the algorithm is tested on different parts of the data, making sure the results are reliable and not just good for one specific set of data.
+
+    The \texttt{GridSearchCV} tool checks each combination of parameters multiple times, as specified by the number of cross-validation folds. This means each parameter set is tested on different splits of the data, providing a thorough evaluation of how the parameters affect the algorithm's performance.
+
+    By using grid search and cross-validation, we can find the best parameters for our algorithms. This process helps ensure that the algorithms perform well on different problem instances, making them more robust and reliable.
 
     \subsubsection{Convergence Plots and Data Collection}
 
@@ -1047,6 +1049,18 @@
     The Genetic Algorithm (GA) parameter testing section focuses on a systematic evaluation of different configurations of the GA to find the most effective parameter settings. This part of the study aims to understand the impact of various combinations of population size, number of generations, and mutation rates on the GA's performance and convergence behavior.
 
     Through detailed experiments and thorough analysis, this section showcases key results and insights from testing multiple parameter settings. The convergence plots provide a visual representation of the algorithm's performance across iterations, highlighting trends and variations in solution quality and consistency.
+
+    The following parameters were primarily tested for the Genetic Algorithm:
+
+    \begin{itemize}
+        \item \textbf{Population Size}: The sizes tested were 50, 100, and 150.
+        \item \textbf{Generations}: The number of generations tested were 25, 50, and 100.
+        \item \textbf{Mutation Rate}: The mutation rates tested were 0.01, 0.05, and 0.1.
+    \end{itemize}
+
+    The parameters were manually adjusted to fit the specific problem space.
+    Smaller tests with different parameter values were also conducted to explore a broader range of possibilities. This manual tweaking is necessary to tailor the search to the problem at hand, ensuring the best performance of the Genetic Algorithm.
+
 
     Here, we present some important results and convergence plots, while additional detailed plots are included in Appendix 1. This comprehensive analysis helps identify the best GA configurations, improving the algorithm's efficiency and effectiveness in solving complex optimization problems.
 
@@ -1368,7 +1382,17 @@
 
     Through detailed experiments and thorough analysis, this section showcases key results and insights from testing multiple parameter settings. The convergence plots provide a visual representation of the algorithm’s performance across iterations, highlighting trends and variations in solution quality and consistency.
 
-    Here, we present some important results and convergence plots, while additional detailed plots are included in Appendix 2. This comprehensive analysis helps identify the best TS configurations, improving the algorithm’s efficiency and effectiveness in solving complex optimization problems.
+
+    The following parameters were primarily tested for the Tabu Search algorithm:
+
+    \begin{itemize}
+        \item \textbf{Max Iterations}: The iterations tested were 200, 300, and 500.
+        \item \textbf{Tabu Size}: The tabu list sizes tested were 5, 15, and 30.
+        \item \textbf{Neighborhood Size}: The neighborhood sizes tested were 5, 10, and 15.
+    \end{itemize}
+
+    Determining the optimal parameters for Tabu Search involved extensive testing. Various combinations of these values were explored to understand their impact on the algorithm's performance. This experimentation was important to fine-tune the Tabu Search algorithm and ensure it operates effectively for CVRP.
+
 
     \begin{figure}[H]
         \centering
@@ -1669,6 +1693,20 @@
     Through detailed experiments and thorough analysis, this section showcases key results and insights from testing multiple parameter settings.
     The convergence plots provide a visual representation of the algorithm’s performance across iterations, highlighting trends and variations in solution quality and consistency.
 
+
+    \section{Simulated Annealing}
+
+    The following parameters were primarily tested for the Simulated Annealing algorithm:
+
+    \begin{itemize}
+        \item \textbf{Max Iterations}: The iterations tested were 50, 100, and 150.
+        \item \textbf{Initial Temperature}: The initial temperatures tested were 500, 1000, and 1500.
+        \item \textbf{Cooling Rate}: The cooling rates tested were 0.85, 0.90, and 0.95.
+    \end{itemize}
+
+    Initial testing on a smaller dataset was done to determine the best settings for Simulated Annealing by exploring various parameter combinations.
+
+
     Here, we present some important results and convergence plots, while additional detailed plots are included in Appendix 3.
     This comprehensive analysis helps identify the best SA configurations, improving the algorithm’s efficiency and effectiveness in solving complex optimization problems.
 
@@ -1965,7 +2003,19 @@
 
     Through detailed experiments and thorough analysis, this section showcases key results and insights from testing multiple parameter settings. The convergence plots provide a visual representation of the algorithm's performance across iterations, highlighting trends and variations in solution quality and consistency.
 
-    Here, we present some important results and convergence plots, while additional detailed plots are included in Appendix 3. This comprehensive analysis helps identify the best GA-SA Hybrid configurations, improving the algorithm's efficiency and effectiveness in solving complex optimization problems.
+
+    The following parameters were primarily tested for the GA-SA Hybrid Algorithm:
+
+    \begin{itemize}
+        \item \textbf{Population Size}: The sizes tested were 50, 100, and 150.
+        \item \textbf{Generations}: The number of generations tested were 25, 50, and 100.
+        \item \textbf{Initial Temperature}: The initial temperatures tested were 50, 100, and 150.
+        \item \textbf{Cooling Rate}: The cooling rates tested were 0.95, 0.99, and 0.995, 0.85.
+    \end{itemize}
+
+    Finding the right parameters for this hybrid approach involved extensive testing. Alongside these primary parameters, we experimented with various other values to cover a broader spectrum. This process was necessary to ensure that the GA-SA Hybrid Algorithm was optimized for the specific challenges of the problem space.
+
+    Here, we present some important results and convergence plots, while additional detailed plots are included in Appendix 3. This analysis helps identify the best GA-SA Hybrid configurations, improving the algorithm's efficiency and effectiveness in solving CVRP.
 
     \subsubsection{Results and Analysis}
     Below are the results from the parameter testing of the Genetic Algorithm and Simulated Annealing Hybrid algorithm:
@@ -2062,7 +2112,7 @@
 
     \textbf{Conclusion}: The performance of the Genetic Algorithm in this setting is suboptimal. The parameters chosen result in slow convergence and high variability, which indicates that the algorithm is not efficiently finding the best solutions. Further optimization of the parameters is needed to improve performance and achieve more consistent results.
 
-    \subsection{Performance Metrics Overview}
+    \subsubsection{Performance Metrics Overview}
 
     The table below summarizes the mean and standard deviation of fit and score times, as well as the test scores for various parameter settings of the GA-SA hybrid algorithm:
 
@@ -2265,7 +2315,7 @@
 
     \subsubsection{Conclusion}
 
-    In this section, we conducted a comprehensive evaluation of the Genetic Algorithm (GA), Simulated Annealing (SA), and their hybrid (GA-SA Hybrid) parameters to determine the optimal settings for solving complex optimization problems efficiently. Our analysis focused on five primary parameters: population size, number of generations, maximum iterations, initial temperature, and cooling rate. Through rigorous experimentation and statistical analysis, we derived several key insights regarding the impact of these parameters on the algorithms' performance.
+    In this section, we conducted a comprehensive evaluation of hybrid GA-SA Hybrid parameters to determine the optimal settings for solving complex optimization problems efficiently. Our analysis focused on five primary parameters: population size, number of generations, maximum iterations, initial temperature, and cooling rate. Through rigorous experimentation and statistical analysis, we derived several key insights regarding the impact of these parameters on the algorithms' performance.
 
     Firstly, we observed that the population size significantly influenced the performance of both the GA and the GA-SA Hybrid algorithms. Larger population sizes generally improved solution quality by allowing a broader exploration of the solution space. However, this came at the cost of increased variability and computational time, highlighting the need for a balanced population size to optimize performance.
 
@@ -2282,6 +2332,212 @@
     In conclusion, the systematic evaluation identified that a population size of 100, initial temperature of 100, and a cooling rate of 0.85 seemed to yield good results. These settings enable the GA-SA Hybrid algorithm to achieve a robust balance between exploration and exploitation, leading to consistent and high-quality solutions. However, the analysis also revealed significant variability and suboptimal convergence in some scenarios, suggesting that further research into parameter settings is necessary. Additionally, the observed inconsistencies and performance issues indicate that there might be underlying problems with the implementation of the algorithm itself. Future work should focus on both refining parameter combinations and investigating potential implementation issues to enhance the algorithm's overall effectiveness for more complex optimization problems.
 
 
+    \section{Algorithm Comparison}
+
+    \subsection{Introduction}
+
+    In this chapter, we perform a comprehensive comparison of various algorithms applied to the Capacitated Vehicle Routing Problem (CVRP). The goal is to evaluate the performance of these algorithms in terms of solution quality and computational efficiency. The algorithms under consideration include Dijkstra, Genetic Algorithm with Simulated Annealing (GA\_SA), Genetic Algorithm (GA), Nearest Neighbor, Simulated Annealing, and Tabu Search.
+
+    Our analysis focuses on two key metrics: the cost difference, which measures the deviation of the solution from the optimal cost, and the execution time, which represents the computational effort required to obtain the solution. By comparing these metrics, we aim to identify the algorithm that provides the best balance between solution quality and computational efficiency.
+
+    The following sections present the results of our comparison, including detailed statistical analyses and visualizations to highlight the strengths and weaknesses of each algorithm. The goal is to provide a clear understanding of the relative performance of each algorithm, guiding the selection of the most appropriate algorithm for solving CVRP instances in practical applications.
+
+    \subsection{Data for Algorithm Comparison}
+
+    The data used for the algorithm comparison were generated to ensure a comprehensive evaluation of each algorithm's performance. Each dataset represents a unique instance of the Capacitated Vehicle Routing Problem (CVRP), and the data collection process involved running each algorithm multiple times on these instances to capture variability and robustness in performance.
+
+    The variables used in the data are as follows:
+
+    \begin{itemize}
+        \item \textbf{Algorithm}: The name of the algorithm being tested (e.g., GA\_SA, Dijkstra, Genetic, Nearest Neighbor, Simulated Annealing, Tabu Search).
+        \item \textbf{Instance}: The specific instance of the CVRP being solved, identified by a unique name.
+        \item \textbf{Run}: The number of the run to capture multiple executions for variability analysis.
+        \item \textbf{Iteration}: The iteration number within each run (for algorithms that involve iterative processes). For non-iterative algorithms, this is marked as NA.
+        \item \textbf{Cost Difference}: The difference between the cost obtained by the algorithm and the optimal cost for the instance.
+        \item \textbf{Time}: The time taken by the algorithm to complete the run.
+        \item \textbf{Parameters}: The specific parameters used for the algorithm during the run (e.g., population size, mutation rate for GA\_SA).
+    \end{itemize}
+
+    A total of 1000 distinct datasets were used.
+    Each algorithm was executed 20 times on each dataset to ensure robust and reliable analysis. This extensive data collection approach allows us to accurately compare the performance of the algorithms across a diverse set of scenarios, providing insights into their efficiency and effectiveness in solving the CVRP.
+
+    \subsection{Algorithm Performance Metrics}
+
+    \begin{table}[h!]
+        \centering
+        \caption{Comparison of Algorithm Performance Metrics}
+        \label{tab:performance_metrics}
+        \begin{tabularx}{\textwidth}{|l|X|X|X|X|X|}
+            \hline
+            \textbf{Algorithm}  & \textbf{Cost Mean} & \textbf{Cost Std} & \textbf{Cost Median} & \textbf{Cost Min} & \textbf{Cost Max} \\
+            \hline
+            Dijkstra            & 5212.09            & 2704.87           & 4380.49              & 1315.84           & 18203.98          \\
+            GA\_SA              & 2622.50            & 6880.80           & 3762.17              & 26684.24          & 19446.08          \\
+            Genetic             & 3821.07            & 15740.07          & 2969.85              & 46734.38          & 43889.53          \\
+            NearestNeighbor     & 5212.09            & 2704.87           & 4380.49              & 1315.84           & 18203.98          \\
+            Simulated Annealing & 28558.26           & 3550.10           & 28850.12             & 15612.60          & 45929.57          \\
+            Tabu Search         & 22909.96           & 2371.65           & 22936.70             & 14507.92          & 32534.24          \\
+            \hline
+        \end{tabularx}
+
+        \vspace{1em}
+
+        \begin{tabularx}{\textwidth}{|l|X|X|X|X|X|}
+            \hline
+            \textbf{Algorithm}  & \textbf{Time Mean} & \textbf{Time Std} & \textbf{Time Median} & \textbf{Time Min} & \textbf{Time Max} \\
+            \hline
+            Dijkstra            & 0.05               & 0.05              & 0.03                 & 0.004             & 0.50              \\
+            GA\_SA              & 8.25               & 28.10             & 5.97                 & 1.83              & 974.35            \\
+            Genetic             & 0.20               & 0.08              & 0.18                 & 0.05              & 0.69              \\
+            NearestNeighbor     & 0.05               & 0.05              & 0.03                 & 0.004             & 0.46              \\
+            Simulated Annealing & 0.08               & 0.01              & 0.08                 & 0.04              & 0.19              \\
+            Tabu Search         & 0.08               & 0.03              & 0.06                 & 0.04              & 0.22              \\
+            \hline
+        \end{tabularx}
+    \end{table}
+
+
+    The table \ref{tab:performance_metrics} provides a comprehensive comparison of the performance of various algorithms in solving the Capacitated Vehicle Routing Problem (CVRP). The metrics include the mean, standard deviation, median, minimum, and maximum of the cost difference, as well as the mean, standard deviation, median, minimum, and maximum of the execution time. Below is the interpretation of these results.
+
+    \paragraph{Cost Performance:}
+    \begin{itemize}
+        \item \textbf{Dijkstra}: The mean cost difference is 5212.09 with a standard deviation of 2704.87. The median cost difference is 4380.49, indicating that half of the runs have a cost difference below this value. The minimum and maximum cost differences are 1315.84 and 18203.98, respectively, showing a wide range of performance.
+        \item \textbf{GA\_SA (Genetic Algorithm with Simulated Annealing)}: This algorithm has a lower mean cost difference of 2622.50 but a higher standard deviation of 6880.80, indicating more variability. The median cost difference is 3762.17. The minimum and maximum cost differences are 26684.24 and 19446.08, respectively. This suggests that GA\_SA can find very good solutions occasionally but also some poor ones.
+        \item \textbf{Genetic Algorithm}: The mean cost difference is 3821.07 with a high standard deviation of 15740.07, showing significant variability. The median cost difference is 2969.85, which is lower than both Dijkstra and GA\_SA. The minimum and maximum cost differences are 46734.38 and 43889.53, respectively, indicating a very wide range of outcomes.
+        \item \textbf{Nearest Neighbor}: This algorithm has the same performance metrics as Dijkstra with a mean cost difference of 5212.09, standard deviation of 2704.87, median of 4380.49, minimum of 1315.84, and maximum of 18203.98. This suggests that the performance of Nearest Neighbor is very similar to Dijkstra.
+        \item \textbf{Simulated Annealing}: This algorithm shows a high mean cost difference of 28558.26 and a standard deviation of 3550.10. The median cost difference is 28850.12, indicating that the performance is consistent but generally worse compared to the other algorithms. The minimum and maximum cost differences are 15612.60 and 45929.57, showing a consistent performance range.
+        \item \textbf{Tabu Search}: The mean cost difference is 22909.96 with a standard deviation of 2371.65. The median cost difference is 22936.70. The minimum and maximum cost differences are 14507.92 and 32534.24, respectively. This algorithm shows less variability compared to Simulated Annealing but generally high cost differences.
+    \end{itemize}
+
+    \paragraph{Time Performance:}
+    \begin{itemize}
+        \item \textbf{Dijkstra}: The mean execution time is 0.05 seconds with a standard deviation of 0.05. The median time is 0.03 seconds. The minimum and maximum times are 0.004 and 0.50 seconds, respectively, showing a relatively consistent performance.
+        \item \textbf{GA\_SA (Genetic Algorithm with Simulated Annealing)}: This algorithm has a mean execution time of 8.25 seconds with a high standard deviation of 28.10, indicating significant variability in execution time. The median time is 5.97 seconds. The minimum and maximum times are 1.83 and 974.35 seconds, respectively, showing a very wide range of execution times.
+        \item \textbf{Genetic Algorithm}: The mean execution time is 0.20 seconds with a standard deviation of 0.08. The median time is 0.18 seconds. The minimum and maximum times are 0.05 and 0.69 seconds, respectively, indicating relatively consistent performance.
+        \item \textbf{Nearest Neighbor}: The mean execution time is 0.05 seconds with a standard deviation of 0.05. The median time is 0.03 seconds. The minimum and maximum times are 0.004 and 0.46 seconds, respectively, showing consistent performance similar to Dijkstra.
+        \item \textbf{Simulated Annealing}: The mean execution time is 0.08 seconds with a standard deviation of 0.01. The median time is 0.08 seconds. The minimum and maximum times are 0.04 and 0.19 seconds, respectively, showing a consistent and fast performance.
+        \item \textbf{Tabu Search}: The mean execution time is 0.08 seconds with a standard deviation of 0.03. The median time is 0.06 seconds. The minimum and maximum times are 0.04 and 0.22 seconds, respectively, indicating relatively consistent and quick performance.
+    \end{itemize}
+
+    \paragraph{Conclusion}
+
+    GA\_SA shows the best average cost performance, although with high variability in both cost and time.
+    The Genetic Algorithm also performs well on average but has significant variability.
+    Simulated Annealing and Tabu Search show higher cost differences, indicating less efficient solutions.
+    Dijkstra and Nearest Neighbor algorithms have moderate performance with lower variability, making them more consistent but less optimal in terms of cost.
+
+    \paragraph{Graphical Analysis:}
+    The following box plots provide a visual summary of the cost differences and execution times for each algorithm.
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.9\textwidth]{algo_summary/boxplot_cost_difference}
+        \caption{Box Plot of Cost Difference by Algorithm}
+        \label{fig:boxplot_cost_difference}
+    \end{figure}
+
+    \paragraph{Interpretation of Cost Difference:}
+    The box plot of cost differences (Figure \ref{fig:boxplot_cost_difference}) shows that:
+    \begin{itemize}
+        \item \textbf{GA\_SA (Genetic Algorithm with Simulated Annealing)}: This algorithm generally achieves low cost differences with a median close to zero. Although there is some variability, it consistently performs well in finding near-optimal solutions.
+        \item \textbf{Genetic Algorithm}: It shows significant variability in cost differences with a wider interquartile range, indicating inconsistent performance. While it can achieve good solutions, it also produces many suboptimal results.
+        \item \textbf{Simulated Annealing}: This algorithm has the highest median cost difference and a narrow interquartile range, showing consistently poor performance in terms of cost.
+        \item \textbf{Tabu Search}: It exhibits higher cost differences than GA\_SA but is more consistent than Genetic, though still less effective in finding optimal solutions.
+        \item \textbf{Nearest Neighbor} and \textbf{Dijkstra}: Both algorithms have similar performance metrics with low median cost differences and narrow variability, indicating consistent and generally good performance.
+    \end{itemize}
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.9\textwidth]{algo_summary/boxplot_time_log_scale}
+        \caption{Box Plot of Time by Algorithm (Log Scale)}
+        \label{fig:boxplot_time_log_scale}
+    \end{figure}
+
+    \paragraph{Interpretation of Time:}
+    The box plot of execution times with a logarithmic scale (Figure \ref{fig:boxplot_time_log_scale}) reveals that:
+    \begin{itemize}
+        \item \textbf{GA\_SA (Genetic Algorithm with Simulated Annealing)}: The execution time varies widely, with some runs taking significantly longer. The high variability suggests that while GA\_SA can be computationally expensive, it also achieves very low execution times in many cases.
+        \item \textbf{Genetic Algorithm}: It shows more consistent execution times with a lower median compared to GA\_SA, indicating efficient performance.
+        \item \textbf{Simulated Annealing} and \textbf{Tabu Search}: Both algorithms show low and consistent execution times, making them efficient despite their poorer cost performance.
+        \item \textbf{Nearest Neighbor} and \textbf{Dijkstra}: These algorithms are the most efficient, with consistently low execution times, indicating excellent computational efficiency.
+    \end{itemize}
+
+    \paragraph{Conclusion:}
+    Based on both the cost difference and execution time metrics, \textbf{GA\_SA} emerges as the best overall algorithm for solving the Capacitated Vehicle Routing Problem (CVRP). It provides the best balance between achieving near-optimal solutions and maintaining reasonable computation times. \textbf{Nearest Neighbor} and \textbf{Dijkstra} are also strong contenders due to their consistent and efficient performance, though they do not achieve the same level of cost efficiency as GA\_SA. The \textbf{Genetic Algorithm} also performs well on average but with significant variability. \textbf{Simulated Annealing} and \textbf{Tabu Search}, while efficient in terms of runtime, generally show higher cost differences, indicating less effective solutions.
+
+    \subsection{Statistical Validation of Algorithm Performance}
+
+    In order to provide a rigorous comparison of the algorithms beyond descriptive statistics, we performed the Wilcoxon Signed-Rank Test. This non-parametric test is used to compare two related samples to determine if their population mean ranks differ, and it is particularly useful for paired comparisons when the data does not necessarily follow a normal distribution.
+
+    \paragraph{Wilcoxon Signed-Rank Test Results:}
+    The Wilcoxon Signed-Rank Test was conducted for all pairwise comparisons of the algorithms based on their cost differences. The results are summarized in Table \ref{tab:wilcoxon_results}.
+
+    \begin{table}[h!]
+        \centering
+        \caption{Wilcoxon Signed-Rank Test Results for Pairwise Algorithm Comparisons}
+        \label{tab:wilcoxon_results}
+        \begin{tabularx}{\textwidth}{|l|l|X|X|}
+            \hline
+            \textbf{Algorithm 1} & \textbf{Algorithm 2} & \textbf{Statistic} & \textbf{p-value} \\
+            \hline
+            GA\_SA               & Genetic              & 90066752.0         & 4.42e-34         \\
+            GA\_SA               & Simulated Annealing  & 0.0                & 0.0              \\
+            GA\_SA               & Tabu Search          & 0.0                & 0.0              \\
+            GA\_SA               & Nearest Neighbor     & 22172920.0         & 1.11e-22         \\
+            GA\_SA               & Dijkstra             & 22198214.0         & 2.64e-22         \\
+            Genetic              & Simulated Annealing  & 1171375.0          & 0.0              \\
+            Genetic              & Tabu Search          & 7695079.0          & 0.0              \\
+            Genetic              & Nearest Neighbor     & 23451825.0         & 7.82e-08         \\
+            Genetic              & Dijkstra             & 23496751.0         & 1.83e-07         \\
+            Simulated Annealing  & Tabu Search          & 278819.0           & 0.0              \\
+            Simulated Annealing  & Nearest Neighbor     & 0.0                & 0.0              \\
+            Simulated Annealing  & Dijkstra             & 0.0                & 0.0              \\
+            Tabu Search          & Nearest Neighbor     & 0.0                & 0.0              \\
+            Tabu Search          & Dijkstra             & 0.0                & 0.0              \\
+            Nearest Neighbor     & Dijkstra             & 19297180.0         & 0.314            \\
+            \hline
+        \end{tabularx}
+    \end{table}
+    \newpage
+
+    \paragraph{Interpretation:}
+    The Wilcoxon Signed-Rank Test results indicate the following:
+
+    \begin{itemize}
+        \item \textbf{GA\_SA vs. Genetic}: The extremely low p-value (\(4.42 \times 10^{-34}\)) suggests a significant difference in performance between GA\_SA and Genetic algorithms.
+        \item \textbf{GA\_SA vs. Other Algorithms}: Similarly, GA\_SA shows significant differences in performance compared to Simulated Annealing, Tabu Search, Nearest Neighbor, and Dijkstra, as indicated by the p-values of 0.
+        \item \textbf{Genetic vs. Other Algorithms}: The Genetic algorithm also shows significant differences when compared to Simulated Annealing, Tabu Search, Nearest Neighbor, and Dijkstra.
+        \item \textbf{Simulated Annealing vs. Other Algorithms}: Significant differences are observed in all pairwise comparisons involving Simulated Annealing.
+        \item \textbf{Tabu Search vs. Other Algorithms}: Significant differences are observed in all pairwise comparisons involving Tabu Search.
+        \item \textbf{Nearest Neighbor vs. Dijkstra}: The p-value of 0.314 suggests no significant difference in performance between Nearest Neighbor and Dijkstra.
+    \end{itemize}
+
+    These statistical tests confirm that there are significant differences in performance between most of the algorithms, with GA\_SA consistently showing significant differences from other algorithms. This reinforces our earlier findings that GA\_SA is the best overall algorithm for solving the Capacitated Vehicle Routing Problem (CVRP).
+
+    \paragraph{Friedman Test Results:}
+    To complement the summary statistics, box plots, and Wilcoxon Signed-Rank Test, we conducted the Friedman Test.
+    This non-parametric test allows us to compare the performance of all algorithms simultaneously, providing a global perspective on their differences.
+    The Friedman Test results for the cost differences across all algorithms are summarized below:
+
+    \begin{itemize}
+        \item \textbf{Statistic}: 32839.19
+        \item \textbf{p-value}: 0.0
+    \end{itemize}
+
+    \paragraph{Interpretation:}
+    The Friedman Test results shows that there are significant differences in the performance of the algorithms.
+    The p-value of 0.0 suggests that these differences are statistically significant and not due to random chance.
+
+    \paragraph{Conclusion:}
+    These statistical tests confirm that there are significant differences in performance between most of the algorithms, with GA\_SA consistently showing significant differences from other algorithms.
+    This reinforces our earlier findings that GA\_SA is the best overall algorithm for solving the Capacitated Vehicle Routing Problem (CVRP).
+
+
+
+
+
+
+    \newpage
 %\begin{quote}
 %    \emph{Autor/autorka uvedou vlastní název kapitoly vztahující se ke
 %    konkrétnímu tématu práce}

@@ -179,12 +179,10 @@ def load_instance_names_from_file(filename):
 
 
 param_grid = {
-    'population_size': [150],
-    'generations': [100],
-    'initial_temperature': [100],
-    'cooling_rate': [0.85],
-    'max_iterations': [1500],
-
+    'population_size': [50, 100, 150],
+    'generations': [25, 50, 100],
+    'initial_temperature': [50, 100, 150],
+    'cooling_rate': [0.95, 0.99, 0.995],
 }
 
 
@@ -246,14 +244,11 @@ def main():
     filename = "../instance_names.txt"
     instance_names = load_instance_names_from_file(filename)
 
-    # results = Parallel(n_jobs=-1)(
-    #     delayed(process_and_save_epoch_data)(instance_names[i:i + 10], chunk_number=(i // 10) + 1)
-    #     for i in range(0, 100, 10)
-    # )
     results = Parallel(n_jobs=-1)(
-        delayed(process_and_save_epoch_data)(instance_names[i:i + 3], chunk_number=(i // 3) + 1)
-        for i in range(0, 30, 3)
+        delayed(process_and_save_epoch_data)(instance_names[i:i + 10], chunk_number=(i // 10) + 1)
+        for i in range(0, 200, 20)
     )
+
 
     print("Processing complete. Results:", results)
 
