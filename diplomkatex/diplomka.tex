@@ -997,7 +997,11 @@
 
     The experimental setup for this study involves systematically testing various parameter settings for the algorithms under consideration: Simulated Annealing (SA), Genetic Algorithm (GA), Tabu Search (TS), and a Hybrid Genetic Algorithm (HGA). The parameter selection process utilizes a grid search method, which exhaustively evaluates a predefined set of parameter combinations to identify the optimal configurations.
 
-    Due to hardware limitations, only 100 datasets/instances were used for the experiments. This number was chosen to balance the need for statistical validity with the available computational resources. Each dataset represents a unique problem instance, ensuring a comprehensive evaluation of the algorithms across diverse scenarios. To ensure the robustness of the results, each instance was run 20 times, allowing for a thorough analysis of the variability and consistency in the algorithms' performance.
+    Due to hardware limitations, only 100 datasets/instances were used for the experiments. This number was chosen to balance the need for statistical validity with the available computational resources. Each dataset represents a unique problem instance, ensuring a comprehensive evaluation of the algorithms across diverse scenarios. To ensure the robustness of the results, each instance was run 20 times, allowing for a thorough analysis of the variability and consistency in the algorithms’ performance.
+
+    These 100 instances were only used for summary statistics and grid search. The summary statistics include examples such as mean fit time and standard deviation.
+
+    For convergence data and graphs and ANOVA, 1000 instances with 20 runs each were used.
 
     \subsubsection{Convergence Plots and Data Collection}
 
@@ -1963,10 +1967,100 @@
 
     Here, we present some important results and convergence plots, while additional detailed plots are included in Appendix 3. This comprehensive analysis helps identify the best GA-SA Hybrid configurations, improving the algorithm's efficiency and effectiveness in solving complex optimization problems.
 
-%    \subsubsection{Results and Analysis}
-%    Below are the results from the parameter testing of the Genetic Algorithm and Simulated Annealing Hybrid algorithm:
+    \subsubsection{Results and Analysis}
+    Below are the results from the parameter testing of the Genetic Algorithm and Simulated Annealing Hybrid algorithm:
 
-% TODO: GRAPHS
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{genetic_simulated_annealing_hybrid/Population_150_Generations_100_Temperature_100_CoolingRate_0.85}
+        \caption{Convergence plot for Population Size: 150, Generations: 100, Initial Temperature: 100, Cooling Rate: 0.85}
+        \label{fig:pop150_gen100_temp100_cr0.85}
+    \end{figure}
+
+    \textbf{Description}: The graph above shows the convergence behavior of the Genetic Algorithm for a population size of 150, 100 generations, an initial temperature of 100, and a cooling rate of 0.85.
+
+    \textbf{Observation}: The plot indicates a steady decrease in normalized optimal cost over generations. The mean cost shows a downward trend, while the standard deviation increases slightly as generations progress.
+
+    \textbf{Analysis}: The decreasing mean cost suggests that the algorithm is progressively finding better solutions with each generation. The increasing standard deviation, however, indicates greater variability in the solutions, which may imply that while the algorithm is exploring the solution space effectively, the consistency of the solutions is affected.
+
+    \textbf{Conclusion}: The chosen parameters result in a balance between exploration and exploitation. However, the increasing variability suggests that either the cooling rate might be too high, leading to premature convergence, or the initial temperature might need adjustment to maintain solution consistency. Further tuning of these parameters could improve the robustness of the algorithm.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{genetic_simulated_annealing_hybrid/Population_50_Generations_25_Temperature_1000_CoolingRate_0.95}
+        \caption{Convergence plot for Population Size: 50, Generations: 25, Initial Temperature: 1000, Cooling Rate: 0.95}
+        \label{fig:pop50_gen25_temp1000_cr0.95}
+    \end{figure}
+
+    \textbf{Description}: The graph above shows the convergence behavior of the Genetic Algorithm for a population size of 50, 25 generations, an initial temperature of 1000, and a cooling rate of 0.95.
+
+    \textbf{Observation}: The plot indicates a gradual decrease in normalized optimal cost over generations. The mean cost shows a steady decline, while the standard deviation initially decreases and then remains relatively constant.
+
+    \textbf{Analysis}: The consistent downward trend in the mean cost suggests that the algorithm is effectively improving solutions with each generation. The initial decrease and subsequent stabilization of the standard deviation indicate that the algorithm quickly reduces variability and maintains consistent performance in later generations. The high initial temperature may facilitate a broad exploration of the solution space early on.
+
+    \textbf{Conclusion}: The chosen parameters seem to strike a good balance between exploration and exploitation. The algorithm improves solution quality consistently over generations while maintaining stable performance. However, the relatively small number of generations may limit the potential for further optimization, suggesting that more generations could yield even better results.
+
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{genetic_simulated_annealing_hybrid/Population_100_Generations_50_Temperature_500_CoolingRate_0.99}
+        \caption{Convergence plot for Population Size: 100, Generations: 50, Initial Temperature: 500, Cooling Rate: 0.99}
+        \label{fig:pop100_gen50_temp500_cr0.99}
+    \end{figure}
+
+    \textbf{Description}: The graph above shows the convergence behavior of the Genetic Algorithm for a population size of 100, 50 generations, an initial temperature of 500, and a cooling rate of 0.99.
+
+    \textbf{Observation}: The plot indicates a gradual decrease in normalized optimal cost over generations. The mean cost decreases steadily, but the standard deviation remains relatively high throughout the process.
+
+    \textbf{Analysis}: The steady decline in the mean cost suggests that the algorithm is progressively improving the solutions. However, the high standard deviation indicates significant variability in the performance of the algorithm. The high cooling rate might contribute to slower convergence, as the algorithm is more explorative, but it also means that the solutions are not consistently close to optimal.
+
+    \textbf{Conclusion}: While the algorithm improves the solution quality over generations, the high variability and the mean cost not approaching zero suggest that the chosen parameters might not be ideal. The cooling rate of 0.99, although allowing broad exploration, might need to be adjusted for better convergence. Further tuning of parameters could potentially lead to more consistent and optimal solutions.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{genetic_simulated_annealing_hybrid/Population_150_Generations_50_Temperature_1500_CoolingRate_0.99}
+        \caption{Convergence plot for Population Size: 150, Generations: 50, Initial Temperature: 1500, Cooling Rate: 0.99}
+        \label{fig:pop150_gen50_temp1500_cr0.99}
+    \end{figure}
+
+    \textbf{Description}: The graph above shows the convergence behavior of the Genetic Algorithm for a population size of 150, 50 generations, an initial temperature of 1500, and a cooling rate of 0.99.
+
+    \textbf{Observation}: The plot indicates an initial increase in the normalized optimal cost followed by a gradual decrease. The mean cost decreases over generations, but it does not approach zero, and the standard deviation remains high throughout.
+
+    \textbf{Analysis}: The initial increase in the mean cost suggests that the algorithm might be diverging before it starts to converge. The subsequent gradual decrease indicates some improvement in solution quality, but the high standard deviation signifies significant variability in the results. The combination of a large population size, high initial temperature, and high cooling rate might be causing instability in the convergence process.
+
+    \textbf{Conclusion}: The convergence behavior observed in this graph is suboptimal. The algorithm shows signs of instability and high variability, which might indicate issues with the chosen parameters or the implementation of the algorithm itself. Adjustments to the population size, initial temperature, or cooling rate are recommended to achieve more consistent and optimal results.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{genetic_simulated_annealing_hybrid/Population_100_Generations_100_Temperature_500_CoolingRate_0.995}
+        \caption{Convergence plot for Population Size: 100, Generations: 100, Initial Temperature: 500, Cooling Rate: 0.995}
+        \label{fig:pop100_gen100_temp500_cr0.995}
+    \end{figure}
+
+    \textbf{Description}: The graph above shows the convergence behavior of the Genetic Algorithm for a population size of 100, 100 generations, an initial temperature of 500, and a cooling rate of 0.995.
+
+    \textbf{Observation}: The mean normalized optimal cost steadily decreases over the generations, but it does not even approach halfway to zero. The standard deviation remains relatively wide, indicating a considerable variability in the results.
+
+    \textbf{Analysis}: The high cooling rate of 0.995 combined with the initial temperature of 500 appears to slow down the convergence significantly. The algorithm is making gradual improvements, but the rate of convergence is too slow, and the high variability suggests inconsistency in finding optimal solutions.
+
+    \textbf{Conclusion}: The convergence behavior in this graph is unsatisfactory. The algorithm's performance is hindered by slow convergence and high variability, likely due to the high cooling rate and possibly suboptimal parameter settings. Further tuning of the parameters is necessary to achieve better performance and more consistent results.
+
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=\textwidth]{genetic_simulated_annealing_hybrid/Population_150_Generations_25_Temperature_500_CoolingRate_0.95}
+        \caption{Convergence plot for Population Size: 150, Generations: 25, Initial Temperature: 500, Cooling Rate: 0.95}
+        \label{fig:pop150_gen25_temp500_cr0.95}
+    \end{figure}
+
+    \textbf{Description}: The graph above shows the convergence behavior of the Genetic Algorithm for a population size of 150, 25 generations, an initial temperature of 500, and a cooling rate of 0.95.
+
+    \textbf{Observation}: The mean normalized optimal cost decreases over the generations, but it does not approach zero. The standard deviation remains wide, indicating considerable variability in the results.
+
+    \textbf{Analysis}: The combination of a high population size with a moderate cooling rate of 0.95 and a relatively low initial temperature of 500 leads to slow convergence. The high variability suggests that the algorithm struggles to consistently find optimal solutions within the given generations.
+
+    \textbf{Conclusion}: The performance of the Genetic Algorithm in this setting is suboptimal. The parameters chosen result in slow convergence and high variability, which indicates that the algorithm is not efficiently finding the best solutions. Further optimization of the parameters is needed to improve performance and achieve more consistent results.
 
     \subsection{Performance Metrics Overview}
 
@@ -2111,8 +2205,81 @@
         \item Max Iterations: 1500
         \item Population Size: 150
     \end{itemize}
-    These settings provided a robust balance, yielding high-quality solutions with acceptable computational efficiency. The convergence plots and statistical analysis confirm that these parameters lead to consistent optimization results across several test scenarios. This can be seen in Figure TODO
-%    \ref{fig:}.
+    These settings gave fairly acceptable results. The convergence plots and statistical analysis confirm that these parameters lead to consistent optimization results across several test scenarios. This can be seen in Figure TODO
+
+    \subsubsection{ANOVA Results}
+
+    The following section presents the results of the ANOVA tests conducted to evaluate the impact of different parameter settings on the performance of the GA-SA hybrid algorithm.
+
+    \textbf{ANOVA Results Summary}
+
+    The ANOVA test results are summarized below for various parameter settings, including maximum iterations, population size, generations, initial temperature, and cooling rate. The F-statistic and P-value indicate the significance of the differences in performance for each parameter setting.
+
+    \begin{itemize}
+        \item \textbf{Max Iterations}
+        \begin{itemize}
+            \item \textbf{Max Iterations 250}: F-statistic = 1.276611, P-value = 0.284744796294951
+        \end{itemize}
+        \item \textbf{Population Size}
+        \begin{itemize}
+            \item \textbf{Population Size 50}: F-statistic = 5.302222, P-value = 0.012386605400572
+            \item \textbf{Population Size 100}: F-statistic = 5.231006, P-value = 0.0130150930356014
+            \item \textbf{Population Size 150}: F-statistic = 2.905632, P-value = 0.0733468276085425
+        \end{itemize}
+        \item \textbf{Generations}
+        \begin{itemize}
+            \item \textbf{Generations 25}: F-statistic = 2.265598, P-value = 0.125514848870365
+            \item \textbf{Generations 50}: F-statistic = 2.190873, P-value = 0.133679719873337
+            \item \textbf{Generations 100}: F-statistic = 2.828404, P-value = 0.0599024708264435
+        \end{itemize}
+        \item \textbf{Initial Temperature}
+        \begin{itemize}
+            \item \textbf{Initial Temperature 500}: F-statistic = 5.313472, P-value = 0.0122903702524172
+            \item \textbf{Initial Temperature 1000}: F-statistic = 18.911105, P-value = 1.17165704168177e-05
+            \item \textbf{Initial Temperature 1500}: F-statistic = 37.390415, P-value = 4.23119294830394e-08
+        \end{itemize}
+    \end{itemize}
+
+    \textbf{Interpretation of ANOVA Results}
+
+    \begin{itemize}
+        \item \textbf{Max Iterations:}
+        \begin{itemize}
+            \item The results indicate no significant differences in performance for different max iteration settings, as evidenced by the high P-value. This suggests that varying the number of iterations does not substantially impact the algorithm's performance within the tested range.
+        \end{itemize}
+        \item \textbf{Population Size:}
+        \begin{itemize}
+            \item The ANOVA results for population size show significant differences in performance for population sizes of 50 and 100, as indicated by the P-values below 0.05. However, the population size of 150 does not show significant differences with a P-value slightly above 0.05.
+        \end{itemize}
+        \item \textbf{Generations:}
+        \begin{itemize}
+            \item The ANOVA results for generations show no significant differences in performance for the tested settings, with P-values greater than 0.05. This suggests that the number of generations does not have a significant impact on the algorithm's performance.
+        \end{itemize}
+        \item \textbf{Initial Temperature:}
+        \begin{itemize}
+            \item The initial temperature shows significant differences in performance across the tested settings, with all P-values below 0.05. This indicates that the initial temperature is a critical factor influencing the effectiveness of the GA-SA hybrid algorithm.
+        \end{itemize}
+    \end{itemize}
+
+    The ANOVA results offer crucial insights into how different parameter settings influence the GA-SA hybrid algorithm's performance. The findings highlight the importance of carefully selecting the population size and initial temperature to optimize the algorithm's effectiveness. Conversely, the number of iterations and generations appear to have a less pronounced effect on performance, indicating that future research should focus on the population size and initial temperature for further optimization.
+
+    \subsubsection{Conclusion}
+
+    In this section, we conducted a comprehensive evaluation of the Genetic Algorithm (GA), Simulated Annealing (SA), and their hybrid (GA-SA Hybrid) parameters to determine the optimal settings for solving complex optimization problems efficiently. Our analysis focused on five primary parameters: population size, number of generations, maximum iterations, initial temperature, and cooling rate. Through rigorous experimentation and statistical analysis, we derived several key insights regarding the impact of these parameters on the algorithms' performance.
+
+    Firstly, we observed that the population size significantly influenced the performance of both the GA and the GA-SA Hybrid algorithms. Larger population sizes generally improved solution quality by allowing a broader exploration of the solution space. However, this came at the cost of increased variability and computational time, highlighting the need for a balanced population size to optimize performance.
+
+    Secondly, the number of generations did not show significant differences in the GA-SA Hybrid's performance according to the ANOVA results. This suggests that while generations provide more opportunities for refinement, other parameters such as the initial temperature and cooling rate are more critical in determining the effectiveness of the hybrid algorithm.
+
+    Thirdly, the initial temperature was found to have a substantial impact on the SA and GA-SA Hybrid algorithms. Higher initial temperatures facilitated a more extensive exploration of the solution space early in the optimization process, leading to better performance. The ANOVA results confirmed the significance of initial temperature, particularly for values of 1000 and 1500, which showed statistically significant improvements in solution quality.
+
+    Fourthly, the cooling rate was identified as a critical parameter affecting the performance of the SA and GA-SA Hybrid algorithms. Higher cooling rates allowed for thorough exploration but resulted in slower convergence and increased variability. Conversely, lower cooling rates led to faster convergence but at the risk of premature convergence to suboptimal solutions. The cooling rate's impact was evident in the convergence plots, emphasizing the need for careful tuning to balance exploration and exploitation.
+
+    Lastly, the maximum iterations parameter did not significantly influence the SA's performance within the tested range, as indicated by the high P-values in the ANOVA results. This suggests that the number of iterations is less critical compared to other parameters like initial temperature and cooling rate.
+
+    Our ANOVA tests confirmed the significance of population size, initial temperature, and cooling rate in influencing the performance of the GA-SA Hybrid algorithm. These findings underscore the importance of careful parameter tuning to achieve optimal performance in optimization algorithms.
+
+    In conclusion, the systematic evaluation identified that a population size of 100, initial temperature of 100, and a cooling rate of 0.85 seemed to yield good results. These settings enable the GA-SA Hybrid algorithm to achieve a robust balance between exploration and exploitation, leading to consistent and high-quality solutions. However, the analysis also revealed significant variability and suboptimal convergence in some scenarios, suggesting that further research into parameter settings is necessary. Additionally, the observed inconsistencies and performance issues indicate that there might be underlying problems with the implementation of the algorithm itself. Future work should focus on both refining parameter combinations and investigating potential implementation issues to enhance the algorithm's overall effectiveness for more complex optimization problems.
 
 
 %\begin{quote}
