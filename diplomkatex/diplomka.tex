@@ -282,7 +282,6 @@
         \item What are the main advantages and disadvantages of individual heuristic optimization algorithms compared to traditional methods in logistics route planning?
         \item How does the integration of multiple heuristic algorithms affect the system's ability to handle dynamic changes and uncertainties in logistics operations?
         \item To what extent can simulation tools contribute to the validation and improvement of heuristic optimization algorithms in real-world logistics scenarios?
-        \item What specific scenarios and parameters should be considered when designing simulation experiments to test the performance of heuristic algorithms in logistics?
     \end{itemize}
 
 
@@ -993,6 +992,10 @@
     These 100 instances were only used for summary statistics and grid search. The summary statistics include examples such as mean fit time and standard deviation.
 
     For convergence data and graphs and ANOVA, 1000 instances with 20 runs each were used.
+
+    \paragraph{ Custom Algorithm Implementation}
+    All the algorithms used in this study, including the Genetic Algorithm (GA), Simulated Annealing (SA), Tabu Search (TS), and the hybrid Genetic Algorithm with Simulated Annealing (GA-SA), were custom-implemented specifically for this research.
+    This approach ensured that the algorithms were optimized to the specific needs and constraints of the Capacitated Vehicle Routing Problem (CVRP) instances analyzed.
 
     \paragraph{Grid Search Process}
     The grid search method, implemented using the \texttt{GridSearchCV} class from the \texttt{scikit-learn} library, is used to find the optimal parameters for the algorithms.
@@ -2018,7 +2021,18 @@
 
     \subsection{Genetic Algorithm and Simulated Annealing Hybrid Parameter Testing}\label{subsec:genetic-algorithm-and-simulated-annealing-hybrid-parameter-testing}
 
-    The Genetic Algorithm and Simulated Annealing Hybrid (GA-SA Hybrid) parameter testing section focuses on a systematic evaluation of different configurations of the hybrid algorithm to find the most effective parameter settings. This part of the study aims to understand the impact of various combinations of population size, number of generations, maximum iterations, initial temperature, and cooling rates on the hybrid algorithm's performance and convergence behavior.
+    The GA-SA hybrid algorithm combines the advantages of Genetic Algorithms and Simulated Annealing to solve complex optimization problems effectively. This approach uses GA's ability to explore many possible solutions and SA's skill in fine-tuning a good solution to make it even better.
+
+    The algorithm starts by creating an initial population of solutions. Each solution is a sequence of nodes that represents a route. The distances between nodes are calculated using the Euclidean distance, forming a distance matrix used to evaluate the cost of each route.
+
+    In the GA part, several steps are followed: selection, crossover, and mutation. The fitness of each solution is measured by the inverse of its total travel cost. The best solutions are selected and used to create new ones by exchanging parts of their routes (crossover). Small changes (mutations) are also made to introduce variety.
+
+    After the GA operations, the best solution found so far is further improved using Simulated Annealing. SA explores the neighborhood of this solution by making small changes, such as swapping nodes between routes. It sometimes accepts worse solutions to escape local optima, with the acceptance probability controlled by a temperature parameter that decreases over time.
+
+    By combining GA and SA, the GA-SA algorithm can explore a wide range of solutions and then improve the better performing ones. This method helps to find near-optimal solutions efficiently. Adjusting parameters like population size, number of generations, initial temperature, and cooling rate is important to get the best performance.
+
+
+    The GA-SA Hybrid parameter testing section focuses on a systematic evaluation of different configurations of the hybrid algorithm to find the most effective parameter settings. This part of the study aims to understand the impact of various combinations of population size, number of generations, maximum iterations, initial temperature, and cooling rates on the hybrid algorithm's performance and convergence behavior.
 
     Through detailed experiments and thorough analysis, this section showcases key results and insights from testing multiple parameter settings. The convergence plots provide a visual representation of the algorithm's performance across iterations, highlighting trends and variations in solution quality and consistency.
 
@@ -2553,10 +2567,104 @@
 
 
 
-
-
-
     \newpage
+
+
+    \section{Conclusion}
+
+    In this diploma thesis, the primary objective was to explore and compare various optimization algorithms, including Genetic Algorithms (GA), Simulated Annealing (SA), Tabu Search (TS), Greedy Algorithms, Nearest Neighbor Algorithms, and a hybrid Genetic Algorithm with Simulated Annealing (GA-SA). These algorithms were custom-implemented and tested to determine their efficiency and effectiveness in solving complex optimization problems. Through detailed parameter testing and comprehensive analysis, we aimed to identify which algorithm performs best under different conditions and parameter settings.
+
+
+    \section{Conclusion}
+
+    In this diploma thesis, the primary objective was to explore and compare various optimization algorithms, including Genetic Algorithms (GA), Simulated Annealing (SA), Tabu Search (TS), Greedy Algorithms, Nearest Neighbor Algorithms, and a hybrid Genetic Algorithm with Simulated Annealing (GA-SA). These algorithms were custom-implemented and tested to determine their efficiency and effectiveness in solving complex optimization problems. Through detailed parameter testing and comprehensive analysis, we aimed to identify which algorithm performs best under different conditions and parameter settings.
+
+    \subsection{Key Findings}
+% [Key findings about the algorithms performance]
+
+    \subsection{Answers to Hypotheses and Research Questions}
+
+    \paragraph{Hypotheses}
+    \begin{enumerate}
+        \item \textbf{Hypothesis 1:} The implementation of heuristic optimization algorithms, such as genetic algorithms, simulated annealing, and tabu search, will significantly improve the efficiency of route planning in logistics, leading to reduced delivery times and operational costs compared to traditional methods.
+        \begin{itemize}
+            \item \textit{Answer:} This hypothesis was confirmed through the comparative analysis of the various algorithms. The heuristic optimization algorithms indeed improved route planning efficiency, leading to better solutions than traditional methods. The Genetic Algorithm with Simulated Annealing (GA-SA) hybrid, in particular, provided the best balance between solution quality and computational efficiency.
+        \end{itemize}
+        \item \textbf{Hypothesis 2:} The integration of multiple heuristic algorithms will create a robust and flexible optimization framework capable of adapting to dynamic changes and uncertainties in logistics operations, thereby enhancing overall performance and reliability.
+        \begin{itemize}
+            \item \textit{Answer:} This hypothesis was supported by the performance of the hybrid GA-SA algorithm, which combined the strengths of both GA and SA. The hybrid approach demonstrated robustness and flexibility, effectively handling dynamic changes and uncertainties in the problem instances tested.
+        \end{itemize}
+        \item \textbf{Hypothesis 3:} Using simulation tools to test and validate heuristic optimization algorithms will demonstrate their practical feasibility and effectiveness in real-world logistics scenarios, highlighting both their strengths and potential areas for improvement.
+        \begin{itemize}
+            \item \textit{Answer:} The use of simulation tools provided valuable insights into the practical feasibility and effectiveness of the algorithms. The detailed parameter testing and performance evaluation highlighted the strengths of of the tested algorithms while also pointing out areas for improvement, such as the need for careful parameter tuning and addressing implementation issues.
+        \end{itemize}
+    \end{enumerate}
+
+    \paragraph{Research Questions}
+    \begin{itemize}
+        \item \textbf{What are the main advantages and disadvantages of individual heuristic optimization algorithms compared to traditional methods in logistics route planning?}
+        \begin{itemize}
+            \item \textit{Answer:} The main advantages of heuristic optimization algorithms include their ability to explore a larger solution space and escape local optima, leading to better overall solutions. However, they can be computationally intensive and require careful parameter tuning. Traditional methods are generally faster but may not provide optimal solutions. The detailed analysis in the thesis highlighted these trade-offs for each algorithm.
+        \end{itemize}
+        \item \textbf{How does the integration of multiple heuristic algorithms affect the system's ability to handle dynamic changes and uncertainties in logistics operations?}
+        \begin{itemize}
+            \item \textit{Answer:} The integration of multiple heuristic algorithms, as seen in the GA-SA hybrid, enhanced the system's ability to handle dynamic changes and uncertainties. The hybrid approach leveraged the strengths of each algorithm, providing a more robust and adaptable solution framework compared to individual algorithms.
+        \end{itemize}
+        \item \textbf{To what extent can simulation tools contribute to the validation and improvement of heuristic optimization algorithms in real-world logistics scenarios?}
+        \begin{itemize}
+            \item \textit{Answer:} Simulation tools played a crucial role in validating and improving the heuristic optimization algorithms. They allowed for extensive testing under various scenarios, helping to identify optimal parameter settings and highlight areas for further improvement. The practical feasibility and effectiveness of the algorithms were demonstrated through these simulations.
+        \end{itemize}
+
+    \end{itemize}
+
+    \subsection{Key Findings}
+
+    \paragraph{Performance Comparison of Algorithms}
+    The comparative analysis revealed distinct strengths and weaknesses of each algorithm. The Genetic Algorithm (GA) showed robust performance in terms of exploration capabilities due to its inherent ability to maintain a diverse population of solutions. However, it sometimes struggled with premature convergence, where the algorithm would settle on suboptimal solutions without fully exploring the solution space.
+
+    Simulated Annealing (SA) demonstrated excellent performance in escaping local optima due to its probabilistic acceptance of worse solutions. This characteristic allowed it to find better global solutions over time. However, SA's performance heavily depended on the cooling schedule, and improper tuning could lead to suboptimal performance.
+
+    Tabu Search (TS) excelled in intensifying the search around promising regions of the solution space, thanks to its memory-based approach. It effectively avoided cycles and repeated solutions, making it suitable for problems with complex landscapes. Nevertheless, TS's performance was sensitive to the size of the tabu list and the neighborhood structure, requiring careful tuning for optimal results.
+
+    The hybrid Genetic Algorithm with Simulated Annealing (GA-SA) combined the strengths of both GA and SA, leveraging GA's exploration capabilities and SA's ability to escape local optima. This hybrid approach showed promising results, often outperforming individual algorithms in terms of solution quality and convergence speed. However, the complexity of implementing and tuning the hybrid algorithm posed a significant challenge.
+
+    \paragraph{Best Performing Algorithms}
+    Based on the extensive tests conducted, the hybrid Genetic Algorithm with Simulated Annealing (GA-SA) emerged as the most effective algorithm for solving the Capacitated Vehicle Routing Problem (CVRP). GA-SA demonstrated the best average cost performance, although with high variability in both cost and time. The Genetic Algorithm (GA) also performed well on average but exhibited significant variability. Simulated Annealing (SA) and Tabu Search (TS) showed higher cost differences, indicating less efficient solutions. Dijkstra and Nearest Neighbor algorithms provided moderate performance with lower variability, making them more consistent but less optimal in terms of cost. Overall, GA-SA provides the best balance between achieving near-optimal solutions and maintaining reasonable computation times. Nearest Neighbor and Dijkstra are also strong fairly strong due to their consistent and efficient performance, though they do not achieve the same level of cost efficiency as GA-SA. The Genetic Algorithm performed well on average but with significant variability. Simulated Annealing and Tabu Search, while efficient in terms of runtime, generally exhibited higher cost differences, indicating less effective solutions.
+
+    Our comprehensive parameter testing of the GA-SA Hybrid algorithm revealed several insights into the optimization of its performance. The population size, initial temperature, and cooling rate were identified as the most critical parameters. Specifically, a population size of 100, an initial temperature of 1000, and a cooling rate of 0.85 were found to yield good results, providing a robust balance between exploration and exploitation. Despite these findings, the GA-SA Hybrid algorithm exhibited significant variability and occasional suboptimal convergence, suggesting that further research and optimization of parameter settings are necessary.
+
+    Despite the variability noted during parameter testing, could be attributed to its ability to effectively combine the strengths of both GA and SA. The GA component's robust exploration capabilities, coupled with the SA component's proficiency in escaping local optima, likely contributed to its overall superior performance. However, the complexity and variability in the GA-SA's performance highlight the need for careful parameter tuning and possibly addressing underlying implementation issues.
+
+    In conclusion, while GA-SA was the best performing algorithm in this study, its performance can be further optimized through careful parameter tuning. Future research should focus on both refining parameter combinations and investigating potential implementation issues to enhance the algorithm’s overall effectiveness for more complex optimization problems.
+
+    \paragraph{Importance of Parameter Testing}
+    Parameter testing played a crucial role in understanding the performance dynamics of each algorithm. By systematically varying parameters and evaluating their impact, we identified optimal configurations that maximized each algorithm's performance. For instance, in the case of GA, the population size, crossover rate, and mutation rate significantly influenced the convergence behavior and solution quality. Similarly, the cooling rate and initial temperature were critical parameters for SA, and the tabu list size and neighborhood size were pivotal for TS.
+
+    The grid search method, implemented using the \texttt{scikit-learn} library, proved to be an effective approach for parameter tuning. It allowed for exhaustive evaluation of predefined parameter combinations, ensuring that the best configurations were identified for each algorithm. However, the process was computationally intensive, underscoring the need for efficient computational resources.
+
+    \subsection{Role of AI in Optimization}
+    The algorithms explored in this study can be viewed as early forms of artificial intelligence (AI) due to their ability to adapt and optimize solutions iteratively. AI techniques have the potential to help with optimization by providing more intelligent and autonomous methods for solving complex problems. The integration of machine learning with traditional optimization algorithms can further enhance their performance by learning from past experiences and dynamically adjusting parameters.
+
+    AI algorithms such as Neural Networks, Reinforcement Learning, and Deep Learning have shown great potential in solving optimization problems. These algorithms can learn complex patterns and make decisions based on historical data, making them highly effective for dynamic and large-scale optimization tasks. Incorporating such AI techniques into traditional optimization methods could lead to significant improvements in efficiency and solution quality.
+
+    \subsection{Recommendations for Future Work}
+    While this study provided valuable insights into the performance of different optimization algorithms, several areas warrant further investigation:
+
+    \paragraph{Expanded Testing on Servers}
+    Future studies should leverage high-performance computing servers to test algorithms on larger datasets and more complex problem instances. This would provide a more comprehensive understanding of each algorithm's scalability and robustness. Testing on servers would also enable the evaluation of algorithms under more realistic and demanding conditions, providing insights into their performance in practical applications.
+
+    \paragraph{Incorporation of Newer Algorithms}
+    The field of optimization is continually evolving, with new algorithms being developed regularly. Incorporating newer algorithms, such as Particle Swarm Optimization (PSO) and Ant Colony Optimization (ACO), could provide fresh perspectives and potentially superior performance. For instance, PSO, inspired by the social behavior of birds, has shown promising results in various optimization tasks. Similarly, ACO, inspired by the foraging behavior of ants, has proven effective in solving complex routing problems.
+
+    \paragraph{Dynamic Parameter Tuning}
+    Exploring adaptive or dynamic parameter tuning methods, where the algorithm adjusts its parameters in real-time based on performance feedback, could enhance the robustness and efficiency of optimization algorithms. Dynamic tuning would allow algorithms to adapt to changing conditions and maintain optimal performance without manual intervention. This approach could significantly reduce the time and effort required for parameter optimization.
+
+    \paragraph{Hybrid Approaches}
+    Further research into hybrid approaches, combining multiple optimization techniques, could yield powerful algorithms that capitalize on the strengths of individual methods while mitigating their weaknesses. Hybrid algorithms can leverage the exploration capabilities of one technique and the exploitation capabilities of another, leading to more balanced and effective optimization. For example, combining the global search capabilities of Genetic Algorithms with the local search capabilities of Tabu Search could result in a highly efficient optimization method.
+
+    \paragraph{Integration with AI}
+    Incorporating machine learning techniques into optimization algorithms could lead to more intelligent and autonomous optimization processes. Techniques such as reinforcement learning.
+
 %\begin{quote}
 %    \emph{Autor/autorka uvedou vlastní název kapitoly vztahující se ke
 %    konkrétnímu tématu práce}
