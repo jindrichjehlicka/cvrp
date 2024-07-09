@@ -1,5 +1,4 @@
-\documentclass[
-]{article}
+\documentclass[]{article}
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
 \usepackage{iftex}
@@ -7,6 +6,8 @@
 \usepackage{float}
 \usepackage{hyperref}
 \usepackage{tabularx}
+\usepackage[backend=biber,style=iso-numeric]{biblatex}
+\addbibresource{references.bib}
 \ifPDFTeX
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -64,7 +65,8 @@
 \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{xurl.sty}{\usepackage{xurl}
+\usepackage{biblatex}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
     hidelinks,
@@ -76,199 +78,98 @@
 \begin{document}
 
     \pagebreak
-    \begin{quote}
-        \thispagestyle{empty}
-        \emph{Vzor: \textbf{PEVNÁ DESKA} závěrečné práce \textbf{není součástí
-        elektronické verze}}
-        \textbf{UNICORN VYSOKÁ ŠKOLA S.R.O.}
 
-        \hspace{0pt}
-        \vfill
-        BAKALÁŘSKÁ/DIPLOMOVÁ PRÁCE (vyberte jednu možnost)
-        \vfill
-        \hspace{0pt}
+    \thispagestyle{empty}
 
-        \textbf{Rok Jméno a PŘÍJMENÍ autora}
-        \emph{\textbf{(Jan NOVÁK)}}
-        \pagebreak
-    \end{quote}
+    \begin{center}
+        \textbf{UNICORN UNIVERSITY}
+
+        \textbf{Software Engineering and Big Data}
+
+        \includegraphics[width=3.27778in,height=3.90671in]{logo.png}
+
+        \textbf{DIPLOMA THESIS}
+
+        \textbf{Integrace Umělé Inteligence a Optimalizačních Algoritmů pro Efektivní Doručování Balíků: Analýza a Aplikace}
+    \end{center}
+
+    \vfill
+
+    \begin{flushleft}
+        \textbf{Thesis Author:} Bc. Jindřich Jehlička
+
+        \textbf{Thesis Supervisor:} Ing. David Hartman, Ph.D.
+    \end{flushleft}
 
     \newpage
-    \begin{quote}
-        \thispagestyle{empty}
-        \emph{Vzor: \textbf{TITULNÍ STRANA} závěrečné práce}
+    \thispagestyle{empty}
 
-        \textbf{UNICORN VYSOKÁ ŠKOLA S.R.O.}
 
-        \textbf{Softwarové inženýrství a big data}
+    \textbf{Statutory Declaration}
 
-%        \includegraphics[width=3.27778in,height=3.90671in]{vertopal_c6b44323f8f4439b87d257a2a20a5c78/media/image4.png}
 
-        \textbf{DIPLOMOVÁ PRÁCE (vyberte jednu možnost)}
+    I hereby declare that I have written my diploma thesis on the topic of TODO by myself,
+    under the guidance of my thesis supervisor, using only the technical publications and other
+    information sources which are all quoted in the thesis and listed in the bibliography.
+    As the author of this diploma thesis, I also declare that in association with its writing I have not
+    violated the copyright of any third party or parties and I am fully aware of the consequences of
+    provisions of s. 11 et seq. of Act No. 121/2000 Coll., the Copyright Act.
+    Furthermore, I hereby declare that the submitted hard copy of this bachelor thesis is identical to
+    the electronic version I have submitted
 
-        \textbf{Název práce (přesně podle zadání)}
+    In\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots. On
+    \ldots\ldots\ldots..
+    \ldots\ldots.\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots{}
 
-        \textbf{Autor BP:} Jméno a příjmení autora/autorky (Jan Novák)
+    (Jindřich Jehlička)
 
-        \textbf{Vedoucí BP:} Jméno a příjmení vedoucí/vedoucího práce i s tituly
-        (prof. Ing. Jan Čadil, Ph.D.)
+    \newpage
+    \thispagestyle{empty}
 
-        \newpage
-        \thispagestyle{empty}
-        \emph{Vzor: \textbf{ZADÁNÍ ZÁVĚREČNÉ PRÁCE} -- originál, kopie
-        originálu, naskenovaná podoba -- dle jednotlivých forem (originál, 2 x
-        kopie, elektronická verze)}
+    \vspace*{\fill}
 
-        \newpage
-        \thispagestyle{empty}
-        \emph{Vzor: \textbf{ČESTNÉ PROHLÁŠENÍ} -- prohlášení o samostatném
-        vypracování závěrečné práce, datum a vlastnoruční podpis (v každém
-        výtisku práce)}
 
-        \textbf{Čestné prohlášení}
+    \textbf{Acknowledgements}
 
-        Prohlašuji, že jsem svou bakalářskou práci na téma
-        ....................... vypracoval/a samostatně pod vedením vedoucího
-        bakalářské práce a s použitím výhradně odborné literatury a dalších
-        informačních zdrojů, které jsou v práci všechny citovány a jsou také
-        uvedeny v seznamu použitých zdrojů.
+    I would like to thank the supervisor of my diploma thesis, Ing. David Hartman, Ph.D. for his methodological, pedagogical, and expert assistance, and for his invaluable advice when writing my diploma thesis.\ldots{}
 
-        Jako autor/ka této bakalářské práce dále prohlašuji, že v souvislosti s
-        jejím vytvořením jsem neporušil/a autorská práva třetích osob a jsem si
-        plně vědom/a následků porušení ustanovení § 11 a následujících
-        autorského zákona č. 121/2000 Sb. Prohlašuji, že nástroje umělé inteligence byly využity pouze po podpůrné činnosti a v souladu s principem akademické etiky.
 
-        Dále prohlašuji, že odevzdaná tištěná verze bakalářské práce je shodná
-        s~verzí, která byla odevzdána elektronicky.
+    \newpage
 
-        V\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots. dne
-        \ldots\ldots\ldots..
-        \ldots\ldots.\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots{}
 
-        (Jan Novák)
+    \textbf{Integrace Umělé Inteligence a Optimalizačních Algoritmů pro Efektivní Doručování Balíků: Analýza a Aplikace}
 
-        \newpage
-        \thispagestyle{empty}
-        \emph{Vzor: \textbf{PODĚKOVÁNÍ} vedoucímu BP, konzultantům, odborníků,
-            spolupracovníkům za poskytnuté rady a podkladové materiály apod.) --
-            \textbf{není povinné}}
 
-        \textbf{Poděkování}
 
-        Např: Děkuji vedoucímu bakalářské práce Jméno Příjmení (i s tituly) za
-        účinnou metodickou, pedagogickou a odbornou pomoc a další cenné rady při
-        zpracování mé bakalářské práce\ldots{}
+    \vspace*{\fill}
 
-        \newpage
-        \emph{Vzor: \textbf{PRVNÍ ČÍSLOVANÁ STRANA} -- číslice na první
-        číslované straně se určí podle počtu předchozích stran, počínaje Titulní
-        stranou, tzn. že pokud jsou řazené všechny dané strany -- Titulní
-        strana, Zadání (2 strany), Čestné prohlášení a Poděkování -- je první
-        číslovaná strana stranou 6.}
-    \end{quote}
+    \textbf{Abstract}
 
-    \begin{quote}
-        \textbf{Název práce v českém/slovenském jazyce Název práce v anglickém
-        jazyce}
-    \end{quote}
+    This diploma thesis aims to analyze and compare optimization algorithms to identify the most effective solution for enhancing the efficiency of parcel delivery systems.
+    The study focuses on various heuristic and metaheuristic approaches, including Genetic Algorithms, Simulated Annealing, and Tabu Search, and evaluates their performance in solving the Capacitated Vehicle Routing Problem (CVRP). The research seeks to determine the best algorithm for reducing delivery times and operational costs by developing robust and adaptable optimization frameworks. Key findings highlight the comparative advantages of each algorithm and the potential of simulation tools in validating real-world logistics scenarios.
 
-    \emph{Vzor: ABSTRAKT A KLÍČOVÁ SLOVA}
+    Keywords: Capacitated Vehicle Routing Problem (CVRP), Optimization Algorithms, Heuristic Methods, Metaheuristics, Genetic Algorithms, Simulated Annealing, Tabu Search, Algorithm Comparison
 
-    \begin{quote}
-        \textbf{Abstrakt}
+    \newpage
 
-        Abstrakt česky. Abstrakt krátce a výstižně charakterizuje obsah
-        závěrečné práce. Zpravidla obsahuje informace o stanovených cílech,
-        použitých metodách, postupu řešení a výsledcích výzkumu. Může obsahovat
-        krátkou informaci o použitých zdrojích. Délka abstraktu je zpravidla
-        100--500 slov.
 
-        Klíčová slova: klíčová slova práce, minimálně 5, maximálně 10
-
-        \textbf{Abstract}
-
-        Zde umístěte překlad abstraktu do anglického jazyka. Česky a anglicky
-        psané abstrakty musí být totožné. Student/ka zodpovídá za jazykovou
-        správnost anglického překladu. V případě, že se anglická a česká verze
-        nevejdou na jednu stránku, umístěte celý překlad na samostatnou stránku.
-
-        Keywords: klíčová slova v~anglickém jazyce
-
-        \newpage
-        \emph{Vzor: \textbf{OBSAH} -- hierarchické uspořádání číslovaných názvů
-        kapitol a podkapitol, včetně všech příloh, spolu s čísly jejich stran.
-        Dále se uvádí Seznam obrázků/tabulek/grafů. Pozn.: počet a názvy kapitol
-        samozřejmě odpovídají charakteru konkrétní práce.}
-
-        \textbf{Obsah}
-    \end{quote}
-%
-%    \hypertarget{section}{%
-%
-%
-%        \section{}\label{section}}
-%
-%    \protect\hyperlink{uxfavod}{Úvod \protect\hyperlink{uxfavod}{9}}
-%
-%    \protect\hyperlink{teoretickuxe1-ux10duxe1st-nenuxed-nuxe1zev-kapitoly}{1
-%    Overview of Heuristic and Meta-heuristic Optimization Algorithms
-%    \protect\hyperlink{teoretickuxe1-ux10duxe1st-nenuxed-nuxe1zev-kapitoly}{10}}
-%
-%    \protect\hyperlink{nadpis-uxfarovnux11b-2}{1.1 Nadpis úrovně 2
-%    \protect\hyperlink{nadpis-uxfarovnux11b-2}{10}}
-%
-%    \protect\hyperlink{nadpis-uxfarovnux11b-3}{1.1.1 Nadpis úrovně 3
-%    \protect\hyperlink{nadpis-uxfarovnux11b-3}{10}}
-%
-%    \protect\hyperlink{nadpis-uxfarovnux11b-3-1}{1.1.2 Nadpis úrovně 3
-%    \protect\hyperlink{nadpis-uxfarovnux11b-3-1}{10}}
-%
-%    \protect\hyperlink{nadpis-uxfarovnux11b-2-1}{1.2 Nadpis úrovně 2
-%    \protect\hyperlink{nadpis-uxfarovnux11b-2-1}{10}}
-%
-%    \protect\hyperlink{nadpis-uxfarovnux11b-3-2}{1.2.1 Nadpis úrovně 3
-%    \protect\hyperlink{nadpis-uxfarovnux11b-3-2}{10}}
-%
-%    \protect\hyperlink{nadpis-uxfarovnux11b-3-3}{1.2.2 Nadpis úrovně 3
-%    \protect\hyperlink{nadpis-uxfarovnux11b-3-3}{10}}
-%
-%    \protect\hyperlink{praktickuxe1-ux10duxe1stempirickuxe1-ux10duxe1stvlastnuxed-pruxe1ce-nenuxed-nuxe1zev-kapitoly}{2
-%    Praktická část/Empirická část/Vlastní práce (není název kapitoly)
-%        \protect\hyperlink{praktickuxe1-ux10duxe1stempirickuxe1-ux10duxe1stvlastnuxed-pruxe1ce-nenuxed-nuxe1zev-kapitoly}{11}}
-%
-%    \protect\hyperlink{nadpis-uxfarovnux11b-2-2}{2.1 Nadpis úrovně 2
-%    \protect\hyperlink{nadpis-uxfarovnux11b-2-2}{11}}
-%
-%    \protect\hyperlink{zuxe1vux11br}{Závěr
-%    \protect\hyperlink{zuxe1vux11br}{13}}
-
-%    \protect\hyperlink{seznam-pouux17eituxfdch-zdrojux16f}{Seznam použitých
-%    zdrojů \protect\hyperlink{seznam-pouux17eituxfdch-zdrojux16f}{14}}
-%
-%    \protect\hyperlink{seznam-obruxe1zkux16f-existujuxed-li}{Seznam obrázků
-%        (existují-li)
-%        \protect\hyperlink{seznam-obruxe1zkux16f-existujuxed-li}{15}}
-%
-%    \protect\hyperlink{seznam-grafux16f-existujuxed-li}{Seznam grafů
-%        (existují-li) \protect\hyperlink{seznam-grafux16f-existujuxed-li}{17}}
-%
-%    \protect\hyperlink{seznam-pux159uxedloh-existujuxed-li}{Seznam příloh
-%        (existují-li)
-%        \protect\hyperlink{seznam-pux159uxedloh-existujuxed-li}{18}}
-%
-%    \protect\hyperlink{pux159uxedloha-a-nuxe1zev-pux159uxedlohy}{Příloha A
-%    -- Název přílohy
-%    \protect\hyperlink{pux159uxedloha-a-nuxe1zev-pux159uxedlohy}{19}}
-%
-%    \protect\hyperlink{pux159uxedloha-b-nuxe1zev-pux159uxedlohy}{Příloha B
-%    -- Název přílohy
-%    \protect\hyperlink{pux159uxedloha-b-nuxe1zev-pux159uxedlohy}{20}}
     \tableofcontents
 
     \newpage
 
 
     \section{Introduction}\label{sec:uxfavod}
+
+    \section*{Introduction}
+
+    The optimization of parcel delivery systems is important for enhancing operational efficiency and reducing costs in logistics.
+    This diploma thesis focuses on analyzing and comparing different optimization algorithms to identify the most effective methods for solving the Capacitated Vehicle Routing Problem (CVRP).
+    CVRP involves determining the optimal routes for a fleet of vehicles with limited carrying capacity, ensuring that all deliveries are made in a cost-effective and timely manner.
+
+    In this study, various heuristic and metaheuristic approaches, such as Genetic Algorithms, Simulated Annealing, and Tabu Search, are evaluated for their performance and effectiveness.
+    The primary goal is to develop robust and adaptable optimization frameworks that can be applied to real-world logistics scenarios. By systematically comparing these algorithms, the thesis aims to highlight their strengths and weaknesses, providing valuable insights for improving parcel delivery operations.
+
+    The findings of this research contribute to the field of logistics optimization, offering practical solutions and methodologies that can be implemented to achieve great improvements in delivery efficiency and cost reduction.
 
     \subsection{Hypotheses}\label{subsec:hypotheses}
     \begin{enumerate}
@@ -287,15 +188,10 @@
 
     \newpage
 
-    \hypertarget{vehicle-routing-problem}{%
 
+    \section{Vehicle Routing Problem (VRP)}\label{vehicle-routing-problem}
 
-        \section{Vehicle Routing Problem (VRP)}\label{vehicle-routing-problem}}
-
-
-    \hypertarget{introduction-to-the-vehicle-routing-problem}{%
-
-        \subsection{Introduction to the Vehicle Routing Problem}\label{introduction-to-the-vehicle-routing-problem}}
+    \subsection{Introduction to the Vehicle Routing Problem}\label{introduction-to-the-vehicle-routing-problem}
 
     The Vehicle Routing Problem (VRP) occupies a central place in operational research and logistics due to its direct applicability to optimizing the distribution of goods and services. First formulated by Dantzig and Ramser in 1959, the VRP has evolved significantly, encompassing various complex forms tailored to different industrial needs and constraints.
 
@@ -422,39 +318,6 @@
 
     \end{itemize}
 
-    \paragraph{Methodological Approaches}
-    To tackle the VRP, both exact and heuristic methods have been developed, each with its strengths and weaknesses depending on the problem size and specific requirements.
-
-    \paragraph{Exact Methods:}
-    Exact methods guarantee finding an optimal solution by exhaustively exploring the solution space. These methods include:
-
-    \begin{itemize}
-        \item \textbf{Integer Programming (IP)}: IP formulations, such as the one presented earlier, model the VRP using binary variables and linear constraints. Solving IPs can yield optimal solutions, but the computational effort increases exponentially with problem size. Advanced techniques like Branch-and-Cut algorithms are often employed to handle larger instances by incorporating cutting planes to reduce the feasible region iteratively \cite{Toth2002}.
-        \item \textbf{Branch and Bound (B\&B)}: This method systematically explores branches of a tree representing subsets of the solution space. By calculating bounds on the best possible solution within each subset, B\&B can prune large portions of the tree, thus reducing the number of solutions that need to be examined \cite{Laporte1992}.
-        \item \textbf{Dynamic Programming (DP)}: DP breaks down the VRP into simpler subproblems and solves them recursively. While highly effective for smaller instances, the state space grows exponentially with the number of customers, limiting its practicality for large-scale problems.
-    \end{itemize}
-
-    \hypertarget{heuristic-and-metaheuristic-methods}{%
-
-
-        \section{Heuristic and Metaheuristic Methods}\label{itm:heuristic-and-metaheuristic-methods}}
-
-    Heuristic and metaheuristic methods provide near-optimal solutions more efficiently, making them suitable for larger instances where exact methods are impractical. These methods do not guarantee optimality but are designed to produce good quality solutions within reasonable computational times.
-
-    \begin{itemize}
-        \item \textbf{Genetic Algorithms (GA):} Inspired by natural selection, GAs evolve a population of solutions using selection, crossover, and mutation to improve solution quality.
-        \item \textbf{Simulated Annealing (SA):} A probabilistic technique that mimics the annealing process, allowing occasional worse solutions to escape local optima.
-        \item \textbf{Tabu Search (TS):} Enhances local search by using a memory structure to avoid revisiting recently explored solutions, promoting thorough exploration.
-        \item \textbf{Ant Colony Optimization (ACO):} Inspired by ant foraging behavior, ACO uses pheromone trails to guide the search for optimal paths.
-        \item \textbf{Particle Swarm Optimization (PSO):} Simulates the social behavior of bird flocks or fish schools, where solutions (particles) move through the solution space based on their own and their neighbors' experiences.
-    \end{itemize}
-
-    A detailed discussion of these methods will be provided in a later chapter.
-
-    \subsection{Conclusion and Outlook}\label{subsec:conclusion-and-outlook}
-    As industries continue to seek improvements in operational efficiencies and cost reductions, the relevance of the VRP is expected to grow. Advances in computational power, data analytics, and artificial intelligence are opening new avenues for research and application, making the VRP a vibrant and ever-evolving field of study.
-
-    This introduction provides a foundation for the comprehensive exploration of various aspects and complexities of the VRP, setting the stage for detailed discussions on its many variants and solving techniques in subsequent sections.
     \newpage
 
 
@@ -516,14 +379,12 @@
 
     These methods illustrate how optimization techniques for the general VRP can be adapted to address the specific challenges of the CVRP. By focusing on these adapted methods, the thesis will explore how advanced optimization techniques can effectively handle the unique challenges posed by CVRP, aiming to find efficient and practical solutions for real-world logistics problems.
 
-    \hypertarget{overview-of-heuristic-and-meta-heuristic-optimization-algorithms}{%
 
-
-        \section{Overview of Heuristic and Meta-heuristic Optimization Algorithms}\label{overview-of-heuristic-and-meta-heuristic-optimization-algorithms}}
+    \section{Overview of Heuristic and Meta-heuristic Optimization Algorithms}\label{overview-of-heuristic-and-meta-heuristic-optimization-algorithms}
 
 
 
-    In the fields of computational science and mathematical programming, a heuristic algorithm is a method used to find a good enough solution when it's not feasible to find the perfect solution. These algorithms focus on working quickly and efficiently rather than achieving flawless accuracy or the best possible result. They are especially valuable in situations where solving the problem completely and precisely would require too much computing power, or when the details of the problem are not fully known.
+    Heuristic algorithms are essential for finding good enough solutions when perfect solutions are not feasible. These algorithms prioritize speed and efficiency over flawless accuracy or optimal results. They are particularly valuable in scenarios where solving a problem completely and precisely would require excessive computing power or when the problem details are not fully known. While the algorithms for solving the Vehicle Routing Problem (VRP) are applicable to the Capacitated Vehicle Routing Problem (CVRP), this section introduces additional methods to address the specific constraints and requirements of CVRP.
 
     Characteristics of Heuristic Algorithms:
     \begin{enumerate}
@@ -533,9 +394,9 @@
     \end{enumerate}
 
 
-    \hypertarget{common-types-of-heuristic-algorithms}{%
 
-        \subsection{Common Types of Heuristic Algorithms}\label{itm:common-types-of-heuristic-algorithms}}
+
+        \subsection{Common Types of Heuristic Algorithms}\label{itm:common-types-of-heuristic-algorithms}
 
     \subsubsection{Greedy Algorithms}
     \label{subsubsec:greedy_algorithms}
@@ -612,9 +473,9 @@
     Greedy algorithms provide a straightforward approach to tackling optimization problems by making the locally optimal choice at each step. While they may not always yield the globally optimal solution, their efficiency and simplicity make them valuable tools, particularly as a starting point for more complex optimization procedures.
 
 
-    \hypertarget{local-search-algorithms}{%
 
-        \subsubsection{Local Search Algorithms}\label{local-search-algorithms}}
+
+        \subsubsection{Local Search Algorithms}\label{local-search-algorithms}
 
     Local search algorithms are a class of heuristic methods used to solve optimization problems where the solution space is too large to explore exhaustively. These algorithms start with an initial solution and iteratively make small adjustments or "moves" to improve it. The process continues until no further improvements can be found or other termination conditions are met. Unlike global optimization methods, local search algorithms focus on finding a better solution in the neighborhood of the current solution rather than exploring the solution space as a whole.
 
@@ -636,9 +497,9 @@
     \end{enumerate}
 
 
-    \hypertarget{metaheuristic-algorithms}{%
 
-        \subsubsection{Metaheuristic Algorithms}\label{itm:metaheuristic-algorithms}}
+
+        \subsubsection{Metaheuristic Algorithms}\label{itm:metaheuristic-algorithms}
 
     Metaheuristic algorithms represent a sophisticated class of heuristic methods that are designed to solve complex optimization problems where traditional methods are inefficient or infeasible. The term "metaheuristic" combines "meta," meaning beyond or at a higher level, and "heuristic," referring to a trial-and-error method for discovering solutions. These algorithms are known for their capability to guide and improve simpler heuristics, aiming to produce solutions that are superior to those typically found by pursuing local optimality alone.
 
@@ -667,9 +528,8 @@
 
     \newpage
 
-    \hypertarget{methodology-for-evaluating-algorithms}{
 
-        \subsection{Methodology for Evaluating Algorithms}\label{methodology-for-evaluating-algorithms}}
+        \subsection{Methodology for Evaluating Algorithms}\label{methodology-for-evaluating-algorithms}
 
     \subsection{Introduction to Algorithm Evaluation}\label{subsec:introduction}
 
@@ -780,19 +640,19 @@
     Robotic systems and Warehouse Management Systems (WMS) can leverage route optimization, a fundamental aspect of the Capacitated Vehicle Routing Problem (CVRP). This optimization is crucial for enhancing the efficiency and productivity of warehouse operations.
 
     \paragraph{Automated Guided Vehicles (AGVs)}
-    AGVs can be programmed to optimize routes for efficient picking and transportation of goods within a warehouse. By minimizing the distance and time required to complete tasks within the vehicles' capacity constraints, AGVs improve overall operational efficiency. These vehicles use advanced algorithms to determine the shortest paths, thereby reducing travel time and energy consumption \cite{agv_optimization}.
+    AGVs can be programmed to optimize routes for efficient picking and transportation of goods within a warehouse. By minimizing the distance and time required to complete tasks within the vehicles' capacity constraints, AGVs improve overall operational efficiency. These vehicles use advanced algorithms to determine the shortest paths, thereby reducing travel time and energy consumption .
 
     \paragraph{Warehouse Management Systems (WMS)}
     WMS utilize route optimization algorithms to streamline order picking processes. By determining the most efficient paths for workers or robots to collect items, these systems significantly reduce the time required for order fulfillment. This optimization enhances productivity and reduces labor costs. Additionally, WMS can dynamically adjust routes based on real-time data, ensuring continuous efficiency even as conditions within the warehouse change \cite{wms_optimization}.
 
     \paragraph{Robotic Picking Systems}
-    These systems employ CVRP-based algorithms to determine the most efficient routes for robots to pick items from shelves and deliver them to packing stations. By optimizing the picking process, these systems ensure high-speed and accurate order fulfillment. They can adapt to changes in inventory locations and order priorities, maintaining efficiency in a dynamic warehouse environment \cite{robotic_picking}.
+    These systems employ CVRP-based algorithms to determine the most efficient routes for robots to pick items from shelves and deliver them to packing stations. By optimizing the picking process, these systems ensure high-speed and accurate order fulfillment. They can adapt to changes in inventory locations and order priorities, maintaining efficiency in a dynamic warehouse environment .
 
     \paragraph{Inventory Management}
-    CVRP-based optimization also benefits inventory management by optimizing the movement of inventory within the warehouse. This includes replenishing stock in picking areas, moving items to different storage locations, and handling returns, all while minimizing travel distance and time. Effective inventory movement reduces bottlenecks and enhances the overall flow of goods \cite{inventory_management}.
+    CVRP-based optimization also benefits inventory management by optimizing the movement of inventory within the warehouse. This includes replenishing stock in picking areas, moving items to different storage locations, and handling returns, all while minimizing travel distance and time. Effective inventory movement reduces bottlenecks and enhances the overall flow of goods .
 
     \paragraph{Fleet Management}
-    In warehouses with multiple AGVs or robots, CVRP is used to coordinate the movements of these vehicles. By avoiding congestion and ensuring each vehicle operates at maximum efficiency, CVRP-based fleet management systems improve throughput and reduce operational delays \cite{fleet_management}.
+    In warehouses with multiple AGVs or robots, CVRP is used to coordinate the movements of these vehicles. By avoiding congestion and ensuring each vehicle operates at maximum efficiency, CVRP-based fleet management systems improve throughput and reduce operational delays .
 
     \subsection*{Advanced Route Optimization}
 
@@ -805,8 +665,7 @@
 
     CVRP's role in route optimization extends beyond theoretical research; it encompasses practical implementations that significantly enhance the efficiency and effectiveness of logistics operations. By leveraging advanced algorithms and real-time data, businesses can achieve better resource utilization, reduced operational costs, and improved customer satisfaction.
 
-
-    \section{IoT Technologies in Logistics}\label{sec:iot-technologies-in-logistics}
+    \subsection{IoT Technologies in Logistics}\label{sec:iot-technologies-in-logistics}
 
     Real-time shipment monitoring and predictive analytics in IoT can utilize data from CVRP to improve route efficiency:
 
@@ -817,8 +676,7 @@
 
     These advancements in IoT represent significant strides towards more efficient and sustainable logistics operations. By leveraging CVRP in conjunction with these innovations, logistics providers can achieve unprecedented levels of efficiency, reliability, and customer satisfaction.
 
-
-    \section{Unmanned Technologies and Autonomous Vehicles}\label{sec:unmanned-technologies-and-autonomous-vehicles}
+    \subsection{Unmanned Technologies and Autonomous Vehicles}\label{sec:unmanned-technologies-and-autonomous-vehicles}
 
     Drones and autonomous vehicles use the principles of CVRP to plan efficient delivery routes:
 
@@ -831,14 +689,13 @@
 
     \newpage
 
-
-    \section{Challenges and Future Trends in Heuristic Optimization for Logistics}\label{sec:challenges-and-future-trends-in-heuristic-optimization-for-logistics}
+    \subsection{Challenges and Future Trends in Heuristic Optimization for Logistics}\label{sec:challenges-and-future-trends-in-heuristic-optimization-for-logistics}
 
     The field of logistics has greatly benefited from the application of heuristic optimization algorithms, which provide efficient solutions to complex routing and scheduling problems. However, despite their success, these methods face several challenges that limit their effectiveness and scalability. Addressing these challenges is crucial for enhancing the performance of logistic systems and for keeping pace with the evolving demands of the industry.
 
     This chapter aims to explore the current challenges in heuristic optimization for logistics, including computational complexity, data integration, and ethical concerns. Furthermore, it will highlight emerging trends and future directions that promise to overcome these challenges and improve the applicability of heuristic methods. By examining these aspects, this chapter provides a comprehensive overview of the hurdles and opportunities in leveraging heuristic optimization for modern logistics.
 
-    \subsection{Current Challenges}\label{subsec:current-challenges}
+    \subsubsection{Current Challenges}\label{subsec:current-challenges}
 
     The application of heuristic optimization algorithms in logistics has yielded significant improvements in efficiency and cost-effectiveness. However, several challenges hinder their full potential. This section delves into the critical challenges that must be addressed to enhance the application of heuristic methods in logistics.
 
@@ -868,7 +725,7 @@
 
     Addressing these challenges requires a multi-faceted approach that combines advances in algorithm design, improvements in data management, and considerations of ethical and social implications. By tackling these issues, researchers and practitioners can develop more robust and effective heuristic optimization algorithms, enabling more efficient, adaptable, and responsible logistics operations.
 
-    \subsection{Future Trends}\label{subsec:future-trends}
+    \subsubsection{Future Trends}\label{subsec:future-trends}
 
     As the field of logistics continues to evolve, several future trends are emerging that promise to address the current challenges faced by heuristic optimization algorithms. These trends involve advancements in technology, integration of new methodologies, and the development of innovative solutions that enhance the efficiency and adaptability of logistics operations.
 
@@ -908,9 +765,6 @@
 
 
     \newpage
-%\hypertarget{praktickuxe1-ux10duxe1stempirickuxe1-ux10duxe1stvlastnuxed-pruxe1ce-nenuxed-nuxe1zev-kapitoly}{%
-%    \section{Praktická část/Empirická část/Vlastní práce (není název
-%    kapitoly)}\label{praktickuxe1-ux10duxe1stempirickuxe1-ux10duxe1stvlastnuxed-pruxe1ce-nenuxed-nuxe1zev-kapitoly}}
 
 
     \section{Parameter Testing of Heuristic and Metaheuristic Algorithms}\label{sec:parameter-testing-of-heuristic-and-metaheuristic-algorithms}
@@ -944,10 +798,10 @@
 
     \subsubsection{Dataset Characteristics}
 
-    \subsection{Size and Format}
+    \paragraph{Size and Format}
     The dataset includes 10,000 CVRP problem instances and 10,000 best solutions. Each problem and solution is given in a clear text format.
 
-    \subsection{Instance Structure}
+    \paragraph{Instance Structure}
     Each CVRP problem instance in the dataset has the following parts:
     \begin{itemize}
         \item \textbf{NAME}: A unique name for the instance.
@@ -961,7 +815,7 @@
         \item \textbf{DEPOT\_SECTION}: The starting location.
     \end{itemize}
 
-    \subsection{Solution Structure}
+    \paragraph{Solution Structure}
     Each best solution in the dataset includes:
     \begin{itemize}
         \item \textbf{Routes}: A list of routes, each showing the locations visited by a vehicle.
@@ -983,7 +837,7 @@
     \paragraph{Summary}
     This dataset is a strong base for testing and proving how well heuristic optimization methods work for CVRP. Its clear structure and high quality make it a valuable resource for research and practical uses in logistics and transportation.
 
-    \subsubsection{Experimental Setup}
+    \subsection{Experimental Setup}
 
     The experimental setup for this study involves systematically testing various parameter settings for the algorithms under consideration: Simulated Annealing (SA), Genetic Algorithm (GA), Tabu Search (TS), and a Hybrid Genetic Algorithm (HGA). The parameter selection process utilizes a grid search method, which exhaustively evaluates a predefined set of parameter combinations to identify the optimal configurations.
 
@@ -1027,7 +881,7 @@
 
     This grid search process methodically evaluates the impact of different parameter settings on the performance of the algorithms, enabling the identification of the most effective configurations.
 
-    \subsubsection{Convergence Plots and Data Collection}
+    \subsection{Convergence Plots and Data Collection}
 
     Convergence plots were generated to visualize the performance of each algorithm over iterations. These plots help in understanding the behavior of the algorithms with different parameter settings and their ability to find optimal solutions. The specific data collected during the experiments includes the following metrics for each parameter setting:
 
@@ -1043,7 +897,7 @@
 
     These metrics provide a detailed view of the algorithm's performance, allowing for a thorough comparison and analysis of different parameter settings.
 
-    \subsubsection{Evaluation Metrics}
+    \subsection{Evaluation Metrics}
 
     To evaluate the performance of the algorithms, several metrics were used:
 
@@ -1053,7 +907,7 @@
         \item \textbf{Execution Time}: The total time taken by each algorithm to converge to a solution, including both fit and score times, is measured to assess computational efficiency.
     \end{itemize}
 
-    \subsubsection{Statistical Analysis}
+    \subsection{Statistical Analysis}
 
     For a robust comparison of the algorithms and their parameter settings, the following statistical test was performed:
 
@@ -1067,7 +921,8 @@
 
     \newpage
 
-    \subsection{Genetic Algorithm Parameter Testing}
+
+    \section{Genetic Algorithm Parameter Testing}
     The Genetic Algorithm (GA) parameter testing section focuses on a systematic evaluation of different configurations of the GA to find the most effective parameter settings. This part of the study aims to understand the impact of various combinations of population size, number of generations, and mutation rates on the GA's performance and convergence behavior.
 
     Through detailed experiments and thorough analysis, this section showcases key results and insights from testing multiple parameter settings. The convergence plots provide a visual representation of the algorithm's performance across iterations, highlighting trends and variations in solution quality and consistency.
@@ -1086,7 +941,7 @@
 
     Here, we present some important results and convergence plots, while additional detailed plots are included in Appendix 1. This comprehensive analysis helps identify the best GA configurations, improving the algorithm's efficiency and effectiveness in solving complex optimization problems.
 
-    \subsubsection{Results and Analysis}
+    \subsection{Results and Analysis}
 
     Below are some of the results from the parameter testing of the Genetic Algorithm:
 
@@ -1290,7 +1145,7 @@
 
     The tables above provide a comprehensive summary of the Genetic Algorithm's performance across different parameter settings. The next section will delve into a detailed analysis of these results, exploring the impact of each parameter on the algorithm's effectiveness and efficiency.
 
-    \textbf{Impact of Population Size}
+    \subsubsection{Impact of Population Size}
 
     An analysis of the impact of population size on the Genetic Algorithm’s performance is crucial to understand how varying this parameter affects the convergence behavior and solution quality.
 
@@ -1318,7 +1173,7 @@
 
     \textbf{Analysis}: A low mutation rate allows the Genetic Algorithm to refine solutions closely, resulting in lower mean test scores. However, it may also cause the algorithm to converge prematurely to local optima. On the other hand, a higher mutation rate increases the algorithm's ability to explore the solution space more broadly, which can prevent premature convergence but may also lead to less consistent results, as reflected by higher standard deviations in test scores and computational times.
 
-    \paragraph{Grid Search Results:}
+    \subsection{Grid Search Results}
     A comprehensive grid search was also performed to identify the optimal parameters. The best parameters were found to be:
     \begin{itemize}
         \item Generations: 100
@@ -1330,7 +1185,7 @@
 
     \textbf{Conclusion}: The mutation rate is a crucial parameter that needs careful tuning to balance exploration and exploitation. A lower mutation rate favors exploitation, resulting in better solution quality but with a risk of premature convergence. In contrast, a higher mutation rate enhances exploration, which can prevent local optima but may result in increased variability and less consistent performance. Therefore, selecting an optimal mutation rate is essential to achieve a balance between search breadth and solution refinement.
 
-    \subsubsection{ANOVA Results}
+    \subsection{ANOVA Results}
 
     The following section presents the results of the ANOVA tests conducted to evaluate the impact of different parameter settings on the performance of the Genetic Algorithm.
 
@@ -1378,8 +1233,7 @@
 
     The ANOVA results offer crucial insights into how different parameter settings influence the Genetic Algorithm's performance. Specifically, the findings underscore the necessity of carefully choosing the population size and number of generations to optimize the algorithm's effectiveness. Conversely, the mutation rate, within the tested range, appears to have a less pronounced effect on performance, suggesting that further research is needed to pinpoint its optimal value.
 
-
-    \section{Conclusion}
+    \subsection{Conclusion}
 
     In this section, we conducted a comprehensive evaluation of the Genetic Algorithm (GA) parameters to determine the optimal settings for solving optimization problems efficiently. Our analysis focused on three primary parameters: population size, number of generations, and mutation rate. Through rigorous experimentation and statistical analysis, we derived several key insights regarding the impact of these parameters on the GA's performance.
 
@@ -1632,7 +1486,7 @@
 
     \textbf{Conclusion}: The neighborhood size is a crucial parameter that needs careful tuning to balance exploration and exploitation. A smaller neighborhood size favors exploitation, resulting in better solution quality but with a risk of premature convergence. In contrast, a larger neighborhood size enhances exploration, which can prevent local optima but may result in increased variability and less consistent performance. Therefore, selecting an optimal neighborhood size is essential to achieve a balance between search breadth and solution refinement.
 
-    \paragraph{Grid Search Results:}
+    \subsection{Grid Search Results}
     A grid search was also performed to identify the optimal parameters for the Tabu Search algorithm. The best parameters were found to be:
     \begin{itemize}
         \item Max Iterations: 500
@@ -1641,7 +1495,7 @@
     \end{itemize}
     These settings provided a balance between high-quality solutions with acceptable computational efficiency. The convergence plots and statistical analysis confirm that these parameters lead to consistent optimization results across various test scenarios. This can be seen in Figure \ref{fig:ts_500_15_15}.
 
-    \subsubsection{ANOVA Results}
+    \subsection{ANOVA Results}
 
     The following section presents the results of the ANOVA tests conducted to evaluate the impact of different parameter settings on the performance of the Tabu Search algorithm.
 
@@ -1689,7 +1543,7 @@
 
     The ANOVA results offer crucial insights into how different parameter settings influence the Tabu Search algorithm's performance. The findings highlight the importance of carefully selecting the tabu size and neighborhood size to optimize the algorithm's effectiveness. Conversely, the number of iterations appears to have a less pronounced effect on performance, indicating that future research should focus on the other parameters for further optimization.
 
-    \subsubsection{Conclusion}
+    \subsection{Conclusion}
 
     In this section, we conducted a comprehensive evaluation of the Tabu Search (TS) parameters to determine the optimal settings for solving optimization problems efficiently. Our analysis focused on three primary parameters: max iterations, tabu size, and neighborhood size. Through rigorous experimentation and statistical analysis, we derived several key insights regarding the impact of these parameters on the TS’s performance.
 
@@ -1714,9 +1568,6 @@
 
     Through detailed experiments and thorough analysis, this section showcases key results and insights from testing multiple parameter settings.
     The convergence plots provide a visual representation of the algorithm’s performance across iterations, highlighting trends and variations in solution quality and consistency.
-
-
-    \section{Simulated Annealing}
 
     The following parameters were primarily tested for the Simulated Annealing algorithm:
 
@@ -1944,7 +1795,7 @@
 
     \textbf{Analysis}: A lower number of iterations allows the Simulated Annealing algorithm to converge more quickly, resulting in higher mean test scores. However, it may also cause the algorithm to converge prematurely to local optima. On the other hand, a higher number of iterations increases the algorithm's ability to explore the solution space more thoroughly, which can prevent premature convergence but may also lead to less consistent results, as reflected by higher standard deviations in test scores and computational times.
 
-    \paragraph{Grid Search Results:}
+    \subsection{Grid Search Results}
     A comprehensive grid search was also performed to identify the optimal parameters. The best parameters were found to be:
     \begin{itemize}
         \item Cooling Rate: 0.95
@@ -1955,7 +1806,7 @@
 
     \textbf{Conclusion}: The maximum number of iterations is a important parameter that needs careful tuning to balance exploration and exploitation. Fewer iterations favor exploitation, resulting in higher solution quality but with a risk of premature convergence. In contrast, more iterations enhance exploration, which can prevent local optima but may result in increased variability and less consistent performance.
 
-    \subsubsection{ANOVA Results}
+    \subsection{ANOVA Results}
 
     The following section presents the results of the ANOVA tests conducted to evaluate the impact of different parameter settings on the performance of the Simulated Annealing algorithm.
 
@@ -2003,7 +1854,7 @@
 
     The ANOVA results offer crucial insights into how different parameter settings influence the Simulated Annealing algorithm's performance. The findings highlight the importance of carefully selecting the cooling rate to optimize the algorithm's effectiveness. Conversely, the number of iterations and the initial temperature appear to have a less pronounced effect on performance, indicating that future research should focus on the cooling rate for further optimization.
 
-    \subsubsection{Conclusion}
+    \subsection{Conclusion}
 
     In this section, we conducted a comprehensive evaluation of the Simulated Annealing (SA) parameters to determine the optimal settings for solving optimization problems efficiently. Our analysis focused on three primary parameters: max iterations, initial temperature, and cooling rate. Through rigorous experimentation and statistical analysis, we derived several key insights regarding the impact of these parameters on the SA's performance.
 
@@ -2019,7 +1870,8 @@
 
     \newpage
 
-    \subsection{Genetic Algorithm and Simulated Annealing Hybrid Parameter Testing}\label{subsec:genetic-algorithm-and-simulated-annealing-hybrid-parameter-testing}
+
+    \section{Genetic Algorithm and Simulated Annealing Hybrid Parameter Testing}\label{subsec:genetic-algorithm-and-simulated-annealing-hybrid-parameter-testing}
 
     The GA-SA hybrid algorithm combines the advantages of Genetic Algorithms and Simulated Annealing to solve complex optimization problems effectively. This approach uses GA's ability to explore many possible solutions and SA's skill in fine-tuning a good solution to make it even better.
 
@@ -2050,7 +1902,7 @@
 
     Here, we present some important results and convergence plots, while additional detailed plots are included in Appendix 3. This analysis helps identify the best GA-SA Hybrid configurations, improving the algorithm's efficiency and effectiveness in solving CVRP.
 
-    \subsubsection{Results and Analysis}
+    \subsection{Results and Analysis}
     Below are the results from the parameter testing of the Genetic Algorithm and Simulated Annealing Hybrid algorithm:
 
     \begin{figure}[H]
@@ -2145,7 +1997,7 @@
 
     \textbf{Conclusion}: The performance of the Genetic Algorithm in this setting is suboptimal. The parameters chosen result in slow convergence and high variability, which indicates that the algorithm is not efficiently finding the best solutions. Further optimization of the parameters is needed to improve performance and achieve more consistent results.
 
-    \subsubsection{Performance Metrics Overview}
+    \subsection{Performance Metrics Overview}
 
     The table below summarizes the mean and standard deviation of fit and score times, as well as the test scores for various parameter settings of the GA-SA hybrid algorithm:
 
@@ -2237,8 +2089,7 @@
         \label{tab:gasa_summary_test_scores}
     \end{table}
 
-
-    \textbf{Impact of Crossover Rate}
+    \subsubsection{Impact of Crossover Rate}
 
     An analysis of the impact of crossover rate on the GA-SA hybrid algorithm’s performance is crucial to understand how varying this parameter affects the convergence behavior and solution quality.
 
@@ -2248,7 +2099,7 @@
 
     \textbf{Conclusion}: The crossover rate significantly impacts the performance of the GA-SA hybrid algorithm. Higher crossover rates improve the solution quality by enabling more thorough recombination of the solution space, albeit at the cost of increased computational time and variability in the results. Therefore, selecting an appropriate crossover rate is crucial for balancing solution quality and computational efficiency.
 
-    \textbf{Impact of Mutation Rate}
+    \subsubsection{Impact of Mutation Rate}
 
     An analysis of the impact of mutation rate on the GA-SA hybrid algorithm’s performance is crucial to understand how varying this parameter affects the convergence behavior and solution quality.
 
@@ -2258,7 +2109,7 @@
 
     \textbf{Conclusion}: The mutation rate significantly impacts the performance of the GA-SA hybrid algorithm. Higher mutation rates improve the solution quality by enabling more thorough exploration of the solution space, albeit at the cost of increased computational time and variability in the results. Therefore, selecting an appropriate mutation rate is crucial for balancing solution quality and computational efficiency.
 
-    \textbf{Impact of Generations}
+    \subsubsection{Impact of Generations}
 
     An analysis of the impact of the number of generations on the GA-SA hybrid algorithm’s performance is crucial to understand how varying this parameter affects the convergence behavior and solution quality.
 
@@ -2268,7 +2119,7 @@
 
     \textbf{Conclusion}: The number of generations significantly impacts the performance of the GA-SA hybrid algorithm. More generations improve the solution quality by enabling more thorough evolution of the solution space, albeit at the cost of increased computational time and variability in the results. Therefore, selecting an appropriate number of generations is crucial for balancing solution quality and computational efficiency.
 
-    \textbf{Impact of Population Size}
+    \subsubsection{Impact of Population Size}
 
     An analysis of the impact of population size on the GA-SA hybrid algorithm’s performance is crucial to understand how varying this parameter affects the convergence behavior and solution quality.
 
@@ -2278,7 +2129,7 @@
 
     \textbf{Conclusion}: The population size significantly impacts the performance of the GA-SA hybrid algorithm. Larger populations improve the solution quality by enabling a more thorough exploration of the solution space, albeit at the cost of increased computational time and variability in the results. Therefore, selecting an appropriate population size is crucial for balancing solution quality and computational efficiency.
 
-    \paragraph{Grid Search Results:}
+    \subsection{Grid Search Results}
     A comprehensive grid search was also performed to identify the optimal parameters.
     The best parameters were found to be:
     \begin{itemize}
@@ -2290,7 +2141,7 @@
     \end{itemize}
     These settings gave fairly acceptable results. The convergence plots and statistical analysis confirm that these parameters lead to consistent optimization results across several test scenarios. This can be seen in Figure TODO
 
-    \subsubsection{ANOVA Results}
+    \subsection{ANOVA Results}
 
     The following section presents the results of the ANOVA tests conducted to evaluate the impact of different parameter settings on the performance of the GA-SA hybrid algorithm.
 
@@ -2346,7 +2197,7 @@
 
     The ANOVA results offer crucial insights into how different parameter settings influence the GA-SA hybrid algorithm's performance. The findings highlight the importance of carefully selecting the population size and initial temperature to optimize the algorithm's effectiveness. Conversely, the number of iterations and generations appear to have a less pronounced effect on performance, indicating that future research should focus on the population size and initial temperature for further optimization.
 
-    \subsubsection{Conclusion}
+    \subsection{Conclusion}
 
     In this section, we conducted a comprehensive evaluation of hybrid GA-SA Hybrid parameters to determine the optimal settings for solving complex optimization problems efficiently. Our analysis focused on five primary parameters: population size, number of generations, maximum iterations, initial temperature, and cooling rate. Through rigorous experimentation and statistical analysis, we derived several key insights regarding the impact of these parameters on the algorithms' performance.
 
@@ -2565,22 +2416,12 @@
     These statistical tests confirm that there are significant differences in performance between most of the algorithms, with GA\_SA consistently showing significant differences from other algorithms.
     This reinforces our earlier findings that GA\_SA is the best overall algorithm for solving the Capacitated Vehicle Routing Problem (CVRP).
 
-
-
     \newpage
 
 
     \section{Conclusion}
 
     In this diploma thesis, the primary objective was to explore and compare various optimization algorithms, including Genetic Algorithms (GA), Simulated Annealing (SA), Tabu Search (TS), Greedy Algorithms, Nearest Neighbor Algorithms, and a hybrid Genetic Algorithm with Simulated Annealing (GA-SA). These algorithms were custom-implemented and tested to determine their efficiency and effectiveness in solving complex optimization problems. Through detailed parameter testing and comprehensive analysis, we aimed to identify which algorithm performs best under different conditions and parameter settings.
-
-
-    \section{Conclusion}
-
-    In this diploma thesis, the primary objective was to explore and compare various optimization algorithms, including Genetic Algorithms (GA), Simulated Annealing (SA), Tabu Search (TS), Greedy Algorithms, Nearest Neighbor Algorithms, and a hybrid Genetic Algorithm with Simulated Annealing (GA-SA). These algorithms were custom-implemented and tested to determine their efficiency and effectiveness in solving complex optimization problems. Through detailed parameter testing and comprehensive analysis, we aimed to identify which algorithm performs best under different conditions and parameter settings.
-
-    \subsection{Key Findings}
-% [Key findings about the algorithms performance]
 
     \subsection{Answers to Hypotheses and Research Questions}
 
@@ -2665,41 +2506,13 @@
     \paragraph{Integration with AI}
     Incorporating machine learning techniques into optimization algorithms could lead to more intelligent and autonomous optimization processes. Techniques such as reinforcement learning.
 
-%\begin{quote}
-%    \emph{Autor/autorka uvedou vlastní název kapitoly vztahující se ke
-%    konkrétnímu tématu práce}
-%\end{quote}
-
-%    \hypertarget{nadpis-uxfarovnux11b-2-2}{%
-%
-%        \subsection{Nadpis úrovně 2}\label{nadpis-uxfarovnux11b-2-2}}
-
-%\begin{quote}
-%    \emph{Obrázek se v textu značí následujícím způsobem: samotný obrázek se
-%    označí: „\textbf{Obrázek 1: Název obrázku}`` (11 nebo 12 pt, černě,
-%        tučně). Obrázky se označují názvem a číslováním nad obrázkem a zdrojovým
-%        dokumentem pod obrázkem, příp. informace o vlastním zpracování (11 nebo
-%        12 pt, černě). K popisování doporučujeme využít nástroje textového
-%        editoru, který usnadní generování seznamu obrázků na konci práce.}
-%\end{quote}
-
-
 
     \newpage
-    \hypertarget{zuxe1vux11br}{%
 
 
-        \section{Závěr}\label{zuxe1vux11br}}
 
-    \begin{quote}
-        Rozsah je zpravidla 5-10 normostran.
-    \end{quote}
-
+%    \printbibliography
     \newpage
-    \hypertarget{seznam-pouux17eituxfdch-zdrojux16f}{%
-        \section{Seznam použitých
-        zdrojů}\label{seznam-pouux17eituxfdch-zdrojux16f}}
-
     \begin{quote}
         V~seznamu zdrojů musí být uvedeny všechny v~závěrečné práci citované
         zdroje. Zároveň nesmí seznam obsahovat zdroje, které nejsou v~závěrečné
