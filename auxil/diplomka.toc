@@ -80,9 +80,9 @@
 \contentsline {paragraph}{Quality Assessment}{41}{section*.82}%
 \contentsline {paragraph}{Summary}{41}{section*.83}%
 \contentsline {subsubsection}{Experimental Setup}{41}{section*.84}%
-\contentsline {paragraph}{Grid Search Method}{41}{section*.85}%
+\contentsline {paragraph}{Grid Search Process}{41}{section*.85}%
 \contentsline {subsubsection}{Convergence Plots and Data Collection}{42}{section*.86}%
-\contentsline {subsubsection}{Evaluation Metrics}{42}{section*.87}%
+\contentsline {subsubsection}{Evaluation Metrics}{43}{section*.87}%
 \contentsline {subsubsection}{Statistical Analysis}{43}{section*.88}%
 \contentsline {subsection}{Genetic Algorithm Parameter Testing}{44}{section*.89}%
 \contentsline {subsubsection}{Results and Analysis}{44}{section*.90}%
