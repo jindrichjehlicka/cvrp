@@ -1,0 +1,152 @@
+\contentsline {section}{Contents}{8}{section*.2}%
+\contentsline {section}{\numberline {1}Introduction}{8}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Hypotheses}{8}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Research Questions}{8}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Vehicle Routing Problem (VRP)}{10}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Introduction to the Vehicle Routing Problem}{10}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Historical Background and Significance}{10}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Problem Definition}{10}{subsubsection.2.1.2}%
+\contentsline {paragraph}{Objective:}{10}{section*.3}%
+\contentsline {paragraph}{Constraints:}{10}{section*.4}%
+\contentsline {paragraph}{Formulation:}{11}{section*.5}%
+\contentsline {paragraph}{Degree Constraints:}{11}{section*.6}%
+\contentsline {paragraph}{Capacity Constraints:}{11}{section*.7}%
+\contentsline {paragraph}{Subtour Elimination Constraints:}{12}{section*.8}%
+\contentsline {paragraph}{Depot Constraints:}{12}{section*.9}%
+\contentsline {paragraph}{Flow Conservation Constraints:}{12}{section*.10}%
+\contentsline {paragraph}{Applications:}{12}{section*.11}%
+\contentsline {paragraph}{Research and Development:}{12}{section*.12}%
+\contentsline {subsection}{\numberline {2.2}Complexity and Relevance}{13}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Variants and Extensions}{13}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Introduction to the Capacitated Vehicle Routing Problem}{15}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Importance and Applications}{15}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Detailed Problem Definition}{15}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Key Constraints and Objectives}{15}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Mathematical Formulation}{15}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Overview of Solution Approaches}{16}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Overview of Heuristic and Meta-heuristic Optimization Algorithms}{17}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Common Types of Heuristic Algorithms}{17}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Greedy Algorithms}{17}{subsubsection.4.1.1}%
+\contentsline {paragraph}{Application Areas}{18}{section*.13}%
+\contentsline {paragraph}{Examples of Greedy Algorithms}{19}{section*.14}%
+\contentsline {paragraph}{Mathematical Formulation for Vehicle Routing Problems (VRP)}{20}{section*.15}%
+\contentsline {paragraph}{Conclusion}{20}{section*.16}%
+\contentsline {subsubsection}{\numberline {4.1.2}Local Search Algorithms}{20}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Metaheuristic Algorithms}{21}{subsubsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.2}Methodology for Evaluating Algorithms}{23}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Introduction to Algorithm Evaluation}{23}{subsection.4.3}%
+\contentsline {paragraph}{Goals of Algorithm Evaluation}{23}{section*.17}%
+\contentsline {subsection}{\numberline {4.4}Performance Metrics}{23}{subsection.4.4}%
+\contentsline {paragraph}{Accuracy}{23}{section*.18}%
+\contentsline {paragraph}{Runtime}{23}{section*.19}%
+\contentsline {paragraph}{Memory Usage}{24}{section*.20}%
+\contentsline {paragraph}{Convergence Rate}{24}{section*.21}%
+\contentsline {paragraph}{Solution Quality}{24}{section*.22}%
+\contentsline {subsection}{\numberline {4.5}Result Analysis}{24}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Data Visualization}{24}{subsubsection.4.5.1}%
+\contentsline {paragraph}{Graphs and Charts}{24}{section*.23}%
+\contentsline {paragraph}{Box Plots}{24}{section*.24}%
+\contentsline {subsubsection}{\numberline {4.5.2}Statistical Analysis}{25}{subsubsection.4.5.2}%
+\contentsline {paragraph}{Descriptive Statistics}{25}{section*.25}%
+\contentsline {paragraph}{Hypothesis Testing}{25}{section*.26}%
+\contentsline {subsubsection}{\numberline {4.5.3}Interpreting Results}{25}{subsubsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.6}Limitations and Challenges}{25}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Relevance of CVRP in Contemporary Logistics Applications}{27}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Automation of Warehouse Operations}{28}{subsection.5.1}%
+\contentsline {paragraph}{Automated Guided Vehicles (AGVs)}{28}{section*.27}%
+\contentsline {paragraph}{Robotic Picking Systems}{28}{section*.28}%
+\contentsline {paragraph}{Inventory Management}{28}{section*.29}%
+\contentsline {subsection}{\numberline {5.2}Unmanned Technologies and Autonomous Vehicles}{29}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Challenges and Future Trends in Heuristic Optimization for Logistics}{30}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Current Challenges}{30}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}Future Trends}{32}{subsubsection.5.3.2}%
+\contentsline {section}{\numberline {6}Parameter Testing of Heuristic and Metaheuristic Algorithms}{35}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Introduction}{35}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Methodology}{35}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Dataset Description}{35}{subsection.6.3}%
+\contentsline {paragraph}{Introduction}{35}{section*.31}%
+\contentsline {paragraph}{Dataset Source}{36}{section*.32}%
+\contentsline {subsubsection}{\numberline {6.3.1}Dataset Characteristics}{36}{subsubsection.6.3.1}%
+\contentsline {paragraph}{Size and Format}{36}{section*.33}%
+\contentsline {paragraph}{Instance Structure}{36}{section*.34}%
+\contentsline {paragraph}{Solution Structure}{36}{section*.35}%
+\contentsline {paragraph}{Loading the Dataset}{36}{section*.36}%
+\contentsline {paragraph}{Quality Assessment}{36}{section*.37}%
+\contentsline {paragraph}{Summary}{37}{section*.38}%
+\contentsline {subsection}{\numberline {6.4}Experimental Setup}{37}{subsection.6.4}%
+\contentsline {paragraph}{ Custom Algorithm Implementation}{37}{section*.39}%
+\contentsline {paragraph}{Grid Search Process}{37}{section*.40}%
+\contentsline {subsection}{\numberline {6.5}Convergence Plots and Data Collection}{38}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Evaluation Metrics}{39}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}Statistical Analysis}{39}{subsection.6.7}%
+\contentsline {section}{\numberline {7}Genetic Algorithm Parameter Testing}{40}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Results and Analysis}{40}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Performance Metrics Overview}{48}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}Impact of Population Size}{49}{subsubsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.2}Impact of Number of Generations}{50}{subsubsection.7.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.3}Impact of Mutation Rate}{50}{subsubsection.7.2.3}%
+\contentsline {subsection}{\numberline {7.3}Grid Search Results}{51}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}ANOVA Results}{51}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Conclusion}{52}{subsection.7.5}%
+\contentsline {section}{\numberline {8}Tabu Search Parameter Testing}{54}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Results and Analysis}{54}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Performance Metrics Overview}{60}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Impact of Tabu List Size}{62}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}Impact of Number of Iterations}{63}{subsubsection.8.2.2}%
+\contentsline {subsubsection}{\numberline {8.2.3}Impact of Neighborhood Size}{63}{subsubsection.8.2.3}%
+\contentsline {subsection}{\numberline {8.3}Grid Search Results}{64}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}ANOVA Results}{64}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Conclusion}{66}{subsection.8.5}%
+\contentsline {section}{\numberline {9}Simulated Annealing Parameter Testing}{67}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Results and Analysis}{67}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Performance Metrics Overview}{74}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.2.1}Impact of Cooling Rate}{75}{subsubsection.9.2.1}%
+\contentsline {subsubsection}{\numberline {9.2.2}Impact of Initial Temperature}{76}{subsubsection.9.2.2}%
+\contentsline {subsubsection}{\numberline {9.2.3}Impact of Maximum Iterations}{76}{subsubsection.9.2.3}%
+\contentsline {subsection}{\numberline {9.3}Grid Search Results}{77}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}ANOVA Results}{77}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Conclusion}{79}{subsection.9.5}%
+\contentsline {section}{\numberline {10}Genetic Algorithm and Simulated Annealing Hybrid Parameter Testing}{80}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Results and Analysis}{81}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Performance Metrics Overview}{86}{subsection.10.2}%
+\contentsline {subsubsection}{\numberline {10.2.1}Impact of Crossover Rate}{88}{subsubsection.10.2.1}%
+\contentsline {subsubsection}{\numberline {10.2.2}Impact of Mutation Rate}{89}{subsubsection.10.2.2}%
+\contentsline {subsubsection}{\numberline {10.2.3}Impact of Generations}{89}{subsubsection.10.2.3}%
+\contentsline {subsubsection}{\numberline {10.2.4}Impact of Population Size}{90}{subsubsection.10.2.4}%
+\contentsline {subsection}{\numberline {10.3}Grid Search Results}{90}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}ANOVA Results}{91}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Conclusion}{92}{subsection.10.5}%
+\contentsline {section}{\numberline {11}Algorithm Comparison}{94}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Introduction}{94}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Data for Algorithm Comparison}{94}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Algorithm Performance Metrics}{95}{subsection.11.3}%
+\contentsline {paragraph}{Cost Performance:}{95}{section*.41}%
+\contentsline {paragraph}{Time Performance:}{96}{section*.42}%
+\contentsline {paragraph}{Conclusion}{97}{section*.43}%
+\contentsline {paragraph}{Graphical Analysis:}{97}{section*.44}%
+\contentsline {paragraph}{Interpretation of Cost Difference:}{97}{section*.45}%
+\contentsline {paragraph}{Interpretation of Time:}{98}{section*.46}%
+\contentsline {paragraph}{Conclusion:}{99}{section*.47}%
+\contentsline {subsection}{\numberline {11.4}Statistical Validation of Algorithm Performance}{99}{subsection.11.4}%
+\contentsline {paragraph}{Wilcoxon Signed-Rank Test Results:}{99}{section*.48}%
+\contentsline {paragraph}{Interpretation:}{100}{section*.49}%
+\contentsline {paragraph}{Friedman Test Results:}{100}{section*.50}%
+\contentsline {paragraph}{Interpretation:}{100}{section*.51}%
+\contentsline {paragraph}{Conclusion:}{100}{section*.52}%
+\contentsline {section}{\numberline {12}Conclusion}{101}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Answers to Hypotheses and Research Questions}{101}{subsection.12.1}%
+\contentsline {paragraph}{Hypotheses}{101}{section*.53}%
+\contentsline {paragraph}{Research Questions}{102}{section*.54}%
+\contentsline {subsection}{\numberline {12.2}Key Findings}{102}{subsection.12.2}%
+\contentsline {paragraph}{Performance Comparison of Algorithms}{102}{section*.55}%
+\contentsline {paragraph}{Best Performing Algorithms}{103}{section*.56}%
+\contentsline {paragraph}{Importance of Parameter Testing}{104}{section*.57}%
+\contentsline {subsection}{\numberline {12.3}Role of AI in Optimization}{104}{subsection.12.3}%
+\contentsline {subsection}{\numberline {12.4}Recommendations for Future Work}{105}{subsection.12.4}%
+\contentsline {paragraph}{Expanded Testing on Servers}{105}{section*.58}%
+\contentsline {paragraph}{Incorporation of Newer Algorithms}{105}{section*.59}%
+\contentsline {paragraph}{Dynamic Parameter Tuning}{105}{section*.60}%
+\contentsline {paragraph}{Hybrid Approaches}{105}{section*.61}%
+\contentsline {paragraph}{Integration with AI}{105}{section*.62}%
+\contentsline {section}{\numberline {A}Appendix 1: Supplementary Materials}{108}{appendix.A}%
+\contentsline {section}{\numberline {B}Appendix 2: Genetic Algorithm Convergence Plots}{108}{appendix.B}%

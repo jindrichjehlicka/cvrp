@@ -1,13 +1,10 @@
-\documentclass[]{article}
+\documentclass{article}
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
 \usepackage{iftex}
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage{hyperref}
 \usepackage{tabularx}
-\usepackage[backend=biber,style=iso-numeric]{biblatex}
-\addbibresource{references.bib}
 \ifPDFTeX
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -60,20 +57,25 @@
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
     \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
-\ifLuaTeX
-\usepackage{selnolig}  % disable illegal ligatures
-\fi
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\IfFileExists{xurl.sty}{\usepackage{xurl}
-\usepackage{biblatex}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
+%\ifLuaTeX
+%\usepackage{selnolig}  % disable illegal ligatures
+%\fi
+%\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+%\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+%\urlstyle{same} % disable monospaced font for URLs
+
+% Set section numbering depth
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{hyperref}
 \hypersetup{
     hidelinks,
     pdfcreator={LaTeX via pandoc}}
 
 \author{}
 \date{}
+\bibliographystyle{unsrt}
+
 
 \begin{document}
 
@@ -90,7 +92,7 @@
 
         \textbf{DIPLOMA THESIS}
 
-        \textbf{Integrace Umělé Inteligence a Optimalizačních Algoritmů pro Efektivní Doručování Balíků: Analýza a Aplikace}
+        \textbf{Integration of Artificial Intelligence and Optimization Algorithms for Efficient Package Delivery: Analysis and Application}
     \end{center}
 
     \vfill
@@ -108,14 +110,11 @@
     \textbf{Statutory Declaration}
 
 
-    I hereby declare that I have written my diploma thesis on the topic of TODO by myself,
-    under the guidance of my thesis supervisor, using only the technical publications and other
-    information sources which are all quoted in the thesis and listed in the bibliography.
-    As the author of this diploma thesis, I also declare that in association with its writing I have not
-    violated the copyright of any third party or parties and I am fully aware of the consequences of
-    provisions of s. 11 et seq. of Act No. 121/2000 Coll., the Copyright Act.
-    Furthermore, I hereby declare that the submitted hard copy of this bachelor thesis is identical to
-    the electronic version I have submitted
+    I hereby declare that I have written my bachelor thesis on the topic of Integration of Artificial Intelligence and Optimization Algorithms for Efficient Package Delivery: Analysis and Application by myself, under the guidance of my thesis supervisor, using only the technical publications and other information sources which are all quoted in the thesis and listed in the bibliography. I declare that artificial intelligence tools have been used only for support activities and in accordance with the principle of academic ethics.
+
+    As the author of this bachelor thesis, I also declare that in association with its writing I have not violated the copyright of any third party or parties and I am fully aware of the consequences of provisions of s. 11 et seq. of Act No. 121/2000 Coll., the Copyright Act.
+
+    Furthermore, I hereby declare that the submitted hard copy of this bachelor thesis is identical to the electronic version I have submitted.
 
     In\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots. On
     \ldots\ldots\ldots..
@@ -137,7 +136,9 @@
     \newpage
 
 
-    \textbf{Integrace Umělé Inteligence a Optimalizačních Algoritmů pro Efektivní Doručování Balíků: Analýza a Aplikace}
+    \begin{center}
+        \textbf{\Large Integration of Artificial Intelligence and Optimization Algorithms for Efficient Package Delivery: Analysis and Application}
+    \end{center}
 
 
 
@@ -154,13 +155,14 @@
 
 
     \tableofcontents
+    \cleardoublepage
+    \phantomsection
+    \addcontentsline{toc}{section}{\contentsname}
 
     \newpage
 
 
-    \section{Introduction}\label{sec:uxfavod}
-
-    \section*{Introduction}
+    \section{Introduction}
 
     The optimization of parcel delivery systems is important for enhancing operational efficiency and reducing costs in logistics.
     This diploma thesis focuses on analyzing and comparing different optimization algorithms to identify the most effective methods for solving the Capacitated Vehicle Routing Problem (CVRP).
@@ -193,35 +195,33 @@
 
     \subsection{Introduction to the Vehicle Routing Problem}\label{introduction-to-the-vehicle-routing-problem}
 
-    The Vehicle Routing Problem (VRP) occupies a central place in operational research and logistics due to its direct applicability to optimizing the distribution of goods and services. First formulated by Dantzig and Ramser in 1959, the VRP has evolved significantly, encompassing various complex forms tailored to different industrial needs and constraints.
+    The Vehicle Routing Problem (VRP) occupies a central place in operational research and logistics due to its direct applicability to optimizing the distribution of goods and services. First formulated by Dantzig and Ramser in 1959, the VRP has evolved significantly, encompassing various complex forms tailored to different industrial needs and constraints.\cite{dantzig1959truck}
 
     \subsubsection{Historical Background and Significance}\label{subsubsec:historical-background-and-significance}
     The VRP, initially introduced as the "Truck Dispatching Problem" by Dantzig and Ramser (1959), seeks to determine the most efficient routes for a fleet of delivery vehicles operating from a central depot. This problem is foundational in the field of combinatorial optimization and remains pivotal in supply chain management and logistics.
+    \cite{dantzig1959truck}
 
     \subsubsection{Problem Definition}\label{subsubsec:problem_definition}
 
 
-    At its core, the Vehicle Routing Problem (VRP) involves designing optimal routes for a fleet of vehicles that must deliver goods or services to a set of customers and return to the depot, minimizing total travel costs while satisfying various constraints. This classic problem not only focuses on reducing operational expenses but also on improving service efficiency and customer satisfaction.
+    At its core, the Vehicle Routing Problem (VRP) involves designing optimal routes for a fleet of vehicles that must deliver goods or services to a set of customers and return to the depot, minimizing total travel costs while satisfying various constraints. This classic problem not only focuses on reducing operational expenses but also on improving service efficiency and customer satisfaction.\cite[p. 1--3]{toth2014vehicle}
 
     \paragraph{Objective:}
-    The primary objective of the VRP is to determine a set of routes that minimizes the total cost of transportation. Costs typically include distance traveled, time spent, fuel consumption, and sometimes additional factors such as toll charges or vehicle maintenance. The total cost must be minimized while ensuring that all customer demands are met and all operational constraints are adhered to.
+    The primary objective of the VRP is to determine a set of routes that minimizes the total cost of transportation. Costs typically include distance traveled, time spent, fuel consumption, and sometimes additional factors such as toll charges or vehicle maintenance. The total cost must be minimized while ensuring that all customer demands are met and all operational constraints are adhered to.  \cite[p. 3--4]{toth2014vehicle}
 
     \paragraph{Constraints:}
     Several constraints must be considered in the VRP:
     \begin{itemize}
-        \item \textbf{Capacity Constraints}: Each vehicle has a maximum carrying capacity that must not be exceeded by the sum of the demands of the customers it serves. This ensures that the vehicle can physically carry the load assigned to it without overloading.
-        \item \textbf{Route Length Constraints}: Often, there is a maximum allowable route length or time duration for each vehicle's tour, which might be dictated by legal driving hours, fuel limitations, or service level agreements.
-        \item \textbf{Customer Constraints}: Each customer must be visited exactly once by one vehicle. In cases involving time windows, each customer must be serviced within a specific time frame.
-        \item \textbf{Depot Constraints}: All routes must start and end at the depot, ensuring the cyclic nature of vehicle tours.
+        \item \textbf{Route Length Constraints}: Often, there is a maximum allowable route length or time duration for each vehicle's tour, which might be dictated by legal driving hours, fuel limitations, or service level agreements.\cite[p. 4--5]{toth2014vehicle}
+        \item \textbf{Customer Constraints}: Each customer must be visited exactly once by one vehicle. In cases involving time windows, each customer must be serviced within a specific time frame. \cite[p. 4--5]{toth2014vehicle}
+        \item \textbf{Depot Constraints}: All routes must start and end at the depot, ensuring the cyclic nature of vehicle tours.\cite[p. 4--5]{toth2014vehicle}
     \end{itemize}
-
-% \paragraph{Formulation:}
-% Mathematically, the VRP can be represented using a graph \( G = (V, E) \), where \( V \) is the set of vertices (nodes) including the depot and customers, and \( E \) is the set of edges (arcs) representing possible routes between vertices. The problem is often formulated as an integer programming model where decision variables indicate whether a route between two vertices is included in the solution. The objective function minimizes the total cost associated with the selected routes, subject to the aforementioned constraints.
 
     \paragraph{Formulation:}
     Mathematically, the VRP can be represented using a graph \( G = (V, E) \), where \( V \) is the set of vertices (nodes) including the depot and customers, and \( E \) is the set of edges (arcs) representing possible routes between vertices. Each edge \( (i, j) \in E \) is associated with a cost \( c_{ij} \), which typically represents the distance or travel time between vertices \( i \) and \( j \).
 
-    The problem is often formulated as an integer programming model where decision variables indicate whether a route between two vertices is included in the solution. Let \( x_{ij} \) be a binary decision variable that equals 1 if edge \( (i, j) \) is included in the route and 0 otherwise. The objective function is to minimize the total cost associated with the selected routes, subject to various constraints.
+    The problem is often formulated as an integer programming model where decision variables indicate whether a route between two vertices is included in the solution. Let \( x_{ij} \) be a binary decision variable that equals 1 if edge \( (i, j) \) is included in the route and 0 otherwise. The objective function is to minimize the total cost associated with the selected routes, subject to various constraints.\cite[pp. 3--5, 62--65]{toth2014vehicle}
+
 
     \begin{equation}
         \min \sum_{(i,j) \in E} c_{ij} x_{ij}
@@ -238,7 +238,7 @@
         \sum_{i \in V, i \neq j} x_{ij} = 1 \quad \forall j \in V \setminus \{0\}
     \end{equation}
 
-    These constraints ensure that each customer node \( i \) has exactly one incoming and one outgoing edge, forming a valid route.
+    These constraints ensure that each customer node \( i \) has exactly one incoming and one outgoing edge, forming a valid route. \cite[pp. 3--5, 62--65]{toth2014vehicle}
 
     \paragraph{Capacity Constraints:}
     Each vehicle has a limited capacity \( Q \). Let \( q_i \) be the demand at customer \( i \). The total demand serviced by a vehicle on its route must not exceed its capacity. This can be formulated using flow variables \( u_i \) representing the load of the vehicle after visiting customer \( i \):
@@ -251,7 +251,7 @@
         q_i \leq u_i \leq Q \quad \forall i \in V \setminus \{0\}
     \end{equation}
 
-    Here, \( u_i \) is set to 0 at the depot.
+    Here, \( u_i \) is set to 0 at the depot. \cite[pp. 3--5, 62--65]{toth2014vehicle}
 
     \paragraph{Subtour Elimination Constraints:}
     To prevent the formation of subtours (cycles that do not include the depot), we use subtour elimination constraints. For example, in the Miller-Tucker-Zemlin (MTZ) formulation:
@@ -274,7 +274,7 @@
         \sum_{i \in V \setminus \{0\}} x_{i0} = m
     \end{equation}
 
-    where \( m \) is the number of vehicles available.
+    where \( m \) is the number of vehicles available. \cite[pp. 3--5, 62--65]{toth2014vehicle}
 
     \paragraph{Flow Conservation Constraints:}
     These constraints ensure the flow conservation at each node, meaning the number of vehicles entering a customer node must equal the number leaving it:
@@ -283,18 +283,20 @@
         \sum_{j \in V \setminus \{i\}} x_{ij} = \sum_{j \in V \setminus \{i\}} x_{ji} \quad \forall i \in V \setminus \{0\}
     \end{equation}
 
-    This comprehensive formulation ensures that all aspects of the VRP are covered, including minimizing travel costs, adhering to vehicle capacities, servicing all customers exactly once, starting and ending routes at the depot, and preventing subtours. The problem is complex due to the combination of these constraints, which necessitates advanced optimization techniques for finding feasible and near-optimal solutions in practical applications.
+    This comprehensive formulation ensures that all aspects of the VRP are covered, including minimizing travel costs, adhering to vehicle capacities, servicing all customers exactly once, starting and ending routes at the depot, and preventing subtours. The problem is complex due to the combination of these constraints, which necessitates advanced optimization techniques for finding feasible and near-optimal solutions in practical applications. \cite[pp. 3-5, 62-65]{toth2014vehicle}
 
     \paragraph{Applications:}
-    The VRP is highly relevant across various industries, including logistics, supply chain management, waste collection, and public transportation. Effective solutions to VRP can lead to significant cost savings, improved service levels, and enhanced operational efficiency.
+    The VRP is highly relevant across various industries, including logistics, supply chain management, waste collection, and public transportation. Effective solutions to VRP can lead to significant cost savings, improved service levels, and enhanced operational efficiency. \cite{konstantakopoulos2022vehicle}
 
     \paragraph{Research and Development:}
     The study of VRP has led to significant advancements in optimization theory and practice. Researchers have developed a wide range of solution methodologies, from classical operations research techniques to modern metaheuristics and machine learning approaches. Continuous improvement in computational power and algorithmic strategies promises ongoing advancements in solving VRP more efficiently and effectively.
 
     This comprehensive overview of the VRP problem definition provides a solid foundation for understanding its complexities and importance, setting the stage for detailed exploration of its variants and solution methods in the subsequent sections.
+    \cite{konstantakopoulos2022vehicle}
 
     \subsection{Complexity and Relevance}\label{subsec:complexity-and-relevance}
     The VRP is known to be NP-hard, implying that no efficient algorithm can solve all instances optimally in polynomial time. This complexity necessitates sophisticated solution approaches, both exact and heuristic, to find feasible and near-optimal solutions efficiently.
+    \cite{konstantakopoulos2022vehicle}
 
     \subsection{Variants and Extensions}\label{subsec:variants-and-extensions}
     There are numerous variants of the VRP, each introducing additional layers of complexity to address real-world logistics challenges. These variants reflect the diverse operational requirements and constraints encountered in practical applications. Key variants include:
@@ -302,19 +304,20 @@
 
     \begin{itemize}
         \item \textbf{Capacitated VRP (CVRP)}:
-        The CVRP is the most widely studied variant of the VRP, focusing on the distribution of goods from a single depot to multiple customers using a fleet of vehicles with fixed capacities. Each vehicle must deliver goods without exceeding its capacity, and the objective is to minimize the total cost, typically the travel distance or time. This variant is fundamental in understanding more complex VRP forms and is used extensively in both academic research and practical applications.
+        The CVRP is the most widely studied variant of the VRP, focusing on the distribution of goods from a single depot to multiple customers using a fleet of vehicles with fixed capacities. Each vehicle must deliver goods without exceeding its capacity, and the objective is to minimize the total cost, typically the travel distance or time. This variant is fundamental in understanding more complex VRP forms and is used extensively in both academic research and practical applications. \cite{konstantakopoulos2022vehicle}
 
         \item \textbf{VRP with Time Windows (VRPTW)}:
-        The VRPTW adds the complexity of time constraints to the basic VRP. Each customer must be serviced within a specified time window, adding another layer of complexity to the routing problem. This variant is crucial for industries where delivery times are critical, such as perishable goods distribution and courier services. The goal is to minimize the total travel cost while ensuring that all deliveries or pickups occur within their designated time frames. Time windows make the problem significantly harder to solve, and specialized algorithms, often involving sophisticated scheduling techniques, are required.
+        The VRPTW adds the complexity of time constraints to the basic VRP. Each customer must be serviced within a specified time window, adding another layer of complexity to the routing problem. This variant is crucial for industries where delivery times are critical, such as perishable goods distribution and courier services. The goal is to minimize the total travel cost while ensuring that all deliveries or pickups occur within their designated time frames. Time windows make the problem significantly harder to solve, and specialized algorithms, often involving sophisticated scheduling techniques, are required.\cite{vidal2013}
 
         \item \textbf{Dynamic VRP (DVRP)}:
-        In the DVRP, the problem parameters, such as customer requests or traffic conditions, change dynamically over time. This variant reflects real-world situations where information is not static and decisions must be adapted in real-time. For example, new customer orders might arrive throughout the day, or unexpected traffic jams might alter the planned routes. Solving the DVRP requires algorithms that can efficiently update solutions in response to new information, often leveraging real-time data and adaptive heuristics.
+        In the DVRP, the problem parameters, such as customer requests or traffic conditions, change dynamically over time. This variant reflects real-world situations where information is not static and decisions must be adapted in real-time. For example, new customer orders might arrive throughout the day, or unexpected traffic jams might alter the planned routes. Solving the DVRP requires algorithms that can efficiently update solutions in response to new information, often leveraging real-time data and adaptive heuristics. \cite[pp. 299--334]{toth2014vehicle}
 
         \item \textbf{Stochastic VRP (SVRP)}:
-        The SVRP deals with uncertainty in problem data, such as variable customer demand or unpredictable travel times. This variant introduces probabilistic elements into the routing problem, requiring solutions that are robust to variability and can handle unexpected changes efficiently. Approaches to solving the SVRP often involve stochastic modeling and optimization techniques that consider multiple scenarios or employ probabilistic constraints.
+        The SVRP deals with uncertainty in problem data, such as variable customer demand or unpredictable travel times. This variant introduces probabilistic elements into the routing problem, requiring solutions that are robust to variability and can handle unexpected changes efficiently. Approaches to solving the SVRP often involve stochastic modeling and optimization techniques that consider multiple scenarios or employ probabilistic constraints.\cite{rajabi2021reliable}
+
 
         \item \textbf{Green VRP}:
-        The Green VRP focuses on minimizing environmental impacts, such as fuel consumption and CO2 emissions, in addition to traditional cost metrics. This variant is increasingly important due to growing environmental regulations and the need for sustainable logistics practices. Green VRP models incorporate factors like vehicle emissions, fuel efficiency, and alternative energy sources into the optimization process. Methods to address Green VRP include eco-friendly routing algorithms and multi-objective optimization techniques.
+        The Green VRP focuses on minimizing environmental impacts, such as fuel consumption and CO2 emissions, in addition to traditional cost metrics. This variant is increasingly important due to growing environmental regulations and the need for sustainable logistics practices. Green VRP models incorporate factors like vehicle emissions, fuel efficiency, and alternative energy sources into the optimization process. Methods to address Green VRP include eco-friendly routing algorithms and multi-objective optimization techniques.\cite{asghari2021}
 
     \end{itemize}
 
@@ -344,9 +347,9 @@
 
     \subsection{Mathematical Formulation}\label{subsec:mathematical-formulation}
 
-    The Capacitated Vehicle Routing Problem (CVRP) can be mathematically formulated using a graph $G = (V, E)$, where $V$ is the set of vertices (nodes) including the depot and customers, and $E$ is the set of edges (arcs) representing possible routes between vertices. Each edge $(i, j) \in E$ is associated with a cost $c_{ij}$, representing the distance or travel time between vertices $i$ and $j$.
+    The Capacitated Vehicle Routing Problem (CVRP) can be mathematically formulated using a graph $G = (V, E)$, where $V$ is the set of vertices (nodes) including the depot and customers, and $E$ is the set of edges (arcs) representing possible routes between vertices. Each edge $(i, j) \in E$ is associated with a cost $c_{ij}$, representing the distance or travel time between vertices $i$ and $j$. \cite{konstantakopoulos2022vehicle}
 
-    In contrast to the general Vehicle Routing Problem (VRP), which focuses on minimizing the total cost of routes, the CVRP introduces an additional layer of complexity by incorporating vehicle capacity constraints. In CVRP, each vehicle $k$ has a maximum capacity $Q_k$, and each customer $i$ has a demand $d_i$ that must be satisfied without exceeding the vehicle's capacity.
+    In contrast to the general Vehicle Routing Problem (VRP), which focuses on minimizing the total cost of routes, the CVRP introduces an additional layer of complexity by incorporating vehicle capacity constraints. In CVRP, each vehicle $k$ has a maximum capacity $Q_k$, and each customer $i$ has a demand $d_i$ that must be satisfied without exceeding the vehicle's capacity. \cite{toth2014vehicle}
 
     The objective of the CVRP is to minimize the total cost, given by:
 
@@ -371,7 +374,7 @@
         \sum_{j \in V \setminus \{0\}} x_{0j}^k = 1 \quad \forall k
     \end{equation}
 
-    This formulation ensures that all aspects of the CVRP are covered, including minimizing travel costs, adhering to vehicle capacities, and ensuring each customer is visited exactly once, with all routes starting and ending at the depot.
+    This formulation ensures that all aspects of the CVRP are covered, including minimizing travel costs, adhering to vehicle capacities, and ensuring each customer is visited exactly once, with all routes starting and ending at the depot. \cite{toth2014vehicle}
 
     \subsection{Overview of Solution Approaches}\label{subsec:overview-of-solution-approaches}
 
@@ -384,7 +387,7 @@
 
 
 
-    Heuristic algorithms are essential for finding good enough solutions when perfect solutions are not feasible. These algorithms prioritize speed and efficiency over flawless accuracy or optimal results. They are particularly valuable in scenarios where solving a problem completely and precisely would require excessive computing power or when the problem details are not fully known. While the algorithms for solving the Vehicle Routing Problem (VRP) are applicable to the Capacitated Vehicle Routing Problem (CVRP), this section introduces additional methods to address the specific constraints and requirements of CVRP.
+    Heuristic algorithms are essential for finding good enough solutions when perfect solutions are not feasible. These algorithms prioritize speed and efficiency over flawless accuracy or optimal results. They are particularly valuable in scenarios where solving a problem completely and precisely would require excessive computing power or when the problem details are not fully known. While the algorithms for solving the Vehicle Routing Problem (VRP) are applicable to the Capacitated Vehicle Routing Problem (CVRP), this section introduces additional methods to address the specific constraints and requirements of CVRP. \cite{sharma2024metaheuristic}
 
     Characteristics of Heuristic Algorithms:
     \begin{enumerate}
@@ -393,38 +396,35 @@
         \item \textbf{Adaptability}: Heuristic algorithms are often tailored to the specific characteristics of a problem, leveraging problem-specific insights and techniques to guide the search process towards more promising areas of the solution space.
     \end{enumerate}
 
-
-
-
-        \subsection{Common Types of Heuristic Algorithms}\label{itm:common-types-of-heuristic-algorithms}
+    \subsection{Common Types of Heuristic Algorithms}\label{itm:common-types-of-heuristic-algorithms}
 
     \subsubsection{Greedy Algorithms}
     \label{subsubsec:greedy_algorithms}
 
     Greedy algorithms are a fundamental strategy in problem-solving, known for their focus on immediate benefits at each step. In every decision-making moment, a greedy algorithm selects the best immediate option, hoping that these short-term optimal choices will result in the best overall solution. While not always perfect, greedy algorithms are highly effective for many optimization problems due to their simplicity, speed, and often excellent results.
 
-    The main feature of a greedy algorithm is the "greedy choice property," which means you can build an optimal solution step by step by making the best choice at each moment, without needing to rethink previous decisions. Once a decision is made, a greedy algorithm adheres to it, trusting that these decisions will lead to the best end result.
+    The main feature of a greedy algorithm is the greedy choice element, which means you can build an optimal solution step by step by making the best choice at each moment, without needing to rethink previous decisions. Once a decision is made, a greedy algorithm adheres to it, trusting that these decisions will lead to the best end result.
 
-    Problems suited for greedy algorithms often exhibit an "optimal substructure," meaning that the best solution contains within it the best solutions to smaller problems. For instance, finding the shortest path in a network can be seen as finding the shortest paths to points along the way. This characteristic allows greedy algorithms to develop solutions progressively, focusing on the best choice at each step.
+    Problems suited for greedy algorithms often exhibit an optimal substructure, meaning that the best solution contains within it the best solutions to smaller problems. For instance, finding the shortest path in a network can be seen as finding the shortest paths to points along the way. This characteristic allows greedy algorithms to develop solutions progressively, focusing on the best choice at each step. \cite{izadkhah2022greedy}
 
     \paragraph{Application Areas}
 
     Greedy algorithms are used across various fields due to their simplicity and efficiency. Some of the prominent application areas include:
 
     \begin{enumerate}
-        \item \textbf{Scheduling:} Greedy algorithms are highly effective in scheduling tasks where immediate, optimal decisions can lead to efficient overall schedules. They are used to organize activities, sequence jobs, and manage time intervals. For instance, in job scheduling on machines, a greedy approach can be employed to minimize the total completion time by always assigning the next job to the machine that becomes available first. Additionally, in event scheduling, greedy algorithms help in assigning time slots to events to avoid conflicts, ensuring that no two events overlap. These algorithms are also used in task prioritization, where tasks are ordered based on deadlines or importance, allowing for efficient management of resources and time.
+        \item \textbf{Scheduling:} Greedy algorithms are highly effective in scheduling tasks where immediate, optimal decisions can lead to efficient overall schedules. They are used to organize activities, sequence jobs, and manage time intervals. For instance, in job scheduling on machines, a greedy approach can be employed to minimize the total completion time by always assigning the next job to the machine that becomes available first. Additionally, in event scheduling, greedy algorithms help in assigning time slots to events to avoid conflicts, ensuring that no two events overlap. These algorithms are also used in task prioritization, where tasks are ordered based on deadlines or importance, allowing for efficient management of resources and time. \cite{greedyalgorithmexamples}
 
-        \item \textbf{Graph Algorithms:} Greedy strategies are fundamental in graph theory, with several key applications such as finding the shortest paths in networks, constructing minimum spanning trees, and ensuring efficient traversal of graphs. These applications are critical in network routing, geographical mapping, and various optimization problems where optimal paths or connections are required.
+        \item \textbf{Graph Algorithms:} Greedy strategies are fundamental in graph theory, with several key applications such as finding the shortest paths in networks, constructing minimum spanning trees, and ensuring efficient traversal of graphs. These applications are critical in network routing, geographical mapping, and various optimization problems where optimal paths or connections are required. \cite{greedyalgorithmexamples}
 
-        \item \textbf{Data Compression:} Greedy algorithms play a significant role in data compression techniques, optimizing storage and transmission efficiency. Huffman coding, a classic greedy algorithm, generates variable-length prefix codes based on the frequency of each data symbol. By assigning shorter codes to more frequent symbols and longer codes to less frequent symbols, Huffman coding minimizes the overall length of the encoded data. This approach is widely used in file compression formats such as ZIP and GZIP, as well as in multimedia codecs for compressing images, audio, and video. The efficiency of greedy algorithms in reducing data size without losing information makes them indispensable in modern data storage and communication.
+        \item \textbf{Data Compression:} Greedy algorithms play a significant role in data compression techniques, optimizing storage and transmission efficiency. Huffman coding, a classic greedy algorithm, generates variable-length prefix codes based on the frequency of each data symbol. By assigning shorter codes to more frequent symbols and longer codes to less frequent symbols, Huffman coding minimizes the overall length of the encoded data. This approach is widely used in file compression formats such as ZIP and GZIP, as well as in multimedia codecs for compressing images, audio, and video. The efficiency of greedy algorithms in reducing data size without losing information makes them indispensable in modern data storage and communication. \cite{greedyalgorithmexamples}
 
-        \item \textbf{Resource Allocation:} In scenarios where resources need to be allocated efficiently, greedy algorithms are employed to make optimal choices at each step. This includes tasks such as assigning tasks to workers, distributing goods among locations, and allocating bandwidth in communication networks. By continually selecting the most beneficial allocation at each step, these algorithms help in achieving near-optimal utilization of resources.
+        \item \textbf{Resource Allocation:} In scenarios where resources need to be allocated efficiently, greedy algorithms are employed to make optimal choices at each step. This includes tasks such as assigning tasks to workers, distributing goods among locations, and allocating bandwidth in communication networks. By continually selecting the most beneficial allocation at each step, these algorithms help in achieving near-optimal utilization of resources. \cite{greedyalgorithmexamples}
 
-        \item \textbf{Financial Modeling:} Greedy algorithms are used in various financial models and decision-making processes. For example, in portfolio optimization, a greedy approach can be used to iteratively add assets to a portfolio based on their expected returns until the investment budget is exhausted. Similarly, in real-time bidding for online advertising, greedy algorithms help in making immediate bidding decisions to maximize the return on investment.
+        \item \textbf{Financial Modeling:} Greedy algorithms are used in various financial models and decision-making processes. For example, in portfolio optimization, a greedy approach can be used to iteratively add assets to a portfolio based on their expected returns until the investment budget is exhausted. Similarly, in real-time bidding for online advertising, greedy algorithms help in making immediate bidding decisions to maximize the return on investment. \cite{greedyalgorithmexamples}
 
-        \item \textbf{Route Planning:} In logistics and transportation, greedy algorithms are applied to route planning to minimize travel time or distance. This includes delivery route optimization, vehicle routing problems, and urban transit planning. By making locally optimal choices at each stage, these algorithms help in devising efficient routes that save time and fuel costs.
+        \item \textbf{Route Planning:} In logistics and transportation, greedy algorithms are applied to route planning to minimize travel time or distance. This includes delivery route optimization, vehicle routing problems, and urban transit planning. By making locally optimal choices at each stage, these algorithms help in devising efficient routes that save time and fuel costs. \cite{greedyalgorithmexamples}
 
-        \item \textbf{Machine Learning:} In the field of machine learning, greedy algorithms are used in feature selection and decision tree construction. By iteratively selecting the most relevant features or the best split at each node of a decision tree, these algorithms help in building efficient and accurate models for classification and regression tasks.
+        \item \textbf{Machine Learning:} In the field of machine learning, greedy algorithms are used in feature selection and decision tree construction. By iteratively selecting the most relevant features or the best split at each node of a decision tree, these algorithms help in building efficient and accurate models for classification and regression tasks. \cite{greedyalgorithmexamples}
 
     \end{enumerate}
 
@@ -435,27 +435,19 @@
         \[
             d(v) = \min \{ d(v), d(u) + w(u, v) \} \quad \text{for all } (u, v) \in E
         \]
-        where \(d(v)\) is the tentative distance of vertex \(v\), and \(w(u, v)\) is the weight of the edge \((u, v)\).
-
-        \item \textbf{Prim’s Algorithm:} Similar to Kruskal’s algorithm, Prim’s algorithm constructs a minimum spanning tree. It starts with an arbitrary node and repeatedly adds the nearest node that hasn’t been included in the tree yet. The inclusion criterion is:
-        \[
-            \text{Include } v \text{ such that } (u, v) \text{ is the smallest edge connecting } T \text{ to } V \setminus T
-        \]
-        where \(T\) is the set of nodes already included in the tree.
-
-        \item \textbf{Kruskal’s Algorithm:} This algorithm constructs a minimum spanning tree for a connected weighted graph. It repeatedly selects the edge with the smallest weight that doesn’t form a cycle with the previously selected edges. The algorithm uses the union-find structure to manage cycles.
+        where \(d(v)\) is the tentative distance of vertex \(v\), and \(w(u, v)\) is the weight of the edge \((u, v)\). \cite{brilliant_dijkstra}
 
         \item \textbf{Huffman Coding:} This algorithm builds a variable-length prefix code for lossless data compression. It constructs a binary tree based on symbol frequencies, assigning shorter codes to more frequent symbols and longer codes to less frequent symbols. The cost function minimized by Huffman coding is:
         \[
             \sum_{i=1}^n f_i \cdot l_i
         \]
-        where \(f_i\) is the frequency of symbol \(i\) and \(l_i\) is the length of the code assigned to symbol \(i\).
+        where \(f_i\) is the frequency of symbol \(i\) and \(l_i\) is the length of the code assigned to symbol \(i\). \cite{walkccc2024}
 
         \item \textbf{Nearest Neighbor Algorithm:} Commonly used in the traveling salesman problem (TSP), this algorithm selects the nearest unvisited city from the current city and adds it to the tour. The selection criterion is:
         \[
             \text{Select } j \text{ such that } d(i, j) \text{ is minimum for all } j \in V \setminus \{i\}
         \]
-        where \(d(i, j)\) is the distance between cities \(i\) and \(j\).
+        where \(d(i, j)\) is the distance between cities \(i\) and \(j\). \cite{richar2012}
     \end{enumerate}
 
     \paragraph{Mathematical Formulation for Vehicle Routing Problems (VRP)}
@@ -466,20 +458,17 @@
     \[
         s_{ij} = c_{i0} + c_{0j} - c_{ij}
     \]
-    where \(c_{i0}\) is the cost from the depot to customer \(i\), \(c_{0j}\) is the cost from the depot to customer \(j\), and \(c_{ij}\) is the cost between customers \(i\) and \(j\). The algorithm merges routes with the highest \(s_{ij}\) until no further savings can be achieved.
+    where \(c_{i0}\) is the cost from the depot to customer \(i\), \(c_{0j}\) is the cost from the depot to customer \(j\), and \(c_{ij}\) is the cost between customers \(i\) and \(j\). The algorithm merges routes with the highest \(s_{ij}\) until no further savings can be achieved. \cite[pp. 3-5, 62-65]{toth2014vehicle}
 
     \paragraph{Conclusion}
 
     Greedy algorithms provide a straightforward approach to tackling optimization problems by making the locally optimal choice at each step. While they may not always yield the globally optimal solution, their efficiency and simplicity make them valuable tools, particularly as a starting point for more complex optimization procedures.
 
+    \subsubsection{Local Search Algorithms}\label{local-search-algorithms}
 
+    Local search algorithms are a class of heuristic methods used to solve optimization problems where the solution space is too large to explore exhaustively. These algorithms start with an initial solution and iteratively make small adjustments or "moves" to improve it. The process continues until no further improvements can be found or other termination conditions are met. Unlike global optimization methods, local search algorithms focus on finding a better solution in the neighborhood of the current solution rather than exploring the solution space as a whole. \cite{gao2021local}
 
-
-        \subsubsection{Local Search Algorithms}\label{local-search-algorithms}
-
-    Local search algorithms are a class of heuristic methods used to solve optimization problems where the solution space is too large to explore exhaustively. These algorithms start with an initial solution and iteratively make small adjustments or "moves" to improve it. The process continues until no further improvements can be found or other termination conditions are met. Unlike global optimization methods, local search algorithms focus on finding a better solution in the neighborhood of the current solution rather than exploring the solution space as a whole.
-
-    The main characteristic of a local search algorithm is its focus on iterative improvement. By repeatedly making small changes to a solution and only accepting changes that improve the solution (or maintain the same level in some variations), local search can effectively refine a solution to a near-optimal state. However, a common challenge with these algorithms is their tendency to get stuck in local optima—points in the solution space where no nearby solutions are better.
+    The main characteristic of a local search algorithm is its focus on iterative improvement. By repeatedly making small changes to a solution and only accepting changes that improve the solution (or maintain the same level in some variations), local search can effectively refine a solution to a near-optimal state. However, a common challenge with these algorithms is their tendency to get stuck in local optima—points in the solution space where no nearby solutions are better. \cite{gao2021local}
 
     Local search algorithms are suitable for problems with a well-defined neighborhood structure, meaning there is a clear way to define small changes to a solution. These algorithms are often employed in areas like:
 
@@ -494,14 +483,11 @@
         \item \textbf{Hill Climbing}: This is a straightforward approach where the algorithm examines the neighboring solutions and moves to the neighbor with the highest value, repeating this process until no improvement can be made.
         \item \textbf{Tabu Search}: Enhances the basic local search by using a memory structure that records recent moves or solutions and forbids or discourages revisiting them. This helps to avoid cycles and encourages exploration of new areas of the solution space.
         \item \textbf{Variable Neighborhood Search (VNS)}: This algorithm systematically changes the neighborhood structure as it searches, helping to avoid local optima by shifting the search to different areas of the solution space.
-    \end{enumerate}
+    \end{enumerate} \cite[pp. 90--94]{toth2014vehicle}
 
+    \subsubsection{Metaheuristic Algorithms}\label{itm:metaheuristic-algorithms}
 
-
-
-        \subsubsection{Metaheuristic Algorithms}\label{itm:metaheuristic-algorithms}
-
-    Metaheuristic algorithms represent a sophisticated class of heuristic methods that are designed to solve complex optimization problems where traditional methods are inefficient or infeasible. The term "metaheuristic" combines "meta," meaning beyond or at a higher level, and "heuristic," referring to a trial-and-error method for discovering solutions. These algorithms are known for their capability to guide and improve simpler heuristics, aiming to produce solutions that are superior to those typically found by pursuing local optimality alone.
+    Metaheuristic algorithms represent a sophisticated class of heuristic methods that are designed to solve complex optimization problems where traditional methods are inefficient. The term "metaheuristic" combines "meta," meaning beyond or at a higher level, and "heuristic," referring to a trial-and-error method for discovering solutions. These algorithms are known for their capability to guide and improve simpler heuristics, aiming to produce solutions that are superior to those typically found by pursuing local optimality alone. \cite{kaveh2021}
 
     \textbf{Characteristics of Metaheuristic Algorithms:}
     \begin{itemize}
@@ -510,14 +496,15 @@
         \item \textbf{Technique Variety:} The techniques used in metaheuristics range from simple local search procedures to more complex adaptive and learning processes.
         \item \textbf{Approximation and Non-determinism:} These algorithms are approximate and generally non-deterministic, often incorporating stochastic elements that enhance solution diversity.
         \item \textbf{Problem Agnosticism:} Unlike problem-specific algorithms, metaheuristics are versatile and can be applied to a wide range of problems without significant modifications.
-    \end{itemize}
+    \end{itemize} \cite{kaveh2021}]
 
     \textbf{Functionality and Application:}
-    Metaheuristics function as master strategies that adapt and modify existing heuristic approaches by incorporating local search and randomization to tackle optimization challenges effectively. This adaptability allows them to produce excellent solutions within a reasonable time frame, even for complex issues such as NP-hard problems or scenarios with limited or imperfect information.
+    Metaheuristics function as master strategies that adapt and modify existing heuristic approaches by incorporating local search and randomization to tackle optimization challenges effectively.
+    This adaptability allows them to produce excellent solutions within a reasonable time frame, even for complex issues such as NP-hard problems or scenarios with limited or imperfect information.
+    Despite their strengths, it is important to note that metaheuristics do not guarantee the discovery of the optimal solution.
+    Their effectiveness is often evidenced through empirical results from extensive computer simulations, although theoretical insights regarding their convergence and the potential to reach global optima are also available. \cite{kaveh2021}
 
-    Despite their strengths, it is important to note that metaheuristics do not guarantee the discovery of the optimal solution. Their effectiveness is often evidenced through empirical results from extensive computer simulations, although theoretical insights regarding their convergence and the potential to reach global optima are also available. However, the field is mixed with high-quality research alongside studies that may suffer from vagueness and poor experimental design.
-
-    \textbf{Examples of Metaheuristic Algorithms:}
+    \textbf{Examples of Metaheuristic Algorithms:}~\cite{kaveh2021}
     \begin{enumerate}
         \item \textbf{Simulated Annealing:} Utilizes a cooling schedule to probabilistically accept worse solutions, facilitating escape from local optima.
         \item \textbf{Genetic Algorithms:} Mimic natural evolutionary processes such as selection, mutation, and crossover to evolve solutions over generations.
@@ -528,8 +515,7 @@
 
     \newpage
 
-
-        \subsection{Methodology for Evaluating Algorithms}\label{methodology-for-evaluating-algorithms}
+    \subsection{Methodology for Evaluating Algorithms}\label{methodology-for-evaluating-algorithms}
 
     \subsection{Introduction to Algorithm Evaluation}\label{subsec:introduction}
 
@@ -539,7 +525,7 @@
     Theoretical analysis provides insights into the computational complexity and expected behavior of algorithms under various conditions, while empirical testing offers practical performance data based on real-world or simulated instances.
 
     \paragraph{Goals of Algorithm Evaluation}
-    The primary goals of algorithm evaluation are to:
+    The primary goals of algorithm evaluation are to: \cite{staegemann2024}
     \begin{itemize}
         \item \textbf{Assess Efficiency}: Determine how efficiently an algorithm utilizes computational resources such as time and memory.
         \item \textbf{Ensure Robustness}: Evaluate how well an algorithm performs under various conditions and with different data sets.
@@ -563,11 +549,11 @@
     \paragraph{Solution Quality} Solution quality measures the overall effectiveness of the algorithm in generating feasible and cost-effective routes. This can include factors such as total distance traveled, total time taken, and the number of vehicles used. Higher solution quality reflects the algorithm’s capability to meet the objectives of the VRP efficiently.
 
 
-    These combined evaluation criteria and performance metrics provide a holistic framework for assessing VRP and CVRP algorithms. In the next subchapter, we will explore Experimental Design, which describes how to set up and conduct experiments to rigorously test and evaluate these algorithms.
+    These combined evaluation criteria and performance metrics provide a holistic framework for assessing VRP and CVRP algorithms. In the next subchapter, we will explore Experimental Design, which describes how to set up and conduct experiments to rigorously test and evaluate these algorithms. \cite{staegemann2024}
 
     \subsection{Result Analysis}\label{subsec:result-analysis}
 
-    Proper analysis and interpretation of experimental results are crucial for validating the effectiveness of algorithms, particularly for complex problems such as the CVRP. This section outlines the key components of result analysis, focusing on data visualization and statistical analysis as detailed in the Encyclopedia of Machine Learning and Data Mining by Claude Sammut and Geoffrey I. Webb.
+    Proper analysis and interpretation of experimental results are crucial for validating the effectiveness of algorithms, particularly for complex problems such as the CVRP. This section outlines the key components of result analysis, focusing on data visualization and statistical analysis.
 
     \subsubsection{Data Visualization}
 
@@ -603,7 +589,7 @@
         \item \textbf{Practical Implications}: Consider the practical implications of the results, including the algorithm's scalability, robustness, and suitability for real-world applications.
     \end{itemize}
 
-    Proper result analysis is essential for validating the effectiveness of VRP algorithms and for making informed decisions about their deployment in practical settings. By combining data visualization and statistical analysis, researchers can gain a comprehensive understanding of algorithm performance and identify areas for improvement.
+    Proper result analysis is essential for validating the effectiveness of CVRP algorithms and for making informed decisions about their deployment in practical settings. By combining data visualization and statistical analysis, researchers can gain a comprehensive understanding of algorithm performance and identify areas for improvement. \cite{staegemann2024}
 
     \subsection{Limitations and Challenges}\label{subsec:limitations-and-challenges}
     While evaluating algorithms for VRP and CVRP, several challenges and limitations may arise. These include:
@@ -613,7 +599,7 @@
         \item \textbf{Generalizability:} Results from evaluation on specific datasets may not always generalize to other datasets or real-world scenarios. It is crucial to ensure that evaluations are robust across various conditions.
         \item \textbf{Subjectivity in Metric Selection:} The choice of evaluation metrics can introduce bias. It is essential to select a comprehensive set of metrics that reflect different aspects of algorithm performance.
     \end{itemize}
-    Addressing these limitations and challenges is vital for conducting robust and reliable evaluations of VRP and CVRP algorithms.
+    Addressing these limitations and challenges is vital for conducting robust and reliable evaluations of VRP and CVRP algorithms. \cite{toth2014vehicle}
 
     \newpage
 
@@ -625,12 +611,11 @@
     The increasing complexity of logistics operations in today's globalized economy necessitates advanced optimization techniques to improve efficiency, reduce costs, and enhance service quality. CVRP and its variants have become essential tools for addressing these challenges, offering solutions that can be tailored to specific operational constraints and objectives. The application of CVRP in contemporary logistics spans several key areas:
 
     \begin{itemize}
-        \item \textbf{Warehouse Automation:} Automated systems and robots within warehouses leverage CVRP to optimize internal transport routes, thereby increasing the efficiency of picking, packing, and transporting goods within the facility.
-        \item \textbf{Last-Mile Delivery:} CVRP is vital for planning efficient routes for last-mile delivery services, which is crucial for e-commerce and retail logistics. Optimizing these routes ensures timely deliveries and reduces operational costs.
-        \item \textbf{Cold Chain Logistics:} Maintaining the integrity of perishable goods requires precise route planning to minimize transit times and ensure goods are delivered within safe temperature ranges.
-        \item \textbf{Urban Freight Transport:} With the rise of smart cities, CVRP is employed to design sustainable urban freight systems that reduce congestion, lower emissions, and improve overall urban logistics efficiency.
-        \item \textbf{Fleet Management:} In fleet management, CVRP helps in scheduling and routing vehicles in a way that maximizes fleet utilization and minimizes travel distances, leading to cost savings and enhanced productivity.
-        \item \textbf{Package Delivery:} CVRP is extensively used in the optimization of package delivery routes, ensuring that deliveries are made efficiently while minimizing costs. By providing solutions that can adapt to varying delivery conditions, CVRP helps address the complex routing problems encountered in real-world logistics scenarios.
+        \item \textbf{Warehouse Automation:} Automated systems and robots within warehouses leverage CVRP to optimize internal transport routes, thereby increasing the efficiency of picking, packing, and transporting goods within the facility. \cite{toth2014vehicle}
+        \item \textbf{Last-Mile Delivery:} CVRP is vital for planning efficient routes for last-mile delivery services, which is crucial for e-commerce and retail logistics. Optimizing these routes ensures timely deliveries and reduces operational costs. \cite{toth2014vehicle}
+        \item \textbf{Cold Chain Logistics:} Maintaining the integrity of perishable goods requires precise route planning to minimize transit times and ensure goods are delivered within safe temperature ranges. \cite{wang2017optimization}
+        \item \textbf{Urban Freight Transport:} With the rise of smart cities, CVRP is employed to design sustainable urban freight systems that reduce congestion, lower emissions, and improve overall urban logistics efficiency. \cite{toth2014vehicle}
+        \item \textbf{Package Delivery:} CVRP is extensively used in the optimization of package delivery routes, ensuring that deliveries are made efficiently while minimizing costs. By providing solutions that can adapt to varying delivery conditions, CVRP helps address the complex routing problems encountered in real-world logistics scenarios. \cite{toth2014vehicle}
     \end{itemize}
 
     This chapter explores the diverse applications of CVRP in contemporary logistics, highlighting how advanced optimization techniques are integrated into various logistical operations to drive efficiency and innovation. Each subsequent section delves into specific areas where CVRP is applied, demonstrating its relevance and impact in the modern logistics landscape.
@@ -640,10 +625,7 @@
     Robotic systems and Warehouse Management Systems (WMS) can leverage route optimization, a fundamental aspect of the Capacitated Vehicle Routing Problem (CVRP). This optimization is crucial for enhancing the efficiency and productivity of warehouse operations.
 
     \paragraph{Automated Guided Vehicles (AGVs)}
-    AGVs can be programmed to optimize routes for efficient picking and transportation of goods within a warehouse. By minimizing the distance and time required to complete tasks within the vehicles' capacity constraints, AGVs improve overall operational efficiency. These vehicles use advanced algorithms to determine the shortest paths, thereby reducing travel time and energy consumption .
-
-    \paragraph{Warehouse Management Systems (WMS)}
-    WMS utilize route optimization algorithms to streamline order picking processes. By determining the most efficient paths for workers or robots to collect items, these systems significantly reduce the time required for order fulfillment. This optimization enhances productivity and reduces labor costs. Additionally, WMS can dynamically adjust routes based on real-time data, ensuring continuous efficiency even as conditions within the warehouse change \cite{wms_optimization}.
+    AGVs can be programmed to optimize routes for efficient picking and transportation of goods within a warehouse. By minimizing the distance and time required to complete tasks within the vehicles' capacity constraints, AGVs improve overall operational efficiency. These vehicles use advanced algorithms to determine the shortest paths, thereby reducing travel time and energy consumption . \cite{toth2014vehicle}
 
     \paragraph{Robotic Picking Systems}
     These systems employ CVRP-based algorithms to determine the most efficient routes for robots to pick items from shelves and deliver them to packing stations. By optimizing the picking process, these systems ensure high-speed and accurate order fulfillment. They can adapt to changes in inventory locations and order priorities, maintaining efficiency in a dynamic warehouse environment .
@@ -651,30 +633,16 @@
     \paragraph{Inventory Management}
     CVRP-based optimization also benefits inventory management by optimizing the movement of inventory within the warehouse. This includes replenishing stock in picking areas, moving items to different storage locations, and handling returns, all while minimizing travel distance and time. Effective inventory movement reduces bottlenecks and enhances the overall flow of goods .
 
-    \paragraph{Fleet Management}
-    In warehouses with multiple AGVs or robots, CVRP is used to coordinate the movements of these vehicles. By avoiding congestion and ensuring each vehicle operates at maximum efficiency, CVRP-based fleet management systems improve throughput and reduce operational delays .
-
     \subsection*{Advanced Route Optimization}
 
     The Capacitated Vehicle Routing Problem (CVRP) is directly applied in route planning, which is crucial for optimizing delivery and transportation operations:
 
     \begin{itemize}
-        \item \textbf{Route Planning Algorithms:} Algorithms such as genetic algorithms, Ant Colony Optimization (ACO), and hybrid methods are often studied and applied to solve CVRP, ensuring that vehicles deliver goods along the most efficient routes. These algorithms help in finding near-optimal solutions by simulating natural processes or combining various heuristic methods to improve performance.
+        \item \textbf{Route Planning Algorithms:} Metaheuristic or heuristic algorithms ensure that vehicles deliver goods along the most efficient routes. These algorithms help in finding near-optimal solutions by simulating natural processes or combining various heuristic methods to improve performance.
         \item \textbf{Dynamic Route Planning:} Dynamic route planning adapts CVRP to real-time conditions, such as traffic congestion and changes in orders, allowing for quick recalculations of optimal routes. This is essential for maintaining efficiency and reliability in unpredictable environments, enabling logistics providers to respond promptly to disruptions and maintain high service levels.
     \end{itemize}
 
-    CVRP's role in route optimization extends beyond theoretical research; it encompasses practical implementations that significantly enhance the efficiency and effectiveness of logistics operations. By leveraging advanced algorithms and real-time data, businesses can achieve better resource utilization, reduced operational costs, and improved customer satisfaction.
-
-    \subsection{IoT Technologies in Logistics}\label{sec:iot-technologies-in-logistics}
-
-    Real-time shipment monitoring and predictive analytics in IoT can utilize data from CVRP to improve route efficiency:
-
-    \begin{itemize}
-        \item \textbf{RFID and GPS Tracking:} RFID and GPS tracking enable real-time monitoring of vehicles and shipments, providing the data necessary for dynamic and adaptive CVRP solutions. This technology ensures that logistics providers can react promptly to any changes in the environment, such as traffic conditions or delivery requirements, thus optimizing routes on-the-fly.
-        \item \textbf{Predictive Analytics:} Predictive analytics can forecast demand patterns and suggest optimal warehouse inventories and routes, aiding in decision-making and strategic planning. By analyzing historical data and current trends, predictive models can provide insights into future logistics needs, allowing for proactive adjustments to routes and inventory levels.
-    \end{itemize}
-
-    These advancements in IoT represent significant strides towards more efficient and sustainable logistics operations. By leveraging CVRP in conjunction with these innovations, logistics providers can achieve unprecedented levels of efficiency, reliability, and customer satisfaction.
+    CVRP's role in route optimization extends beyond theoretical research, it has practical implementations that significantly enhance the efficiency and effectiveness of logistics operations. By using advanced algorithms and real-time data, businesses can achieve better resource utilization, reduced operational costs, and improved customer satisfaction.
 
     \subsection{Unmanned Technologies and Autonomous Vehicles}\label{sec:unmanned-technologies-and-autonomous-vehicles}
 
@@ -939,7 +907,7 @@
     Smaller tests with different parameter values were also conducted to explore a broader range of possibilities. This manual tweaking is necessary to tailor the search to the problem at hand, ensuring the best performance of the Genetic Algorithm.
 
 
-    Here, we present some important results and convergence plots, while additional detailed plots are included in Appendix 1. This comprehensive analysis helps identify the best GA configurations, improving the algorithm's efficiency and effectiveness in solving complex optimization problems.
+    Here, we present some important results and convergence plots, while additional detailed plots are included in Appendix 2. This comprehensive analysis helps identify the best GA configurations, improving the algorithm's efficiency and effectiveness in solving complex optimization problems.
 
     \subsection{Results and Analysis}
 
@@ -1269,6 +1237,8 @@
 
     Determining the optimal parameters for Tabu Search involved extensive testing. Various combinations of these values were explored to understand their impact on the algorithm's performance. This experimentation was important to fine-tune the Tabu Search algorithm and ensure it operates effectively for CVRP.
 
+    \subsection{Results and Analysis}
+    Below are the results from the parameter testing of the Tabu Search:
 
     \begin{figure}[H]
         \centering
@@ -1579,9 +1549,8 @@
 
     Initial testing on a smaller dataset was done to determine the best settings for Simulated Annealing by exploring various parameter combinations.
 
-
-    Here, we present some important results and convergence plots, while additional detailed plots are included in Appendix 3.
-    This comprehensive analysis helps identify the best SA configurations, improving the algorithm’s efficiency and effectiveness in solving complex optimization problems.
+    \subsection{Results and Analysis}
+    Below are the results from the parameter testing of the Simulated Annealing:
 
     \begin{figure}[H]
         \centering
@@ -2511,23 +2480,17 @@
 
 
 
-%    \printbibliography
+    \bibliography{references}
     \newpage
-    \begin{quote}
-        V~seznamu zdrojů musí být uvedeny všechny v~závěrečné práci citované
-        zdroje. Zároveň nesmí seznam obsahovat zdroje, které nejsou v~závěrečné
-        práci použity.
 
-        Používáme citační normu ČNS ISO 690. Doporučujeme pro tvorbu citací
-        některý z~citačních nástrojů, které jsou v~základní verzi zpravidla
-        zdarma dostupné.
-    \end{quote}
-
-    \newpage
     \appendix
 
 
-    \section{Appendix 1: Genetic Algorithm Convergence Plots}
+    \section{Appendix 1: Supplementary Materials}
+    All supplementary materials, including the code and tests used in this thesis, are available on GitHub at \url{https://github.com/jindrichjehlicka/cvrp}.
+
+
+    \section{Appendix 2: Genetic Algorithm Convergence Plots}
 
     This appendix contains the convergence plots for the Genetic Algorithm with various parameter settings.
 

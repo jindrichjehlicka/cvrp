@@ -1,0 +1,96 @@
+\begin{thebibliography}{10}
+
+\bibitem{dantzig1959truck}
+G.B. Dantzig and J.H. Ramser.
+\newblock The truck dispatching problem.
+\newblock {\em Management Science}, 6(1):80--91, 1959.
+
+\bibitem{toth2014vehicle}
+Paolo Toth and Daniele Vigo.
+\newblock {\em Vehicle Routing: Problems, Methods, and Applications}.
+\newblock SIAM, Philadelphia, second edition edition, 2014.
+
+\bibitem{konstantakopoulos2022vehicle}
+G.D. Konstantakopoulos, S.P. Gayialis, and E.P. Kechagias.
+\newblock Vehicle routing problem and related algorithms for logistics
+  distribution: a literature review and classification.
+\newblock {\em Operational Research: An International Journal}, 22:2033--2062,
+  2022.
+
+\bibitem{vidal2013}
+Thibaut Vidal, Teodor~Gabriel Crainic, Michel Gendreau, and Christian Prins.
+\newblock A hybrid genetic algorithm with adaptive diversity management for a
+  large class of vehicle routing problems with time-windows.
+\newblock {\em Computers \& Operations Research}, 40:475--489, jan 2013.
+
+\bibitem{rajabi2021reliable}
+M.~Rajabi-Bahaabadi, A.~Shariat-Mohaymany, M.~Babaei, et~al.
+\newblock Reliable vehicle routing problem in stochastic networks with
+  correlated travel times.
+\newblock {\em Operational Research: An International Journal}, 21:299--330,
+  2021.
+
+\bibitem{asghari2021}
+S.~Mohammad~J. Asghari, Mohammad; Mirzapour Al-e-hashem.
+\newblock Green vehicle routing problem: A state-of-the-art review.
+\newblock {\em International Journal of Production Economics 2021-jan vol.
+  231}, 231, jan 2021.
+
+\bibitem{sharma2024metaheuristic}
+P.~Sharma and S.~Raju.
+\newblock Metaheuristic optimization algorithms: a comprehensive overview and
+  classification of benchmark test functions.
+\newblock {\em Soft Computing}, 28:3123--3186, 2024.
+
+\bibitem{izadkhah2022greedy}
+Habib Izadkhah.
+\newblock Greedy algorithms.
+\newblock 2022.
+
+\bibitem{greedyalgorithmexamples}
+Algorithm~Examples Blog.
+\newblock 5 real-world applications of greedy algorithms.
+
+\bibitem{brilliant_dijkstra}
+{Brilliant.org}.
+\newblock Dijkstra's shortest path algorithm.
+\newblock \url{https://brilliant.org/wiki/dijkstras-short-path-finder/}.
+\newblock July 9, 2024.
+
+\bibitem{walkccc2024}
+WalkCCC.
+\newblock Huffman coding.
+\newblock Accessed: 2024-07-09.
+
+\bibitem{richar2012}
+Richard~J. Samworth.
+\newblock Optimal weighted nearest neighbour classifiers.
+\newblock {\em The Annals of Statistics 2012-oct vol. 40 iss. 5}, 40, oct 2012.
+
+\bibitem{gao2021local}
+Alice Gao.
+\newblock Local search, 2021.
+\newblock Lecture notes, version 1.0, November 2, 2021.
+
+\bibitem{kaveh2021}
+Ali~Kaveh (auth.).
+\newblock {\em ADVANCES IN METAHEURISTIC ALGORITHMS FOR OPTIMAL DESIGN OF
+  STRUCTURES}.
+\newblock Springer, 3rd ed. edition, 2021.
+
+\bibitem{staegemann2024}
+D.~Staegemann, C.~Daase, and K.~Turowski.
+\newblock How to test the machine learning algorithms that are common in big
+  data applications.
+\newblock In XS. Yang, R.S. Sherratt, N.~Dey, and A.~Joshi, editors, {\em
+  Proceedings of Eighth International Congress on Information and Communication
+  Technology. ICICT 2023. Lecture Notes in Networks and Systems, vol 696}.
+  Springer, Singapore, 2024.
+
+\bibitem{wang2017optimization}
+Songyi Wang, Fengming Tao, Yuhe Shi, and Haolin Wen.
+\newblock Optimization of vehicle routing problem with time windows for cold
+  chain logistics based on carbon tax.
+\newblock {\em Sustainability}, 9(5):694, 2017.
+
+\end{thebibliography}
