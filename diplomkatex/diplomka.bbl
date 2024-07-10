@@ -93,4 +93,33 @@ Songyi Wang, Fengming Tao, Yuhe Shi, and Haolin Wen.
   chain logistics based on carbon tax.
 \newblock {\em Sustainability}, 9(5):694, 2017.
 
+\bibitem{Ochelska2021}
+Joanna Ochelska-Mierzejewska, Aneta Poniszewska-Marańda, and Witold Marańda.
+\newblock Selected genetic algorithms for vehicle routing problem solving.
+\newblock {\em Electronics}, 10(24):3147, 2021.
+\newblock Submission received: 15 November 2021 / Revised: 9 December 2021 /
+  Accepted: 13 December 2021 / Published: 17 December 2021.
+
+\bibitem{Patel2024}
+Rakesh Patel.
+\newblock Dynamic route optimization.
+\newblock \url{https://www.upperinc.com/blog/dynamic-route-optimization/},
+  2024.
+\newblock Last updated: February 21, 2024.
+
+\bibitem{murray2015}
+Amanda~G. Murray, Chase C.;~Chu.
+\newblock The flying sidekick traveling salesman problem: Optimization of
+  drone-assisted parcel delivery.
+\newblock {\em Transportation Research Part C: Emerging Technologies 2015-may
+  vol. 54}, 54, may 2015.
+
+\bibitem{Puri2023}
+Komal Puri.
+\newblock Vehicle routing problem: How to solve it.
+\newblock
+  \url{https://fareye.com/resources/blogs/vehicle-routing-problem-how-to-solve-it},
+  2023.
+\newblock Accessed: July 13, 2023.
+
 \end{thebibliography}
