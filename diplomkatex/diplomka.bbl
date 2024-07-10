@@ -78,6 +78,18 @@ Ali~Kaveh (auth.).
   STRUCTURES}.
 \newblock Springer, 3rd ed. edition, 2021.
 
+\bibitem{Dorigo2006}
+Marco Dorigo, Mauro Birattari, and Thomas Stutzle.
+\newblock Ant colony optimization.
+\newblock {\em IEEE Computational Intelligence Magazine}, 1(4):28--39, November
+  2006.
+
+\bibitem{Kennedy1995}
+J.~Kennedy and R.~Eberhart.
+\newblock Particle swarm optimization.
+\newblock In {\em Proceedings of ICNN'95 - International Conference on Neural
+  Networks}, volume~4, pages 1942--1948, 1995.
+
 \bibitem{staegemann2024}
 D.~Staegemann, C.~Daase, and K.~Turowski.
 \newblock How to test the machine learning algorithms that are common in big
@@ -86,6 +98,12 @@ D.~Staegemann, C.~Daase, and K.~Turowski.
   Proceedings of Eighth International Congress on Information and Communication
   Technology. ICICT 2023. Lecture Notes in Networks and Systems, vol 696}.
   Springer, Singapore, 2024.
+
+\bibitem{Halim2021}
+A.H. Halim, I.~Ismail, and S.~Das.
+\newblock Performance assessment of the metaheuristic optimization algorithms:
+  an exhaustive review.
+\newblock {\em Artificial Intelligence Review}, 54, 2021.
 
 \bibitem{wang2017optimization}
 Songyi Wang, Fengming Tao, Yuhe Shi, and Haolin Wen.
@@ -122,16 +140,11 @@ Komal Puri.
   2023.
 \newblock Accessed: July 13, 2023.
 
-\bibitem{Kennedy1995}
-J.~Kennedy and R.~Eberhart.
-\newblock Particle swarm optimization.
-\newblock In {\em Proceedings of ICNN'95 - International Conference on Neural
-  Networks}, volume~4, pages 1942--1948, 1995.
-
-\bibitem{Dorigo2006}
-Marco Dorigo, Mauro Birattari, and Thomas Stutzle.
-\newblock Ant colony optimization.
-\newblock {\em IEEE Computational Intelligence Magazine}, 1(4):28--39, November
-  2006.
+\bibitem{Peng2020}
+Bo~Peng, Jiahai Wang, and Zizhen Zhang.
+\newblock A deep reinforcement learning algorithm using dynamic attention model
+  for vehicle routing problems.
+\newblock {\em arXiv preprint arXiv:2002.03282}, Feb 2020.
+\newblock Submitted on 9 Feb 2020.
 
 \end{thebibliography}
