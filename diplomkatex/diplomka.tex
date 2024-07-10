@@ -378,7 +378,7 @@
 
     \subsection{Overview of Solution Approaches}\label{subsec:overview-of-solution-approaches}
 
-    Many algorithms developed for the general VRP can also be applied to the CVRP, often with modifications to account for vehicle capacity constraints. These algorithms need to be adapted to ensure that solutions remain feasible concerning the capacity limits of the vehicles. For instance, the Clarke-Wright Savings Algorithm, originally designed for the VRP, can be adjusted to respect vehicle capacities by carefully merging routes. Similarly, Genetic Algorithms (GA) evolve solutions over generations and can be tailored to handle capacity constraints effectively through specific crossover and mutation operators. Ant Colony Optimization (ACO) mimics the foraging behavior of ants and can be adapted to consider both distance and load carried to ensure capacity constraints are met. Simulated Annealing (SA), a probabilistic technique, allows occasional worse solutions to escape local optima and can be modified to include capacity constraints in the cooling schedule.
+    Many algorithms developed for the general VRP can also be applied to the CVRP, often with modifications to account for vehicle capacity constraints. These algorithms need to be adapted to ensure that solutions remain feasible concerning the capacity limits of the vehicles.
 
     These methods illustrate how optimization techniques for the general VRP can be adapted to address the specific challenges of the CVRP. By focusing on these adapted methods, the thesis will explore how advanced optimization techniques can effectively handle the unique challenges posed by CVRP, aiming to find efficient and practical solutions for real-world logistics problems.
 
@@ -391,9 +391,9 @@
 
     Characteristics of Heuristic Algorithms:
     \begin{enumerate}
-        \item \textbf{Approximation}: Heuristics do not guarantee that the solutions they provide will be optimal. Instead, they aim to deliver "good enough" solutions that are acceptable within practical constraints, such as limited processing time or resources.
-        \item \textbf{Efficiency}: By not exhaustively searching every possible solution, heuristic algorithms can provide solutions much faster than their exact counterparts. This makes them especially valuable in dealing with large datasets or complex problem spaces where an exact approach would be computationally infeasible.
-        \item \textbf{Adaptability}: Heuristic algorithms are often tailored to the specific characteristics of a problem, leveraging problem-specific insights and techniques to guide the search process towards more promising areas of the solution space.
+        \item \textbf{Approximation}: Heuristics do not guarantee that the solutions they provide will be optimal. Instead, they aim to deliver "good enough" solutions that are acceptable within practical constraints, such as limited processing time or resources. \cite{sharma2024metaheuristic}
+        \item \textbf{Efficiency}: By not exhaustively searching every possible solution, heuristic algorithms can provide solutions much faster than their exact counterparts. This makes them especially valuable in dealing with large datasets or complex problem spaces where an exact approach would be computationally infeasible. \cite{sharma2024metaheuristic}
+        \item \textbf{Adaptability}: Heuristic algorithms are often tailored to the specific characteristics of a problem, leveraging problem-specific insights and techniques to guide the search process towards more promising areas of the solution space. \cite{sharma2024metaheuristic}
     \end{enumerate}
 
     \subsection{Common Types of Heuristic Algorithms}\label{itm:common-types-of-heuristic-algorithms}
@@ -452,7 +452,7 @@
 
     \paragraph{Mathematical Formulation for Vehicle Routing Problems (VRP)}
 
-    In the context of VRPs, greedy algorithms can be used to construct initial solutions that can be further refined using more sophisticated methods. For instance, the Clarke-Wright Savings Algorithm is a greedy heuristic commonly used for VRPs. It starts by calculating the savings for combining routes and then iteratively merges routes with the highest savings.
+    In the context of VRPs, greedy algorithms can be used to construct initial solutions that can be further refined using more sophisticated methods.
 
     Let \(s_{ij}\) denote the savings of combining routes \(i\) and \(j\), calculated as:
     \[
@@ -668,7 +668,6 @@
 
     The deployment of heuristic optimization algorithms in logistics requires significant investment in technology, infrastructure, and human resources. Implementing these algorithms often involves acquiring advanced computational hardware, developing customized software solutions, and training personnel to operate and maintain the systems. The initial setup costs can be substantial, particularly for small and medium-sized enterprises (SMEs) with limited budgets. \cite{Puri2023}
 
-
     \subsubsection{Future Trends}\label{subsec:future-trends}
 
     As the field of logistics continues to evolve, several future trends are emerging that promise to address the current challenges faced by heuristic optimization algorithms. These trends involve advancements in technology, integration of new methodologies, and the development of innovative solutions that enhance the efficiency and adaptability of logistics operations.
@@ -687,7 +686,7 @@
 
     \textbf{Real-Time Data Integration and Analytics}
 
-    The increasing availability of real-time data from IoT devices, GPS systems, and other sources offers new opportunities for enhancing heuristic optimization in logistics. Real-time data integration enables dynamic optimization, where algorithms continuously update and adapt to changing conditions, such as traffic patterns, weather conditions, and customer demands. Advanced analytics tools can process this data to provide actionable insights, allowing logistic managers to make informed decisions quickly. The ability to integrate and analyze real-time data will be crucial for developing adaptive  logistic systems. \cite{toth2014vehicle}
+    The increasing availability of real-time data from IoT devices, GPS systems, and other sources offers new opportunities for enhancing heuristic optimization in logistics. Real-time data integration enables dynamic optimization, where algorithms continuously update and adapt to changing conditions, such as traffic patterns, weather conditions, and customer demands. Advanced analytics tools can process this data to provide actionable insights, allowing logistic managers to make informed decisions quickly. The ability to integrate and analyze real-time data will be crucial for developing adaptive logistic systems. \cite{toth2014vehicle}
 
 
     By embracing these future trends, the logistics industry can overcome the current challenges and achieve significant advancements in efficiency, adaptability, and sustainability. The integration of AI, development of hybrid algorithms, advancements in quantum computing, real-time data integration, ethical AI implementation, human-machine collaboration, sustainability, and simulation techniques will collectively transform the landscape of logistic optimization, paving the way for more innovative and effective solutions.
@@ -708,7 +707,6 @@
     Each section will present the parameters tested, the experimental setup, the results obtained, and a thorough analysis of these results. The primary goal is to provide a clear understanding of how different parameter settings impact the performance of each algorithm, helping future applications and research in the field of optimization.
 
     \noindent Below is the description for the methodology used for the parameter testing of these algorithms.
-
 
     \subsection{Dataset Description}
 
@@ -763,6 +761,7 @@
     This dataset is a strong base for testing and proving how well heuristic optimization methods work for CVRP. Its clear structure and high quality make it a valuable resource for research and practical uses in logistics and transportation.
 
     \subsection{Testing setup}
+
     \subsubsection{Experimental Setup}
 
     The experimental setup for this study involves systematically testing various parameter settings for the algorithms under consideration: Simulated Annealing (SA), Genetic Algorithm (GA), Tabu Search (TS), and a Hybrid Genetic Algorithm (HGA). The parameter selection process utilizes a grid search method, which exhaustively evaluates a predefined set of parameter combinations to identify the optimal configurations.
@@ -847,7 +846,6 @@
 
     \newpage
 
-
     \subsection{Genetic Algorithm Parameter Testing}
     The Genetic Algorithm (GA) parameter testing section focuses on a systematic evaluation of different configurations of the GA to find the most effective parameter settings. This part of the study aims to understand the impact of various combinations of population size, number of generations, and mutation rates on the GA's performance and convergence behavior.
 
@@ -865,7 +863,7 @@
     Smaller tests with different parameter values were also conducted to explore a broader range of possibilities. This manual tweaking is necessary to tailor the search to the problem at hand, ensuring the best performance of the Genetic Algorithm.
 
 
-    Here, we present some important results and convergence plots, while additional detailed plots are included in Appendix 2. This comprehensive analysis helps identify the best GA configurations, improving the algorithm's efficiency and effectiveness in solving complex optimization problems.
+    Here, we present some important results and convergence plots, while additional detailed plots are included in Appendix B. This comprehensive analysis helps identify the best GA configurations, improving the algorithm's efficiency and effectiveness in solving complex optimization problems.
 
     \subsubsection{Convergence Plots and Analysis}
 
@@ -1177,7 +1175,6 @@
 
     \newpage
 
-
     \subsection{Tabu Search Parameter Testing}
 
     The Tabu Search (TS) parameter testing section focuses on a systematic evaluation of different configurations of the TS algorithm to find the most effective parameter settings. This part of the study aims to understand the impact of various combinations of tabu list size, number of iterations, and aspiration criteria on the TS's performance and convergence behavior.
@@ -1196,7 +1193,7 @@
     Determining the optimal parameters for Tabu Search involved extensive testing. Various combinations of these values were explored to understand their impact on the algorithm's performance. This experimentation was important to fine-tune the Tabu Search algorithm and ensure it operates effectively for CVRP.
 
     \subsubsection{Convergence Plots}
-    Below are the results from the parameter testing of the Tabu Search:
+    Below are the results from the parameter testing of the Tabu Search, rest of the results can be found in the appendix D.
 
     \begin{figure}[H]
         \centering
@@ -1487,7 +1484,6 @@
 
     \newpage
 
-
     \subsection{Simulated Annealing Parameter Testing}
 
     The Simulated Annealing (SA) parameter testing section focuses on a systematic evaluation of different configurations of the SA algorithm to find the most effective parameter settings.
@@ -1507,7 +1503,7 @@
     Initial testing on a smaller dataset was done to determine the best settings for Simulated Annealing by exploring various parameter combinations.
 
     \subsubsection{Convergence Plots}
-    Below are the results from the parameter testing of the Simulated Annealing:
+    Below are the results from the parameter testing of the Simulated Annealing, rest of the plots can be found in Appendix E.
 
     \begin{figure}[H]
         \centering
@@ -1788,7 +1784,7 @@
 
     Secondly, the initial temperature was found to have no significant impact on the SA algorithm's performance. The ANOVA results showed that changes in initial temperature did not result in statistically significant differences in solution quality, indicating that this parameter is less critical within the tested range.
 
-     Also the cooling rate was identified as a critical parameter affecting the SA’s performance. Higher cooling rates generally resulted in improved solution quality by enabling a more thorough exploration of the solution space. However, this improvement came with increased computational time and variability, highlighting the need to balance the cooling rate with computational efficiency.
+    Also the cooling rate was identified as a critical parameter affecting the SA’s performance. Higher cooling rates generally resulted in improved solution quality by enabling a more thorough exploration of the solution space. However, this improvement came with increased computational time and variability, highlighting the need to balance the cooling rate with computational efficiency.
 
     Our ANOVA tests confirmed the significance of the cooling rate in influencing the SA’s performance. These findings underscore the importance of careful parameter tuning to achieve optimal performance in simulated annealing algorithms.
 
@@ -1796,10 +1792,9 @@
 
     \newpage
 
-
     \subsection{Genetic Algorithm and Simulated Annealing Hybrid Parameter Testing}\label{subsec:genetic-algorithm-and-simulated-annealing-hybrid-parameter-testing}
 
-    The GA-SA hybrid algorithm combines the advantages of Genetic Algorithms and Simulated Annealing to solve complex optimization problems effectively. This approach uses GA's ability to explore many possible solutions and SA's skill in fine-tuning a good solution to make it even better.
+    The GA-SA hybrid algorithm combines the advantages of Genetic Algorithms and Simulated Annealing to solve complex optimization problems effectively. This approach uses GA's ability to explore many possible solutions and SA's skill in fine-tuning a good solution to make it even better. \cite[p. 94--96]{toth2014vehicle}]
 
     The algorithm starts by creating an initial population of solutions. Each solution is a sequence of nodes that represents a route. The distances between nodes are calculated using the Euclidean distance, forming a distance matrix used to evaluate the cost of each route.
 
@@ -1826,7 +1821,7 @@
 
     Finding the right parameters for this hybrid approach involved extensive testing. Alongside these primary parameters, we experimented with various other values to cover a broader spectrum. This process was necessary to ensure that the GA-SA Hybrid Algorithm was optimized for the specific challenges of the problem space.
 
-    Here, we present some important results and convergence plots, while additional detailed plots are included in Appendix 3. This analysis helps identify the best GA-SA Hybrid configurations, improving the algorithm's efficiency and effectiveness in solving CVRP.
+    Here, we present some important results and convergence plots, while additional detailed plots are included in Appendix C. This analysis helps identify the best GA-SA Hybrid configurations, improving the algorithm's efficiency and effectiveness in solving CVRP.
 
     \subsubsection{Convergence Plots}
     Below are the results from the parameter testing of the Genetic Algorithm and Simulated Annealing Hybrid algorithm:
@@ -2277,7 +2272,7 @@
 
     \subsection{Statistical Validation of Algorithm Performance}
 
-    In order to provide a rigorous comparison of the algorithms beyond descriptive statistics, we performed the Wilcoxon Signed-Rank Test. This non-parametric test is used to compare two related samples to determine if their population mean ranks differ, and it is particularly useful for paired comparisons when the data does not necessarily follow a normal distribution.
+    In order to provide a comparison of the algorithms beyond descriptive statistics, we performed the Wilcoxon Signed-Rank Test. This non-parametric test is used to compare two related samples to determine if their population mean ranks differ, and it is particularly useful for data that does not follow a normal distribution.
 
     \paragraph{Wilcoxon Signed-Rank Test Results:}
     The Wilcoxon Signed-Rank Test was conducted for all pairwise comparisons of the algorithms based on their cost differences. The results are summarized in Table \ref{tab:wilcoxon_results}.
@@ -2398,7 +2393,7 @@
     \paragraph{Best Performing Algorithms}
     Based on the extensive tests conducted, the hybrid Genetic Algorithm with Simulated Annealing (GA-SA) emerged as the most effective algorithm for solving the Capacitated Vehicle Routing Problem (CVRP). GA-SA demonstrated the best average cost performance, although with high variability in both cost and time. The Genetic Algorithm (GA) also performed well on average but exhibited significant variability. Simulated Annealing (SA) and Tabu Search (TS) showed higher cost differences, indicating less efficient solutions. Dijkstra and Nearest Neighbor algorithms provided moderate performance with lower variability, making them more consistent but less optimal in terms of cost. Overall, GA-SA provides the best balance between achieving near-optimal solutions and maintaining reasonable computation times. Nearest Neighbor and Dijkstra are also strong fairly strong due to their consistent and efficient performance, though they do not achieve the same level of cost efficiency as GA-SA. The Genetic Algorithm performed well on average but with significant variability. Simulated Annealing and Tabu Search, while efficient in terms of runtime, generally exhibited higher cost differences, indicating less effective solutions.
 
-    Our comprehensive parameter testing of the GA-SA Hybrid algorithm revealed several insights into the optimization of its performance. The population size, initial temperature, and cooling rate were identified as the most critical parameters. Specifically, a population size of 100, an initial temperature of 1000, and a cooling rate of 0.85 were found to yield good results, providing a robust balance between exploration and exploitation. Despite these findings, the GA-SA Hybrid algorithm exhibited significant variability and occasional suboptimal convergence, suggesting that further research and optimization of parameter settings are necessary.
+    Our parameter testing of the GA-SA Hybrid algorithm revealed several insights into the optimization of its performance. The population size, initial temperature, and cooling rate were identified as the most critical parameters. Specifically, a population size of 100, an initial temperature of 1000, and a cooling rate of 0.85 were found to yield good results, providing a robust balance between exploration and exploitation. Despite these findings, the GA-SA Hybrid algorithm exhibited significant variability and occasional suboptimal convergence, suggesting that further research and optimization of parameter settings are necessary.
 
     Despite the variability noted during parameter testing, could be attributed to its ability to effectively combine the strengths of both GA and SA. The GA component's robust exploration capabilities, coupled with the SA component's proficiency in escaping local optima, likely contributed to its overall superior performance. However, the complexity and variability in the GA-SA's performance highlight the need for careful parameter tuning and possibly addressing underlying implementation issues.
 
@@ -2412,7 +2407,7 @@
     \subsection{Role of AI in Optimization}
     The algorithms explored in this study can be viewed as early forms of artificial intelligence (AI) due to their ability to adapt and optimize solutions iteratively. AI techniques have the potential to help with optimization by providing more intelligent and autonomous methods for solving complex problems. The integration of machine learning with traditional optimization algorithms can further enhance their performance by learning from past experiences and dynamically adjusting parameters.
 
-    AI algorithms such as Neural Networks, Reinforcement Learning, and Deep Learning have shown great potential in solving optimization problems. These algorithms can learn complex patterns and make decisions based on historical data, making them highly effective for dynamic and large-scale optimization tasks. Incorporating such AI techniques into traditional optimization methods could lead to significant improvements in efficiency and solution quality.
+    AI algorithms such as Neural Networks, Reinforcement Learning, and Deep Learning have shown great potential in solving optimization problems. These algorithms can learn complex patterns and make decisions based on historical data, making them highly effective for dynamic and large-scale optimization tasks. Incorporating such AI techniques into traditional optimization methods could lead to significant improvements in efficiency and solution quality. \cite{Peng2020}
 
     \subsection{Recommendations for Future Work}
     While this study provided valuable insights into the performance of different optimization algorithms, several areas warrant further investigation:
@@ -2421,16 +2416,10 @@
     Future studies should leverage high-performance computing servers to test algorithms on larger datasets and more complex problem instances. This would provide a more comprehensive understanding of each algorithm's scalability and robustness. Testing on servers would also enable the evaluation of algorithms under more realistic and demanding conditions, providing insights into their performance in practical applications.
 
     \paragraph{Incorporation of Newer Algorithms}
-    The field of optimization is continually evolving, with new algorithms being developed regularly. Incorporating newer algorithms, such as Particle Swarm Optimization (PSO) and Ant Colony Optimization (ACO), could provide fresh perspectives and potentially superior performance. For instance, PSO, inspired by the social behavior of birds, has shown promising results in various optimization tasks. Similarly, ACO, inspired by the foraging behavior of ants, has proven effective in solving complex routing problems.
-
-    \paragraph{Dynamic Parameter Tuning}
-    Exploring adaptive or dynamic parameter tuning methods, where the algorithm adjusts its parameters in real-time based on performance feedback, could enhance the robustness and efficiency of optimization algorithms. Dynamic tuning would allow algorithms to adapt to changing conditions and maintain optimal performance without manual intervention. This approach could significantly reduce the time and effort required for parameter optimization.
+    The field of optimization is continually evolving, with new algorithms being developed regularly. Incorporating newer algorithms, such as Particle Swarm Optimization (PSO) \cite{Kennedy1995} and Ant Colony Optimization (ACO) \cite{Dorigo2006}, could provide fresh perspectives and potentially superior performance. For instance, PSO, inspired by the social behavior of birds, has shown promising results in various optimization tasks. Similarly, ACO, inspired by the foraging behavior of ants, has proven effective in solving complex routing problems.
 
     \paragraph{Hybrid Approaches}
-    Further research into hybrid approaches, combining multiple optimization techniques, could yield powerful algorithms that capitalize on the strengths of individual methods while mitigating their weaknesses. Hybrid algorithms can leverage the exploration capabilities of one technique and the exploitation capabilities of another, leading to more balanced and effective optimization. For example, combining the global search capabilities of Genetic Algorithms with the local search capabilities of Tabu Search could result in a highly efficient optimization method.
-
-    \paragraph{Integration with AI}
-    Incorporating machine learning techniques into optimization algorithms could lead to more intelligent and autonomous optimization processes. Techniques such as reinforcement learning.
+    Further research into hybrid approaches, combining multiple optimization techniques, could yield powerful algorithms that capitalize on the strengths of individual methods while mitigating their weaknesses. Hybrid algorithms can leverage the exploration capabilities of one technique and the exploitation capabilities of another, leading to more balanced and effective optimization. For example, combining the global search capabilities of Genetic Algorithms with the local search capabilities of Tabu Search could result in a highly efficient optimization method. \cite[p. 94--96]{toth2014vehicle}
 
 
     \newpage
@@ -2443,11 +2432,11 @@
     \appendix
 
 
-    \section{Appendix 1: Supplementary Materials}
+    \section{Appendix: Supplementary Materials}
     All supplementary materials, including the code and tests used in this thesis, are available on GitHub at \url{https://github.com/jindrichjehlicka/cvrp}.
 
 
-    \section{Appendix 2: Genetic Algorithm Convergence Plots}
+    \section{Appendix: Genetic Algorithm Convergence Plots}
 
     This appendix contains the convergence plots for the Genetic Algorithm with various parameter settings.
 
@@ -2569,6 +2558,214 @@
         \includegraphics[width=0.45\textwidth]{genetic_algorithm/appendix/Population_150_Generations_100_MutationRate_0.05}
         \caption{Population: 150, Generations: 100, Mutation Rate: 0.05}
         \label{fig:app_ga_150_100_05}
+    \end{figure}
+
+    \newpage
+
+
+    \section{Appendix: Hybrid of Genetic Algorithm and Simulated Annealing Convergence Plots}
+    This section contains several convergence plots for the hybrid Genetic Algorithm with Simulated Annealing (GA-SA) under various parameter settings. Rest of the graphs can be found in the GitHub repository in the \texttt{genetic\_simulated\_annealing\_hybrid/appendix} folder.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_25_Temperature_500_CoolingRate_0.95.png}
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_25_Temperature_500_CoolingRate_0.99.png}
+        \caption{Left: Population: 50, Generations: 25, Temperature: 500, Cooling Rate: 0.95. Right: Population: 50, Generations: 25, Temperature: 500, Cooling Rate: 0.99}
+        \label{fig:app_ga_50_25_500_95_99}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_25_Temperature_500_CoolingRate_0.995.png}
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_25_Temperature_1000_CoolingRate_0.99.png}
+        \caption{Left: Population: 50, Generations: 25, Temperature: 500, Cooling Rate: 0.995. Right: Population: 50, Generations: 25, Temperature: 1000, Cooling Rate: 0.99}
+        \label{fig:app_ga_50_25_500_995_1000_99}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_25_Temperature_1000_CoolingRate_0.995.png}
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_25_Temperature_1500_CoolingRate_0.95.png}
+        \caption{Left: Population: 50, Generations: 25, Temperature: 1000, Cooling Rate: 0.995. Right: Population: 50, Generations: 25, Temperature: 1500, Cooling Rate: 0.95}
+        \label{fig:app_ga_50_25_1000_995_1500_95}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_25_Temperature_1500_CoolingRate_0.99.png}
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_25_Temperature_1500_CoolingRate_0.995.png}
+        \caption{Left: Population: 50, Generations: 25, Temperature: 1500, Cooling Rate: 0.99. Right: Population: 50, Generations: 25, Temperature: 1500, Cooling Rate: 0.995}
+        \label{fig:app_ga_50_25_1500_99_995}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_50_Temperature_500_CoolingRate_0.95.png}
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_50_Temperature_500_CoolingRate_0.99.png}
+        \caption{Left: Population: 50, Generations: 50, Temperature: 500, Cooling Rate: 0.95. Right: Population: 50, Generations: 50, Temperature: 500, Cooling Rate: 0.99}
+        \label{fig:app_ga_50_50_500_95_99}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_50_Temperature_500_CoolingRate_0.995.png}
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_50_Temperature_1000_CoolingRate_0.95.png}
+        \caption{Left: Population: 50, Generations: 50, Temperature: 500, Cooling Rate: 0.995. Right: Population: 50, Generations: 50, Temperature: 1000, Cooling Rate: 0.95}
+        \label{fig:app_ga_50_50_500_995_1000_95}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_50_Temperature_1000_CoolingRate_0.99.png}
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_50_Temperature_1000_CoolingRate_0.995.png}
+        \caption{Left: Population: 50, Generations: 50, Temperature: 1000, Cooling Rate: 0.99. Right: Population: 50, Generations: 50, Temperature: 1000, Cooling Rate: 0.995}
+        \label{fig:app_ga_50_50_1000_99_995}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_50_Temperature_1500_CoolingRate_0.95.png}
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_50_Temperature_1500_CoolingRate_0.995.png}
+        \caption{Left: Population: 50, Generations: 50, Temperature: 1500, Cooling Rate: 0.95. Right: Population: 50, Generations: 50, Temperature: 1500, Cooling Rate: 0.995}
+        \label{fig:app_ga_50_50_1500_95_995}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_100_Temperature_500_CoolingRate_0.95.png}
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_100_Temperature_500_CoolingRate_0.99.png}
+        \caption{Left: Population: 50, Generations: 100, Temperature: 500, Cooling Rate: 0.95. Right: Population: 50, Generations: 100, Temperature: 500, Cooling Rate: 0.99}
+        \label{fig:app_ga_50_100_500_95_99}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_100_Temperature_500_CoolingRate_0.995.png}
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_100_Temperature_1000_CoolingRate_0.95.png}
+        \caption{Left: Population: 50, Generations: 100, Temperature: 500, Cooling Rate: 0.995. Right: Population: 50, Generations: 100, Temperature: 1000, Cooling Rate: 0.95}
+        \label{fig:app_ga_50_100_500_995_1000_95}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_100_Temperature_1000_CoolingRate_0.99.png}
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_100_Temperature_1000_CoolingRate_0.995.png}
+        \caption{Left: Population: 50, Generations: 100, Temperature: 1000, Cooling Rate: 0.99. Right: Population: 50, Generations: 100, Temperature: 1000, Cooling Rate: 0.995}
+        \label{fig:app_ga_50_100_1000_99_995}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_100_Temperature_1500_CoolingRate_0.95.png}
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_100_Temperature_1500_CoolingRate_0.99.png}
+        \caption{Left: Population: 50, Generations: 100, Temperature: 1500, Cooling Rate: 0.95. Right: Population: 50, Generations: 100, Temperature: 1500, Cooling Rate: 0.99}
+        \label{fig:app_ga_50_100_1500_95_99}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_50_Generations_100_Temperature_1500_CoolingRate_0.995.png}
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_100_Generations_25_Temperature_500_CoolingRate_0.95.png}
+        \caption{Left: Population: 50, Generations: 100, Temperature: 1500, Cooling Rate: 0.995. Right: Population: 100, Generations: 25, Temperature: 500, Cooling Rate: 0.95}
+        \label{fig:app_ga_50_100_1500_995_100_25_500_95}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_100_Generations_25_Temperature_500_CoolingRate_0.99.png}
+        \includegraphics[width=0.45\textwidth]{genetic_simulated_annealing_hybrid/appendix/Population_100_Generations_25_Temperature_500_CoolingRate_0.995.png}
+        \caption{Left: Population: 100, Generations: 25, Temperature: 500, Cooling Rate: 0.99. Right: Population: 100, Generations: 25, Temperature: 500, Cooling Rate: 0.995}
+        \label{fig:app_ga_100_25_500_99_995}
+    \end{figure}
+
+
+    \section{Appendix: Tabu Search Convergence Plots}
+    This section contains several convergence plots for the Tabu Search algorithm for a various parameter settings. Rest of the graphs can be found in the GitHub repository in the \texttt{tabu\_search/appendix} folder.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{tabu_search/appendix/max_iter_200_tabu_size_5_neighborhood_size_5.png}
+        \includegraphics[width=0.45\textwidth]{tabu_search/appendix/max_iter_200_tabu_size_5_neighborhood_size_15.png}
+        \caption{Left: Max Iterations: 200, Tabu Size: 5, Neighborhood Size: 5. Right: Max Iterations: 200, Tabu Size: 5, Neighborhood Size: 15}
+        \label{fig:ts_200_5_5_5_15}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{tabu_search/appendix/max_iter_200_tabu_size_15_neighborhood_size_5.png}
+        \includegraphics[width=0.45\textwidth]{tabu_search/appendix/max_iter_200_tabu_size_15_neighborhood_size_10.png}
+        \caption{Left: Max Iterations: 200, Tabu Size: 15, Neighborhood Size: 5. Right: Max Iterations: 200, Tabu Size: 15, Neighborhood Size: 10}
+        \label{fig:ts_200_15_5_15_10}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{tabu_search/appendix/max_iter_200_tabu_size_30_neighborhood_size_5.png}
+        \includegraphics[width=0.45\textwidth]{tabu_search/appendix/max_iter_200_tabu_size_30_neighborhood_size_10.png}
+        \caption{Left: Max Iterations: 200, Tabu Size: 30, Neighborhood Size: 5. Right: Max Iterations: 200, Tabu Size: 30, Neighborhood Size: 10}
+        \label{fig:ts_200_30_5_30_10}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{tabu_search/appendix/max_iter_200_tabu_size_30_neighborhood_size_15.png}
+        \includegraphics[width=0.45\textwidth]{tabu_search/appendix/max_iter_300_tabu_size_5_neighborhood_size_5.png}
+        \caption{Left: Max Iterations: 200, Tabu Size: 30, Neighborhood Size: 15. Right: Max Iterations: 300, Tabu Size: 5, Neighborhood Size: 5}
+        \label{fig:ts_200_30_15_300_5_5}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{tabu_search/appendix/max_iter_300_tabu_size_5_neighborhood_size_10.png}
+        \includegraphics[width=0.45\textwidth]{tabu_search/appendix/max_iter_300_tabu_size_5_neighborhood_size_15.png}
+        \caption{Left: Max Iterations: 300, Tabu Size: 5, Neighborhood Size: 10. Right: Max Iterations: 300, Tabu Size: 5, Neighborhood Size: 15}
+        \label{fig:ts_300_5_10_300_5_15}
+    \end{figure}
+
+
+    \section{Appendix: Simulated Annealing Convergence Plots}
+    This section contains several convergence plots for the Simulated Annealing algorithm for several parameter settings. Rest of the graphs can be found in the GitHub repository in the \texttt{tabu\_search/appendix} folder.
+    \appendix
+
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{simulated_annealing/appendix/max_iter_500_init_temp_500_cooling_rate_0.99.png}
+        \includegraphics[width=0.45\textwidth]{simulated_annealing/appendix/max_iter_500_init_temp_1000_cooling_rate_0.99.png}
+        \caption{Left: Max Iterations: 500, Initial Temperature: 500, Cooling Rate: 0.99. Right: Max Iterations: 500, Initial Temperature: 1000, Cooling Rate: 0.99}
+        \label{fig:sa_500_500_0.99_500_1000_0.99}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{simulated_annealing/appendix/max_iter_500_init_temp_1500_cooling_rate_0.9.png}
+        \includegraphics[width=0.45\textwidth]{simulated_annealing/appendix/max_iter_500_init_temp_1500_cooling_rate_0.97.png}
+        \caption{Left: Max Iterations: 500, Initial Temperature: 1500, Cooling Rate: 0.9. Right: Max Iterations: 500, Initial Temperature: 1500, Cooling Rate: 0.97}
+        \label{fig:sa_500_1500_0.9_500_1500_0.97}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{simulated_annealing/appendix/max_iter_500_init_temp_1500_cooling_rate_0.99.png}
+        \includegraphics[width=0.45\textwidth]{simulated_annealing/appendix/max_iter_1000_init_temp_500_cooling_rate_0.9.png}
+        \caption{Left: Max Iterations: 500, Initial Temperature: 1500, Cooling Rate: 0.99. Right: Max Iterations: 1000, Initial Temperature: 500, Cooling Rate: 0.9}
+        \label{fig:sa_500_1500_0.99_1000_500_0.9}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{simulated_annealing/appendix/max_iter_1000_init_temp_500_cooling_rate_0.97.png}
+        \includegraphics[width=0.45\textwidth]{simulated_annealing/appendix/max_iter_1000_init_temp_500_cooling_rate_0.99.png}
+        \caption{Left: Max Iterations: 1000, Initial Temperature: 500, Cooling Rate: 0.97. Right: Max Iterations: 1000, Initial Temperature: 500, Cooling Rate: 0.99}
+        \label{fig:sa_1000_500_0.97_1000_500_0.99}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{simulated_annealing/appendix/max_iter_1000_init_temp_1000_cooling_rate_0.9.png}
+        \includegraphics[width=0.45\textwidth]{simulated_annealing/appendix/max_iter_1000_init_temp_1000_cooling_rate_0.97.png}
+        \caption{Left: Max Iterations: 1000, Initial Temperature: 1000, Cooling Rate: 0.9. Right: Max Iterations: 1000, Initial Temperature: 1000, Cooling Rate: 0.97}
+        \label{fig:sa_1000_1000_0.9_1000_1000_0.97}
     \end{figure}
 
 

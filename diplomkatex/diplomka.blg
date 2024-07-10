@@ -6,45 +6,45 @@ The style file: unsrt.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: references.bib
 Warning--empty journal in izadkhah2022greedy
-You've used 20 entries,
+You've used 22 entries,
             1791 wiz_defined-function locations,
-            566 strings with 7027 characters,
-and the built_in function-call counts, 3636 in all, are:
-= -- 315
-> -- 157
-< -- 0
-+ -- 62
-- -- 42
-* -- 195
-:= -- 606
-add.period$ -- 64
-call.type$ -- 20
-change.case$ -- 20
+            581 strings with 7329 characters,
+and the built_in function-call counts, 4280 in all, are:
+= -- 379
+> -- 176
+< -- 2
++ -- 69
+- -- 47
+* -- 239
+:= -- 691
+add.period$ -- 70
+call.type$ -- 22
+change.case$ -- 22
 chr.to.int$ -- 0
-cite$ -- 21
-duplicate$ -- 157
-empty$ -- 388
-format.name$ -- 42
-if$ -- 803
+cite$ -- 23
+duplicate$ -- 189
+empty$ -- 451
+format.name$ -- 47
+if$ -- 955
 int.to.chr$ -- 0
-int.to.str$ -- 20
-missing$ -- 16
-newline$ -- 106
-num.names$ -- 22
-pop$ -- 70
+int.to.str$ -- 22
+missing$ -- 18
+newline$ -- 116
+num.names$ -- 24
+pop$ -- 76
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 63
+skip$ -- 87
 stack$ -- 0
-substring$ -- 152
-swap$ -- 20
-text.length$ -- 0
+substring$ -- 211
+swap$ -- 35
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 33
-width$ -- 22
-write$ -- 218
+while$ -- 40
+width$ -- 24
+write$ -- 241
 (There was 1 warning)

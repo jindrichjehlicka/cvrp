@@ -93,20 +93,16 @@
 \contentsline {subsubsection}{\numberline {6.6.3}Grid Search Results}{74}{subsubsection.6.6.3}%
 \contentsline {subsubsection}{\numberline {6.6.4}ANOVA Results}{74}{subsubsection.6.6.4}%
 \contentsline {subsubsection}{\numberline {6.6.5}Conclusion}{75}{subsubsection.6.6.5}%
-\contentsline {section}{\numberline {7}Genetic Algorithm and Simulated Annealing Hybrid Parameter Testing}{77}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Results and Analysis}{78}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Performance Metrics Overview}{83}{subsection.7.2}%
-\contentsline {subsubsection}{\numberline {7.2.1}Impact of Crossover Rate}{85}{subsubsection.7.2.1}%
-\contentsline {subsubsection}{\numberline {7.2.2}Impact of Mutation Rate}{86}{subsubsection.7.2.2}%
-\contentsline {subsubsection}{\numberline {7.2.3}Impact of Generations}{86}{subsubsection.7.2.3}%
-\contentsline {subsubsection}{\numberline {7.2.4}Impact of Population Size}{87}{subsubsection.7.2.4}%
-\contentsline {subsection}{\numberline {7.3}Grid Search Results}{87}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}ANOVA Results}{88}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Conclusion}{89}{subsection.7.5}%
-\contentsline {section}{\numberline {8}Algorithm Comparison}{91}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Introduction}{91}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Data for Algorithm Comparison}{91}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Algorithm Performance Metrics}{92}{subsection.8.3}%
+\contentsline {subsection}{\numberline {6.7}Genetic Algorithm and Simulated Annealing Hybrid Parameter Testing}{77}{subsection.6.7}%
+\contentsline {subsubsection}{\numberline {6.7.1}Convergence Plots}{78}{subsubsection.6.7.1}%
+\contentsline {subsubsection}{\numberline {6.7.2}Performance Metrics Overview}{83}{subsubsection.6.7.2}%
+\contentsline {subsubsection}{\numberline {6.7.3}Grid Search Results}{87}{subsubsection.6.7.3}%
+\contentsline {subsubsection}{\numberline {6.7.4}ANOVA Results}{88}{subsubsection.6.7.4}%
+\contentsline {subsubsection}{\numberline {6.7.5}Conclusion}{89}{subsubsection.6.7.5}%
+\contentsline {section}{\numberline {7}Algorithm Comparison}{91}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Introduction}{91}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Data for Algorithm Comparison}{91}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Algorithm Performance Metrics}{92}{subsection.7.3}%
 \contentsline {paragraph}{Cost Performance:}{92}{section*.36}%
 \contentsline {paragraph}{Time Performance:}{93}{section*.37}%
 \contentsline {paragraph}{Conclusion}{94}{section*.38}%
@@ -114,26 +110,27 @@
 \contentsline {paragraph}{Interpretation of Cost Difference:}{94}{section*.40}%
 \contentsline {paragraph}{Interpretation of Time:}{95}{section*.41}%
 \contentsline {paragraph}{Conclusion:}{96}{section*.42}%
-\contentsline {subsection}{\numberline {8.4}Statistical Validation of Algorithm Performance}{96}{subsection.8.4}%
+\contentsline {subsection}{\numberline {7.4}Statistical Validation of Algorithm Performance}{96}{subsection.7.4}%
 \contentsline {paragraph}{Wilcoxon Signed-Rank Test Results:}{96}{section*.43}%
 \contentsline {paragraph}{Interpretation:}{97}{section*.44}%
 \contentsline {paragraph}{Friedman Test Results:}{97}{section*.45}%
 \contentsline {paragraph}{Interpretation:}{97}{section*.46}%
 \contentsline {paragraph}{Conclusion:}{97}{section*.47}%
-\contentsline {section}{\numberline {9}Conclusion}{98}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Answers to Hypotheses and Research Questions}{98}{subsection.9.1}%
+\contentsline {section}{\numberline {8}Conclusion}{98}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Answers to Hypotheses and Research Questions}{98}{subsection.8.1}%
 \contentsline {paragraph}{Hypotheses}{98}{section*.48}%
 \contentsline {paragraph}{Research Questions}{99}{section*.49}%
-\contentsline {subsection}{\numberline {9.2}Key Findings}{99}{subsection.9.2}%
+\contentsline {subsection}{\numberline {8.2}Key Findings}{99}{subsection.8.2}%
 \contentsline {paragraph}{Performance Comparison of Algorithms}{99}{section*.50}%
 \contentsline {paragraph}{Best Performing Algorithms}{100}{section*.51}%
 \contentsline {paragraph}{Importance of Parameter Testing}{101}{section*.52}%
-\contentsline {subsection}{\numberline {9.3}Role of AI in Optimization}{101}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Recommendations for Future Work}{102}{subsection.9.4}%
+\contentsline {subsection}{\numberline {8.3}Role of AI in Optimization}{101}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Recommendations for Future Work}{102}{subsection.8.4}%
 \contentsline {paragraph}{Expanded Testing on Servers}{102}{section*.53}%
 \contentsline {paragraph}{Incorporation of Newer Algorithms}{102}{section*.54}%
-\contentsline {paragraph}{Dynamic Parameter Tuning}{102}{section*.55}%
-\contentsline {paragraph}{Hybrid Approaches}{102}{section*.56}%
-\contentsline {paragraph}{Integration with AI}{102}{section*.57}%
-\contentsline {section}{\numberline {A}Appendix 1: Supplementary Materials}{105}{appendix.A}%
-\contentsline {section}{\numberline {B}Appendix 2: Genetic Algorithm Convergence Plots}{105}{appendix.B}%
+\contentsline {paragraph}{Hybrid Approaches}{102}{section*.55}%
+\contentsline {section}{\numberline {A}Appendix: Supplementary Materials}{105}{appendix.A}%
+\contentsline {section}{\numberline {B}Appendix: Genetic Algorithm Convergence Plots}{105}{appendix.B}%
+\contentsline {section}{\numberline {C}Appendix: Hybrid of Genetic Algorithm and Simulated Annealing Convergence Plots}{110}{appendix.C}%
+\contentsline {section}{\numberline {D}Appendix: Tabu Search Convergence Plots}{114}{appendix.D}%
+\contentsline {section}{\numberline {E}Appendix: Simulated Annealing Convergence Plots}{116}{appendix.E}%

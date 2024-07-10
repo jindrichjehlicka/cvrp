@@ -128,8 +128,9 @@
 \contentsline {subsection}{\numberline {8.4}Recommendations for Future Work}{102}{subsection.8.4}%
 \contentsline {paragraph}{Expanded Testing on Servers}{102}{section*.53}%
 \contentsline {paragraph}{Incorporation of Newer Algorithms}{102}{section*.54}%
-\contentsline {paragraph}{Dynamic Parameter Tuning}{102}{section*.55}%
-\contentsline {paragraph}{Hybrid Approaches}{102}{section*.56}%
-\contentsline {paragraph}{Integration with AI}{102}{section*.57}%
-\contentsline {section}{\numberline {A}Appendix 1: Supplementary Materials}{105}{appendix.A}%
-\contentsline {section}{\numberline {B}Appendix 2: Genetic Algorithm Convergence Plots}{105}{appendix.B}%
+\contentsline {paragraph}{Hybrid Approaches}{102}{section*.55}%
+\contentsline {section}{\numberline {A}Appendix: Supplementary Materials}{105}{appendix.A}%
+\contentsline {section}{\numberline {B}Appendix: Genetic Algorithm Convergence Plots}{105}{appendix.B}%
+\contentsline {section}{\numberline {C}Appendix: Hybrid of Genetic Algorithm and Simulated Annealing Convergence Plots}{110}{appendix.C}%
+\contentsline {section}{\numberline {D}Appendix: Tabu Search Convergence Plots}{114}{appendix.D}%
+\contentsline {section}{\numberline {E}Appendix: Simulated Annealing Convergence Plots}{116}{appendix.E}%

@@ -122,4 +122,16 @@ Komal Puri.
   2023.
 \newblock Accessed: July 13, 2023.
 
+\bibitem{Kennedy1995}
+J.~Kennedy and R.~Eberhart.
+\newblock Particle swarm optimization.
+\newblock In {\em Proceedings of ICNN'95 - International Conference on Neural
+  Networks}, volume~4, pages 1942--1948, 1995.
+
+\bibitem{Dorigo2006}
+Marco Dorigo, Mauro Birattari, and Thomas Stutzle.
+\newblock Ant colony optimization.
+\newblock {\em IEEE Computational Intelligence Magazine}, 1(4):28--39, November
+  2006.
+
 \end{thebibliography}
